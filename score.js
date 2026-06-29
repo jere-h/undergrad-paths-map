@@ -1,110 +1,140 @@
 // score.js
-// Pure, side-effect-free, DOM-free scoring + color module for "Open Doors".
+// Pure, side-effect-free, DOM-free reachability + heat logic for Open Doors.
 //
 // No browser globals are referenced anywhere in this file, so it imports
-// cleanly in Node (and is unit-tested with node:test). Everything here is a
-// plain function of its inputs.
+// cleanly in Node and is unit-tested with node:test. Everything here is a plain
+// function of its inputs.
 //
-// Heat scale endpoints: these mirror the CSS custom properties --heat-cool
-// (low/cool end) and --heat-hot (high/hot end) so the colors the grid paints
-// match the inline-SVG legend. They are perceptually ordered cool -> hot.
-const HEAT_COOL = { r: 0x1f, g: 0x6f, b: 0xb2 }; // calm blue  (low score)
-const HEAT_MID = { r: 0xf2, g: 0xc0, b: 0x4d }; // warm amber (mid score)
-const HEAT_HOT = { r: 0xd6, g: 0x45, b: 0x2b }; // hot ember  (high score)
+// The model: the user selects input nodes (courses + internships). Each input
+// lists the career ids it keeps reachable. A career is "open" when at least one
+// selected input reaches it; its HEAT is how many selected inputs reach it
+// (reinforcement). One broad pick opens many doors; a stack of related picks
+// makes a few careers burn bright - the option-value signal from the original
+// heat map, re-expressed on the network.
 
-// Clamp a number into the inclusive [lo, hi] range.
+// Heat ramp endpoints. Cool (low reinforcement) sits near the page accent; hot
+// (high reinforcement) moves to a warm amber. These mirror the CSS custom
+// properties --color-accent and --color-hot so the SVG matches the legend.
+const HEAT_COOL = { r: 0x5e, g: 0xb3, b: 0xd6 }; // muted sky  (just reached)
+const HEAT_HOT = { r: 0xe8, g: 0xa0, b: 0x4b }; // warm amber (strongly reinforced)
+
 function clamp(value, lo, hi) {
   if (value < lo) return lo;
   if (value > hi) return hi;
   return value;
 }
 
-// Linear interpolation between two integers, rounded to a byte.
 function lerpChannel(a, b, t) {
   return Math.round(a + (b - a) * t);
 }
 
-// Blend two {r,g,b} stops by t in [0,1].
-function mixStop(from, to, t) {
-  return {
-    r: lerpChannel(from.r, to.r, t),
-    g: lerpChannel(from.g, to.g, t),
-    b: lerpChannel(from.b, to.b, t),
-  };
+/**
+ * allInputs(catalog) -> Input[]
+ * Flattens courses and internships into one selectable-input list, tagging each
+ * with a `kind` and a normalised `destinations` array. The label is the course
+ * name or the internship role. Order is courses-then-internships, stable.
+ */
+export function allInputs(catalog) {
+  const courses = Array.isArray(catalog.COURSES) ? catalog.COURSES : [];
+  const internships = Array.isArray(catalog.INTERNSHIPS) ? catalog.INTERNSHIPS : [];
+
+  const fromCourses = courses.map((c) => ({
+    id: c.id,
+    kind: "course",
+    label: c.name,
+    level: c.level,
+    group: `Level ${c.level}`,
+    destinations: Array.isArray(c.destinations) ? c.destinations : [],
+  }));
+
+  const fromInternships = internships.map((i) => ({
+    id: i.id,
+    kind: "internship",
+    label: i.role,
+    orgType: i.orgType,
+    group: i.orgType,
+    destinations: Array.isArray(i.destinations) ? i.destinations : [],
+  }));
+
+  return fromCourses.concat(fromInternships);
 }
 
 /**
- * rawScore(course) -> number
- * The fixed, printed tile number: how many distinct career destinations the
- * course keeps reachable. Equal to destinations.length.
+ * reach(selectedIds, catalog) -> Map<careerId, count>
+ * For the set of selected input ids, counts how many selected inputs reach each
+ * career. Careers reached zero times are absent from the map. `selectedIds` may
+ * be a Set or an array; unknown ids are ignored.
  */
-export function rawScore(course) {
-  if (!course || !Array.isArray(course.destinations)) return 0;
-  return course.destinations.length;
+export function reach(selectedIds, catalog) {
+  const selected = selectedIds instanceof Set ? selectedIds : new Set(selectedIds || []);
+  const inputs = allInputs(catalog);
+  const counts = new Map();
+
+  inputs.forEach((input) => {
+    if (!selected.has(input.id)) return;
+    input.destinations.forEach((careerId) => {
+      counts.set(careerId, (counts.get(careerId) || 0) + 1);
+    });
+  });
+
+  return counts;
 }
 
 /**
- * weightedScore(course, w) -> number
- * rawScore(course) - w * course.effort, with w in [0, 1].
- * - At w === 0 this equals rawScore exactly.
- * - Increasing w monotonically penalizes higher-effort courses.
- * Negative results are allowed; only the relative ordering matters.
+ * reinforcementMax(reachMap) -> number
+ * The largest reinforcement count in a reach map (how hot the hottest career
+ * is). Returns 0 for an empty map. Used to normalise heat to [0,1].
  */
-export function weightedScore(course, w) {
-  const weight = clamp(Number(w) || 0, 0, 1);
-  const effort = course && Number.isFinite(course.effort) ? course.effort : 0;
-  return rawScore(course) - weight * effort;
+export function reinforcementMax(reachMap) {
+  let max = 0;
+  reachMap.forEach((count) => {
+    if (count > max) max = count;
+  });
+  return max;
 }
 
 /**
- * scoreMin(scores) -> number
- * Smallest value in a number[] (helper for the live color range / legend min).
- * Returns 0 for an empty array.
+ * heat(count, max) -> number in [0,1]
+ * Normalises a reinforcement count against the current maximum. With a single
+ * reached career (max === 1) heat is 1 so it still reads as fully open rather
+ * than dividing toward zero.
  */
-export function scoreMin(scores) {
-  if (!Array.isArray(scores) || scores.length === 0) return 0;
-  let lo = scores[0];
-  for (let i = 1; i < scores.length; i += 1) {
-    if (scores[i] < lo) lo = scores[i];
-  }
-  return lo;
+export function heat(count, max) {
+  if (count <= 0) return 0;
+  if (max <= 1) return 1;
+  return clamp((count - 1) / (max - 1), 0, 1);
 }
 
 /**
- * scoreMax(scores) -> number
- * Largest value in a number[] (helper for the live color range / legend max).
- * Returns 0 for an empty array.
+ * heatColor(t) -> string (CSS rgb color)
+ * Maps heat t in [0,1] from the cool accent end to the warm amber end. Clamped
+ * so out-of-range input still yields a valid color.
  */
-export function scoreMax(scores) {
-  if (!Array.isArray(scores) || scores.length === 0) return 0;
-  let hi = scores[0];
-  for (let i = 1; i < scores.length; i += 1) {
-    if (scores[i] > hi) hi = scores[i];
-  }
-  return hi;
+export function heatColor(t) {
+  const u = clamp(Number(t) || 0, 0, 1);
+  const r = lerpChannel(HEAT_COOL.r, HEAT_HOT.r, u);
+  const g = lerpChannel(HEAT_COOL.g, HEAT_HOT.g, u);
+  const b = lerpChannel(HEAT_COOL.b, HEAT_HOT.b, u);
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 /**
- * scoreToColor(score, min, max) -> string (CSS rgb color)
- * Maps a score onto a perceptually-ordered cool -> hot scale.
- * - On the degenerate max === min case it returns the MID-SCALE color (t=0.5)
- *   instead of dividing by zero (no NaN).
- * - t is clamped to [0,1] so out-of-range scores still produce a valid color.
+ * summarize(reachMap, careers) -> { openCount, max, top }
+ * Headline numbers for the summary band: how many careers are open, the peak
+ * reinforcement, and the single most-reinforced career (name + count), or null
+ * when nothing is selected. Ties resolve to the career listed first.
  */
-export function scoreToColor(score, min, max) {
-  let t;
-  if (max === min) {
-    t = 0.5;
-  } else {
-    t = clamp((score - min) / (max - min), 0, 1);
-  }
+export function summarize(reachMap, careers) {
+  const list = Array.isArray(careers) ? careers : [];
+  const max = reinforcementMax(reachMap);
 
-  // Two-segment ramp through the mid stop for a perceptual cool -> hot feel.
-  let stop;
-  if (t <= 0.5) {
-    stop = mixStop(HEAT_COOL, HEAT_MID, t / 0.5);
-  } else {
-    stop = mixStop(HEAT_MID, HEAT_HOT, (t - 0.5) / 0.5);
-  }
-  return `rgb(${stop.r}, ${stop.g}, ${stop.b})`;
+  let top = null;
+  list.forEach((career) => {
+    const count = reachMap.get(career.id) || 0;
+    if (count > 0 && (top === null || count > top.count)) {
+      top = { id: career.id, name: career.name, count };
+    }
+  });
+
+  return { openCount: reachMap.size, max, top };
 }

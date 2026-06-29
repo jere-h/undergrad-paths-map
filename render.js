@@ -1,148 +1,276 @@
-// render.js — DOM rendering for Open Doors.
-// Owns all DOM concerns: building tiles, mounting the grid, recoloring in place,
-// and the detail panel. The printed destination number on each tile is written
-// ONCE at build time and NEVER rewritten by recolor — it is the non-color
-// channel and a tested invariant (number == JSON destinations.length).
-import { rawScore, weightedScore, scoreToColor, scoreMin, scoreMax } from './score.js';
+// render.js - all DOM / SVG concerns for Open Doors.
+// Builds the sidebar filter chips, draws the constellation map once, applies the
+// open/dim/heat state on every selection change, and runs the detail panel.
+// Pure scoring and layout live in score.js / graph.js; this file only touches
+// the DOM.
+import { allInputs, heat, heatColor } from "./score.js";
 
-// Remembers which tile opened the panel so closePanel can restore focus.
-let lastFocusedTile = null;
+const SVGNS = "http://www.w3.org/2000/svg";
 
-// buildTile(course) -> HTMLButtonElement
-// A real <button> so it is keyboard-focusable and Enter/Space activatable for
-// free. Shows the course name and its raw destination count as a permanent
-// printed number (the non-color channel). The data-index is wired by mountGrid.
-export function buildTile(course) {
-  const tile = document.createElement('button');
-  tile.type = 'button';
-  tile.className = 'tile';
+// Remembers which element opened the panel so closePanel can restore focus.
+let lastFocused = null;
 
-  const count = rawScore(course);
+// ---------- Sidebar ----------
 
-  const name = document.createElement('span');
-  name.className = 'tile__name';
-  name.textContent = course.name;
+// buildSidebar(catalog, onToggle) -> void
+// Renders the filter groups (courses by level, internships by org type) into
+// #filter-list. Each item is an aria-pressed toggle button wired to onToggle(id).
+export function buildSidebar(catalog, onToggle) {
+  const root = document.getElementById("filter-list");
+  if (!root) return;
+  root.textContent = "";
 
-  const number = document.createElement('span');
-  number.className = 'tile__count';
-  number.textContent = String(count);
-  // Hidden, spoken label so the bare number reads sensibly to assistive tech.
-  number.setAttribute('aria-hidden', 'true');
+  const inputs = allInputs(catalog);
 
-  const sr = document.createElement('span');
-  sr.className = 'tile__sr';
-  sr.textContent =
-    count === 1
-      ? `${course.name}, keeps 1 career destination reachable.`
-      : `${course.name}, keeps ${count} career destinations reachable.`;
+  const courseGroups = [
+    { key: "Level 1000", title: "Level 1000 courses", sub: "Broad introductions that keep many doors open" },
+    { key: "Level 2000", title: "Level 2000 courses", sub: "Intermediate courses that start to specialise" },
+    { key: "Level 3000", title: "Level 3000 courses", sub: "Advanced courses that commit to a few deep paths" },
+  ];
+  const internGroups = [
+    { key: "MNC", title: "Internships at MNCs", sub: "Large multinational employers" },
+    { key: "Small Business", title: "Internships at small businesses", sub: "Lean teams, generalist roles" },
+    { key: "Startup", title: "Internships at startups", sub: "Early-stage, high-ownership roles" },
+  ];
 
-  tile.append(name, number, sr);
-  return tile;
-}
+  [...courseGroups, ...internGroups].forEach((group) => {
+    const members = inputs.filter((i) => i.group === group.key);
+    if (members.length === 0) return;
 
-// mountGrid(courses) -> void
-// Clears #grid and appends one tile per course, in order. Stamps each tile with
-// its zero-based data-index so the controller can resolve a click back to a Course.
-export function mountGrid(courses) {
-  const grid = document.getElementById('grid');
-  if (!grid) return;
-  grid.textContent = '';
+    const section = document.createElement("div");
+    section.className = "filter-group";
 
-  const frag = document.createDocumentFragment();
-  courses.forEach((course, index) => {
-    const tile = buildTile(course);
-    tile.dataset.index = String(index);
-    frag.appendChild(tile);
-  });
-  grid.appendChild(frag);
-}
+    const title = document.createElement("h3");
+    title.className = "filter-group__title";
+    title.textContent = group.title;
 
-// recolor(courses, w) -> void
-// Recomputes weightedScore across all courses for slider weight w, then updates
-// ONLY each tile's inline background-color plus the legend's min/max labels.
-// It never touches .tile__count, preserving the printed-number invariant.
-export function recolor(courses, w) {
-  const grid = document.getElementById('grid');
-  if (!grid) return;
+    const sub = document.createElement("p");
+    sub.className = "filter-group__sub";
+    sub.textContent = group.sub;
 
-  const tiles = grid.querySelectorAll('.tile');
-  const scores = courses.map((course) => weightedScore(course, w));
-  const min = scoreMin(scores);
-  const max = scoreMax(scores);
+    const row = document.createElement("div");
+    row.className = "chip-row";
 
-  tiles.forEach((tile) => {
-    const index = Number(tile.dataset.index);
-    if (Number.isNaN(index) || index < 0 || index >= scores.length) return;
-    const color = scoreToColor(scores[index], min, max);
-    tile.style.backgroundColor = color;
-  });
+    members.forEach((input) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.dataset.id = input.id;
+      chip.setAttribute("aria-pressed", "false");
 
-  const legendMin = document.getElementById('legend-min');
-  const legendMax = document.getElementById('legend-max');
-  if (legendMin) legendMin.textContent = formatScore(min);
-  if (legendMax) legendMax.textContent = formatScore(max);
-}
+      const dot = document.createElement("span");
+      dot.className = "chip__dot";
+      dot.setAttribute("aria-hidden", "true");
 
-// Trim a weighted score to a tidy label (drops noise from w*effort fractions).
-function formatScore(value) {
-  const rounded = Math.round(value * 10) / 10;
-  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
-}
+      const label = document.createElement("span");
+      label.textContent = input.label;
 
-// openPanel(course) -> void
-// Fills and shows #detail-panel (+ #panel-backdrop) listing the course's
-// destinations, then moves focus into the panel (the close button).
-export function openPanel(course) {
-  const panel = document.getElementById('detail-panel');
-  const backdrop = document.getElementById('panel-backdrop');
-  if (!panel) return;
-
-  // Remember the tile that opened us so we can return focus on close.
-  const active = document.activeElement;
-  lastFocusedTile = active && active.classList && active.classList.contains('tile') ? active : null;
-
-  const title = document.getElementById('panel-title');
-  if (title) title.textContent = course.name;
-
-  const list = document.getElementById('panel-destinations');
-  if (list) {
-    list.textContent = '';
-    course.destinations.forEach((dest) => {
-      const li = document.createElement('li');
-      li.textContent = dest;
-      list.appendChild(li);
+      chip.append(dot, label);
+      chip.addEventListener("click", () => onToggle(input.id));
+      row.appendChild(chip);
     });
+
+    section.append(title, sub, row);
+    root.appendChild(section);
+  });
+}
+
+// ---------- Map ----------
+
+// buildGraph(graph, handlers) -> void
+// Draws edges then nodes into the SVG once. Career nodes get a circle + label;
+// input nodes get a small marker + label. Clicking a node calls the matching
+// handler. Subsequent visual changes are done by applyState, never a redraw.
+export function buildGraph(graph, handlers) {
+  const edgeLayer = document.getElementById("edges");
+  const nodeLayer = document.getElementById("nodes");
+  if (!edgeLayer || !nodeLayer) return;
+  edgeLayer.textContent = "";
+  nodeLayer.textContent = "";
+
+  graph.edges.forEach((edge) => {
+    const path = document.createElementNS(SVGNS, "path");
+    path.setAttribute("class", "edge");
+    path.setAttribute(
+      "d",
+      `M ${edge.fromXY.x} ${edge.fromXY.y} Q ${edge.control.x} ${edge.control.y} ${edge.toXY.x} ${edge.toXY.y}`
+    );
+    path.dataset.from = edge.from;
+    path.dataset.to = edge.to;
+    edgeLayer.appendChild(path);
+  });
+
+  // Careers first (centre), inputs on top so their markers sit above the lines.
+  graph.careerNodes.forEach((node) => {
+    const g = document.createElementNS(SVGNS, "g");
+    g.setAttribute("class", "node-career is-dim");
+    g.dataset.id = node.id;
+    g.setAttribute("tabindex", "0");
+    g.setAttribute("role", "button");
+    g.setAttribute("aria-label", `${node.label} career path`);
+
+    const circle = document.createElementNS(SVGNS, "circle");
+    circle.setAttribute("cx", node.x);
+    circle.setAttribute("cy", node.y);
+    circle.setAttribute("r", "9");
+
+    const text = document.createElementNS(SVGNS, "text");
+    text.setAttribute("class", "node-label");
+    text.setAttribute("x", node.x);
+    text.setAttribute("y", node.y - 16);
+    text.setAttribute("text-anchor", "middle");
+    text.textContent = node.label;
+
+    g.append(circle, text);
+    g.addEventListener("click", () => handlers.onCareer(node.id));
+    g.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handlers.onCareer(node.id);
+      }
+    });
+    nodeLayer.appendChild(g);
+  });
+
+  graph.inputNodes.forEach((node) => {
+    const g = document.createElementNS(SVGNS, "g");
+    g.setAttribute("class", `node-input kind-${node.kind}`);
+    g.dataset.id = node.id;
+    g.setAttribute("tabindex", "0");
+    g.setAttribute("role", "button");
+    g.setAttribute("aria-pressed", "false");
+    g.setAttribute("aria-label", `${node.label}, ${node.group}`);
+
+    const marker = document.createElementNS(SVGNS, node.kind === "internship" ? "rect" : "circle");
+    if (node.kind === "internship") {
+      marker.setAttribute("x", node.x - 7);
+      marker.setAttribute("y", node.y - 7);
+      marker.setAttribute("width", "14");
+      marker.setAttribute("height", "14");
+    } else {
+      marker.setAttribute("cx", node.x);
+      marker.setAttribute("cy", node.y);
+      marker.setAttribute("r", "7");
+    }
+
+    // Label grows INWARD toward the centre (into the empty band between the ring
+    // and the career cluster) so a long label never clips at the canvas edge.
+    // Hidden by default; CSS reveals it on selection / hover / focus.
+    const onLeft = node.x < graph.center.x;
+    const text = document.createElementNS(SVGNS, "text");
+    text.setAttribute("class", "node-label");
+    text.setAttribute("x", node.x + (onLeft ? 14 : -14));
+    text.setAttribute("y", node.y + 4);
+    text.setAttribute("text-anchor", onLeft ? "start" : "end");
+    text.textContent = node.label;
+
+    g.append(marker, text);
+    g.addEventListener("click", () => handlers.onInput(node.id));
+    g.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handlers.onInput(node.id);
+      }
+    });
+    nodeLayer.appendChild(g);
+  });
+}
+
+// applyState(selectedIds, reachMap, max) -> void
+// Repaints the existing SVG to reflect the current selection: edges from a
+// selected input light up, reached careers open (size + heat color) and the
+// rest dim, selected input markers fill. No nodes are created or destroyed.
+export function applyState(selectedIds, reachMap, max) {
+  const selected = selectedIds instanceof Set ? selectedIds : new Set(selectedIds || []);
+
+  document.querySelectorAll(".edge").forEach((edge) => {
+    const active = selected.has(edge.dataset.from) && reachMap.has(edge.dataset.to);
+    edge.classList.toggle("is-active", active);
+  });
+
+  document.querySelectorAll(".node-career").forEach((node) => {
+    const id = node.dataset.id;
+    const count = reachMap.get(id) || 0;
+    const circle = node.querySelector("circle");
+    if (count > 0) {
+      const t = heat(count, max);
+      const color = heatColor(t);
+      node.classList.add("is-open");
+      node.classList.remove("is-dim");
+      if (circle) {
+        circle.style.fill = color;
+        circle.setAttribute("r", String(9 + Math.round(t * 8)));
+      }
+    } else {
+      node.classList.remove("is-open");
+      node.classList.add("is-dim");
+      if (circle) {
+        circle.style.fill = "";
+        circle.setAttribute("r", "9");
+      }
+    }
+  });
+
+  document.querySelectorAll(".node-input").forEach((node) => {
+    const isSel = selected.has(node.dataset.id);
+    node.classList.toggle("is-selected", isSel);
+    node.setAttribute("aria-pressed", isSel ? "true" : "false");
+  });
+
+  // Mirror selection onto the sidebar chips.
+  document.querySelectorAll(".chip").forEach((chip) => {
+    const isSel = selected.has(chip.dataset.id);
+    chip.setAttribute("aria-pressed", isSel ? "true" : "false");
+  });
+}
+
+// ---------- Detail panel ----------
+
+// openCareerPanel(career, contributors, allReachers) -> void
+// Shows which selected inputs currently open a career, plus every input that
+// could. contributors / allReachers are arrays of { label, group }.
+export function openCareerPanel(career, contributors, allReachers) {
+  const panel = document.getElementById("detail-panel");
+  const backdrop = document.getElementById("panel-backdrop");
+  const title = document.getElementById("panel-title");
+  const lead = document.getElementById("panel-lead");
+  const list = document.getElementById("panel-list");
+  if (!panel || !list) return;
+
+  lastFocused = document.activeElement;
+
+  if (title) title.textContent = career.name;
+  if (lead) {
+    lead.textContent = contributors.length
+      ? `Opened by ${contributors.length} of your current choices. Every choice that can reach it:`
+      : "Not open yet. Choices that can reach it:";
   }
+
+  list.textContent = "";
+  allReachers.forEach((reacher) => {
+    const li = document.createElement("li");
+    const name = document.createElement("span");
+    name.textContent = reacher.label;
+    const group = document.createElement("span");
+    group.className = "muted";
+    const isActive = contributors.some((c) => c.label === reacher.label);
+    group.textContent = isActive ? `${reacher.group}, selected` : reacher.group;
+    li.append(name, group);
+    list.appendChild(li);
+  });
 
   panel.hidden = false;
-  panel.classList.add('is-open');
-  if (backdrop) {
-    backdrop.hidden = false;
-    backdrop.classList.add('is-open');
-  }
-
-  const close = document.getElementById('panel-close');
+  if (backdrop) backdrop.hidden = false;
+  const close = document.getElementById("panel-close");
   if (close) close.focus();
 }
 
 // closePanel() -> void
-// Hides #detail-panel + #panel-backdrop and restores focus to the tile that
-// opened the panel.
 export function closePanel() {
-  const panel = document.getElementById('detail-panel');
-  const backdrop = document.getElementById('panel-backdrop');
-
-  if (panel) {
-    panel.hidden = true;
-    panel.classList.remove('is-open');
-  }
-  if (backdrop) {
-    backdrop.hidden = true;
-    backdrop.classList.remove('is-open');
-  }
-
-  if (lastFocusedTile && typeof lastFocusedTile.focus === 'function') {
-    lastFocusedTile.focus();
-  }
-  lastFocusedTile = null;
+  const panel = document.getElementById("detail-panel");
+  const backdrop = document.getElementById("panel-backdrop");
+  if (panel) panel.hidden = true;
+  if (backdrop) backdrop.hidden = true;
+  if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  lastFocused = null;
 }
