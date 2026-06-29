@@ -1,10 +1,10 @@
 // main.js - controller / bootstrap for Open Doors.
-// type=module entry point: imports the catalog, the pure scoring + layout, and
+// type=module entry point: imports the catalog, the pure analysis + layout, and
 // the DOM render functions. Builds the sidebar and the constellation once,
 // pre-selects an illustrative combo so the map demonstrates itself on first
 // paint, then keeps the map, summary, and panel in sync as the selection changes.
 import * as catalog from "./data/catalog.js";
-import { reach, reinforcementMax, summarize, allInputs } from "./score.js";
+import { analyze, summarize, allInputs } from "./score.js";
 import { layout } from "./graph.js";
 import {
   buildSidebar,
@@ -17,15 +17,14 @@ import {
 // Selection state: a Set of selected input ids (courses + internships).
 const selected = new Set();
 
-// Lookups built once at boot.
 let inputsById = new Map();
 let careersById = new Map();
+let lastAnalysis = null;
 
 function update() {
-  const reachMap = reach(selected, catalog);
-  const max = reinforcementMax(reachMap);
-  applyState(selected, reachMap, max);
-  updateSummary(reachMap, max);
+  lastAnalysis = analyze(selected, catalog);
+  applyState(selected, lastAnalysis);
+  updateSummary(lastAnalysis);
 
   const count = selected.size;
   const countEl = document.getElementById("selected-count");
@@ -42,22 +41,34 @@ function update() {
   if (hint) hint.hidden = count > 0;
 }
 
-function updateSummary(reachMap, max) {
-  const { openCount, top } = summarize(reachMap, catalog.CAREERS);
+function updateSummary(analysis) {
+  const { open, specializations, fadingCount } = summarize(analysis, catalog.CAREERS);
 
   const countEl = document.getElementById("open-count");
-  if (countEl) countEl.textContent = String(openCount);
+  if (countEl) countEl.textContent = String(open);
 
   const detail = document.getElementById("summary-detail");
   if (!detail) return;
-  if (openCount === 0) {
+
+  if (open === 0) {
     detail.textContent = "Nothing selected yet. Your open paths will appear here.";
-  } else if (top) {
-    const reach1 = top.count === 1 ? "1 of your choices" : `${top.count} of your choices`;
-    detail.textContent = `Strongest path: ${top.name}, reinforced by ${reach1}.`;
-  } else {
-    detail.textContent = "";
+    return;
   }
+
+  const parts = [];
+  if (specializations.length > 0) {
+    const names = specializations.slice(0, 2).map((s) => s.name).join(" and ");
+    parts.push(`Converging on ${names}`);
+  } else {
+    parts.push("Broadly open, no strong specialization yet");
+  }
+
+  const tail = [];
+  tail.push(specializations.length === 1 ? "1 strongly viable" : `${specializations.length} strongly viable`);
+  if (fadingCount > 0) {
+    tail.push(`${fadingCount} fading as you specialize`);
+  }
+  detail.textContent = `${parts[0]}. ${open} paths reachable, ${tail.join(", ")}.`;
 }
 
 function toggleInput(id) {
@@ -72,16 +83,13 @@ function clearAll() {
   update();
 }
 
-// Open the detail panel for a career: who currently opens it, and who could.
 function showCareer(careerId) {
   const career = careersById.get(careerId);
   if (!career) return;
-
-  const reachers = allInputs(catalog).filter((input) =>
-    input.destinations.includes(careerId)
-  );
+  const info = lastAnalysis ? lastAnalysis.careers.get(careerId) || null : null;
+  const reachers = allInputs(catalog).filter((input) => input.destinations.includes(careerId));
   const contributors = reachers.filter((r) => selected.has(r.id));
-  openCareerPanel(career, contributors, reachers);
+  openCareerPanel(career, info, contributors, reachers);
 }
 
 function wireChrome() {
@@ -121,9 +129,9 @@ function init() {
   });
   wireChrome();
 
-  // Pre-select an illustrative combo (one course per level plus an internship)
-  // so the network shows paths opening on first paint, not an empty shell. This
-  // is clearly example state the user can clear or change.
+  // Pre-select an illustrative, overlapping stack (data-leaning courses plus a
+  // matching internship) so the map shows convergence on first paint: a few
+  // specializations light up while marginal paths fade. Clearly example state.
   ["cs101", "stats101", "ml301", "mnc-data"].forEach((id) => {
     if (inputsById.has(id)) selected.add(id);
   });

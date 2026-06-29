@@ -1,9 +1,14 @@
 // render.js - all DOM / SVG concerns for Open Doors.
 // Builds the sidebar filter chips, draws the constellation map once, applies the
-// open/dim/heat state on every selection change, and runs the detail panel.
-// Pure scoring and layout live in score.js / graph.js; this file only touches
-// the DOM.
-import { allInputs, heat, heatColor } from "./score.js";
+// strength + convergence state on every selection change, and runs the detail
+// panel. Pure scoring and layout live in score.js / graph.js; this file only
+// touches the DOM.
+import {
+  allInputs,
+  heatColor,
+  strengthWidth,
+  strengthDash,
+} from "./score.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 
@@ -13,8 +18,6 @@ let lastFocused = null;
 // ---------- Sidebar ----------
 
 // buildSidebar(catalog, onToggle) -> void
-// Renders the filter groups (courses by level, internships by org type) into
-// #filter-list. Each item is an aria-pressed toggle button wired to onToggle(id).
 export function buildSidebar(catalog, onToggle) {
   const root = document.getElementById("filter-list");
   if (!root) return;
@@ -22,18 +25,16 @@ export function buildSidebar(catalog, onToggle) {
 
   const inputs = allInputs(catalog);
 
-  const courseGroups = [
-    { key: "Level 1000", title: "Level 1000 courses", sub: "Broad introductions that keep many doors open" },
+  const groups = [
+    { key: "Level 1000", title: "Level 1000 courses", sub: "Broad introductions, weak links to many fields" },
     { key: "Level 2000", title: "Level 2000 courses", sub: "Intermediate courses that start to specialise" },
-    { key: "Level 3000", title: "Level 3000 courses", sub: "Advanced courses that commit to a few deep paths" },
-  ];
-  const internGroups = [
+    { key: "Level 3000", title: "Level 3000 courses", sub: "Advanced courses, strong links to a few paths" },
     { key: "MNC", title: "Internships at MNCs", sub: "Large multinational employers" },
     { key: "Small Business", title: "Internships at small businesses", sub: "Lean teams, generalist roles" },
     { key: "Startup", title: "Internships at startups", sub: "Early-stage, high-ownership roles" },
   ];
 
-  [...courseGroups, ...internGroups].forEach((group) => {
+  groups.forEach((group) => {
     const members = inputs.filter((i) => i.group === group.key);
     if (members.length === 0) return;
 
@@ -78,9 +79,8 @@ export function buildSidebar(catalog, onToggle) {
 // ---------- Map ----------
 
 // buildGraph(graph, handlers) -> void
-// Draws edges then nodes into the SVG once. Career nodes get a circle + label;
-// input nodes get a small marker + label. Clicking a node calls the matching
-// handler. Subsequent visual changes are done by applyState, never a redraw.
+// Draws edges then nodes once. Each edge stores its strength weight and is given
+// its resting (unselected) thin-dotted style; applyState restyles per selection.
 export function buildGraph(graph, handlers) {
   const edgeLayer = document.getElementById("edges");
   const nodeLayer = document.getElementById("nodes");
@@ -97,10 +97,13 @@ export function buildGraph(graph, handlers) {
     );
     path.dataset.from = edge.from;
     path.dataset.to = edge.to;
+    path.dataset.weight = String(edge.weight);
+    // Resting style: thin + dotted per strength, very faint.
+    path.style.strokeWidth = String(strengthWidth(edge.weight) * 0.7);
+    path.style.strokeDasharray = strengthDash(edge.weight);
     edgeLayer.appendChild(path);
   });
 
-  // Careers first (centre), inputs on top so their markers sit above the lines.
   graph.careerNodes.forEach((node) => {
     const g = document.createElementNS(SVGNS, "g");
     g.setAttribute("class", "node-career is-dim");
@@ -112,7 +115,7 @@ export function buildGraph(graph, handlers) {
     const circle = document.createElementNS(SVGNS, "circle");
     circle.setAttribute("cx", node.x);
     circle.setAttribute("cy", node.y);
-    circle.setAttribute("r", "9");
+    circle.setAttribute("r", "8");
 
     const text = document.createElementNS(SVGNS, "text");
     text.setAttribute("class", "node-label");
@@ -153,9 +156,6 @@ export function buildGraph(graph, handlers) {
       marker.setAttribute("r", "7");
     }
 
-    // Label grows INWARD toward the centre (into the empty band between the ring
-    // and the career cluster) so a long label never clips at the canvas edge.
-    // Hidden by default; CSS reveals it on selection / hover / focus.
     const onLeft = node.x < graph.center.x;
     const text = document.createElementNS(SVGNS, "text");
     text.setAttribute("class", "node-label");
@@ -176,37 +176,55 @@ export function buildGraph(graph, handlers) {
   });
 }
 
-// applyState(selectedIds, reachMap, max) -> void
-// Repaints the existing SVG to reflect the current selection: edges from a
-// selected input light up, reached careers open (size + heat color) and the
-// rest dim, selected input markers fill. No nodes are created or destroyed.
-export function applyState(selectedIds, reachMap, max) {
+// applyState(selectedIds, analysis) -> void
+// Repaints the existing SVG from the convergence analysis:
+//   - edges keep their strength-based thickness / dottedness; active edges into
+//     a viable career brighten and thicken, edges into a fading career recede.
+//   - reached careers take a heat colour + size from their strength; faded ones
+//     dim and drop their label; converged ones become bold specializations.
+export function applyState(selectedIds, analysis) {
   const selected = selectedIds instanceof Set ? selectedIds : new Set(selectedIds || []);
+  const careers = analysis.careers;
 
   document.querySelectorAll(".edge").forEach((edge) => {
-    const active = selected.has(edge.dataset.from) && reachMap.has(edge.dataset.to);
+    const weight = parseFloat(edge.dataset.weight) || 0;
+    const baseWidth = strengthWidth(weight);
+    const info = careers.get(edge.dataset.to);
+    const active = selected.has(edge.dataset.from) && !!info;
+
     edge.classList.toggle("is-active", active);
+    edge.style.strokeDasharray = strengthDash(weight);
+
+    if (active) {
+      const faded = info.faded;
+      // Strong target -> thicker, brighter. Faded target -> recede.
+      edge.style.strokeWidth = String(baseWidth * (0.7 + 0.7 * info.strength));
+      edge.style.stroke = faded ? "var(--color-line)" : "var(--color-accent)";
+      edge.style.opacity = faded ? "0.18" : String(0.45 + 0.5 * info.strength);
+    } else {
+      edge.style.strokeWidth = String(baseWidth * 0.7);
+      edge.style.stroke = "";
+      edge.style.opacity = "";
+    }
   });
 
   document.querySelectorAll(".node-career").forEach((node) => {
-    const id = node.dataset.id;
-    const count = reachMap.get(id) || 0;
+    const info = careers.get(node.dataset.id);
     const circle = node.querySelector("circle");
-    if (count > 0) {
-      const t = heat(count, max);
-      const color = heatColor(t);
-      node.classList.add("is-open");
-      node.classList.remove("is-dim");
+    node.classList.remove("is-open", "is-dim", "tier-specialization", "tier-open", "tier-fading");
+
+    if (info) {
+      node.classList.add("is-open", `tier-${info.tier}`);
       if (circle) {
-        circle.style.fill = color;
-        circle.setAttribute("r", String(9 + Math.round(t * 8)));
+        circle.style.fill = heatColor(info.strength);
+        const base = 8 + Math.round(info.strength * 12);
+        circle.setAttribute("r", String(info.faded ? Math.round(base * 0.6) : base));
       }
     } else {
-      node.classList.remove("is-open");
       node.classList.add("is-dim");
       if (circle) {
         circle.style.fill = "";
-        circle.setAttribute("r", "9");
+        circle.setAttribute("r", "8");
       }
     }
   });
@@ -217,7 +235,6 @@ export function applyState(selectedIds, reachMap, max) {
     node.setAttribute("aria-pressed", isSel ? "true" : "false");
   });
 
-  // Mirror selection onto the sidebar chips.
   document.querySelectorAll(".chip").forEach((chip) => {
     const isSel = selected.has(chip.dataset.id);
     chip.setAttribute("aria-pressed", isSel ? "true" : "false");
@@ -226,10 +243,9 @@ export function applyState(selectedIds, reachMap, max) {
 
 // ---------- Detail panel ----------
 
-// openCareerPanel(career, contributors, allReachers) -> void
-// Shows which selected inputs currently open a career, plus every input that
-// could. contributors / allReachers are arrays of { label, group }.
-export function openCareerPanel(career, contributors, allReachers) {
+// openCareerPanel(career, info, contributors, allReachers) -> void
+// info is the analysis entry for this career (or null when nothing reaches it).
+export function openCareerPanel(career, info, contributors, allReachers) {
   const panel = document.getElementById("detail-panel");
   const backdrop = document.getElementById("panel-backdrop");
   const title = document.getElementById("panel-title");
@@ -238,12 +254,24 @@ export function openCareerPanel(career, contributors, allReachers) {
   if (!panel || !list) return;
 
   lastFocused = document.activeElement;
-
   if (title) title.textContent = career.name;
+
   if (lead) {
-    lead.textContent = contributors.length
-      ? `Opened by ${contributors.length} of your current choices. Every choice that can reach it:`
-      : "Not open yet. Choices that can reach it:";
+    if (!info) {
+      lead.textContent = "Not open yet. Choices that could reach it:";
+    } else if (info.tier === "specialization") {
+      lead.textContent = `A strong specialization right now, opened by ${labelCount(
+        contributors.length
+      )}. Every choice that can reach it:`;
+    } else if (info.tier === "fading") {
+      lead.textContent = `Still reachable, but fading behind your stronger paths. Opened by ${labelCount(
+        contributors.length
+      )}. Every choice that can reach it:`;
+    } else {
+      lead.textContent = `An open path, opened by ${labelCount(
+        contributors.length
+      )}. Every choice that can reach it:`;
+    }
   }
 
   list.textContent = "";
@@ -253,7 +281,7 @@ export function openCareerPanel(career, contributors, allReachers) {
     name.textContent = reacher.label;
     const group = document.createElement("span");
     group.className = "muted";
-    const isActive = contributors.some((c) => c.label === reacher.label);
+    const isActive = contributors.some((c) => c.id === reacher.id);
     group.textContent = isActive ? `${reacher.group}, selected` : reacher.group;
     li.append(name, group);
     list.appendChild(li);
@@ -265,7 +293,10 @@ export function openCareerPanel(career, contributors, allReachers) {
   if (close) close.focus();
 }
 
-// closePanel() -> void
+function labelCount(n) {
+  return n === 1 ? "1 of your choices" : `${n} of your choices`;
+}
+
 export function closePanel() {
   const panel = document.getElementById("detail-panel");
   const backdrop = document.getElementById("panel-backdrop");

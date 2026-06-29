@@ -57,10 +57,21 @@
         </p>
       </div>
 
-      <div class="legend" aria-label="Heat scale legend">
-        <span class="legend__label">just reached</span>
-        <span class="legend__bar" aria-hidden="true"></span>
-        <span class="legend__label">strongly reinforced</span>
+      <div class="legends">
+        <div class="legend" aria-label="Path strength scale">
+          <span class="legend__label">weaker path</span>
+          <span class="legend__bar" aria-hidden="true"></span>
+          <span class="legend__label">strong specialization</span>
+        </div>
+        <div class="legend" aria-label="Link strength scale">
+          <span class="legend__label">weak link</span>
+          <svg class="legend__lines" viewBox="0 0 120 24" width="120" height="24" aria-hidden="true" focusable="false">
+            <path d="M2 7 H118" fill="none" stroke="var(--color-muted)" stroke-width="1" stroke-dasharray="1 6"></path>
+            <path d="M2 13 H118" fill="none" stroke="var(--color-accent)" stroke-width="2.4" stroke-dasharray="4 4"></path>
+            <path d="M2 20 H118" fill="none" stroke="var(--color-accent-strong)" stroke-width="3.4"></path>
+          </svg>
+          <span class="legend__label">strong link</span>
+        </div>
       </div>
     </main>
   </div>

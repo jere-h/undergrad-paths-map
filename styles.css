@@ -323,12 +323,23 @@ img, svg, video, canvas {
   display: none;
 }
 
+.legends {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
 .legend {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   font-size: 0.78rem;
   color: var(--color-muted);
+}
+
+.legend__label {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .legend__bar {
@@ -338,20 +349,33 @@ img, svg, video, canvas {
   background: linear-gradient(90deg, var(--color-accent), var(--color-hot));
 }
 
+.legend__lines {
+  flex: 1;
+  height: 24px;
+  min-width: 0;
+}
+
+@media (min-width: 760px) {
+  .legends {
+    flex-direction: row;
+    gap: var(--space-5);
+  }
+
+  .legend {
+    flex: 1;
+  }
+}
+
 /* ---------- SVG node + edge states ---------- */
 
+/* Edge thickness, dash, stroke and opacity are set inline by render.js from the
+   link's strength and its target's viability. This class only holds the resting
+   colour and the transitions so changes animate. */
 .edge {
   fill: none;
   stroke: var(--color-line);
-  stroke-width: 1.4;
-  opacity: 0.22;
+  opacity: 0.16;
   transition: opacity 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
-}
-
-.edge.is-active {
-  stroke: var(--color-accent);
-  stroke-width: 2.2;
-  opacity: 0.85;
 }
 
 /* Labels carry a dark halo (paint-order: stroke) so they stay legible where
@@ -385,8 +409,20 @@ img, svg, video, canvas {
   stroke-width: 2;
 }
 
-/* Career labels appear once the path is open, or on hover / keyboard focus. */
-.node-career.is-open .node-label,
+/* A converged path reads as a specialization: a firmer ring. */
+.node-career.tier-specialization circle {
+  stroke-width: 2.75;
+}
+
+/* A path that has fallen behind your stronger ones recedes (and drops its label
+   below) so adding more selections focuses the map rather than cluttering it. */
+.node-career.tier-fading {
+  opacity: 0.4;
+}
+
+/* Career labels show for open/specialization paths, or on hover / focus. Fading
+   and closed paths stay unlabeled to keep the constellation legible. */
+.node-career.is-open:not(.tier-fading) .node-label,
 .node-career:hover .node-label,
 .node-career:focus .node-label,
 .node-career:focus-visible .node-label {
