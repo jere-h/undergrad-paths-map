@@ -13,7 +13,7 @@ import assert from "node:assert/strict";
 
 import { layout } from "../graph.js";
 import * as catalog from "../data/catalog.js";
-import { allInputs } from "../score.js";
+import { allInputs, inputStrength } from "../score.js";
 
 const SIZE = { width: 1000, height: 1000 };
 
@@ -64,6 +64,20 @@ test("one edge per destination, endpoints resolvable", () => {
     assert.ok(inputIds.has(e.from), `edge from unknown input ${e.from}`);
     assert.ok(careerIds.has(e.to), `edge to unknown career ${e.to}`);
   });
+});
+
+test("each edge carries its input's strength weight", () => {
+  const g = layout(catalog, SIZE);
+  const strengthById = new Map(allInputs(catalog).map((i) => [i.id, inputStrength(i)]));
+  g.edges.forEach((e) => {
+    assert.equal(e.weight, strengthById.get(e.from), `edge ${e.id} weight mismatch`);
+  });
+  // A Level 1000 course edge is weaker than a 3000 course / internship edge.
+  const l1000 = g.edges.find((e) => e.from === "cs101");
+  const l3000 = g.edges.find((e) => e.from === "ml301");
+  const intern = g.edges.find((e) => e.from === "mnc-data");
+  assert.ok(l1000.weight < l3000.weight);
+  assert.ok(intern.weight >= l3000.weight);
 });
 
 test("layout is deterministic", () => {

@@ -18,13 +18,21 @@ paths burn bright.
 - **Left sidebar:** toggle the courses and internship roles you are considering.
   A live count and a "Clear all" keep the selection manageable.
 - **Right network:** career nodes sit in the centre; your selected courses and
-  internships ring the outside and draw glowing links inward to the careers they
-  open. Unreached careers stay as faint dots.
-- **Reinforcement heat:** a career reached by more of your picks is larger and
-  warmer (the cool-to-hot scale in the legend). The summary band names your
-  single strongest path.
-- **Detail panel:** tap any lit career to see which of your current choices open
-  it, and every choice that could.
+  internships ring the outside and draw links inward to the careers they open.
+  Unreached careers stay as faint dots.
+- **Link strength:** each link is drawn by how committal the qualification is. A
+  Level 1000 intro draws thin dotted threads to its many fields; a Level 3000
+  course or an internship draws bold solid lines to its few. (Strength: 1000 <
+  2000 < 3000 < internship.)
+- **Convergence, not just breadth:** a career's support is the summed strength of
+  the selected inputs that reach it. Where your picks overlap, support stacks and
+  that career becomes a hot, larger **specialization** with bold links. Careers
+  touched by only a stray pick fall behind and **fade** (dim, thin dotted, no
+  label). They stay reachable, just de-emphasised, so adding more qualifications
+  sharpens your direction instead of cluttering the map. The summary band names
+  the specializations you are converging on.
+- **Detail panel:** tap any career to see whether it is a specialization, open,
+  or fading, which of your current choices open it, and every choice that could.
 
 ## Highlights
 
