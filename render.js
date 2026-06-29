@@ -112,6 +112,17 @@ export function buildGraph(graph, handlers) {
     g.setAttribute("role", "button");
     g.setAttribute("aria-label", `${node.label} career path`);
 
+    // Transparent enlarged hit area so even a small faded dot is easy to tap.
+    // Inline styles beat the node-circle stylesheet rules so it stays invisible.
+    const hit = document.createElementNS(SVGNS, "circle");
+    hit.setAttribute("class", "hit");
+    hit.setAttribute("cx", node.x);
+    hit.setAttribute("cy", node.y);
+    hit.setAttribute("r", "20");
+    hit.style.fill = "transparent";
+    hit.style.stroke = "none";
+    hit.style.pointerEvents = "all";
+
     const circle = document.createElementNS(SVGNS, "circle");
     circle.setAttribute("cx", node.x);
     circle.setAttribute("cy", node.y);
@@ -124,7 +135,7 @@ export function buildGraph(graph, handlers) {
     text.setAttribute("text-anchor", "middle");
     text.textContent = node.label;
 
-    g.append(circle, text);
+    g.append(hit, circle, text);
     g.addEventListener("click", () => handlers.onCareer(node.id));
     g.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -143,6 +154,17 @@ export function buildGraph(graph, handlers) {
     g.setAttribute("role", "button");
     g.setAttribute("aria-pressed", "false");
     g.setAttribute("aria-label", `${node.label}, ${node.group}`);
+
+    // Transparent enlarged hit area, same idea as career nodes.
+    const hit = document.createElementNS(SVGNS, "circle");
+    hit.setAttribute("class", "hit");
+    hit.setAttribute("cx", node.x);
+    hit.setAttribute("cy", node.y);
+    hit.setAttribute("r", "16");
+    hit.style.fill = "transparent";
+    hit.style.stroke = "none";
+    hit.style.pointerEvents = "all";
+    g.appendChild(hit);
 
     const marker = document.createElementNS(SVGNS, node.kind === "internship" ? "rect" : "circle");
     if (node.kind === "internship") {
@@ -210,7 +232,7 @@ export function applyState(selectedIds, analysis) {
 
   document.querySelectorAll(".node-career").forEach((node) => {
     const info = careers.get(node.dataset.id);
-    const circle = node.querySelector("circle");
+    const circle = node.querySelector("circle:not(.hit)");
     node.classList.remove("is-open", "is-dim", "tier-specialization", "tier-open", "tier-fading");
 
     if (info) {
@@ -244,37 +266,59 @@ export function applyState(selectedIds, analysis) {
 // ---------- Detail panel ----------
 
 // openCareerPanel(career, info, contributors, allReachers) -> void
-// info is the analysis entry for this career (or null when nothing reaches it).
+// career carries the end-goal content (responsibilities + skills). info is the
+// analysis entry for this career (or null when nothing reaches it).
 export function openCareerPanel(career, info, contributors, allReachers) {
   const panel = document.getElementById("detail-panel");
   const backdrop = document.getElementById("panel-backdrop");
   const title = document.getElementById("panel-title");
-  const lead = document.getElementById("panel-lead");
-  const list = document.getElementById("panel-list");
-  if (!panel || !list) return;
+  const status = document.getElementById("panel-status");
+  const body = document.getElementById("panel-body");
+  if (!panel || !body) return;
 
   lastFocused = document.activeElement;
   if (title) title.textContent = career.name;
 
-  if (lead) {
+  if (status) {
     if (!info) {
-      lead.textContent = "Not open yet. Choices that could reach it:";
+      status.textContent = "Not open yet by your current choices.";
     } else if (info.tier === "specialization") {
-      lead.textContent = `A strong specialization right now, opened by ${labelCount(
-        contributors.length
-      )}. Every choice that can reach it:`;
+      status.textContent = `A strong specialization right now, opened by ${labelCount(contributors.length)}.`;
     } else if (info.tier === "fading") {
-      lead.textContent = `Still reachable, but fading behind your stronger paths. Opened by ${labelCount(
-        contributors.length
-      )}. Every choice that can reach it:`;
+      status.textContent = `Reachable, but fading behind your stronger paths. Opened by ${labelCount(contributors.length)}.`;
     } else {
-      lead.textContent = `An open path, opened by ${labelCount(
-        contributors.length
-      )}. Every choice that can reach it:`;
+      status.textContent = `An open path, opened by ${labelCount(contributors.length)}.`;
     }
   }
 
-  list.textContent = "";
+  body.textContent = "";
+
+  // The end goal: what this job actually is, so the courses and internships
+  // become a means to demonstrating these in a resume and interview.
+  body.appendChild(
+    pointSection(
+      "What you would actually do",
+      career.responsibilities || [],
+      "Common responsibilities for this role."
+    )
+  );
+  body.appendChild(
+    pointSection(
+      "Skills to demonstrate",
+      career.skills || [],
+      "What the courses and internships are really for: be able to show these, not just list them."
+    )
+  );
+
+  // How the current selection connects to this job.
+  const reachSection = document.createElement("section");
+  reachSection.className = "panel-section";
+  const reachTitle = document.createElement("h3");
+  reachTitle.className = "panel-section__title";
+  reachTitle.textContent = "How your selections open this";
+  reachSection.appendChild(reachTitle);
+  const list = document.createElement("ul");
+  list.className = "detail-panel__list";
   allReachers.forEach((reacher) => {
     const li = document.createElement("li");
     const name = document.createElement("span");
@@ -286,11 +330,43 @@ export function openCareerPanel(career, info, contributors, allReachers) {
     li.append(name, group);
     list.appendChild(li);
   });
+  reachSection.appendChild(list);
+  body.appendChild(reachSection);
 
   panel.hidden = false;
   if (backdrop) backdrop.hidden = false;
+  panel.scrollTop = 0;
   const close = document.getElementById("panel-close");
   if (close) close.focus();
+}
+
+// Build a titled section of bullet-style points (responsibilities / skills).
+function pointSection(titleText, items, note) {
+  const section = document.createElement("section");
+  section.className = "panel-section";
+
+  const title = document.createElement("h3");
+  title.className = "panel-section__title";
+  title.textContent = titleText;
+  section.appendChild(title);
+
+  if (note) {
+    const p = document.createElement("p");
+    p.className = "panel-section__note";
+    p.textContent = note;
+    section.appendChild(p);
+  }
+
+  const ul = document.createElement("ul");
+  ul.className = "panel-points";
+  items.forEach((text) => {
+    const li = document.createElement("li");
+    li.className = "panel-points__item";
+    li.textContent = text;
+    ul.appendChild(li);
+  });
+  section.appendChild(ul);
+  return section;
 }
 
 function labelCount(n) {
