@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Doors - Option-Value Heat Map for Course Selection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Open Doors</h1>
+    <p class="site-intro">
+      A quiet way to see which courses keep the most future paths reachable. Nothing here is a recommendation, just a picture you can sit with.
+    </p>
+    <p id="disclaimer" class="disclaimer" role="note">
+      Illustrative dataset, not validated labor-market data.
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="controls" aria-label="Re-weighting controls">
+      <div class="controls__slider">
+        <label class="slider__label" for="slider">Re-weight by effort and time-to-payoff</label>
+        <div class="slider__row">
+          <span class="slider__end slider__end--left" aria-hidden="true">Keep the most doors open</span>
+          <input
+            id="slider"
+            class="slider"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0"
+            aria-label="Trade breadth against faster payoff. Left keeps the most doors open, right rewards faster payoff."
+          >
+          <span class="slider__end slider__end--right" aria-hidden="true">Reward faster payoff</span>
+        </div>
+      </div>
+
+      <div class="legend" aria-label="Heat scale legend">
+        <span id="legend-min" class="legend__label legend__label--min">low</span>
+        <div id="legend" class="legend__bar" role="img" aria-label="Color scale from cool (fewer reachable destinations) to hot (more reachable destinations)">
+          <svg class="legend__svg" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+            <defs>
+              <linearGradient id="heat-gradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="var(--heat-cool)"></stop>
+                <stop offset="100%" stop-color="var(--heat-hot)"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="240" height="16" rx="6" fill="url(#heat-gradient)"></rect>
+          </svg>
+        </div>
+        <span id="legend-max" class="legend__label legend__label--max">high</span>
+      </div>
+    </section>
+
+    <section class="grid-section" aria-label="Courses">
+      <p class="grid-hint">
+        Each tile prints how many distinct destinations it keeps reachable. The number never changes; only the color responds to the slider.
+      </p>
+      <div id="grid" class="grid" role="list" aria-label="Course heat tiles"></div>
+    </section>
+  </main>
+
+  <div id="panel-backdrop" class="panel-backdrop" hidden></div>
+
+  <div
+    id="detail-panel"
+    class="detail-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="panel-title"
+    hidden
+  >
+    <div class="detail-panel__head">
+      <h2 id="panel-title" class="detail-panel__title"></h2>
+      <button id="panel-close" class="detail-panel__close" type="button" aria-label="Close detail panel">
+        <svg viewBox="0 0 20 20" width="20" height="20" focusable="false" aria-hidden="true">
+          <path d="M5 5 L15 15 M15 5 L5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+    <p class="detail-panel__lead">Destinations this course keeps reachable:</p>
+    <ul id="panel-destinations" class="detail-panel__list"></ul>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
