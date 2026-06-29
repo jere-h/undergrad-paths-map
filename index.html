@@ -3,75 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Doors - Option-Value Heat Map for Course Selection</title>
+  <title>Open Doors - Map the Paths Your Choices Open</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <h1 class="site-title">Open Doors</h1>
-    <p class="site-intro">
-      A quiet way to see which courses keep the most future paths reachable. Nothing here is a recommendation, just a picture you can sit with.
-    </p>
+    <div class="site-header__inner">
+      <h1 class="site-title">Open Doors</h1>
+      <p class="site-intro">
+        Pick courses and internships on the left. Watch the network light up the
+        career paths each choice keeps reachable.
+      </p>
+    </div>
     <p id="disclaimer" class="disclaimer" role="note">
-      Illustrative dataset, not validated labor-market data.
+      Illustrative dataset, not validated curriculum or labor-market data.
     </p>
   </header>
 
-  <main class="layout">
-    <section class="controls" aria-label="Re-weighting controls">
-      <div class="controls__slider">
-        <label class="slider__label" for="slider">Re-weight by effort and time-to-payoff</label>
-        <div class="slider__row">
-          <span class="slider__end slider__end--left" aria-hidden="true">Keep the most doors open</span>
-          <input
-            id="slider"
-            class="slider"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="0"
-            aria-label="Trade breadth against faster payoff. Left keeps the most doors open, right rewards faster payoff."
-          >
-          <span class="slider__end slider__end--right" aria-hidden="true">Reward faster payoff</span>
-        </div>
+  <div class="layout">
+    <!-- Mobile-only control to reveal the filter sheet. Hidden on wide screens. -->
+    <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="sidebar">
+      Choose courses and internships
+    </button>
+
+    <aside id="sidebar" class="sidebar" aria-label="Course and internship filters">
+      <div class="sidebar__head">
+        <h2 class="sidebar__title">Your choices</h2>
+        <button id="clear-btn" class="ghost-btn" type="button">Clear all</button>
+      </div>
+      <p id="selected-count" class="sidebar__count" aria-live="polite">No selections yet</p>
+      <!-- Filter groups are built from the catalog by render.js. -->
+      <div id="filter-list" class="filter-list"></div>
+    </aside>
+
+    <main class="map-area" aria-label="Career path network">
+      <section id="summary" class="summary" aria-live="polite">
+        <p class="summary__headline">
+          <span id="open-count" class="summary__count">0</span>
+          <span class="summary__label">future paths open</span>
+        </p>
+        <p id="summary-detail" class="summary__detail"></p>
+      </section>
+
+      <div id="map-wrap" class="map-wrap">
+        <svg id="map" class="map" viewBox="0 0 1000 1000" role="group"
+             aria-label="Network of courses, internships, and the career paths they open"
+             preserveAspectRatio="xMidYMid meet">
+          <g id="edges" class="edges"></g>
+          <g id="nodes" class="nodes"></g>
+        </svg>
+        <p id="map-hint" class="map-hint">
+          Select a course or internship to begin opening paths.
+        </p>
       </div>
 
       <div class="legend" aria-label="Heat scale legend">
-        <span id="legend-min" class="legend__label legend__label--min">low</span>
-        <div id="legend" class="legend__bar" role="img" aria-label="Color scale from cool (fewer reachable destinations) to hot (more reachable destinations)">
-          <svg class="legend__svg" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false" aria-hidden="true">
-            <defs>
-              <linearGradient id="heat-gradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="var(--heat-cool)"></stop>
-                <stop offset="100%" stop-color="var(--heat-hot)"></stop>
-              </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="240" height="16" rx="6" fill="url(#heat-gradient)"></rect>
-          </svg>
-        </div>
-        <span id="legend-max" class="legend__label legend__label--max">high</span>
+        <span class="legend__label">just reached</span>
+        <span class="legend__bar" aria-hidden="true"></span>
+        <span class="legend__label">strongly reinforced</span>
       </div>
-    </section>
-
-    <section class="grid-section" aria-label="Courses">
-      <p class="grid-hint">
-        Each tile prints how many distinct destinations it keeps reachable. The number never changes; only the color responds to the slider.
-      </p>
-      <div id="grid" class="grid" role="list" aria-label="Course heat tiles"></div>
-    </section>
-  </main>
+    </main>
+  </div>
 
   <div id="panel-backdrop" class="panel-backdrop" hidden></div>
 
-  <div
-    id="detail-panel"
-    class="detail-panel"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="panel-title"
-    hidden
-  >
+  <div id="detail-panel" class="detail-panel" role="dialog" aria-modal="true"
+       aria-labelledby="panel-title" hidden>
     <div class="detail-panel__head">
       <h2 id="panel-title" class="detail-panel__title"></h2>
       <button id="panel-close" class="detail-panel__close" type="button" aria-label="Close detail panel">
@@ -80,8 +77,8 @@
         </svg>
       </button>
     </div>
-    <p class="detail-panel__lead">Destinations this course keeps reachable:</p>
-    <ul id="panel-destinations" class="detail-panel__list"></ul>
+    <p id="panel-lead" class="detail-panel__lead"></p>
+    <ul id="panel-list" class="detail-panel__list"></ul>
   </div>
 
   <script type="module" src="main.js"></script>
