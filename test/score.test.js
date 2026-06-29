@@ -160,6 +160,17 @@ test("catalog integrity: ids unique and every destination resolves", () => {
   allInputs(catalog).forEach((i) => i.destinations.forEach((d) => reachable.add(d)));
   CAREERS.forEach((c) => assert.ok(reachable.has(c.id), `orphan career ${c.id}`));
 
+  // Every career carries non-empty end-goal content, free of em/en dashes.
+  CAREERS.forEach((c) => {
+    assert.ok(Array.isArray(c.responsibilities) && c.responsibilities.length > 0, `${c.id} missing responsibilities`);
+    assert.ok(Array.isArray(c.skills) && c.skills.length > 0, `${c.id} missing skills`);
+    [...c.responsibilities, ...c.skills].forEach((text) => {
+      assert.equal(typeof text, "string");
+      assert.ok(text.trim().length > 0, `${c.id} has an empty point`);
+      assert.ok(!/[—–]/.test(text), `${c.id} content has an em/en dash: "${text}"`);
+    });
+  });
+
   COURSES.forEach((c) => assert.ok([1000, 2000, 3000].includes(c.level), `bad level ${c.id}`));
   INTERNSHIPS.forEach((i) =>
     assert.ok(["MNC", "Small Business", "Startup"].includes(i.orgType), `bad orgType ${i.id}`)
