@@ -279,6 +279,40 @@ LLM-assigned level flagged `levelTieBreak` so the review report lists all of
 them for human confirmation (the deterministic parser remains the default and
 the auditable path).
 
+### v3 simplification — less orchestration, same guarantees
+
+A post-pilot efficiency review (the pilot spent 842k tokens / 26 agents on a
+3-career slice; a full run projected ~170 agents) found the bloat concentrated
+in per-item fan-out and agents executing deterministic policy. Measured
+against the pilot's own data: 8 skeptic agents were spawned to make 4 actual
+judgment calls — 6 of 10 edge decisions were pure threshold mechanics. The
+v3 rules, now encoded in the workflow:
+
+1. **Batch every fan-out.** Careers ground in batches (default 6/agent), edge
+   judges run one per department file (not per input), skeptics run one per
+   ~12 banded edges. Fixed per-agent overhead must amortize over many items.
+2. **Agents produce judgments; code applies policy.** Confidence floors,
+   auto-accept (≥ 0.85), and top-K ranking moved from skeptic prompts into
+   `scripts/assemble-dataset.mjs` — deterministic, unit-tested, and
+   **fail-closed**: a banded edge (floor–0.85) ships only with an explicit
+   skeptic "keep" verdict; unreviewed banded edges drop. Skeptics are spawned
+   only for the banded set, and skipped entirely when it is empty.
+3. **No LLM read-modify-write of evidence files.** The distinctiveness pass
+   writes one new `_distinctive.json` merged deterministically at assembly,
+   instead of editing all N career files in place. The finalizer's
+   "repair the inputs and rerun" loop is gone: the assembler drops zero-edge
+   inputs itself and records them in `meta.flags.droppedInputs`.
+4. **No courier agents.** The posting fetch (one script invocation) folded
+   into setup; internship clustering is one agent across all org types
+   instead of one per org type.
+5. **Trim what agents read.** The parser's `--compact` view (code/name/level,
+   truncated description) serves shortlisting; full records are pulled only
+   for the ~12 shortlisted courses per department.
+
+Projected full run: ~25 agents (was ~172), with the biggest reductions in the
+stages that were least judgment-dense. The acceptance gates, evidence rules,
+and adversarial verification of genuinely uncertain edges are unchanged.
+
 ### Pilot mode — proves plumbing, not quality
 
 `pilot: true` restricts scope (≈3 careers, 1 department, 2–3 companies) and

@@ -237,6 +237,11 @@ function main() {
   };
   const courses = assignLevels(parseCourseBlocks(readFileSync(file, "utf8")));
   const undergrad = courses.filter((c) => c.undergrad);
+  // --compact: a shortlisting view (code/name/level + truncated description)
+  // so an agent choosing ~12 of 400+ courses doesn't read full descriptions
+  // and prereq ASTs for all of them. Full records stay in the non-compact
+  // output; pull them per shortlisted code.
+  const compact = process.argv.includes("--compact");
   process.stdout.write(
     JSON.stringify(
       {
@@ -244,10 +249,18 @@ function main() {
         sourceUrl: opt("--source-url"),
         parsedCount: courses.length,
         undergradCount: undergrad.length,
-        courses: undergrad,
+        courses: compact
+          ? undergrad.map((c) => ({
+              catalogCode: c.catalogCode,
+              name: c.name,
+              level: c.level,
+              levelTieBreak: c.levelTieBreak,
+              desc: c.description.slice(0, 220),
+            }))
+          : undergrad,
       },
       null,
-      2
+      compact ? 0 : 2
     )
   );
 }

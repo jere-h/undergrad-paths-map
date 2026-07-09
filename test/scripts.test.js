@@ -247,37 +247,67 @@ test("generateCatalog rejects dashes and bad enums deterministically", () => {
   assert.throws(() => generateCatalog(badLevel), /bad level/);
 });
 
-// ---------- dataset assembly ----------
+// ---------- dataset assembly: mechanical edge policy ----------
 
-test("assemble merges phase outputs and auto-flags internship-starved careers", async () => {
+test("resolveEdges applies floors, auto-accept, fail-closed band, and top-K in code", async () => {
+  const { resolveEdges } = await import("../scripts/assemble-dataset.mjs");
+  const prop = (career, confidence, extra = {}) => ({
+    career, confidence, matchedSkills: ["s"], distinctive: true, ...extra,
+  });
+  const course = { id: "c1", level: 1000 };
+  const verdicts = new Map([["c1|kept-band", "keep"], ["c1|dropped-band", "drop"]]);
+  const resolved = resolveEdges(
+    course,
+    [
+      prop("auto", 0.9), // >= AUTO_ACCEPT: kept without any verdict
+      prop("kept-band", 0.7), // banded + explicit keep verdict: kept
+      prop("dropped-band", 0.7), // banded + drop verdict: dropped
+      prop("unreviewed-band", 0.7), // banded, no verdict: FAIL-CLOSED drop
+      prop("below-floor", 0.45), // under the 1000-level floor (0.5)
+      prop("generic", 0.9, { distinctive: false }), // no distinctive match
+    ],
+    verdicts
+  );
+  assert.deepEqual(resolved.map((e) => e.career), ["auto", "kept-band"]);
+
+  // top-K: a 3000-level course keeps only its best 3 even if all auto-accept.
+  const many = Array.from({ length: 6 }, (_, i) => prop(`x${i}`, 0.86 + i / 100));
+  assert.equal(resolveEdges({ id: "c2", level: 3000 }, many, new Map()).length, 3);
+  // internships use their own floor: 0.8 is above 3000's floor but banded for internships.
+  assert.equal(resolveEdges({ id: "i1", orgType: "Startup" }, [prop("a", 0.8)], new Map()).length, 0);
+});
+
+test("assemble merges judge+verdict files, drops zero-edge inputs visibly, flags starved careers", async () => {
   const { assemble } = await import("../scripts/assemble-dataset.mjs");
-  const edge = { confidence: 0.9, matchedSkills: ["s"], distinctive: true };
+  const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });
   const out = assemble({
     meta: { runId: "r1" },
     careerFiles: [
-      { id: "a", name: "A" },
+      { id: "a", name: "A", rawSkillPool: ["x"] },
       { id: "b", name: "B" },
     ],
-    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 1000, dept: "D" }] }],
-    internshipFiles: [{ orgType: "Startup", roles: [{ id: "i1", role: "R", orgType: "Startup" }] }],
-    edgeFiles: [
-      { id: "c1", destinations: ["a", "b"], edges: { a: edge, b: edge } },
-      { id: "i1", destinations: ["a"], edges: { a: edge } },
+    distinctive: { distinctiveSkills: { a: ["x"] }, collisions: ["a b"] },
+    courseFiles: [
+      {
+        dept: "D",
+        courses: [
+          { id: "c1", name: "C1", level: 1000, dept: "D" },
+          { id: "c2", name: "C2", level: 1000, dept: "D" },
+        ],
+      },
     ],
+    internshipFiles: [{ orgType: "Startup", roles: [{ id: "i1", role: "R", orgType: "Startup" }] }],
+    judgeFiles: [
+      { proposals: { c1: [prop("a", 0.9), prop("b", 0.7)], c2: [prop("a", 0.6)] } }, // batch format
+      { id: "i1", proposed: [prop("a", 0.9)] }, // legacy per-input format
+    ],
+    verdictFiles: [{ verdicts: [{ input: "c1", career: "b", verdict: "keep", reason: "r" }] }],
   });
-  assert.equal(out.courses[0].destinations.length, 2);
-  assert.deepEqual(out.meta.flags.internshipStarved, ["b"], "b has no internship edge");
-  assert.throws(
-    () =>
-      assemble({
-        meta: {},
-        careerFiles: [],
-        courseFiles: [{ dept: "D", courses: [{ id: "cX" }] }],
-        internshipFiles: [],
-        edgeFiles: [],
-      }),
-    /no edge file/
-  );
+  assert.deepEqual(out.courses[0].destinations, ["a", "b"], "auto + verdict-kept edges survive");
+  assert.deepEqual(out.meta.flags.droppedInputs, ["c2"], "unreviewed banded edge fails closed");
+  assert.deepEqual(out.careers[0].distinctiveSkills, ["x"], "distinctive file merged, not edited in place");
+  assert.deepEqual(out.meta.flags.socCollisions, ["a b"]);
+  assert.deepEqual(out.meta.flags.internshipStarved, ["b"]);
 });
 
 // ---------- industry flexibility: dataset-defined org types ----------

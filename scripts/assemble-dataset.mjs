@@ -1,51 +1,133 @@
 #!/usr/bin/env node
 // assemble-dataset.mjs - deterministic merge of ground-catalog phase outputs
-// into data/dataset.json. Agents write per-node JSON under data/sources/ and
-// this script does the mechanical assembly, so no LLM ever transcribes bulk
-// data between phases.
+// into a dataset. Agents write JSON under data/sources/<industry>/ and this
+// script does all mechanical assembly AND all mechanical edge policy, so no
+// LLM ever transcribes bulk data or applies a threshold rule.
 //
 // Expected inputs (produced by the workflow's phases):
-//   data/sources/meta.json                    { runId, university, onetVersion, generatedAt, sources[] }
-//   data/sources/careers/<id>.json            career object (dataset schema)
-//   data/sources/courses/<dept>.json          { dept, sourceUrl, courses: [course w/o destinations] }
-//   data/sources/internships/<orgType>.json   { orgType, roles: [internship w/o destinations] }
-//   data/sources/edges/<inputId>.json         { id, destinations: [...], edges: {careerId: {confidence, matchedSkills, distinctive}} }
+//   <sources>/meta.json                  { runId, university, onetVersion, ... }
+//   <sources>/careers/<id>.json          career object (dataset schema)
+//   <sources>/careers/_distinctive.json  { distinctiveSkills: {careerId: [...]},
+//                                          collisions: [...] } (optional)
+//   <sources>/courses/<dept>.json        { dept, courses: [course w/o destinations] }
+//   <sources>/internships/<orgType>.json { orgType, roles: [role w/o destinations] }
+//   <sources>/edges-judge/*.json         { proposals: { inputId: [proposal] } }
+//                                        or legacy { id, proposed: [proposal] }
+//   <sources>/edges-verdicts/*.json      { verdicts: [{ input, career,
+//                                          verdict: "keep"|"drop", reason }] }
 //
-// Careers that end up with no internship edge are auto-flagged
-// meta.flags.internshipStarved so the validator surfaces them as warnings and
-// the review report lists them; pass --no-auto-flag to fail hard instead.
+// Edge policy (deterministic, fail-closed):
+//   - below the per-kind confidence floor        -> drop
+//   - missing distinctive matched skill          -> drop
+//   - confidence >= AUTO_ACCEPT                  -> keep
+//   - otherwise (the banded middle) keep ONLY with an explicit skeptic "keep"
+//     verdict; an unreviewed banded edge drops. Then rank by confidence and
+//     keep the top K for the input's kind/level.
+// Inputs left with zero edges are dropped and recorded in
+// meta.flags.droppedInputs - visible, never silent.
 //
 // Usage:
-//   node scripts/assemble-dataset.mjs [--sources data/sources] [--out data/dataset.json] [--no-auto-flag]
+//   node scripts/assemble-dataset.mjs [--sources data/sources/<industry>]
+//        [--out data/datasets/<industry>.json] [--no-auto-flag]
 
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { join, basename } from "node:path";
+
+export const FLOORS = { 1000: 0.5, 2000: 0.6, 3000: 0.7, internship: 0.75 };
+export const AUTO_ACCEPT = 0.85;
+export const TOPK = { 1000: 5, 2000: 4, 3000: 3, internship: 4 };
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
-function readDir(dir) {
+function readDir(dir, { includeUnderscore = false } = {}) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
-    .filter((f) => f.endsWith(".json"))
+    .filter((f) => f.endsWith(".json") && (includeUnderscore || !basename(f).startsWith("_")))
     .sort()
     .map((f) => readJson(join(dir, f)));
 }
 
-export function assemble({ meta, careerFiles, courseFiles, internshipFiles, edgeFiles, autoFlag = true }) {
-  const edgesById = new Map(edgeFiles.map((e) => [e.id, e]));
-  const withEdges = (input, label) => {
-    const e = edgesById.get(input.id);
-    if (!e) throw new Error(`${label} ${input.id}: no edge file (Phase D output missing)`);
-    return { ...input, destinations: e.destinations, edges: e.edges };
+// Normalize judge files (batch or legacy per-input) into inputId -> proposals.
+export function collectProposals(judgeFiles) {
+  const byInput = new Map();
+  for (const file of judgeFiles) {
+    if (file.proposals) {
+      for (const [id, list] of Object.entries(file.proposals)) byInput.set(id, list);
+    } else if (file.id && file.proposed) {
+      byInput.set(file.id, file.proposed);
+    }
+  }
+  return byInput;
+}
+
+export function collectVerdicts(verdictFiles) {
+  const map = new Map();
+  for (const file of verdictFiles)
+    for (const v of file.verdicts || []) map.set(`${v.input}|${v.career}`, v.verdict);
+  return map;
+}
+
+export function resolveEdges(input, proposals, verdicts) {
+  const kindKey = input.orgType ? "internship" : input.level;
+  const floor = FLOORS[kindKey];
+  const topK = TOPK[kindKey];
+  if (floor === undefined || topK === undefined)
+    throw new Error(`input ${input.id}: no edge policy for kind/level ${kindKey}`);
+  const kept = (proposals || []).filter((p) => {
+    if (!(p.confidence >= floor)) return false;
+    if (p.distinctive !== true || !(p.matchedSkills || []).length) return false;
+    if (p.confidence >= AUTO_ACCEPT) return true;
+    return verdicts.get(`${input.id}|${p.career}`) === "keep"; // fail-closed
+  });
+  kept.sort((a, b) => b.confidence - a.confidence);
+  return kept.slice(0, topK);
+}
+
+export function assemble({
+  meta,
+  careerFiles,
+  distinctive,
+  courseFiles,
+  internshipFiles,
+  judgeFiles,
+  verdictFiles,
+  autoFlag = true,
+}) {
+  const proposals = collectProposals(judgeFiles);
+  const verdicts = collectVerdicts(verdictFiles);
+  const dropped = [];
+
+  const withEdges = (input) => {
+    const edges = resolveEdges(input, proposals.get(input.id), verdicts);
+    if (edges.length === 0) {
+      dropped.push(input.id);
+      return null;
+    }
+    return {
+      ...input,
+      destinations: edges.map((e) => e.career),
+      edges: Object.fromEntries(
+        edges.map((e) => [
+          e.career,
+          { confidence: e.confidence, matchedSkills: e.matchedSkills, distinctive: true },
+        ])
+      ),
+    };
   };
 
-  const careers = careerFiles;
-  const courses = courseFiles.flatMap((f) => f.courses.map((c) => withEdges(c, "course")));
-  const internships = internshipFiles.flatMap((f) => f.roles.map((r) => withEdges(r, "internship")));
+  const dist = (distinctive && distinctive.distinctiveSkills) || {};
+  const careers = careerFiles.map((c) =>
+    dist[c.id] ? { ...c, distinctiveSkills: dist[c.id] } : c
+  );
+  const courses = courseFiles.flatMap((f) => f.courses.map(withEdges)).filter(Boolean);
+  const internships = internshipFiles.flatMap((f) => f.roles.map(withEdges)).filter(Boolean);
 
   const flags = { ...(meta.flags || {}) };
+  if (dropped.length) flags.droppedInputs = dropped;
+  if (distinctive && distinctive.collisions && distinctive.collisions.length)
+    flags.socCollisions = distinctive.collisions;
   if (autoFlag) {
     const internReached = new Set(internships.flatMap((i) => i.destinations));
     const starved = careers.map((c) => c.id).filter((id) => !internReached.has(id));
@@ -65,20 +147,23 @@ function main() {
   };
   const sources = opt("--sources", "data/sources");
   const out = opt("--out", "data/dataset.json");
+  const distinctivePath = join(sources, "careers", "_distinctive.json");
   const dataset = assemble({
     meta: readJson(join(sources, "meta.json")),
     careerFiles: readDir(join(sources, "careers")),
+    distinctive: existsSync(distinctivePath) ? readJson(distinctivePath) : null,
     courseFiles: readDir(join(sources, "courses")),
     internshipFiles: readDir(join(sources, "internships")),
-    edgeFiles: readDir(join(sources, "edges")),
+    judgeFiles: readDir(join(sources, "edges-judge")),
+    verdictFiles: readDir(join(sources, "edges-verdicts")),
     autoFlag: !args.includes("--no-auto-flag"),
   });
   writeFileSync(out, JSON.stringify(dataset, null, 2));
+  const f = dataset.meta.flags;
   console.log(
     `wrote ${out}: ${dataset.careers.length} careers, ${dataset.courses.length} courses, ${dataset.internships.length} internships` +
-      (dataset.meta.flags.internshipStarved?.length
-        ? `; internship-starved: ${dataset.meta.flags.internshipStarved.join(", ")}`
-        : "")
+      (f.droppedInputs ? `; dropped inputs (no surviving edges): ${f.droppedInputs.join(", ")}` : "") +
+      (f.internshipStarved ? `; internship-starved: ${f.internshipStarved.join(", ")}` : "")
   );
 }
 
