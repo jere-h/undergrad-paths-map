@@ -12,7 +12,9 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import { layout } from "../graph.js";
-import * as catalog from "../data/catalog.js";
+// Layout behavior is asserted against the frozen fixture, not the live
+// catalog, so regenerating data/catalog.js never invalidates these tests.
+import * as catalog from "./fixtures/catalog.js";
 import { allInputs, inputStrength } from "../score.js";
 
 const SIZE = { width: 1000, height: 1000 };
