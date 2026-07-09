@@ -1,149 +1,350 @@
 # Grounding workflow plan — from illustrative catalog to evidence-backed dataset
 
-**Status: DRAFT v1 (pre-review)**
+**Status: v2 — revised after engineering-feasibility and effectiveness review.**
+The findings that drove each revision are summarized at the end of this document.
 
 ## Problem
 
 `data/catalog.js` is hand-authored: the 18 careers, 17 courses, 10 internships, and
 every `destinations` edge between them are imagined. The README warns users not to
-make real decisions from it. The goal is a **reusable Claude workflow** that
-regenerates the catalog from real evidence so the tool becomes usable:
+make real decisions from it. The goal is a **reusable Claude workflow**
+(`.claude/workflows/ground-catalog.js`) that regenerates the catalog from real
+evidence so the tool becomes usable:
 
 - **Courses** are real courses (codes, titles, levels) from a target university's
-  published catalog, with skills inferred from their published descriptions /
-  learning outcomes.
+  published catalog, with taught skills inferred from their official descriptions.
 - **Internship roles** are canonicalized from live, real intern job postings.
-- **Careers** carry responsibilities and skills grounded in an authoritative
-  occupational database, not vibes.
-- **Edges** (course/internship → career) are inferred from skill overlap between
-  what a course teaches / an internship exercises and what a career demands, and
-  every edge carries provenance (which evidence supports it, at what confidence).
+- **Careers** carry responsibilities and skills grounded in the O*NET occupational
+  database where a clean occupation code exists, and in aggregated live postings
+  where one does not.
+- **Edges** (course/internship → career) are inferred from *distinctive* skill
+  overlap, adversarially verified, and every edge carries provenance (evidence,
+  confidence, retrieval date).
+
+### What "usable" means (acceptance gates)
+
+Completing all phases is not success. The generated dataset replaces the
+illustrative one only when **all** of the following hold (enforced by
+`scripts/validate-dataset.mjs`, not by judgment):
+
+1. Every existing test invariant passes: unique ids, every destination resolves,
+   every input has ≥1 destination, no orphan careers, levels ∈ {1000,2000,3000},
+   no em/en dashes in career text.
+2. **Differentiation gates** (the product's core signal is that different picks
+   light different careers):
+   - No career's in-degree exceeds 25% of total edges.
+   - Career in-degree Gini coefficient ≤ 0.45.
+   - Mean pairwise Jaccard similarity of destination sets among same-level
+     courses ≤ 0.5 (picks must discriminate, not saturate).
+3. **Coverage gates** (missing coverage renders as "this path is closed" in the
+   UI, which is a labor-market claim we must not make by accident):
+   - Every career has course in-degree ≥ 1, from ≥ 2 distinct departments where
+     the career plausibly spans them.
+   - Every career has ≥ 1 internship edge, or is explicitly flagged
+     `internshipStarved` in the review report with a stated reason.
+   - Every internship role is backed by postings from ≥ 2 distinct companies.
+4. Every node and edge has ≥ 1 evidence entry with `retrievedAt`, and posting/
+   catalog text snapshots exist under `data/sources/` (URLs are pointers; the
+   snapshot is the durable evidence).
+5. A human has signed off on `data/review-report.md` (low-confidence and flagged
+   items listed first).
+
+Until all gates pass, `data/catalog.js` stays illustrative and the README keeps
+its disclaimer. Even after they pass, the README banner is **rewritten, not
+removed**: edges are a verified skill-overlap heuristic over official
+descriptions and postings — requirement-side evidence, not measured student
+outcomes. The word "grounded" is reserved for what the evidence actually shows.
 
 ## Evidence sources (reachability verified from this environment, 2026-07-09)
 
 | Source | What it grounds | Access | Verified |
 |---|---|---|---|
-| O*NET (onetonline.org pages; onetcenter.org bulk text DB) | Career responsibilities (task statements), skills, technology skills, per SOC occupation code | Public HTML + public bulk `.txt` downloads (web-services API needs a key — not used) | HTTP 200 |
-| University public course catalog (default: `catalog.mit.edu`, configurable) | Real course codes, titles, unit levels, prerequisites, official descriptions | Public HTML | HTTP 200 |
-| Greenhouse public board API (`boards-api.greenhouse.io/v1/boards/{co}/jobs?content=true`) | Live job postings incl. intern roles, full descriptions with requirements | Public JSON, no auth | HTTP 200 |
-| Lever public postings API (`api.lever.co/v0/postings/{co}?mode=json`) | Same, for Lever-hosted companies | Public JSON, no auth | HTTP 200 |
-| Web search (general) | Supplementary/corroborating evidence only, never sole support for an edge | Via WebSearch tool | available |
-| ~~LinkedIn profiles~~ | ~~career transition evidence~~ | **Rejected**: bot-blocked (HTTP 999) and scraping violates LinkedIn ToS | blocked |
+| O*NET bulk database (onetcenter.org, ~13 MB zip of tab-separated text) | Career task statements, skills, technology skills, detailed work activities, knowledge domains per SOC code | Public download, one fetch per run, then deterministic lookup | HTTP 200 |
+| University public course catalog (default `catalog.mit.edu`, configurable) | Real course codes, titles, prerequisites, official descriptions | Public HTML (~600 KB, ~430 courses per department page) — parsed deterministically, never pushed raw through an LLM | HTTP 200 |
+| Greenhouse board API (`boards-api.greenhouse.io/v1/boards/{co}/jobs?content=true`) | Live intern postings with full descriptions | Public JSON, no auth; multi-MB (Stripe: 3.7 MB, 503 jobs, 12 interns) — pre-filtered with `jq` before any LLM sees it | HTTP 200 |
+| Lever postings API (`api.lever.co/v0/postings/{co}?mode=json`) | Same, Lever-hosted companies. Returns `200 []` for bad slugs — zero postings is treated as a per-company failure, not success | HTTP 200 |
+| GitHub `SimplifyJobs/Summer{YYYY}-Internships` list | Broad intern-title coverage incl. non-tech employers (finance, consulting, CPG) that don't use Greenhouse/Lever | Public README/JSON | reachable |
+| Web search | Corroboration only (e.g. university degree-map pages, first-destination surveys); never sole support for an edge | WebSearch tool | available |
+| ~~LinkedIn profiles~~ | ~~career-transition evidence~~ | **Rejected**: bot-blocked (HTTP 999) and scraping violates LinkedIn ToS | blocked |
 
-The LinkedIn idea from the original brief is replaced by the combination of
-O*NET (what a career actually involves) + live postings (what employers actually
-ask for) + course outlines (what a course actually teaches). All three are public,
-legal to use, and machine-readable.
+Known structural bias, stated rather than hidden: Greenhouse/Lever skew tech.
+The SimplifyJobs list and web-searched employer career pages fill part of the
+gap; any orgType or career whose internship evidence stays thin is *flagged*,
+never silently padded.
 
 ## Target data model
 
-A new `data/dataset.json` becomes the source of truth; `data/catalog.js` is
-**generated** from it (same shape the app already imports, so no app changes).
+`data/dataset.json` becomes the source of truth; `data/catalog.js` is
+**generated** from it in the exact shape the app already imports (no app changes).
 
 ```jsonc
 {
-  "meta": { "university": "MIT", "generatedBy": "ground-catalog", "sources": [...] },
+  "meta": {
+    "generatedBy": "ground-catalog", "runId": "…",       // runId passed in as an arg
+    "university": "MIT", "onetVersion": "29.x",
+    "generatedAt": "…"                                    // stamped by finalizer agent via `date -u`
+  },
   "careers": [{
     "id": "swe", "name": "Software Engineer",
-    "soc": ["15-1252.00"],                     // O*NET occupation code(s)
-    "responsibilities": ["..."],               // distilled from O*NET task statements
-    "skills": ["..."],                         // distilled from O*NET skills + posting requirements
-    "evidence": [{ "type": "onet", "url": "...", "quote": "..." }]
+    "grounding": "soc",                    // "soc" | "postings" — no forced SOC codes
+    "soc": ["15-1252.00"],                 // present only when grounding === "soc"
+    "responsibilities": ["…"], "skills": ["…"],
+    "distinctiveSkills": ["…"],            // skills shared by < 1/3 of the career set
+    "evidence": [{ "type": "onet", "url": "…", "quote": "…", "retrievedAt": "…" }]
   }],
   "courses": [{
-    "id": "6-1010", "name": "Fundamentals of Programming", "level": 1000,
+    "id": "mit-6-1010", "name": "Fundamentals of Programming",
+    "level": 1000,                         // deterministic prereq-depth mapping, see Phase B
+    "levelBasis": "no subject prerequisites",
     "dept": "EECS", "catalogCode": "6.1010",
-    "taughtSkills": ["..."],
-    "destinations": ["swe", "..."],
-    "evidence": [{ "type": "catalog", "url": "...", "quote": "official description" }],
-    "edgeEvidence": { "swe": { "confidence": 0.9, "matchedSkills": ["..."] } }
+    "taughtSkills": ["…"],
+    "destinations": ["swe"],
+    "edges": { "swe": { "confidence": 0.9, "matchedSkills": ["…"], "distinctive": true } },
+    "evidence": [{ "type": "catalog", "url": "…", "quote": "…", "retrievedAt": "…" }]
   }],
   "internships": [{
-    "id": "mnc-swe", "role": "Software Engineer Intern", "orgType": "MNC",
-    "exampleTitles": ["Software Engineering Intern (Stripe)", "..."],
-    "requiredSkills": ["..."],
-    "destinations": ["swe", "..."],
-    "evidence": [{ "type": "posting", "url": "...", "title": "...", "company": "..." }],
-    "edgeEvidence": { ... }
+    "id": "startup-swe", "role": "Software Engineer Intern", "orgType": "Startup",
+    "exampleTitles": ["Software Engineering Intern — Stripe"],
+    "requiredSkills": ["…"],
+    "destinations": ["swe"],
+    "edges": { … },
+    "evidence": [{ "type": "posting", "url": "…", "company": "…", "title": "…", "retrievedAt": "…", "snapshot": "data/sources/postings/…" }]
   }]
 }
 ```
 
-Level mapping: the app's 1000/2000/3000 grouping is preserved by mapping each
-university's numbering (e.g. MIT intro/foundation subjects → 1000, core → 2000,
-advanced undergraduate → 3000) during extraction.
+### Career grounding tiers
 
-## Workflow design (`.claude/workflows/ground-catalog.js`)
+- **SOC-clean** (swe, backend†, data-analyst, data-scientist, ml-engineer†, ux,
+  designer, quant, fin-analyst, consultant, researcher, biotech, economist):
+  grounded in O*NET task statements + skills, distilled by LLM with citations.
+- **Posting-grounded** (pm, founder, bizops, growth, ibanking): no honest SOC
+  match exists (nearest SOC codes describe materially different jobs). These are
+  grounded in aggregated live postings + curated profile, marked
+  `"grounding": "postings"` and listed as lower-provenance in the review report.
+  Phase A is *forbidden* from asserting a SOC below a stated match bar — a wrong
+  SOC silently redefines the career while looking evidence-backed.
+- **† Same-SOC collision rule**: swe/backend both resolve to 15-1252.00, and
+  data-scientist/ml-engineer gravitate to 15-2051. When two careers share a SOC,
+  their skill profiles must be differentiated using posting-derived skills
+  before both are kept; otherwise they are merged or flagged for the human
+  reviewer. Identical profiles would produce identical destination sets — two
+  hubs pretending to be distinct paths.
 
-Reusable via the Workflow tool: `Workflow({name: "ground-catalog", args: {...}})`.
+## Division of labor: deterministic scripts vs. agents
 
-**Args** (all optional, defaulting to a working config):
-`{ university, catalogUrls: [...], departments: [...], careers: [...ids or "existing"],
-   companies: { greenhouse: [...], lever: [...] }, orgTypeMap: {...}, pilot: false }`
+The workflow script body has no filesystem or network access — only agents do,
+and LLM agents are unreliable at bulk transcription. So all mechanical work
+lives in committed, unit-testable scripts that agents *execute via Bash*:
+
+| Script | Role |
+|---|---|
+| `scripts/onet-extract.mjs` | Given SOC codes and the unzipped O*NET text DB, emit task statements / skills / technology skills / work activities / knowledge as JSON. (The one-time `curl` + `unzip` of the 13 MB DB is a documented Bash step.) |
+| `scripts/parse-catalog-html.mjs` | Parse `courseblock` HTML (saved by `curl`) into course JSON: code, title, prereq text, units, description. Also computes the deterministic level mapping. |
+| `scripts/fetch-postings.mjs` | `curl` Greenhouse/Lever boards (curl inherits the proxy config; Node fetch does not), filter titles on intern/co-op patterns with entity-decoding and tag-stripping, write snapshots + filtered JSON, and report per-company counts. **0 intern postings ⇒ recorded as a company-level failure.** |
+| `scripts/validate-dataset.mjs` | Every gate in "What usable means" above, including the distributional gates. Exits non-zero on any failure. |
+| `scripts/build-catalog.mjs` | `dataset.json` → `data/catalog.js` (existing export shape), stripping provenance, rejecting em/en dashes and shape violations deterministically. |
+
+Agents do only semantic work: SOC mapping, distillation, relevance filtering,
+skill labeling, edge judging, refutation, report writing.
+
+### State passing (no giant payloads through prompts)
+
+Each phase agent **Writes its own output** to `data/sources/<phase>/<key>.json`
+and returns a small schema-validated manifest to the workflow script: `{ path,
+counts, sha256, failures[] }` (hash via `sha256sum` in Bash). Later phases
+receive file paths, not payloads. Phase E re-validates the files themselves, so
+nothing depends on an LLM having faithfully transcribed bulk data. Resume is
+file-based: each agent checks for its own valid output file before doing work,
+which also makes re-runs cheap and diffs inspectable.
+
+## Workflow phases (`.claude/workflows/ground-catalog.js`)
+
+Invoked as `Workflow({name: "ground-catalog", args: {…}})`.
+
+**Args** (all with working defaults): `{ runId, university, catalogUrls,
+departments: "auto" | […], careers: "existing" | […], companies: { greenhouse:
+[…], lever: […] }, extraInternSources: true, pilot: false }`.
+`departments: "auto"` derives the department list *from* the career set (every
+career must be reachable from courses in ≥ 2 departments where plausible) —
+crawl scope must never masquerade as labor-market fact. `runId` is a required
+arg because workflow scripts cannot mint timestamps.
+
+### Phase 0 — Setup (one agent)
+
+Downloads/unzips the O*NET DB (skipped if present), records the O*NET version
+and `date -u` timestamp, probes each configured source, and returns a manifest
+of what is reachable. Hard-fails the run early if a required source is down.
 
 ### Phase A — Career grounding (parallel per career)
 
-One agent per career: map career name → O*NET SOC code (search onetonline.org),
-fetch the occupation summary, extract task statements and skills, distill into
-3 responsibilities + 4 skills in the catalog's existing voice, with citations.
-Structured output enforced by JSON schema.
+SOC-clean careers: agent maps name → SOC (justifying the match), runs
+`onet-extract.mjs`, distills 3 responsibilities + 4 skills in the catalog's
+existing voice, and computes candidate `distinctiveSkills`. Posting-grounded
+careers: agent aggregates skills from Phase C-style posting evidence plus
+degree-map corroboration via web search. After the parallel step, a single
+cross-career pass computes skill inverse-frequency across the whole career set
+(generic skills like "critical thinking" appear everywhere and carry no edge
+signal) and enforces the same-SOC collision rule. Output schema bans em/en
+dashes at the source.
 
 ### Phase B — Course harvest (parallel per department)
 
-One agent per department: fetch the catalog listing page(s), extract every
-undergraduate course (code, title, level, description), then keep only courses
-relevant to the career set and label each with `taughtSkills` inferred from the
-official description text (quotes retained as evidence). Structured output.
+Agent: `curl` the catalog page(s) to disk, run `parse-catalog-html.mjs` (431
+courses parse deterministically; no LLM enumeration of 600 KB pages), then the
+LLM pass only (a) filters the parsed list to courses plausibly relevant to any
+career in the set and (b) labels `taughtSkills` on that shortlist, quoting the
+official description. **Level mapping is deterministic**, computed in the
+parser from prerequisite depth (no subject prereqs → 1000; 1000-level prereqs →
+2000; deeper chains or explicitly advanced → 3000), recorded per-course as
+`levelBasis`; the LLM only breaks ties, and every tie-break is listed in the
+review report for human confirmation.
 
-### Phase C — Internship harvest (parallel per company, then cluster)
+### Phase C — Internship harvest (parallel per source, then per orgType)
 
-Mechanical fetch: agents pull Greenhouse/Lever JSON for each seed company, filter
-titles matching intern/co-op patterns. Semantic pass: one agent per orgType
-clusters raw titles into 3–4 canonical intern roles, extracts `requiredSkills`
-from posting descriptions, keeps posting URLs as evidence.
+`fetch-postings.mjs` pulls and pre-filters each company board; the SimplifyJobs
+list and employer-page searches supplement non-tech coverage. Per orgType, one
+agent clusters raw titles into 3–4 canonical intern roles and extracts
+`requiredSkills` from posting text, with ≥ 2 distinct companies per kept role.
+Validation enforces a minimum company count per orgType; if an orgType cannot
+be evidenced (genuine small businesses rarely use ATS APIs), the taxonomy
+shrinks or the gap is flagged — the map must not imply evidence it lacks.
 
-### Phase D — Edge inference + adversarial verification (pipeline)
+### Phase D — Edge inference + adversarial verification
 
-For each course and internship, a judge agent scores skill overlap against every
-career's grounded skill profile and proposes `destinations` with confidence and
-matched skills. A second, independent skeptic agent tries to **refute** each
-proposed edge ("would selecting this course genuinely keep this career
-reachable?"); edges failing verification are dropped. Degree expectations from
-the product design are enforced as *ranking*, not invention: 1000-level courses
-keep their top ~5 edges, 3000-level their top ~3, internships their top ~3–4.
+**Judge (one agent per input, not per pair):** each course/internship agent
+receives all career profiles (compact: distinctive skills + top work
+activities) and proposes destinations. Scoring must rest on *distinctive*
+overlap: each proposed edge needs ≥ 1 matched skill shared by < 1/3 of careers,
+and a score margin over the median career — generic-skill matches produce a
+near-complete bipartite graph that top-K would merely truncate.
 
-### Phase E — Assemble, validate, generate
+**Skeptic (one agent per input, batch-refuting its 3–5 proposed edges):** runs
+only on edges in the uncertain band (confidence 0.40–0.80; extremes are
+auto-accepted/rejected). Crucially, the skeptic gets *different evidence* than
+the judge — real intern/new-grad postings for the target career ("do they ask
+for this course's subject matter?") and the university's own degree-map pages —
+so it can catch saturating-but-plausible edges the judge's own evidence cannot.
+Judge/skeptic disagreement rate is measured; near-0% rejection means the
+skeptic is decorative and the run report says so.
 
-Deterministic scripts (not agents):
-- `scripts/validate-dataset.mjs` — schema, referential integrity (every
-  destination id exists), degree bounds, every node/edge has ≥1 evidence entry.
-- `scripts/build-catalog.mjs` — `dataset.json` → `data/catalog.js` (existing
-  shape; provenance kept in dataset.json only).
-- `node --test` must pass (existing catalog-integrity tests).
+**Degree shaping as ranking, not invention:** 1000-level keep top ~5 surviving
+edges, 2000-level ~4, 3000-level ~3, internships ~3–4. In-degree and
+separation are *not* controlled here — they are enforced by the Phase E
+distributional gates, which can fail the whole dataset even when every
+individual edge verified.
 
-A final agent writes `data/review-report.md`: every node and edge with its
-evidence, flagged low-confidence items first, for human sign-off before the
-generated catalog is committed over the illustrative one.
+**Confidence must reach the UI honestly:** `score.js` renders internship edges
+as the boldest links (strength 1.0). A low-confidence internship edge drawn
+bold would contradict the evidence. Resolution: per-kind confidence floors
+scale with rendered strength — internship edges require ≥ 0.75, 3000-level
+≥ 0.70, 2000 ≥ 0.60, 1000 ≥ 0.50. (Rendering confidence-weighted strength is a
+possible later app change; floors keep the current app honest without one.)
 
-### Pilot mode
+### Phase E — Assemble, validate, report (finalizer agent executing scripts)
 
-`pilot: true` restricts to 3 careers, 1 department, 2 companies — proves the
-pipeline end-to-end cheaply before a full run.
+A finalizer agent (agents, not the script body, have Bash/Write) merges phase
+outputs into `data/dataset.json`, runs `validate-dataset.mjs` (all gates), runs
+`build-catalog.mjs`, runs `node --test`, and returns the verbatim outputs. On
+gate failure the dataset is still written — with the validator report — so
+humans can inspect; only `catalog.js` generation is withheld. A reporter agent
+then writes `data/review-report.md`: every node and edge with evidence,
+confidence, and age; flagged items first (level tie-breaks, posting-grounded
+careers, internship-starved careers, same-SOC merges, dead-source companies).
+
+### Pilot mode — proves plumbing, not quality
+
+`pilot: true` restricts scope (≈3 careers, 1 department, 2–3 companies) and
+**skips the distributional gates** (they are meaningless at pilot scale — with
+3 careers, saturation is indistinguishable from success). The pilot's exit
+criteria are mechanical: every phase produces schema-valid files, scripts run,
+manifests reconcile, judge/skeptic disagreement is measured. Quality is only
+assessed on a full run against the full gate set.
+
+## Test-suite decoupling (prerequisite, done before any catalog replacement)
+
+`test/score.test.js` behavioral tests hardcode illustrative ids (`cs101`,
+`ml301`, `mnc-data`…). They move to a frozen fixture
+(`test/fixtures/catalog.js`, a verbatim copy of the illustrative dataset) so
+behavior stays tested forever, while the data-integrity guards keep running
+against the live bundled `data/catalog.js` — whatever dataset ships must
+satisfy them. New unit tests cover the deterministic scripts (parser, level
+mapping, validator gates, generator sanitation).
 
 ## Failure handling
 
-- Unreachable source → agent logs it, phase degrades (node marked
-  `"evidence": []` fails validation, so gaps are visible, never silent).
-- Intermediate outputs written to `data/sources/*.json` so re-runs resume
-  cheaply and results are inspectable/diffable.
-- Workflow resume (`resumeFromRunId`) covers mid-run failures.
+- Unreachable source → Phase 0 hard-fails (required) or records degradation
+  (supplementary); a node without evidence fails validation — gaps are visible,
+  never silent.
+- `200 []` from Lever / zero intern matches → per-company failure in the
+  manifest, surfaced in the review report, counted against orgType minimums.
+- Mid-run death → `resumeFromRunId` plus file-based resume (agents skip work
+  whose valid output already exists).
+- Evidence staleness → every evidence entry carries `retrievedAt` and the run
+  records the O*NET version; posting snapshots under `data/sources/` are the
+  durable evidence (URLs rot within weeks of a req closing). The review report
+  surfaces evidence age; posting-derived nodes should be re-run each season.
 
-## Open questions for review
+## Licensing and ethics
 
-1. Is per-career / per-department / per-company fan-out the right granularity?
-2. Should mechanical JSON fetching (Greenhouse/Lever) be a script agents call,
-   rather than agent WebFetch, for reliability and token cost?
-3. How to keep the O*NET → career mapping honest for fuzzy careers
-   ("Startup Founder", "BizOps") that have no clean SOC code?
-4. Licensing/attribution requirements for O*NET and catalog excerpts.
-5. Should edge confidence surface in the UI (link strength already exists)?
+- O*NET: public, requires attribution ("This page includes information from
+  O*NET … by the U.S. Department of Labor" — added to README and dataset meta).
+- Course catalog: short quotes of official descriptions with citation (fair
+  use); no wholesale republication.
+- Job postings: titles/URLs/short requirement quotes with attribution;
+  snapshots kept locally for audit, not republished.
+- LinkedIn: not used — scraping violates its ToS and is bot-blocked anyway.
+
+---
+
+## Review findings that shaped v2 (changelog from v1)
+
+Two independent adversarial reviews were run on v1: engineering feasibility and
+product effectiveness. Every finding and its disposition:
+
+**Feasibility** — (1) Phase E was assigned to "deterministic scripts" the
+workflow body cannot execute → finalizer-agent pattern. (2) No defined path
+from agent outputs to disk → Write-plus-manifest protocol with hashes, Phase E
+re-validates files. (3) 600 KB / 431-course catalog pages can't go through
+WebFetch → deterministic `courseblock` parser, LLM touches only the parsed
+shortlist. (4) Multi-MB Greenhouse payloads (Stripe 3.7 MB, 12/503 interns) →
+`curl` + `jq` pre-filter script. (5) Skeptic pruning + top-K can strand inputs
+or orphan careers, which the test suite rejects → validator enforces
+test-suite invariants with explicit repair rules. (6) LLM text routinely emits
+em dashes the tests ban → schema pattern ban + deterministic sanitation.
+(7) Lever returns `200 []` for bad slugs → zero-posting = logged failure with
+orgType minimums. (8) Per-career HTML scraping of O*NET is fragile and
+rate-limit-prone → one bulk download, deterministic extraction. (9) Required
+`soc` field would make agents hallucinate codes for founder/PM/BizOps →
+grounding tiers, SOC optional. (10) No `Date.now`/filesystem in script body →
+`runId` as arg, timestamps from agent Bash, file-based resume. (11) Per-edge
+skeptic invocations dominate cost → skeptic per input, confidence-banded.
+(12) Level mapping by agent vibes → deterministic prereq-depth rule with
+audited tie-breaks.
+
+**Effectiveness** — (1) Generic O*NET skills ("critical thinking") match every
+career, saturating the graph → distinctive-skill requirement, inverse-frequency
+weighting, margin-over-median. (2) Top-K bounds out-degree but hub careers
+absorb the map → hard distributional gates (in-degree cap, Gini, pairwise
+Jaccard) that can fail a dataset even when every edge verified. (3) Fuzzy
+careers grounded to wrong SOC is worse than ungrounded → posting-grounded tier,
+SOC match bar. (4) Greenhouse/Lever structurally starve non-tech orgTypes →
+SimplifyJobs + employer-page supplements, flag-don't-pad rule, orgType
+minimums. (5) Crawl-scope gaps render as "path closed" in the UI → departments
+derived from career set, zero-course-support careers fail validation.
+(6) Confidence computed then discarded while internships render boldest →
+per-kind confidence floors scaled to rendered strength. (7) Skill overlap is
+requirement-side evidence, not outcomes; dropping the disclaimer would be
+dishonest → banner rewritten not removed, "grounded" reserved, outcome-survey
+corroboration where available. (8) Level mapping drives strength and degree →
+same fix as feasibility 12. (9) Judge and skeptic sharing evidence makes
+verification decorative → skeptic gets different evidence and measured
+disagreement rates. (10) Posting URLs rot in weeks → `retrievedAt`, snapshots
+as canonical evidence, re-run cadence. (11) Same-SOC careers collapse into
+identical hubs → collision rule (differentiate via postings, else merge/flag).
+(12) Pilot can't surface distributional failures → pilot demoted to plumbing
+proof; quality gates evaluated only at full scale before any catalog
+replacement.
+
+**Own finding** — behavioral tests hardcode illustrative ids and would break on
+any regenerated catalog → fixture decoupling as a prerequisite step.
