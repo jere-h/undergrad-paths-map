@@ -4,7 +4,7 @@ export const meta = {
   whenToUse: 'Use to produce an evidence-grounded dataset for this repo, per docs/grounding-workflow-plan.md. Outputs are namespaced by args.industry (data/datasets/<industry>.json, data/catalogs/<industry>.js); apply: true registers the catalog as an app tab on gate-passing full runs. Pass {pilot: true} to prove the plumbing cheaply first. Reusable for other industries: pass industry, careers (plain strings are fine), companies (any orgType labels), catalogPages; pass tiers to override per-stage model/effort.',
   phases: [
     { title: 'Setup', detail: 'O*NET bulk DB, posting boards, run metadata' },
-    { title: 'Careers', detail: 'batched grounding + cross-career distinctiveness' },
+    { title: 'Careers', detail: 'batched grounding + distinctiveness + scope-overlap adjacency' },
     { title: 'Courses', detail: 'parse catalog pages, shortlist, label taught skills' },
     { title: 'Internships', detail: 'cluster intern roles across org types' },
     { title: 'Edges', detail: 'batched judges; skeptics only on the uncertain band' },
@@ -79,6 +79,7 @@ const DEFAULTS = {
   maxCoursesPerDept: 12,
   careerBatchSize: 6, // careers grounded per agent
   skepticBatchSize: 12, // banded edges verified per agent
+  inferAdjacency: true, // judgment tier: infer scope-overlap edges between careers
   onetZipUrl: 'https://www.onetcenter.org/dl_files/database/db_29_1_text.zip',
   // apply: true registers the generated catalog as an app tab (via
   // scripts/register-catalog.mjs) when a full, gate-passing run finishes.
@@ -120,6 +121,7 @@ const TIER_DEFAULTS = {
   setup: { model: 'sonnet', effort: 'low' }, // scripted bash steps
   career: { model: 'sonnet', effort: 'medium' }, // batched distillation
   distinctiveness: {}, // inherit: whole-set judgment gates edge quality
+  adjacency: {}, // inherit: domain judgment of career scope overlap
   courses: { model: 'sonnet', effort: 'medium' }, // shortlist + label parsed JSON
   internships: { model: 'sonnet', effort: 'medium' }, // cluster prefiltered titles
   judge: { model: 'sonnet', effort: 'medium' }, // batched edge proposals
@@ -250,20 +252,46 @@ Return the manifest: path=${ROOT}/careers, ids=[career ids successfully written]
   const failed = cfg.careers.map((c) => c.id).filter((id) => !groundedIds.includes(id))
   if (failed.length) log(`careers with no honest grounding this run: ${failed.join(', ')} (dropped, not faked)`)
 
-  // Barrier is genuine: distinctiveness is a property of the whole career set.
-  // The agent writes ONE new file; it never edits the career files (LLM
-  // read-modify-write of evidence files is a corruption risk).
-  const distinct = await agent(
-    `Cross-career distinctiveness pass for the ground-catalog workflow. Read every career file in ${ROOT}/careers/ (ids: ${groundedIds.join(', ')}).
+  // Two whole-set judgment passes over the grounded careers, concurrently. Each
+  // writes ONE new file and never edits the career files (LLM read-modify-write
+  // of evidence files is a corruption risk).
+  const distinctFn = () =>
+    agent(
+      `Cross-career distinctiveness pass for the ground-catalog workflow. Read every career file in ${ROOT}/careers/ (ids: ${groundedIds.join(', ')}).
 1. Across all rawSkillPool lists, identify skills effectively shared by more than 1/3 of the careers (normalize wording: "SQL" == "SQL fluency"). Those are GENERIC and cannot carry an edge.
 2. For each career, select "distinctiveSkills": the subset of its rawSkillPool shared by fewer than 1/3 of careers, most distinctive first (aim for 5-10; if a career has fewer than 3, record it in failures).
 3. Same-SOC collision rule: if two careers cite the same SOC code (or near-identical pools, e.g. swe/backend), differentiate their distinctiveSkills using posting evidence under ${ROOT}/postings/; if you cannot differentiate with real evidence, record "collision: <id> <id>" in your output so the review report flags a merge decision.
 Write ONE file ${ROOT}/careers/_distinctive.json:
 { "distinctiveSkills": { "<careerId>": ["..."] }, "collisions": ["<id> <id>", ...] }
 Do NOT edit the career files themselves. Return the manifest: path=${ROOT}/careers/_distinctive.json, ids=[career ids covered], failures as above.`,
-    { ...tier('distinctiveness'), label: 'distinctiveness', phase: 'Careers', schema: MANIFEST }
-  )
-  return { groundedIds, distinct }
+      { ...tier('distinctiveness'), label: 'distinctiveness', phase: 'Careers', schema: MANIFEST }
+    )
+
+  // Adjacency: the JUDGMENT tier. Here you deliberately assert relationships
+  // that are professionally true even where no course/posting evidence proves
+  // them, so the map expresses reachability a domain expert would affirm (e.g.
+  // a Data Scientist qualification also keeps a Data Analyst role reachable
+  // because their scope overlaps). The assembler propagates these as softer,
+  // clearly-marked "inferred" edges - they enrich reachability, they do not
+  // fabricate grounded evidence.
+  const adjacencyFn = () =>
+    cfg.inferAdjacency === false
+      ? Promise.resolve({ ok: true, path: '(skipped)', ids: [], notes: 'inferAdjacency=false' })
+      : agent(
+          `Career-adjacency judgment pass for the ground-catalog workflow. Read every career file in ${ROOT}/careers/ (ids: ${groundedIds.join(', ')}) and their responsibilities/skills.
+Your job is DOMAIN JUDGMENT, not evidence lookup: decide, for ordered pairs of careers, how much preparing for career FROM also keeps career TO reachable, because their day-to-day scope overlaps. This is where you express relationships that are arguably true even without grounding data.
+Rules:
+- Directional. weight(from->to) in [0,1] = "someone who built toward FROM is how-much-ready for a TO role, given overlapping scope/skills". Asymmetric is expected: a Data Scientist path strongly opens Data Analyst (a scope subset, ~0.7-0.8), but Data Analyst opens Data Scientist only weakly (~0.3-0.4, DS needs more).
+- Only emit pairs you would defend to a practitioner. Unrelated careers (e.g. Data Scientist -> Investment Banking) get no pair. Aim for the few strong, obvious overlaps per career, not a dense matrix; weight >= 0.5 is what the assembler will actually use.
+- Ground the JUDGMENT in the careers' own responsibilities/skills you just read, and give a one-line rationale citing the overlap. Do not invent skills.
+Write ONE file ${ROOT}/careers/_adjacency.json:
+{ "pairs": [{ "from": "<careerId>", "to": "<careerId>", "weight": <0-1>, "rationale": "<overlap in one line>" }] }
+Only use career ids among: ${groundedIds.join(', ')}. Return the manifest: path=${ROOT}/careers/_adjacency.json, ids=["from->to" for each pair], notes=count.`,
+          { ...tier('adjacency'), label: 'adjacency', phase: 'Careers', schema: MANIFEST }
+        )
+
+  const [distinct, adjacency] = await parallel([distinctFn, adjacencyFn])
+  return { groundedIds, distinct, adjacency }
 }
 
 const parseSteps = (page, slug) =>
@@ -440,7 +468,7 @@ const report = await agent(
 Edge pipeline stats for context: ${autoAccepted} auto-accepted (>= ${AUTO_ACCEPT}), ${autoDropped} below floor, ${bandedPairs.length} banded of which skeptics kept ${keptByskeptic} (fail-closed: unreviewed banded edges drop).
 Structure, flagged items FIRST:
 1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before this catalog ships as an app tab (registered via apply: true).
-2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding, dropped inputs (meta.flags.droppedInputs), internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), dead/empty company boards, and whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run).
+2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding (meta.flags.unsupportedCareers), dropped inputs (meta.flags.droppedInputs), inferred edges (meta.flags.inferredEdges) and careers reachable ONLY via inference (meta.flags.inferenceOnlyCareers) - state plainly that these rest on scope-overlap judgment, not direct evidence, and are drawn softer, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), edges trimmed for balance (meta.flags.edgesTrimmedForBalance), dead/empty company boards, and whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run).
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
 4. Staleness: postings churn in weeks; recommend a re-run cadence.
 Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=${REPORT}, ids=[]).`,

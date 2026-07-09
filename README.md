@@ -93,6 +93,16 @@ before the generated catalog replaces the illustrative one (pass
 `scripts/` (parser, O*NET extractor, posting fetcher, validator, assembler,
 generator), each unit-tested and runnable standalone.
 
+**Judgment tier (adjacency inference).** Beyond edges that direct evidence
+supports, an adjacency agent judges how much careers' scopes overlap
+(directional, e.g. Data Scientist → Data Analyst strong, reverse weak). The
+assembler propagates *inferred* edges along it — so a Data Scientist
+qualification also keeps a Data Analyst path reachable — dampened, capped, and
+never shadowing a grounded edge. The app draws them thinner/dashed and labels
+them "scope overlap"; the dataset flags their extent. This expresses
+arguably-true relationships without fabricating grounded claims. Disable with
+`args.inferAdjacency: false`.
+
 **Cost tiering.** Mechanical stages (setup, posting fetch, finalize) default
 to small/cheap models; per-item stages (career distillation, course labeling,
 edge judging) default to a mid-tier model at medium effort; only the

@@ -351,6 +351,61 @@ test("assemble balances hubs and drops zero-support careers into a flag", async 
   assert.ok(bigDeg / out.courses.reduce((s, c) => s + c.destinations.length, 0) <= 0.25 + 1e-9);
 });
 
+test("propagateAdjacency infers scope-overlap edges, dampened, capped, non-shadowing, non-chaining", async () => {
+  const { propagateAdjacency } = await import("../scripts/assemble-dataset.mjs");
+  const rows = [
+    // input directly opens data-scientist strongly and data-analyst weakly.
+    {
+      id: "ds-intern",
+      edges: [{ career: "data-scientist", confidence: 0.9, matchedSkills: ["x"], distinctive: true }],
+    },
+    // input already directly reaches data-analyst; inference must not shadow it.
+    {
+      id: "sql-course",
+      edges: [{ career: "data-analyst", confidence: 0.8, matchedSkills: ["sql"], distinctive: true }],
+    },
+  ];
+  const adjacency = {
+    pairs: [
+      { from: "data-scientist", to: "data-analyst", weight: 0.8, rationale: "overlapping analytics scope" },
+      { from: "data-scientist", to: "founder", weight: 0.2 }, // below minWeight, ignored
+      { from: "data-analyst", to: "data-scientist", weight: 0.5 }, // would chain, but only from direct
+    ],
+  };
+  const added = propagateAdjacency(rows, adjacency);
+  assert.equal(added, 1, "one inferred edge added (DS -> DA)");
+  const daEdge = rows[0].edges.find((e) => e.career === "data-analyst");
+  assert.ok(daEdge && daEdge.inferred, "DS input now infers data-analyst");
+  assert.equal(daEdge.via, "data-scientist");
+  assert.ok(Math.abs(daEdge.confidence - 0.9 * 0.8 * 0.85) < 1e-6, "dampened by weight * damping");
+  assert.ok(!rows[0].edges.some((e) => e.career === "founder"), "sub-threshold adjacency skipped");
+  // sql-course directly reaches data-analyst; no inferred data-scientist should
+  // be added off the inferred DA (no chaining) and the direct DA is untouched.
+  assert.ok(!rows[1].edges.some((e) => e.inferred), "no chaining off non-direct edges");
+});
+
+test("assemble surfaces inferred edges, softer, and flags inference-only careers", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });
+  const out = assemble({
+    meta: { runId: "r", pilot: true }, // pilot: skip balancing so we test inference in isolation
+    careerFiles: [{ id: "ds", name: "DS" }, { id: "da", name: "DA" }],
+    distinctive: null,
+    adjacency: { pairs: [{ from: "ds", to: "da", weight: 0.8, rationale: "overlap" }] },
+    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 3000, dept: "D" }] }],
+    internshipFiles: [],
+    judgeFiles: [{ proposals: { c1: [prop("ds", 0.9)] } }],
+    verdictFiles: [],
+  });
+  const c1 = out.courses.find((c) => c.id === "c1");
+  assert.deepEqual(c1.destinations.sort(), ["da", "ds"], "inferred da added alongside direct ds");
+  assert.deepEqual(c1.inferred, ["da"], "da marked inferred for the generator");
+  assert.ok(c1.edges.da.inferred && c1.edges.da.via === "ds");
+  assert.equal(out.meta.flags.inferredEdges, 1);
+  assert.deepEqual(out.meta.flags.inferenceOnlyCareers, ["da"], "da is reachable only via inference");
+  assert.ok(out.careers.find((c) => c.id === "da"), "da rescued into the map by inference");
+});
+
 test("assemble merges judge+verdict files, drops zero-edge inputs visibly, flags starved careers", async () => {
   const { assemble } = await import("../scripts/assemble-dataset.mjs");
   const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });

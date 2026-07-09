@@ -1,0 +1,24 @@
+{
+  "pairs": [
+    { "from": "data-scientist", "to": "data-analyst", "weight": 0.75, "rationale": "DS scope subsumes DA: SQL/querying, data cleaning, dashboards, and presenting findings to management are all DS responsibilities." },
+    { "from": "data-scientist", "to": "bi-analyst", "weight": 0.6, "rationale": "DS uses BI and data-analysis software plus visualization/reporting for decision-makers, which is BI's core reporting scope." },
+    { "from": "data-scientist", "to": "ml-engineer", "weight": 0.55, "rationale": "DS applies data mining, feature selection, and machine learning to large datasets, the modeling core MLE builds on." },
+    { "from": "data-scientist", "to": "statistician", "weight": 0.55, "rationale": "DS designs surveys/sampling methods and applies applied statistics, overlapping the statistician's method-selection and design work." },
+    { "from": "data-analyst", "to": "bi-analyst", "weight": 0.75, "rationale": "DA's SQL querying, dashboard building, and stakeholder reporting map almost directly onto BI's report/dashboard responsibilities." },
+    { "from": "data-analyst", "to": "analytics-engineer", "weight": 0.5, "rationale": "DA's advanced SQL and dashboard building overlap AE, but AE additionally requires dbt modeling and version-controlled analytics code." },
+    { "from": "data-analyst", "to": "data-scientist", "weight": 0.35, "rationale": "DA's SQL and analysis are a foundation, but DS additionally needs ML, feature selection, and statistical modeling DA does not cover." },
+    { "from": "bi-analyst", "to": "data-analyst", "weight": 0.65, "rationale": "BI's querying, dashboard maintenance, and stakeholder reporting cover DA's core, though DA leans more on production SQL and A/B testing." },
+    { "from": "analytics-engineer", "to": "data-analyst", "weight": 0.7, "rationale": "AE's advanced SQL, data modeling, and BI dashboard delivery cover DA's core scope with room to spare." },
+    { "from": "analytics-engineer", "to": "data-engineer", "weight": 0.55, "rationale": "AE's data modeling (staging/intermediate/mart), warehouse SQL, and ETL/reverse-ETL pipelines overlap DE's pipeline and warehouse work." },
+    { "from": "analytics-engineer", "to": "bi-analyst", "weight": 0.6, "rationale": "AE's KPI definition/instrumentation and self-service dashboard delivery are exactly BI's reporting and dashboard core." },
+    { "from": "data-engineer", "to": "data-architect", "weight": 0.8, "rationale": "Same SOC (15-1243.00): both design warehouse schemas/data models, set storage and access standards, and integrate new sources." },
+    { "from": "data-architect", "to": "data-engineer", "weight": 0.8, "rationale": "Same SOC (15-1243.00): DArch's schema/data-modeling, standards enforcement, and ETL/cloud integration are DE's day-to-day work." },
+    { "from": "data-engineer", "to": "analytics-engineer", "weight": 0.55, "rationale": "DE's data modeling, warehouse SQL, and ETL pipeline development feed directly into AE's warehouse modeling and syncs." },
+    { "from": "ml-engineer", "to": "data-scientist", "weight": 0.6, "rationale": "MLE's model design/evaluation and analysis of complex unstructured datasets overlap DS's modeling and analysis responsibilities." },
+    { "from": "statistician", "to": "data-scientist", "weight": 0.6, "rationale": "Statistician's method selection, sampling/experiment design, and data cleaning/weighting are DS's analytical foundation." },
+    { "from": "statistician", "to": "data-analyst", "weight": 0.5, "rationale": "Statistician's data cleaning/validation, trend identification, and clear reporting map onto DA's analysis and stakeholder communication." },
+    { "from": "statistician", "to": "or-analyst", "weight": 0.5, "rationale": "Statistician's experimental design, model validation, and math methods overlap OR's model formulation and validation." },
+    { "from": "or-analyst", "to": "statistician", "weight": 0.5, "rationale": "OR's mathematical/simulation modeling, statistical data-requirement judgment, and validation overlap the statistician's method work." },
+    { "from": "or-analyst", "to": "data-scientist", "weight": 0.5, "rationale": "OR's mathematical/simulation modeling and management-facing analysis overlap DS's modeling and communication of findings." }
+  ]
+}

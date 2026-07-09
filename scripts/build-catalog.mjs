@@ -39,26 +39,36 @@ export function generateCatalog(ds) {
       if (!careerIds.has(d)) throw new Error(`${label}: unknown destination ${d}`);
       return d;
     });
+  // Inferred destinations (adjacency judgment tier) are surfaced so the app can
+  // render them softer; only those still present after edge resolution count.
+  const inferredOf = (item) =>
+    Array.isArray(item.inferred) ? item.inferred.filter((d) => (item.destinations || []).includes(d)) : [];
   const courses = (ds.courses || []).map((c) => {
     if (![1000, 2000, 3000].includes(c.level)) throw new Error(`course ${c.id}: bad level ${c.level}`);
-    return {
+    const out = {
       id: clean(c.id, "course id"),
       name: clean(c.name, `course ${c.id} name`),
       level: c.level,
       dept: clean(c.dept, `course ${c.id} dept`),
       destinations: dests(c.destinations, `course ${c.id}`),
     };
+    const inf = inferredOf(c);
+    if (inf.length) out.inferred = inf;
+    return out;
   });
   const orgTypes = new Set((ds.meta || {}).orgTypes || ["MNC", "Small Business", "Startup"]);
   const internships = (ds.internships || []).map((i) => {
     if (!orgTypes.has(i.orgType))
       throw new Error(`internship ${i.id}: orgType ${JSON.stringify(i.orgType)} not in meta.orgTypes`);
-    return {
+    const out = {
       id: clean(i.id, "internship id"),
       role: clean(i.role, `internship ${i.id} role`),
       orgType: i.orgType,
       destinations: dests(i.destinations, `internship ${i.id}`),
     };
+    const inf = inferredOf(i);
+    if (inf.length) out.inferred = inf;
+    return out;
   });
 
   const block = (items) =>

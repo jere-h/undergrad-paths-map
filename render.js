@@ -337,7 +337,11 @@ export function openCareerPanel(career, info, contributors, allReachers) {
     const group = document.createElement("span");
     group.className = "muted";
     const isActive = contributors.some((c) => c.id === reacher.id);
-    group.textContent = isActive ? `${reacher.group}, selected` : reacher.group;
+    // An inferred reacher opens this career via scope overlap, not a direct
+    // skill match; label it so the softer link is explained, not mysterious.
+    const viaOverlap = reacher.inferred && reacher.inferred.has(career.id);
+    const suffix = viaOverlap ? " (scope overlap)" : "";
+    group.textContent = (isActive ? `${reacher.group}, selected` : reacher.group) + suffix;
     li.append(name, group);
     list.appendChild(li);
   });

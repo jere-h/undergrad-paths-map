@@ -22,6 +22,11 @@
 // course strength rises with level.
 const COURSE_STRENGTH = { 1000: 0.35, 2000: 0.6, 3000: 0.85 };
 const INTERNSHIP_STRENGTH = 1.0;
+// Inferred edges (a career reached only because its scope overlaps one the
+// input directly opens, e.g. Data Scientist -> Data Analyst) are real but
+// softer: they draw thinner/dottier and contribute less support than a
+// directly-grounded edge of the same input.
+const INFERRED_MULTIPLIER = 0.55;
 
 // Tuning for the convergence layer.
 const STRONG_REF = 2.2; // support at which a career reads as fully hot / large
@@ -59,6 +64,7 @@ export function allInputs(catalog) {
     level: c.level,
     group: `Level ${c.level}`,
     destinations: Array.isArray(c.destinations) ? c.destinations : [],
+    inferred: new Set(Array.isArray(c.inferred) ? c.inferred : []),
   }));
 
   const fromInternships = internships.map((i) => ({
@@ -68,6 +74,7 @@ export function allInputs(catalog) {
     orgType: i.orgType,
     group: i.orgType,
     destinations: Array.isArray(i.destinations) ? i.destinations : [],
+    inferred: new Set(Array.isArray(i.inferred) ? i.inferred : []),
   }));
 
   return fromCourses.concat(fromInternships);
@@ -83,6 +90,19 @@ export function inputStrength(input) {
   if (input.kind === "internship") return INTERNSHIP_STRENGTH;
   const s = COURSE_STRENGTH[input.level];
   return typeof s === "number" ? s : 0.5;
+}
+
+/**
+ * edgeStrength(input, careerId) -> number in (0,1]
+ * Strength of one link. Equal to inputStrength for a directly-grounded edge;
+ * dampened for an inferred (scope-overlap) edge so it draws softer and adds
+ * less convergence support than direct evidence from the same input.
+ */
+export function edgeStrength(input, careerId) {
+  const base = inputStrength(input);
+  return input && input.inferred && input.inferred.has(careerId)
+    ? base * INFERRED_MULTIPLIER
+    : base;
 }
 
 /**
@@ -160,10 +180,9 @@ export function analyze(selectedIds, catalog) {
 
   const raw = new Map(); // careerId -> { support, supporters }
   inputs.forEach((input) => {
-    const w = inputStrength(input);
     input.destinations.forEach((careerId) => {
       const cur = raw.get(careerId) || { support: 0, supporters: 0 };
-      cur.support += w;
+      cur.support += edgeStrength(input, careerId);
       cur.supporters += 1;
       raw.set(careerId, cur);
     });
