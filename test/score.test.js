@@ -20,6 +20,7 @@ import assert from "node:assert/strict";
 import {
   allInputs,
   inputStrength,
+  edgeStrength,
   strengthWidth,
   strengthDash,
   heatColor,
@@ -56,6 +57,21 @@ test("inputStrength rises with level and peaks for internships", () => {
   const intern = inputStrength(byId.get("mnc-swe"));
   assert.ok(l1000 < l2000 && l2000 < l3000, "course strength should rise with level");
   assert.ok(intern >= l3000, "internship should be at least as strong as a 3000 course");
+});
+
+test("edgeStrength dampens inferred edges, leaves direct edges at full strength", () => {
+  const intern = { kind: "internship", destinations: ["a", "b"], inferred: new Set(["b"]) };
+  assert.equal(edgeStrength(intern, "a"), 1.0, "direct edge at full internship strength");
+  assert.ok(edgeStrength(intern, "b") < 1.0, "inferred edge dampened");
+  assert.ok(edgeStrength(intern, "b") > 0, "still positive");
+  // An inferred edge contributes less convergence support than a direct one.
+  const cat = {
+    CAREERS: [{ id: "a" }, { id: "b" }],
+    COURSES: [],
+    INTERNSHIPS: [{ id: "i", role: "R", orgType: "MNC", destinations: ["a", "b"], inferred: ["b"] }],
+  };
+  const an = analyze(["i"], cat);
+  assert.ok(an.careers.get("a").support > an.careers.get("b").support, "direct beats inferred support");
 });
 
 test("strengthWidth/strengthDash: weak link thin+dotted, strong link thick+solid", () => {

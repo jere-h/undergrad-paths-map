@@ -21,6 +21,13 @@ import { readFileSync } from "node:fs";
 // in the product and must be the best-evidenced.
 export const CONFIDENCE_FLOORS = { 1000: 0.5, 2000: 0.6, 3000: 0.7, internship: 0.75 };
 
+// Inference tier: edges asserted from career scope-overlap judgment rather than
+// direct skill-match evidence (e.g. a Data Scientist qualification also opens
+// Data Analyst). They are intentionally softer, so they carry a lower floor and
+// are exempt from the distinctive-skill requirement, but must name the source
+// career they derive from ("via") and clear a minimum adjacency weight.
+export const INFERENCE = { floor: 0.4, minWeight: 0.5 };
+
 export const GATES = {
   maxInDegreeShare: 0.25,
   // A share cap is meaningless on a handful of edges (2 of 5 edges is 40%
@@ -122,6 +129,16 @@ export function validateDataset(ds, { pilot = false } = {}) {
       const edge = (input.edges || {})[d];
       if (!edge) {
         err(`${input.id} -> ${d}: no edge record (confidence/matchedSkills)`);
+        continue;
+      }
+      if (edge.inferred) {
+        // Judgment tier: softer bar, no distinctive-skill requirement, but must
+        // trace to a source career this input also directly reaches.
+        if (!(edge.confidence >= INFERENCE.floor))
+          err(`${input.id} -> ${d}: inferred confidence ${edge.confidence} below inference floor ${INFERENCE.floor}`);
+        if (!edge.via) err(`${input.id} -> ${d}: inferred edge missing "via" source career`);
+        else if (!(input.destinations || []).includes(edge.via))
+          err(`${input.id} -> ${d}: inferred via ${edge.via}, which this input does not directly reach`);
         continue;
       }
       if (!(edge.confidence >= floor))

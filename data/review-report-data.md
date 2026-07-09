@@ -69,14 +69,33 @@ fixes (in `scripts/`, unit-tested) fixed it without fabricating evidence:
 | Edges trimmed for balance | 5 |
 | Dropped inputs (no surviving edges) | 16 courses + 1 internship (mostly non-data econ/math courses that correctly matched no data career) |
 
-## Distribution (post-balance)
+## Judgment tier: adjacency inference
 
-- Careers: 8 · Courses: 32 · Internship roles: 1 · Edges: 41
-- In-degree: data-scientist 24%, statistician 24%, ml-engineer 22%,
-  or-analyst 17%, data-engineer 5%, bi-analyst 2%, data-analyst 2%,
-  data-architect 2%
-- Career in-degree **Gini 0.42** (cap 0.45) · same-level course mean
-  Jaccard 0.15–0.23 (courses are well-differentiated)
+A later structural addition lets the workflow assert relationships that are
+professionally true even without direct course/posting evidence. An LLM judges
+directional **career scope overlap** (e.g. `data-scientist → data-analyst`
+0.75: a DS qualification largely covers a DA role; the reverse only 0.35), and
+the assembler propagates **softer, clearly-marked "inferred" edges** along it.
+Inferred edges are dampened (×0.55 in the app, so they draw thinner/dashed),
+capped per input, never shadow a directly-grounded edge, and never chain.
+
+Effect on this dataset: **+11 inferred edges**. Data Analyst went from 1 direct
+edge (starved) to 7 (1 direct internship + 6 inferred via Data Scientist) — the
+Data-Science courses now also keep the Data-Analyst path reachable, exactly the
+overlapping-scope relationship a practitioner would affirm. BI Analyst 1 → 4.
+The map is both more expressive and better balanced (Gini fell 0.42 → 0.33), so
+no hub trimming was needed. Careers reachable *only* via inference are flagged
+`meta.flags.inferenceOnlyCareers`; their reachability rests on judgment, not
+evidence, and the detail panel labels those links "(scope overlap)".
+
+analytics-engineer stayed dropped: even with adjacency, no directly-supported
+neighbor propagated an edge above the inference floor to it.
+
+## Distribution (post-balance + inference)
+
+- Careers: 8 · Courses: 32 · Internship roles: 1 · Edges: 57 (46 direct + 11 inferred)
+- Max career in-degree share 25% (cap 25%) · **Gini 0.33** (cap 0.45) ·
+  same-level course mean Jaccard 0.15–0.23 (courses well-differentiated)
 
 ## What a human should confirm before this stays the default map
 

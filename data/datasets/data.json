@@ -39,7 +39,7 @@
         "mit-18-404",
         "mnc-software-engineer-intern"
       ],
-      "edgesTrimmedForBalance": 5,
+      "inferredEdges": 11,
       "unsupportedCareers": [
         "analytics-engineer"
       ],
@@ -47,7 +47,6 @@
         "data-engineer data-architect"
       ],
       "internshipStarved": [
-        "bi-analyst",
         "data-architect",
         "data-engineer",
         "data-scientist",
@@ -643,7 +642,8 @@
         }
       ],
       "destinations": [
-        "data-engineer"
+        "data-engineer",
+        "data-architect"
       ],
       "edges": {
         "data-engineer": {
@@ -654,8 +654,20 @@
             "working with production data processing tools"
           ],
           "distinctive": true
+        },
+        "data-architect": {
+          "confidence": 0.558,
+          "inferred": true,
+          "via": "data-engineer",
+          "adjacencyWeight": 0.8,
+          "matchedSkills": [
+            "scope overlap with data-engineer"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-architect"
+      ]
     },
     {
       "id": "mit-6-3720",
@@ -682,7 +694,8 @@
       ],
       "destinations": [
         "statistician",
-        "data-scientist"
+        "data-scientist",
+        "data-analyst"
       ],
       "edges": {
         "statistician": {
@@ -700,8 +713,20 @@
             "model validation and uncertainty quantification"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.478,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst"
+      ]
     },
     {
       "id": "mit-6-c01",
@@ -770,7 +795,8 @@
         }
       ],
       "destinations": [
-        "ml-engineer"
+        "ml-engineer",
+        "data-scientist"
       ],
       "edges": {
         "ml-engineer": {
@@ -781,8 +807,20 @@
             "supervised, unsupervised, and reinforcement learning"
           ],
           "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "ml-engineer",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with ml-engineer"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-scientist"
+      ]
     },
     {
       "id": "mit-6-5831",
@@ -1004,9 +1042,19 @@
         }
       ],
       "destinations": [
-        "data-scientist"
+        "statistician",
+        "data-scientist",
+        "data-analyst"
       ],
       "edges": {
+        "statistician": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "de-biased machine learning methods",
+            "causal inference with high-dimensional data"
+          ],
+          "distinctive": true
+        },
         "data-scientist": {
           "confidence": 0.7,
           "matchedSkills": [
@@ -1014,8 +1062,20 @@
             "adapting machine learning and deep learning models for causal inference"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.446,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst"
+      ]
     },
     {
       "id": "mit-14-39",
@@ -1114,9 +1174,18 @@
         }
       ],
       "destinations": [
+        "statistician",
         "data-scientist"
       ],
       "edges": {
+        "statistician": {
+          "confidence": 0.7,
+          "matchedSkills": [
+            "designing experiments",
+            "causal inference from natural experiments"
+          ],
+          "distinctive": true
+        },
         "data-scientist": {
           "confidence": 0.55,
           "matchedSkills": [
@@ -1190,7 +1259,8 @@
       ],
       "destinations": [
         "or-analyst",
-        "ml-engineer"
+        "ml-engineer",
+        "data-scientist"
       ],
       "edges": {
         "or-analyst": {
@@ -1205,6 +1275,14 @@
           "matchedSkills": [
             "deep learning, random forests, boosted trees",
             "Julia/JuMP and TensorFlow projects"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.55,
+          "matchedSkills": [
+            "optimal classification and regression trees",
+            "deep learning, random forests, boosted trees"
           ],
           "distinctive": true
         }
@@ -1235,7 +1313,8 @@
       ],
       "destinations": [
         "statistician",
-        "data-scientist"
+        "data-scientist",
+        "data-analyst"
       ],
       "edges": {
         "statistician": {
@@ -1253,8 +1332,20 @@
             "classification"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.414,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst"
+      ]
     },
     {
       "id": "mit-15-780",
@@ -1358,7 +1449,9 @@
         }
       ],
       "destinations": [
-        "data-scientist"
+        "data-scientist",
+        "data-analyst",
+        "bi-analyst"
       ],
       "edges": {
         "data-scientist": {
@@ -1369,8 +1462,30 @@
             "cluster analysis"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.542,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
+        },
+        "bi-analyst": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst",
+        "bi-analyst"
+      ]
     },
     {
       "id": "mit-15-0711",
@@ -1397,7 +1512,9 @@
         }
       ],
       "destinations": [
-        "data-scientist"
+        "data-scientist",
+        "data-analyst",
+        "bi-analyst"
       ],
       "edges": {
         "data-scientist": {
@@ -1408,8 +1525,30 @@
             "classification trees and random forests"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.51,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
+        },
+        "bi-analyst": {
+          "confidence": 0.408,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst",
+        "bi-analyst"
+      ]
     },
     {
       "id": "mit-15-c08j",
@@ -1512,9 +1651,20 @@
         }
       ],
       "destinations": [
+        "statistician",
         "data-scientist"
       ],
       "edges": {
+        "statistician": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "probability & Bayesian inference",
+            "hypothesis testing & confidence intervals",
+            "bootstrapping",
+            "regression"
+          ],
+          "distinctive": true
+        },
         "data-scientist": {
           "confidence": 0.5,
           "matchedSkills": [
@@ -1586,9 +1736,18 @@
         }
       ],
       "destinations": [
+        "statistician",
         "ml-engineer"
       ],
       "edges": {
+        "statistician": {
+          "confidence": 0.55,
+          "matchedSkills": [
+            "probability spaces & random variables",
+            "law of large numbers & central limit theorem"
+          ],
+          "distinctive": true
+        },
         "ml-engineer": {
           "confidence": 0.5,
           "matchedSkills": [
@@ -1720,7 +1879,8 @@
       ],
       "destinations": [
         "statistician",
-        "data-scientist"
+        "data-scientist",
+        "data-analyst"
       ],
       "edges": {
         "statistician": {
@@ -1739,8 +1899,20 @@
             "classification"
           ],
           "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.414,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-analyst"
+      ]
     },
     {
       "id": "mit-18-453",
@@ -1835,7 +2007,8 @@
         }
       ],
       "destinations": [
-        "data-analyst"
+        "data-analyst",
+        "bi-analyst"
       ],
       "edges": {
         "data-analyst": {
@@ -1845,8 +2018,20 @@
             "Experience in writing SQL queries to query relational databases"
           ],
           "distinctive": true
+        },
+        "bi-analyst": {
+          "confidence": 0.51,
+          "inferred": true,
+          "via": "data-analyst",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-analyst"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "bi-analyst"
+      ]
     }
   ]
 }

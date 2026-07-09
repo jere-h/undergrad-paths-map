@@ -252,6 +252,29 @@ then writes `data/review-report.md`: every node and edge with evidence,
 confidence, and age; flagged items first (level tie-breaks, posting-grounded
 careers, internship-starved careers, same-SOC merges, dead-source companies).
 
+### Judgment tier: career-adjacency inference
+
+The grounded tiers above only create an edge where evidence directly supports
+it, which under-expresses relationships a practitioner knows are true — a Data
+Scientist qualification also keeps a Data Analyst role reachable because their
+scope overlaps, even if no single course description says so. A dedicated
+**adjacency** agent (in the Careers phase) exercises exactly this domain
+judgment: it emits directional career-to-career scope-overlap weights
+(`from → to`, asymmetric — DS→DA strong, DA→DS weak), grounded in the careers'
+own responsibilities but not requiring per-edge evidence.
+
+The assembler then **propagates** edges deterministically along adjacency: an
+input that directly opens career A also opens A's high-overlap neighbours as
+**inferred** edges, at `confidence × weight × damping`. Inferred edges are:
+kept honest by construction — dampened (the app renders them thinner/dashed and
+counts them for less convergence support, and the detail panel labels them
+"scope overlap"), floored, capped per input, never allowed to shadow a directly
+grounded edge, and never chained off another inference. They enrich reachability
+and rescue careers starved of direct evidence (Data Analyst went 1 → 7 edges on
+the Data run) without fabricating grounded claims; `meta.flags.inferredEdges`
+and `inferenceOnlyCareers` disclose their extent. Toggle with
+`args.inferAdjacency` (default on).
+
 ### Cost tiering and reuse across industries
 
 Per-stage model/effort tiers keep the fan-out affordable: mechanical stages

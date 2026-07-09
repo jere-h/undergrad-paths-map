@@ -11,7 +11,7 @@
 // arc grouped by org type - so selecting a perimeter input draws a line inward
 // to the careers it opens.
 
-import { allInputs, inputStrength } from "./score.js";
+import { allInputs, edgeStrength } from "./score.js";
 
 const TAU = Math.PI * 2;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5)); // ~2.39996 rad
@@ -122,7 +122,6 @@ export function layout(catalog, size) {
   inputNodes.forEach((node) => {
     const input = inputById.get(node.id);
     if (!input) return;
-    const weight = inputStrength(input);
     input.destinations.forEach((careerId) => {
       const career = careerById.get(careerId);
       if (!career) return;
@@ -130,9 +129,11 @@ export function layout(catalog, size) {
         id: `${node.id}__${careerId}`,
         from: node.id,
         to: careerId,
+        inferred: !!(input.inferred && input.inferred.has(careerId)),
         // Relationship strength of this link (Level 1000 weak ... internship
-        // strong). Drives how thick and how solid-vs-dotted it draws.
-        weight,
+        // strong; inferred scope-overlap edges dampened). Drives how thick and
+        // how solid-vs-dotted it draws.
+        weight: edgeStrength(input, careerId),
         fromXY: { x: node.x, y: node.y },
         toXY: { x: career.x, y: career.y },
         // Control point: midpoint nudged toward the centre for a gentle inward bow.
