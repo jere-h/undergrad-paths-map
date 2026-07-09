@@ -246,3 +246,36 @@ test("generateCatalog rejects dashes and bad enums deterministically", () => {
   badLevel.courses[0].level = 1500;
   assert.throws(() => generateCatalog(badLevel), /bad level/);
 });
+
+// ---------- dataset assembly ----------
+
+test("assemble merges phase outputs and auto-flags internship-starved careers", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const edge = { confidence: 0.9, matchedSkills: ["s"], distinctive: true };
+  const out = assemble({
+    meta: { runId: "r1" },
+    careerFiles: [
+      { id: "a", name: "A" },
+      { id: "b", name: "B" },
+    ],
+    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 1000, dept: "D" }] }],
+    internshipFiles: [{ orgType: "Startup", roles: [{ id: "i1", role: "R", orgType: "Startup" }] }],
+    edgeFiles: [
+      { id: "c1", destinations: ["a", "b"], edges: { a: edge, b: edge } },
+      { id: "i1", destinations: ["a"], edges: { a: edge } },
+    ],
+  });
+  assert.equal(out.courses[0].destinations.length, 2);
+  assert.deepEqual(out.meta.flags.internshipStarved, ["b"], "b has no internship edge");
+  assert.throws(
+    () =>
+      assemble({
+        meta: {},
+        careerFiles: [],
+        courseFiles: [{ dept: "D", courses: [{ id: "cX" }] }],
+        internshipFiles: [],
+        edgeFiles: [],
+      }),
+    /no edge file/
+  );
+});

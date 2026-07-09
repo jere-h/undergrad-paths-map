@@ -73,6 +73,26 @@ ramp, and a catalog-integrity guard. `test/graph.test.js` covers the layout
 geometry (bounds, central careers, left/right input placement, edge count,
 determinism).
 
+## Regenerating the dataset from real evidence
+
+The bundled catalog is still the illustrative one, but the repo now ships a
+reusable Claude workflow that regenerates it from verifiable sources: O*NET
+occupation data, a university's published course catalog, and live intern
+postings from public ATS APIs. See `docs/grounding-workflow-plan.md` for the
+full design, acceptance gates, and review history. In a Claude Code session:
+
+```
+Workflow({ name: "ground-catalog", args: { runId: "<timestamp>", pilot: true } })
+```
+
+`pilot: true` proves the plumbing on a small slice; a full run (omit `pilot`)
+must pass the distributional acceptance gates in
+`scripts/validate-dataset.mjs` and human review of `data/review-report.md`
+before the generated catalog replaces the illustrative one (pass
+`apply: true` for that). The deterministic pieces are plain Node scripts under
+`scripts/` (parser, O*NET extractor, posting fetcher, validator, assembler,
+generator), each unit-tested and runnable standalone.
+
 ## Host on GitHub Pages
 
 This repository deploys itself: a GitHub Actions workflow
