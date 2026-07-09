@@ -1,0 +1,14 @@
+{
+  "id": "mit-6-1020",
+  "destinations": ["swe"],
+  "edges": {
+    "swe": {
+      "confidence": 0.9,
+      "matchedSkills": [
+        "software testing and validation",
+        "object oriented development"
+      ],
+      "distinctive": true
+    }
+  }
+}

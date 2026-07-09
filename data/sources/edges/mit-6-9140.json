@@ -1,0 +1,11 @@
+{
+  "id": "mit-6-9140",
+  "destinations": ["pm"],
+  "edges": {
+    "pm": {
+      "confidence": 0.55,
+      "matchedSkills": ["stakeholder management", "cross-functional collaboration"],
+      "distinctive": true
+    }
+  }
+}

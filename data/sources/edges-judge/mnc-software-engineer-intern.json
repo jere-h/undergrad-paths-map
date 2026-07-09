@@ -1,0 +1,18 @@
+{
+  "id": "mnc-software-engineer-intern",
+  "kind": "internship",
+  "proposed": [
+    {
+      "career": "swe",
+      "confidence": 0.9,
+      "matchedSkills": [
+        "object oriented development",
+        "web platform development",
+        "cloud-based management software",
+        "systems analysis"
+      ],
+      "distinctive": true,
+      "rationale": "Postings require coding in Java/Go/TypeScript/Python, front-end frameworks, cloud infrastructure, and feedback on code reviews and technical designs, which map directly onto the SWE profile's distinctive object-oriented development, web platform, cloud tooling, and systems-analysis skills."
+    }
+  ]
+}

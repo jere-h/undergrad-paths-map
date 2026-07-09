@@ -1,0 +1,16 @@
+{
+  "id": "mnc-software-engineer-intern",
+  "destinations": ["swe"],
+  "edges": {
+    "swe": {
+      "confidence": 0.9,
+      "matchedSkills": [
+        "object oriented development",
+        "web platform development",
+        "cloud-based management software",
+        "systems analysis"
+      ],
+      "distinctive": true
+    }
+  }
+}

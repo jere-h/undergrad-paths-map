@@ -1,0 +1,15 @@
+{
+  "id": "mit-6-3720",
+  "destinations": ["data-analyst"],
+  "edges": {
+    "data-analyst": {
+      "confidence": 0.85,
+      "matchedSkills": [
+        "analyzing data or information",
+        "trend and market analysis",
+        "interpreting information for others"
+      ],
+      "distinctive": true
+    }
+  }
+}

@@ -59,7 +59,7 @@ const DEFAULTS = {
     { slug: 'databricks', source: 'greenhouse', orgType: 'MNC' },
     { slug: 'palantir', source: 'lever', orgType: 'MNC' },
     { slug: 'airbnb', source: 'greenhouse', orgType: 'MNC' },
-    { slug: 'ramp', source: 'greenhouse', orgType: 'Startup' },
+    { slug: 'vercel', source: 'greenhouse', orgType: 'Startup' },
     { slug: 'anthropic', source: 'greenhouse', orgType: 'Startup' },
     { slug: 'scaleai', source: 'greenhouse', orgType: 'Startup' },
     { slug: 'gusto', source: 'greenhouse', orgType: 'Small Business' },
@@ -72,12 +72,14 @@ const DEFAULTS = {
   pilot: false,
 }
 
-const cfg = { ...DEFAULTS, ...(args || {}) }
+// args can arrive as a JSON-encoded string depending on the caller; accept both.
+const argObj = typeof args === 'string' ? JSON.parse(args) : args || {}
+const cfg = { ...DEFAULTS, ...argObj }
 if (!cfg.runId) throw new Error('ground-catalog requires args.runId (workflow scripts cannot mint timestamps)')
 if (cfg.pilot) {
   cfg.careers = cfg.careers.filter((c) => ['swe', 'data-analyst', 'pm'].includes(c.id))
   cfg.catalogPages = cfg.catalogPages.slice(0, 1)
-  cfg.companies = cfg.companies.filter((c) => ['stripe', 'palantir', 'ramp'].includes(c.slug))
+  cfg.companies = cfg.companies.filter((c) => ['stripe', 'palantir', 'vercel'].includes(c.slug))
   cfg.maxCoursesPerDept = 6
 }
 
@@ -172,7 +174,7 @@ const careerTask = async () => {
 ${EDGE_RULES}
 Return the manifest (path, ids=["${career.id}"]).`
           : `Ground the career "${career.name}" (id: ${career.id}) WITHOUT an O*NET code (no SOC honestly describes it; do not use one).
-1. Read the prefiltered live postings under ${ROOT}/postings/*.json and collect every posting relevant to "${career.name}" (entry-level and intern where possible). If fewer than 2 relevant postings exist there, use WebSearch to find 2-4 public, non-paywalled postings or official university career-outcome/degree-map pages for this path, and WebFetch them.
+1. Read the prefiltered live postings under ${ROOT}/postings/*.json and collect every posting relevant to "${career.name}" (entry-level and intern where possible). If fewer than 2 relevant postings exist there, use WebSearch to find 2-4 public, non-paywalled postings or official university career-outcome/degree-map pages for this path, WebFetch them, and SAVE each fetched page's relevant text to ${ROOT}/postings/web-${career.id}-<n>.txt (postings churn in weeks; the local snapshot is the durable evidence, the URL is just a pointer). Reference the snapshot path in that evidence entry's "snapshot" field.
 2. Aggregate what these sources actually ask for into the profile. Do not invent requirements no source states.
 3. Write ${ROOT}/careers/${career.id}.json:
 { "id": "${career.id}", "name": ${JSON.stringify(career.name)}, "grounding": "postings", "responsibilities": [3 strings], "skills": [4 strings], "rawSkillPool": [10-16 short skill phrases for edge matching], "evidence": [{type:"posting"|"web", url, company?, title?, quote?, retrievedAt:"${NOW}"} for each source used] }
@@ -289,7 +291,15 @@ Write the surviving edges to ${ROOT}/edges/${input.id}.json as:
 { "id": "${input.id}", "destinations": [career ids], "edges": { "<careerId>": { "confidence": <number>, "matchedSkills": [...], "distinctive": true } } }
 Only career ids among: ${groundedCareerIds.join(', ')}. Return {id, kept, dropped, disagreed: true if you overturned any judge decision}.`,
       { label: `skeptic:${input.id}`, phase: 'Edges', schema: VERDICT }
-    )
+    ).then((v) => {
+      if (!v) return null
+      // Disagreement is a mechanical set difference, not agent self-assessment
+      // (the pilot showed skeptics under-report their own overturns).
+      const judged = new Set(judgeResult.kept)
+      const kept = new Set(v.kept)
+      const disagreed = judgeResult.kept.length !== v.kept.length || [...judged].some((c) => !kept.has(c))
+      return { ...v, disagreed }
+    })
   }
 )
 const verdicts = edgeResults.filter(Boolean)

@@ -1,0 +1,13 @@
+{
+  "id": "mit-6-9140",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "pm",
+      "confidence": 0.6,
+      "matchedSkills": ["stakeholder management", "roadmap prioritization", "product launches and change management"],
+      "distinctive": true,
+      "rationale": "The catalog-listed skill 'stakeholder management' exactly matches a PM distinctive skill, and the course's scope estimation, schedule forecasting, and risk mitigation directly support roadmap prioritization and launch/change management, though the course covers engineering project management rather than product management specifically."
+    }
+  ]
+}

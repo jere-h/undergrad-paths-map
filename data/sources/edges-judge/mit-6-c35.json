@@ -1,0 +1,17 @@
+{
+  "id": "mit-6-c35",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "data-analyst",
+      "confidence": 0.85,
+      "matchedSkills": [
+        "analyzing data or information",
+        "interpreting information for others",
+        "dashboard design and maintenance"
+      ],
+      "distinctive": true,
+      "rationale": "Catalog explicitly teaches the data analysis and visualization design process plus communicating insights from real-world big data, which maps directly onto the analyst's distinctive analyzing-data, interpreting-for-others, and dashboard/visualization-design skills."
+    }
+  ]
+}

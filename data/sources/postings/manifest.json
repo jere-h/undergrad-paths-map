@@ -1,0 +1,35 @@
+{
+  "retrievedAt": "2026-07-09T14:58:40.444Z",
+  "companies": [
+    {
+      "company": "stripe",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/stripe/jobs?content=true",
+      "ok": true,
+      "totalJobs": 502,
+      "internCount": 0,
+      "newGradCount": 3,
+      "file": "data/sources/postings/greenhouse-stripe.json"
+    },
+    {
+      "company": "ramp",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/ramp/jobs?content=true",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "palantir",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/palantir?mode=json",
+      "ok": true,
+      "totalJobs": 270,
+      "internCount": 31,
+      "newGradCount": 17,
+      "file": "data/sources/postings/lever-palantir.json"
+    }
+  ]
+}

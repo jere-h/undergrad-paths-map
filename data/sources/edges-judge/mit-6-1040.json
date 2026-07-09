@@ -1,0 +1,20 @@
+{
+  "id": "mit-6-1040",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "swe",
+      "confidence": 0.85,
+      "matchedSkills": ["web platform development"],
+      "distinctive": true,
+      "rationale": "Catalog explicitly has students design and build full-stack web applications with reactive front-ends, web services, and databases in team projects, directly developing the web platform development skill distinctive to software engineers."
+    },
+    {
+      "career": "pm",
+      "confidence": 0.7,
+      "matchedSkills": ["user research", "usability testing", "wireframes and design artifacts"],
+      "distinctive": true,
+      "rationale": "Catalog explicitly teaches classic HCI design tactics — need finding, heuristic evaluation, prototyping, and user testing — plus conceptual and visual design, which map directly onto the PM's distinctive user research, usability testing, and design-artifact skills."
+    }
+  ]
+}

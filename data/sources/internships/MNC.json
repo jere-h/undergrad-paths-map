@@ -1,0 +1,106 @@
+{
+  "orgType": "MNC",
+  "roles": [
+    {
+      "id": "mnc-software-engineer-intern",
+      "role": "Software Engineer Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Software Engineer, Internship (Palantir)",
+        "Software Engineer, Internship - Infrastructure (Palantir)",
+        "Software Engineer, New Grad, Developer & End User Experience Platform (Stripe)"
+      ],
+      "requiredSkills": [
+        "coding experience in programming languages such as Java, Go, TypeScript/JavaScript, or Python",
+        "familiarity with data structures, storage systems, cloud infrastructure, and front-end frameworks",
+        "ability to write clean, effective code and learn new languages quickly",
+        "engineering background in Computer Science, Mathematics, Software Engineering, or Physics",
+        "experience from internships or collaborative multi-person coding projects",
+        "giving meaningful feedback on code reviews and technical designs",
+        "ability to learn unfamiliar systems through independent research and mentorship",
+        "communicate and collaborate with engineers, users, and non-technical team members"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "palantir",
+          "title": "Software Engineer, Internship",
+          "url": "https://jobs.lever.co/palantir/373eb939-6f57-4836-8479-be79a5e07249",
+          "snapshot": "data/sources/postings/lever-palantir.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        },
+        {
+          "type": "posting",
+          "company": "palantir",
+          "title": "Software Engineer, Internship - Infrastructure",
+          "url": "https://jobs.lever.co/palantir/b229baac-494b-4a0d-9a13-2e38806e06f3",
+          "snapshot": "data/sources/postings/lever-palantir.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        },
+        {
+          "type": "posting",
+          "company": "stripe",
+          "title": "Software Engineer, New Grad, Developer & End User Experience Platform",
+          "url": "https://stripe.com/jobs/search?gh_jid=7991718",
+          "snapshot": "data/sources/postings/greenhouse-stripe.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mnc-data-operations-analyst-intern",
+      "role": "Data & Operations Analyst Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Deployment Strategist, Internship (Palantir)",
+        "Tech Operations Associate, New Grad (Stripe)",
+        "Operations Associate, New Grad (Stripe)"
+      ],
+      "requiredSkills": [
+        "experience writing SQL queries against relational databases",
+        "experience with programming, scripting or statistical packages (e.g. Python, R, Matlab, SQL)",
+        "quantitative analytics across large datasets",
+        "strong analytical skills to investigate, prioritize, and identify the root cause of issues",
+        "ability to take on open-ended problems in unstructured environments",
+        "excellent English communication skills, both written and verbal",
+        "presenting results and proposals to audiences ranging from analysts to executives",
+        "process-oriented mindset and ability to get things done",
+        "user-first mindset and analytical problem solving"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "palantir",
+          "title": "Deployment Strategist, Internship",
+          "url": "https://jobs.lever.co/palantir/774cf5c9-bf6a-4d77-bf60-d50ef1beb1a0",
+          "snapshot": "data/sources/postings/lever-palantir.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        },
+        {
+          "type": "posting",
+          "company": "palantir",
+          "title": "Deployment Strategist, Internship - US Government",
+          "url": "https://jobs.lever.co/palantir/a49d4181-a289-435a-b581-7f5af0497c8e",
+          "snapshot": "data/sources/postings/lever-palantir.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        },
+        {
+          "type": "posting",
+          "company": "stripe",
+          "title": "Tech Operations Associate, New Grad (Mexico)",
+          "url": "https://stripe.com/jobs/search?gh_jid=7718947",
+          "snapshot": "data/sources/postings/greenhouse-stripe.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        },
+        {
+          "type": "posting",
+          "company": "stripe",
+          "title": "Operations Associate, New Grad (Mexico)",
+          "url": "https://stripe.com/jobs/search?gh_jid=7544547",
+          "snapshot": "data/sources/postings/greenhouse-stripe.json",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    }
+  ]
+}

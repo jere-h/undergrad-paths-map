@@ -1,0 +1,26 @@
+{
+  "id": "mit-6-3720",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "data-analyst",
+      "confidence": 0.85,
+      "matchedSkills": [
+        "analyzing data or information",
+        "trend and market analysis",
+        "interpreting information for others"
+      ],
+      "distinctive": true,
+      "rationale": "The catalog's core promise — extracting information from data for predictions or decisions via data exploration, hypothesis testing, regression, and time series with finance case studies — maps directly onto the analyst's distinctive skills of analyzing data, trend analysis, and interpreting results for decisions."
+    },
+    {
+      "career": "pm",
+      "confidence": 0.35,
+      "matchedSkills": [
+        "KPIs and adoption metrics"
+      ],
+      "distinctive": true,
+      "rationale": "Hypothesis testing with multiple-comparison procedures, causal inference, and decision-making from data are the statistical machinery behind measuring launch impact via KPIs, but the catalog offers no product-facing evidence, so confidence stays low."
+    }
+  ]
+}
