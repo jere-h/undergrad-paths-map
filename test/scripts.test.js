@@ -279,3 +279,19 @@ test("assemble merges phase outputs and auto-flags internship-starved careers", 
     /no edge file/
   );
 });
+
+// ---------- industry flexibility: dataset-defined org types ----------
+
+test("validator and generator accept custom org types declared in meta.orgTypes", async () => {
+  const ds = validDataset();
+  ds.meta.orgTypes = ["Hospital", "Startup"];
+  ds.internships[0].orgType = "Hospital";
+  const r = validateDataset(ds);
+  assert.deepEqual(r.errors, []);
+  const mod = await import(`data:text/javascript,${encodeURIComponent(generateCatalog(ds))}`);
+  assert.equal(mod.INTERNSHIPS[0].orgType, "Hospital");
+
+  ds.internships[0].orgType = "Nonprofit"; // not declared -> typo guard fires
+  assert.ok(validateDataset(ds).errors.some((e) => e.includes("not in meta.orgTypes")));
+  assert.throws(() => generateCatalog(ds), /not in meta.orgTypes/);
+});

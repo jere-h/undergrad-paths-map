@@ -25,13 +25,24 @@ export function buildSidebar(catalog, onToggle) {
 
   const inputs = allInputs(catalog);
 
+  // Course levels are fixed by the strength model; internship sections are
+  // driven by whatever org types the catalog actually ships, so a dataset for
+  // another industry (hospitals, agencies, government) renders without edits.
+  const KNOWN_ORG = {
+    MNC: { title: "Internships at MNCs", sub: "Large multinational employers" },
+    "Small Business": { title: "Internships at small businesses", sub: "Lean teams, generalist roles" },
+    Startup: { title: "Internships at startups", sub: "Early-stage, high-ownership roles" },
+  };
+  const orgTypes = [...new Set(inputs.filter((i) => i.kind === "internship").map((i) => i.orgType))];
   const groups = [
     { key: "Level 1000", title: "Level 1000 courses", sub: "Broad introductions, weak links to many fields" },
     { key: "Level 2000", title: "Level 2000 courses", sub: "Intermediate courses that start to specialise" },
     { key: "Level 3000", title: "Level 3000 courses", sub: "Advanced courses, strong links to a few paths" },
-    { key: "MNC", title: "Internships at MNCs", sub: "Large multinational employers" },
-    { key: "Small Business", title: "Internships at small businesses", sub: "Lean teams, generalist roles" },
-    { key: "Startup", title: "Internships at startups", sub: "Early-stage, high-ownership roles" },
+    ...orgTypes.map((t) => ({
+      key: t,
+      title: (KNOWN_ORG[t] && KNOWN_ORG[t].title) || `Internships: ${t}`,
+      sub: (KNOWN_ORG[t] && KNOWN_ORG[t].sub) || "Internship roles at this kind of employer",
+    })),
   ];
 
   groups.forEach((group) => {

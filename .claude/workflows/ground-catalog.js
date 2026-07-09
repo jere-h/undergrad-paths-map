@@ -1,7 +1,7 @@
 export const meta = {
   name: 'ground-catalog',
   description: 'Regenerate the Open Doors dataset from real evidence: O*NET, university catalog pages, live intern postings',
-  whenToUse: 'Use to produce an evidence-grounded data/dataset.json (and staged catalog) for this repo, per docs/grounding-workflow-plan.md. Pass {pilot: true} to prove the plumbing cheaply first.',
+  whenToUse: 'Use to produce an evidence-grounded data/dataset.json (and staged catalog) for this repo, per docs/grounding-workflow-plan.md. Pass {pilot: true} to prove the plumbing cheaply first. Reusable for other industries: pass your own careers (plain strings are fine), companies (with any orgType labels), and catalogPages; pass tiers to override per-stage model/effort.',
   phases: [
     { title: 'Setup', detail: 'O*NET bulk DB, source probes, run metadata' },
     { title: 'Postings', detail: 'fetch + prefilter ATS boards mechanically' },
@@ -76,12 +76,45 @@ const DEFAULTS = {
 const argObj = typeof args === 'string' ? JSON.parse(args) : args || {}
 const cfg = { ...DEFAULTS, ...argObj }
 if (!cfg.runId) throw new Error('ground-catalog requires args.runId (workflow scripts cannot mint timestamps)')
+
+// Careers may be passed as plain strings ("Nurse Practitioner") for other
+// industries; they normalize to grounding "auto", where the agent attempts an
+// honest SOC mapping and falls back to posting-grounding itself.
+cfg.careers = cfg.careers.map((c) =>
+  typeof c === 'string'
+    ? { id: c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), name: c, grounding: 'auto' }
+    : { grounding: 'auto', ...c }
+)
+// Org types are whatever labels the company list uses (e.g. Hospital, Agency,
+// Government); the app sidebar, validator, and generator are all data-driven.
+cfg.orgTypes = argObj.orgTypes || [...new Set(cfg.companies.map((c) => c.orgType))]
+
 if (cfg.pilot) {
-  cfg.careers = cfg.careers.filter((c) => ['swe', 'data-analyst', 'pm'].includes(c.id))
+  // Generic pilot slice: works for custom career/company lists too.
+  cfg.careers = cfg.careers.slice(0, 3)
   cfg.catalogPages = cfg.catalogPages.slice(0, 1)
-  cfg.companies = cfg.companies.filter((c) => ['stripe', 'palantir', 'vercel'].includes(c.slug))
+  cfg.companies = cfg.companies.slice(0, 3)
   cfg.maxCoursesPerDept = 6
 }
+
+// Per-stage model/effort tiering. Mechanical stages run cheap; judgment-heavy
+// stages (cross-career distinctiveness, skeptic verification) inherit the
+// session model. Override any stage via args.tiers, e.g.
+// { tiers: { judge: { model: 'haiku' }, skeptic: {} } }.
+const TIER_DEFAULTS = {
+  setup: { model: 'sonnet', effort: 'low' }, // scripted bash steps
+  postings: { model: 'haiku', effort: 'low' }, // runs one script, copies a manifest
+  career: { model: 'sonnet', effort: 'medium' }, // per-career distillation
+  distinctiveness: {}, // inherit: whole-set judgment gates edge quality
+  courses: { model: 'sonnet', effort: 'medium' }, // shortlist + label parsed JSON
+  internships: { model: 'sonnet', effort: 'medium' }, // cluster prefiltered titles
+  judge: { model: 'sonnet', effort: 'medium' }, // the fan-out cost driver
+  skeptic: {}, // inherit: adversarial verification is where quality binds
+  finalize: { model: 'sonnet', effort: 'low' }, // executes scripts, reports verbatim
+  report: { model: 'sonnet', effort: 'high' }, // long-form synthesis, no discovery
+}
+const tiers = { ...TIER_DEFAULTS, ...(argObj.tiers || {}) }
+const tier = (stage) => tiers[stage] || {}
 
 const ROOT = 'data/sources'
 const careerIdList = cfg.careers.map((c) => c.id).join(', ')
@@ -113,9 +146,10 @@ const setup = await agent(
 3. Verify: node scripts/onet-extract.mjs --db ${ROOT}/onet/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
 4. Probe each catalog URL with curl -sS -o /dev/null -w "%{http_code}": ${cfg.catalogPages.map((p) => p.url).join(' ')}
 5. Get the current UTC timestamp with: date -u +%Y-%m-%dT%H:%M:%SZ
-6. Write ${ROOT}/meta.json: { "runId": "${cfg.runId}", "university": ${JSON.stringify(cfg.university)}, "generatedBy": "ground-catalog", "onetVersion": "<found>", "generatedAt": "<timestamp>", "pilot": ${cfg.pilot}, "sources": [<the catalog URLs and "${cfg.onetZipUrl}">] }
+6. Write ${ROOT}/meta.json: { "runId": "${cfg.runId}", "university": ${JSON.stringify(cfg.university)}, "generatedBy": "ground-catalog", "onetVersion": "<found>", "generatedAt": "<timestamp>", "pilot": ${cfg.pilot}, "orgTypes": ${JSON.stringify(cfg.orgTypes)}, "sources": [<the catalog URLs and "${cfg.onetZipUrl}">] }
 Fail (ok:false, explain in failures) if the O*NET DB cannot be fetched/verified or any catalog URL is unreachable. Return the manifest with path=${ROOT}/meta.json, ids=[], and notes = the onet db directory path (the one containing Occupation Data.txt) and the timestamp.`,
   {
+    ...tier('setup'),
     label: 'setup',
     phase: 'Setup',
     schema: {
@@ -145,7 +179,7 @@ const postings = await agent(
   `Run this repo's posting fetcher via Bash (it curls public ATS APIs and prefilters intern/new-grad titles so no giant payload ever enters an LLM context):
 node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}
 It prints a JSON summary. Write that summary verbatim to ${ROOT}/postings/manifest.json (if the script didn't already), then return: ok=true if at least one company succeeded, path=${ROOT}/postings/manifest.json, ids=[slugs of companies with ok:true], failures=["slug: reason" for each ok:false company]. Do not retry failed slugs with guessed alternatives.`,
-  { label: 'fetch-postings', phase: 'Postings', schema: MANIFEST }
+  { ...tier('postings'), label: 'fetch-postings', phase: 'Postings', schema: MANIFEST }
 )
 if (!postings || !postings.ok) throw new Error(`Postings fetch failed: ${JSON.stringify(postings && postings.failures)}`)
 const liveCompanies = new Set(postings.ids)
@@ -161,27 +195,42 @@ const EDGE_RULES = `EVIDENCE RULES (non-negotiable):
 - Never write em dashes or en dashes in responsibilities/skills text (the build rejects them). Use commas, colons, or parentheses.
 - Write 3 responsibilities and 4 skills, in the concrete, opinionated voice of the existing catalog (read data/catalog.js for tone): what you would own and what you can demonstrate, not buzzwords.`
 
+const socSteps = (career) => `SOC GROUNDING. This repo's O*NET bulk DB is at ${ONET_DB}.
+- ${career.socHint ? `Verify the SOC mapping: start from hint ${career.socHint}. Check its title/description via: node scripts/onet-extract.mjs --db ${ONET_DB} --soc ${career.socHint} --top 10.` : `Find the SOC code: grep -i likely title words in "${ONET_DB}/Occupation Data.txt" and "${ONET_DB}/Alternate Titles.txt", then check candidates with node scripts/onet-extract.mjs.`} A code only counts if its description honestly describes this career as an undergrad would understand it; a wrong SOC silently redefines the career.
+- From the extracted tasks, skills, techSkills, workActivities, knowledge, distill the profile. Prefer occupation-specific material (techSkills, knowledge, workActivities) over generic skills like "Critical Thinking" which appear in every occupation. If ratedSources shows ratings came from a related SOC, cite that code.
+- Set "grounding": "soc" and "soc": ["<verified code>"], with onet evidence entries citing the SOC code and DB version.`
+
+const postingsSteps = (career) => `POSTING GROUNDING (no SOC code; do not force one).
+- Read the prefiltered live postings under ${ROOT}/postings/*.json and collect every posting relevant to "${career.name}" (entry-level and intern where possible). If fewer than 2 relevant postings exist there, use WebSearch to find 2-4 public, non-paywalled postings or official university career-outcome/degree-map pages for this path, WebFetch them, and SAVE each fetched page's relevant text to ${ROOT}/postings/web-${career.id}-<n>.txt (postings churn in weeks; the local snapshot is the durable evidence, the URL is just a pointer). Reference the snapshot path in that evidence entry's "snapshot" field.
+- Aggregate what these sources actually ask for into the profile. Do not invent requirements no source states.
+- Set "grounding": "postings", with evidence entries {type:"posting"|"web", url, company?, title?, quote?, snapshot?, retrievedAt:"${NOW}"} for each source used. If you cannot find 2+ real sources, return ok:false and say so in failures; never pad.`
+
+const careerPrompt = (career) => {
+  const strategy =
+    career.grounding === 'soc'
+      ? socSteps(career)
+      : career.grounding === 'postings'
+        ? postingsSteps(career)
+        : `Decide the grounding honestly, in this order:
+1. ${socSteps(career)}
+2. Only if NO SOC code honestly fits (say why in notes): ${postingsSteps(career)}`
+  return `Ground the career "${career.name}" (id: ${career.id}) for the ground-catalog workflow.
+${strategy}
+Write ${ROOT}/careers/${career.id}.json:
+{ "id": "${career.id}", "name": ${JSON.stringify(career.name)}, "grounding": "soc"|"postings" (as decided above), "soc": [only when soc-grounded], "responsibilities": [3 strings], "skills": [4 strings], "rawSkillPool": [10-16 short skill/knowledge/tech phrases for edge matching, occupation-specific ones first], "evidence": [...] }
+${EDGE_RULES}
+Return the manifest (path, ids=["${career.id}"]); notes = which grounding you used and why.`
+}
+
 const careerTask = async () => {
   const results = await parallel(
     cfg.careers.map((career) => () =>
-      agent(
-        career.grounding === 'soc'
-          ? `Ground the career "${career.name}" (id: ${career.id}) in O*NET data. This repo's O*NET bulk DB is at ${ONET_DB}.
-1. Verify the SOC mapping: start from hint ${career.socHint}. Check its title/description via: node scripts/onet-extract.mjs --db ${ONET_DB} --soc ${career.socHint} --top 10. If the description does not honestly describe this career as an undergrad would understand it, search "Occupation Data.txt" (grep -i) for a better code; if NO code honestly fits, return ok:false with an explanation instead of forcing one (a wrong SOC silently redefines the career).
-2. From the extracted tasks, skills, techSkills, workActivities, knowledge, distill the profile. Prefer occupation-specific material (techSkills, knowledge, workActivities) over generic skills like "Critical Thinking" which appear in every occupation. If ratedSources shows ratings came from a related SOC, cite that code.
-3. Write ${ROOT}/careers/${career.id}.json:
-{ "id": "${career.id}", "name": ${JSON.stringify(career.name)}, "grounding": "soc", "soc": ["<verified code>"], "responsibilities": [3 strings distilled from task statements], "skills": [4 strings], "rawSkillPool": [10-16 short skill/knowledge/tech phrases for edge matching, occupation-specific ones first], "evidence": [onet entries citing the SOC code and DB version, plus ratedSource codes if used] }
-${EDGE_RULES}
-Return the manifest (path, ids=["${career.id}"]).`
-          : `Ground the career "${career.name}" (id: ${career.id}) WITHOUT an O*NET code (no SOC honestly describes it; do not use one).
-1. Read the prefiltered live postings under ${ROOT}/postings/*.json and collect every posting relevant to "${career.name}" (entry-level and intern where possible). If fewer than 2 relevant postings exist there, use WebSearch to find 2-4 public, non-paywalled postings or official university career-outcome/degree-map pages for this path, WebFetch them, and SAVE each fetched page's relevant text to ${ROOT}/postings/web-${career.id}-<n>.txt (postings churn in weeks; the local snapshot is the durable evidence, the URL is just a pointer). Reference the snapshot path in that evidence entry's "snapshot" field.
-2. Aggregate what these sources actually ask for into the profile. Do not invent requirements no source states.
-3. Write ${ROOT}/careers/${career.id}.json:
-{ "id": "${career.id}", "name": ${JSON.stringify(career.name)}, "grounding": "postings", "responsibilities": [3 strings], "skills": [4 strings], "rawSkillPool": [10-16 short skill phrases for edge matching], "evidence": [{type:"posting"|"web", url, company?, title?, quote?, retrievedAt:"${NOW}"} for each source used] }
-${EDGE_RULES}
-Return the manifest (path, ids=["${career.id}"]). If you could not find 2+ real sources, return ok:false and say so in failures; never pad.`,
-        { label: `career:${career.id}`, phase: 'Careers', schema: MANIFEST }
-      )
+      agent(careerPrompt(career), {
+        ...tier('career'),
+        label: `career:${career.id}`,
+        phase: 'Careers',
+        schema: MANIFEST,
+      })
     )
   )
   const okCareers = results.filter(Boolean).filter((r) => r.ok)
@@ -195,27 +244,33 @@ Return the manifest (path, ids=["${career.id}"]). If you could not find 2+ real 
 2. Edit each career file (Read then Write) adding: "distinctiveSkills": the subset of its rawSkillPool shared by fewer than 1/3 of careers, most distinctive first (aim for 5-10; if a career has fewer than 3 distinctive skills, note it in your manifest failures).
 3. Same-SOC collision rule: if two careers cite the same SOC code (or near-identical pools, e.g. swe/backend), differentiate their distinctiveSkills using posting evidence under ${ROOT}/postings/ (what do backend-titled vs generalist postings ask for?). If you cannot differentiate them with real evidence, record "collision: <id> <id>" in failures so the review report flags a merge decision.
 Return the manifest: path=${ROOT}/careers, ids=[career ids updated], failures as above.`,
-    { label: 'distinctiveness', phase: 'Careers', schema: MANIFEST }
+    { ...tier('distinctiveness'), label: 'distinctiveness', phase: 'Careers', schema: MANIFEST }
   )
   return { okCareers, distinct }
 }
 
+const parseSteps = (page, slug) =>
+  page.parser === 'llm'
+    ? `2. This catalog does NOT use courseblock markup, so there is no deterministic parser. Read the saved HTML in slices (grep for course-title patterns first to find the structure) and build ${ROOT}/catalog-html/${slug}.parsed.json yourself in the parser's output shape: { "courses": [{ "catalogCode", "name", "prereqText", "description", "undergrad": true|false, "level": <see below>, "levelBasis": "LLM-assigned (no courseblock structure)", "levelTieBreak": true }] }. Map levels from prerequisite depth exactly like the deterministic rule (no prereqs: 1000; intro-level prereqs: 2000; deeper chains: 3000) and set levelTieBreak true on EVERY course so the review report lists all of them for human confirmation. Never invent courses or descriptions; extract only what the page states.`
+    : `2. Bash: node scripts/parse-catalog-html.mjs ${ROOT}/catalog-html/${slug}.html --dept ${JSON.stringify(page.dept)} --source-url "${page.url}" > ${ROOT}/catalog-html/${slug}.parsed.json
+   This parses every course deterministically (code, title, description, level from prerequisite depth, levelTieBreak flags). Do NOT re-derive levels yourself; the parser's assignment is the auditable rule.`
+
 const courseTask = () =>
   parallel(
-    cfg.catalogPages.map((page) => () =>
-      agent(
+    cfg.catalogPages.map((page) => () => {
+      const slug = page.dept.replace(/\W+/g, '-')
+      return agent(
         `Harvest real courses for the ground-catalog workflow, department "${page.dept}".
-1. Bash: curl -sSL --max-time 60 -o ${ROOT}/catalog-html/${page.dept.replace(/\W+/g, '-')}.html "${page.url}"
-2. Bash: node scripts/parse-catalog-html.mjs ${ROOT}/catalog-html/${page.dept.replace(/\W+/g, '-')}.html --dept ${JSON.stringify(page.dept)} --source-url "${page.url}" > ${ROOT}/catalog-html/${page.dept.replace(/\W+/g, '-')}.parsed.json
-   This parses every course deterministically (code, title, description, level from prerequisite depth, levelTieBreak flags). Do NOT re-derive levels yourself; the parser's assignment is the auditable rule.
+1. Bash: curl -sSL --max-time 60 -o ${ROOT}/catalog-html/${slug}.html "${page.url}"
+${parseSteps(page, slug)}
 3. Read the parsed JSON (it may be large; read in slices). Shortlist AT MOST ${cfg.maxCoursesPerDept} undergraduate courses most relevant to these careers: ${careerIdList}. Prefer real taught courses over seminars/UROP/special-topics shells. Balance levels: aim for roughly 1/3 each of level 1000 / 2000 / 3000 where the department offers them.
 4. For each shortlisted course, derive "taughtSkills": 4-8 short skill phrases stated or directly implied by the OFFICIAL description text only (quote the description in evidence; do not project skills the text doesn't support). If levelTieBreak is true, decide the level from the prereq text and description, and record your reasoning in "levelNote".
-5. Write ${ROOT}/courses/${page.dept.replace(/\W+/g, '-')}.json:
-{ "dept": ${JSON.stringify(page.dept)}, "sourceUrl": "${page.url}", "courses": [{ "id": "mit-<code with dots as dashes, lowercase>", "name": "<title>", "level": <from parser or your tie-break>, "dept": ${JSON.stringify(page.dept)}, "catalogCode": "<code>", "taughtSkills": [...], "levelBasis": "<from parser>", "levelNote": "<only if tie-break>", "evidence": [{ "type": "catalog", "url": "${page.url}", "quote": "<the official description>", "retrievedAt": "${NOW}" }] }] }
+5. Write ${ROOT}/courses/${slug}.json:
+{ "dept": ${JSON.stringify(page.dept)}, "sourceUrl": "${page.url}", "courses": [{ "id": "${cfg.university.toLowerCase().replace(/\W+/g, '-')}-<code with dots as dashes, lowercase>", "name": "<title>", "level": <from parser or your tie-break>, "dept": ${JSON.stringify(page.dept)}, "catalogCode": "<code>", "taughtSkills": [...], "levelBasis": "<from parser>", "levelNote": "<only if tie-break>", "evidence": [{ "type": "catalog", "url": "${page.url}", "quote": "<the official description>", "retrievedAt": "${NOW}" }] }] }
 Return the manifest (path, ids=[course ids]).`,
-        { label: `courses:${page.dept}`, phase: 'Courses', schema: MANIFEST }
+        { ...tier('courses'), label: `courses:${page.dept}`, phase: 'Courses', schema: MANIFEST }
       )
-    )
+    })
   )
 
 const internshipTask = () =>
@@ -229,7 +284,7 @@ Companies of this org type with live data: ${cfg.companies.filter((c) => c.orgTy
 3. Write ${ROOT}/internships/${orgType.replace(/\W+/g, '-')}.json:
 { "orgType": ${JSON.stringify(orgType)}, "roles": [{ "id": "<orgtype-slug>-<role-slug>", "role": "<canonical title>", "orgType": ${JSON.stringify(orgType)}, "exampleTitles": ["<title> (<Company>)"], "requiredSkills": [...], "evidence": [{ "type": "posting", "company": "<slug>", "title": "<posting title>", "url": "<posting url>", "snapshot": "<the postings file path>", "retrievedAt": "${NOW}" } for each supporting posting] }] }
 Return the manifest (path, ids=[role ids]).`,
-        { label: `internships:${orgType}`, phase: 'Internships', schema: MANIFEST }
+        { ...tier('internships'), label: `internships:${orgType}`, phase: 'Internships', schema: MANIFEST }
       )
     )
   )
@@ -277,7 +332,7 @@ For each career, judge whether this ${input.kind}'s skills genuinely overlap tha
 Write ${ROOT}/edges-judge/${input.id}.json:
 { "id": "${input.id}", "kind": "${input.kind}", "proposed": [{ "career": "<id>", "confidence": <0-1>, "matchedSkills": ["..."], "distinctive": true, "rationale": "<one sentence>" }] }
 Return {id, kept: [career ids proposed], dropped: [], disagreed: false}.`,
-      { label: `judge:${input.id}`, phase: 'Edges', schema: VERDICT }
+      { ...tier('judge'), label: `judge:${input.id}`, phase: 'Edges', schema: VERDICT }
     ),
   (judgeResult, input) => {
     if (!judgeResult) return null
@@ -290,7 +345,7 @@ Return {id, kept: [career ids proposed], dropped: [], disagreed: false}.`,
 Write the surviving edges to ${ROOT}/edges/${input.id}.json as:
 { "id": "${input.id}", "destinations": [career ids], "edges": { "<careerId>": { "confidence": <number>, "matchedSkills": [...], "distinctive": true } } }
 Only career ids among: ${groundedCareerIds.join(', ')}. Return {id, kept, dropped, disagreed: true if you overturned any judge decision}.`,
-      { label: `skeptic:${input.id}`, phase: 'Edges', schema: VERDICT }
+      { ...tier('skeptic'), label: `skeptic:${input.id}`, phase: 'Edges', schema: VERDICT }
     ).then((v) => {
       if (!v) return null
       // Disagreement is a mechanical set difference, not agent self-assessment
@@ -319,7 +374,7 @@ const finalize = await agent(
 3. If validation PASSED: node scripts/build-catalog.mjs data/dataset.json --out ${cfg.apply && !cfg.pilot ? 'data/catalog.js' : 'data/catalog.generated.js'}
 4. node --test (must stay green; if you generated to data/catalog.js and tests fail, revert that file via git checkout -- data/catalog.js and say so)
 Do not edit the validator, the gates, or data/dataset.json by hand to force a pass; a failing gate is a finding, not an obstacle. Return ok = whether validation passed, path = the generated catalog path (or data/dataset.json if generation was skipped), ids = [], failures = every validator FAIL line, notes = removals + test summary.`,
-  { label: 'assemble+validate', phase: 'Finalize', schema: MANIFEST }
+  { ...tier('finalize'), label: 'assemble+validate', phase: 'Finalize', schema: MANIFEST }
 )
 
 const report = await agent(
@@ -330,7 +385,7 @@ Structure, flagged items FIRST:
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
 4. Staleness: postings churn in weeks; recommend a re-run cadence.
 Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=data/review-report.md, ids=[]).`,
-  { label: 'review-report', phase: 'Finalize', schema: MANIFEST }
+  { ...tier('report'), label: 'review-report', phase: 'Finalize', schema: MANIFEST }
 )
 
 return {

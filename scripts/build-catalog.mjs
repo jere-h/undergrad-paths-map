@@ -49,9 +49,10 @@ export function generateCatalog(ds) {
       destinations: dests(c.destinations, `course ${c.id}`),
     };
   });
+  const orgTypes = new Set((ds.meta || {}).orgTypes || ["MNC", "Small Business", "Startup"]);
   const internships = (ds.internships || []).map((i) => {
-    if (!["MNC", "Small Business", "Startup"].includes(i.orgType))
-      throw new Error(`internship ${i.id}: bad orgType ${i.orgType}`);
+    if (!orgTypes.has(i.orgType))
+      throw new Error(`internship ${i.id}: orgType ${JSON.stringify(i.orgType)} not in meta.orgTypes`);
     return {
       id: clean(i.id, "internship id"),
       role: clean(i.role, `internship ${i.id} role`),

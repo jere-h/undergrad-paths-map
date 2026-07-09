@@ -59,6 +59,10 @@ export function validateDataset(ds, { pilot = false } = {}) {
   const careers = ds.careers || [];
   const courses = ds.courses || [];
   const internships = ds.internships || [];
+  // Org types are dataset-defined (the UI renders whatever ships); the default
+  // set is the original taxonomy. meta.orgTypes pins the allowed values so a
+  // typo ("MNC " / "Multinational") can't silently split a sidebar group.
+  const orgTypes = new Set((ds.meta && ds.meta.orgTypes) || ["MNC", "Small Business", "Startup"]);
   const inputs = [
     ...courses.map((c) => ({ ...c, kind: "course" })),
     ...internships.map((i) => ({ ...i, kind: "internship" })),
@@ -93,8 +97,8 @@ export function validateDataset(ds, { pilot = false } = {}) {
     for (const d of dests) if (!careerIds.has(d)) err(`${input.id}: unknown career ${d}`);
     if (input.kind === "course" && ![1000, 2000, 3000].includes(input.level))
       err(`${input.id}: bad level ${input.level}`);
-    if (input.kind === "internship" && !["MNC", "Small Business", "Startup"].includes(input.orgType))
-      err(`${input.id}: bad orgType ${input.orgType}`);
+    if (input.kind === "internship" && !orgTypes.has(input.orgType))
+      err(`${input.id}: orgType ${JSON.stringify(input.orgType)} not in meta.orgTypes [${[...orgTypes].join(", ")}]`);
   }
 
   const reached = new Set(inputs.flatMap((i) => i.destinations || []));

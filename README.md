@@ -93,6 +93,31 @@ before the generated catalog replaces the illustrative one (pass
 `scripts/` (parser, O*NET extractor, posting fetcher, validator, assembler,
 generator), each unit-tested and runnable standalone.
 
+**Cost tiering.** Mechanical stages (setup, posting fetch, finalize) default
+to small/cheap models; per-item stages (career distillation, course labeling,
+edge judging) default to a mid-tier model at medium effort; only the
+judgment-critical stages (cross-career distinctiveness, the adversarial edge
+skeptics) inherit the session's full model. Override any stage via
+`args.tiers`, e.g. `{ tiers: { judge: { model: "haiku" }, skeptic: {} } }`.
+
+**Other careers and industries.** Every axis is an argument: `careers` accepts
+plain strings (`["Nurse Practitioner", "Health Informatics Analyst"]`) and the
+workflow decides per career whether an O*NET code honestly fits or falls back
+to posting-grounding; `companies` accepts any `orgType` labels (`Hospital`,
+`Agency`, `Government`), which flow through the validator, the generated
+catalog, and the sidebar without code changes; `catalogPages` points at any
+university, with `parser: "llm"` as a flagged-for-review fallback for catalogs
+that don't use CourseLeaf's `courseblock` markup. Example:
+
+```
+Workflow({ name: "ground-catalog", args: {
+  runId: "...", university: "UW",
+  careers: ["Nurse Practitioner", "Clinical Data Analyst", "Health Policy Analyst"],
+  catalogPages: [{ dept: "Nursing", url: "https://.../nursing/", parser: "llm" }],
+  companies: [{ slug: "examplehealth", source: "greenhouse", orgType: "Hospital" }]
+}})
+```
+
 ## Host on GitHub Pages
 
 This repository deploys itself: a GitHub Actions workflow

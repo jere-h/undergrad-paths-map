@@ -252,6 +252,24 @@ then writes `data/review-report.md`: every node and edge with evidence,
 confidence, and age; flagged items first (level tie-breaks, posting-grounded
 careers, internship-starved careers, same-SOC merges, dead-source companies).
 
+### Cost tiering and reuse across industries
+
+Per-stage model/effort tiers keep the fan-out affordable: mechanical stages
+(setup, posting fetch, finalize) run on small models at low effort; per-item
+stages (career distillation, course labeling, edge judging) run mid-tier at
+medium effort; only the stages where judgment quality gates the whole dataset
+(cross-career distinctiveness, the adversarial skeptics) inherit the session's
+full model. All tiers are overridable via `args.tiers`.
+
+The workflow is industry-agnostic by argument: `careers` accepts plain strings
+(grounding mode `auto` lets the agent honestly choose SOC vs. postings per
+career), `companies` accepts arbitrary `orgType` labels which flow through
+`meta.orgTypes` to the validator, generator, and the data-driven sidebar, and
+`catalogPages` accepts `parser: "llm"` for non-CourseLeaf catalogs — with every
+LLM-assigned level flagged `levelTieBreak` so the review report lists all of
+them for human confirmation (the deterministic parser remains the default and
+the auditable path).
+
 ### Pilot mode — proves plumbing, not quality
 
 `pilot: true` restricts scope (≈3 careers, 1 department, 2–3 companies) and
