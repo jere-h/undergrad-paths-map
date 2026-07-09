@@ -1,0 +1,164 @@
+{
+  "proposals": {
+    "mit-15-0341": [
+      {
+        "career": "statistician",
+        "confidence": 0.7,
+        "matchedSkills": ["designing experiments", "causal inference from natural experiments"],
+        "distinctive": true,
+        "rationale": "Course centers on designing experiments and causal analysis of natural experiments, a direct match to statistician experimental-design skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.55,
+        "matchedSkills": ["regression trees and random forest", "LASSO and neural networks"],
+        "distinctive": true,
+        "rationale": "Uses regression trees, random forest, LASSO and neural networks, overlapping with data mining and feature selection algorithms."
+      }
+    ],
+    "mit-15-069": [
+      {
+        "career": "statistician",
+        "confidence": 0.65,
+        "matchedSkills": ["hypothesis testing", "statistical sampling"],
+        "distinctive": true,
+        "rationale": "Covers statistical sampling and hypothesis testing foundations central to the statistician role."
+      },
+      {
+        "career": "or-analyst",
+        "confidence": 0.5,
+        "matchedSkills": ["simulation"],
+        "distinctive": true,
+        "rationale": "Introduces simulation, a core or-analyst modeling technique, though only as one topic among many."
+      }
+    ],
+    "mit-15-076": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.6,
+        "matchedSkills": ["linear and discrete optimization"],
+        "distinctive": true,
+        "rationale": "Teaches linear and discrete optimization methods applied to real-world decisions, matching or-analyst optimization skills."
+      },
+      {
+        "career": "ml-engineer",
+        "confidence": 0.6,
+        "matchedSkills": ["deep learning, random forests, boosted trees", "Julia/JuMP and TensorFlow projects"],
+        "distinctive": true,
+        "rationale": "Uses TensorFlow projects and deep learning methods, matching ml-engineer's PyTorch/TensorFlow and deep learning skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.55,
+        "matchedSkills": ["optimal classification and regression trees", "deep learning, random forests, boosted trees"],
+        "distinctive": true,
+        "rationale": "Applies classification/regression trees and ensemble methods, overlapping with data-scientist data mining skills."
+      }
+    ],
+    "mit-15-075j": [
+      {
+        "career": "statistician",
+        "confidence": 0.75,
+        "matchedSkills": ["statistical sampling and uncertainty", "estimation and hypothesis testing"],
+        "distinctive": true,
+        "rationale": "Rigorous treatment of statistical sampling, estimation, and hypothesis testing directly matches statistician core skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.65,
+        "matchedSkills": ["data mining fundamentals", "classification"],
+        "distinctive": true,
+        "rationale": "Explicitly covers elements of data mining and classification, matching data-scientist's data mining skill."
+      }
+    ],
+    "mit-15-780": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.65,
+        "matchedSkills": ["dynamic programming", "stochastic optimization"],
+        "distinctive": true,
+        "rationale": "Core content is stochastic optimization and dynamic programming for decisions under uncertainty, matching or-analyst optimization/modeling skills."
+      },
+      {
+        "career": "ml-engineer",
+        "confidence": 0.6,
+        "matchedSkills": ["time series forecasting"],
+        "distinctive": true,
+        "rationale": "Covers time series forecasting methods, matching ml-engineer's time series data handling skill."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.5,
+        "matchedSkills": ["machine learning for operations"],
+        "distinctive": true,
+        "rationale": "Applies machine learning models to operational decisions, loosely matching data-scientist's modeling skills."
+      }
+    ],
+    "mit-15-053": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.85,
+        "matchedSkills": ["linear programming", "network optimization", "integer programming", "nonlinear programming", "optimization heuristics"],
+        "distinctive": true,
+        "rationale": "Dedicated course in optimization modeling and methods (LP, integer, nonlinear, heuristics) directly matches or-analyst's core distinctive skills."
+      }
+    ],
+    "mit-15-0621": [
+      {
+        "career": "data-scientist",
+        "confidence": 0.85,
+        "matchedSkills": ["data-mining software in R and Python", "tree-structured classification and regression", "cluster analysis"],
+        "distinctive": true,
+        "rationale": "Course is explicitly a data-mining/data-science introduction using R and Python, a direct match to data-scientist's distinctive skills."
+      },
+      {
+        "career": "statistician",
+        "confidence": 0.55,
+        "matchedSkills": ["discriminant analysis", "cluster analysis"],
+        "distinctive": true,
+        "rationale": "Discriminant and cluster analysis relate to statistical methods, though the course is framed around data mining rather than statistical theory."
+      }
+    ],
+    "mit-15-0711": [
+      {
+        "career": "data-scientist",
+        "confidence": 0.8,
+        "matchedSkills": ["text analytics", "R programming and Jupyter notebooks", "classification trees and random forests"],
+        "distinctive": true,
+        "rationale": "Broad analytics methods course using R/Jupyter with text analytics (NLP) and tree-based models directly matches multiple data-scientist distinctive skills."
+      },
+      {
+        "career": "ml-engineer",
+        "confidence": 0.55,
+        "matchedSkills": ["time series modeling and clustering", "text analytics"],
+        "distinctive": true,
+        "rationale": "Covers time series modeling and text analytics on unstructured data, matching ml-engineer's time series/unstructured data skill."
+      }
+    ],
+    "mit-15-c08j": [
+      {
+        "career": "statistician",
+        "confidence": 0.75,
+        "matchedSkills": ["randomized controlled trials", "observational study design"],
+        "distinctive": true,
+        "rationale": "Focuses on rigorous experimental and observational study design for causal inference, matching statistician's experimental-design skill."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.5,
+        "matchedSkills": ["contrasting causal inference with machine learning"],
+        "distinctive": true,
+        "rationale": "Uses Python/R and contrasts causal methods with machine learning, weakly matching data-scientist's statistical software skill."
+      }
+    ],
+    "mit-15-c571j": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.85,
+        "matchedSkills": ["linear optimization and duality", "non-linear and integer optimization", "optimization under uncertainty", "optimization algorithm design"],
+        "distinctive": true,
+        "rationale": "Core optimization methods course covering LP duality, integer/nonlinear optimization, and algorithm design directly matches or-analyst's distinctive skills."
+      }
+    ]
+  }
+}

@@ -173,11 +173,16 @@ export function validateDataset(ds, { pilot = false } = {}) {
     const starved = new Set(flags.internshipStarved || []);
     for (const c of careers) {
       const courseDeg = courses.filter((x) => (x.destinations || []).includes(c.id)).length;
-      if (courseDeg === 0)
-        err(`career ${c.id}: zero course support (renders as "path closed" in the UI)`);
       const internDeg = internships.filter((x) => (x.destinations || []).includes(c.id)).length;
-      if (internDeg === 0 && !starved.has(c.id))
-        err(`career ${c.id}: zero internship support and not flagged internshipStarved`);
+      // A career reachable only by internships is genuinely reachable (its node
+      // lights when you pick that internship), so course-only-absent is a
+      // lopsidedness warning, not a "path closed" failure. Total-zero support
+      // is already caught by the orphan check above; the assembler should have
+      // dropped such careers into meta.flags.unsupportedCareers.
+      if (courseDeg === 0 && internDeg > 0)
+        warnings.push(`career ${c.id}: internship-only, no course support (see review report)`);
+      if (internDeg === 0 && courseDeg > 0 && !starved.has(c.id))
+        warnings.push(`career ${c.id}: course-only, no internship support and not flagged internshipStarved`);
       if (internDeg === 0 && starved.has(c.id))
         warnings.push(`career ${c.id}: internship-starved (flagged; see review report)`);
     }

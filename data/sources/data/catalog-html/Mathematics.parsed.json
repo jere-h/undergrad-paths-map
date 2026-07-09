@@ -1,0 +1,2243 @@
+{
+  "dept": "Mathematics",
+  "sourceUrl": "https://catalog.mit.edu/subjects/18/",
+  "parsedCount": 199,
+  "undergradCount": 89,
+  "courses": [
+    {
+      "catalogCode": "18.01",
+      "name": "Calculus",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "5-0-7 units. CALC I",
+      "undergrad": true,
+      "description": "Differentiation and integration of functions of one variable, with applications. Informal treatment of limits and continuity. Differentiation: definition, rules, application to graphing, rates, approximations, and extremum problems. Indefinite integration; separable first-order differential equations. Definite integral; fundamental theorem of calculus. Applications of integration to geometry and science. Elementary functions. Techniques of integration. Polar coordinates. L'Hopital's rule. Improper integrals. Infinite series: geometric, p-harmonic, simple comparison tests, power series for some elementary functions.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.01A",
+      "name": "Calculus",
+      "prereqText": "Knowledge of differentiation and elementary integration",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall; first half of term)",
+      "units": "5-0-7 units. CALC I",
+      "undergrad": true,
+      "description": "Six-week review of one-variable calculus, emphasizing material not on the high-school AB syllabus: integration techniques and applications, improper integrals, infinite series, applications to other topics, such as probability and statistics, as time permits. Prerequisites: one year of high-school calculus or the equivalent, with a score of 5 on the AB Calculus test (or the AB portion of the BC test, or an equivalent score on a standard international exam), or equivalent college transfer credit, or a passing grade on the first half of the 18.01 advanced standing exam.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.01L",
+      "name": "Calculus (New)",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP)",
+      "units": "5-0-7 units. CALC I",
+      "undergrad": true,
+      "description": "Differentiation and integration of functions of one variable, with applications (see full description under 18.01 ). Material covered over a longer interval so that the subject is completed by the end of IAP. Emphasis given to ensuring foundational concepts are developed. Content, depth, and difficulty is otherwise identical to that of 18.01 . The subject is designated as 18.01 on the transcript.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.02",
+      "name": "Calculus",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "5-0-7 units. CALC II",
+      "undergrad": true,
+      "description": "Calculus of several variables. Vector algebra in 3-space, determinants, matrices. Vector-valued functions of one variable, space motion. Scalar functions of several variables: partial differentiation, gradient, optimization techniques. Double integrals and line integrals in the plane; exact differentials and conservative fields; Green's theorem and applications, triple integrals, line and surface integrals in space, Divergence theorem, Stokes' theorem; applications.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.02A",
+      "name": "Calculus",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring; second half of term)",
+      "units": "5-0-7 units. CALC II",
+      "undergrad": true,
+      "description": "First half is taught during the last six weeks of the Fall term; covers material in the first half of 18.02 (through double integrals). Second half of 18.02A can be taken either during IAP (daily lectures) or during the second half of the Spring term; it covers the remaining material in 18.02 .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.022",
+      "name": "Calculus",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "5-0-7 units. CALC II",
+      "undergrad": true,
+      "description": "Calculus of several variables. Topics as in 18.02 but with more focus on mathematical concepts. Vector algebra, dot product, matrices, determinant. Functions of several variables, continuity, differentiability, derivative. Parametrized curves, arc length, curvature, torsion. Vector fields, gradient, curl, divergence. Multiple integrals, change of variables, line integrals, surface integrals. Stokes' theorem in one, two, and three dimensions.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.03",
+      "name": "Differential Equations",
+      "prereqText": "None. Coreq: Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "5-0-7 units. REST",
+      "undergrad": true,
+      "description": "Study of differential equations, including modeling physical systems. Solution of first-order ODEs by analytical, graphical, and numerical methods. Linear ODEs with constant coefficients. Complex numbers and exponentials. Inhomogeneous equations: polynomial, sinusoidal, and exponential inputs. Oscillations, damping, resonance. Fourier series. Matrices, eigenvalues, eigenvectors, diagonalization. First order linear systems: normal modes, matrix exponentials, variation of parameters. Heat equation, wave equation. Nonlinear autonomous systems: critical point analysis, phase plane diagrams.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.031",
+      "name": "System Functions and the Laplace Transform",
+      "prereqText": "None. Coreq: 18.03",
+      "prereqCodes": [
+        "18.03"
+      ],
+      "prereqExpr": {
+        "code": "18.03"
+      },
+      "terms": "U (IAP)",
+      "units": "1-0-2 units",
+      "undergrad": true,
+      "description": "Studies basic continuous control theory as well as representation of functions in the complex frequency domain. Covers generalized functions, unit impulse response, and convolution; and Laplace transform, system (or transfer) function, and the pole diagram. Includes examples from mechanical and electrical engineering.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.032",
+      "name": "Differential Equations",
+      "prereqText": "None. Coreq: Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "5-0-7 units. REST",
+      "undergrad": true,
+      "description": "Covers much of the same material as 18.03 with more emphasis on theory. The point of view is rigorous and results are proven. Local existence and uniqueness of solutions.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.04",
+      "name": "Complex Variables with Applications",
+      "prereqText": "Calculus II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "Complex algebra and functions; analyticity; contour integration, Cauchy's theorem; singularities, Taylor and Laurent series; residues, evaluation of integrals; multivalued functions, potential theory in two dimensions; Fourier analysis, Laplace transforms, and partial differential equations.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.05",
+      "name": "Introduction to Probability and Statistics",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "4-0-8 units. REST",
+      "undergrad": true,
+      "description": "A unified introduction to probability, Bayesian inference, and frequentist statistics. Topics include: combinatorics, random variables, (joint) distributions, covariance, central limit theorem; Bayesian updating, odds, posterior prediction; significance tests, confidence intervals, bootstrapping, regression. Students also develop computational skills and statistical thinking by using R to simulate, analyze, and visualize data; and by exploring privacy, fairness, and causality in contemporary media and research. Flipped subject taught in a Technology Enabled Active Learning (TEAL) classroom to facilitate discussion, group problem solving, and coding studios with ample mentorship.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.06",
+      "name": "Linear Algebra",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "4-0-8 units. REST",
+      "undergrad": true,
+      "description": "Basic subject on matrix theory and linear algebra, emphasizing topics useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, singular value decomposition, and positive definite matrices. Applications to least-squares approximations, stability of differential equations, networks, Fourier transforms, and Markov processes. Uses linear algebra software. Compared with 18.700 , more emphasis on matrix algorithms and many applications.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.C06[J]",
+      "name": "Linear Algebra and Optimization",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "5-0-7 units. REST",
+      "undergrad": true,
+      "description": "Introductory course in linear algebra and optimization, assuming no prior exposure to linear algebra and starting from the basics, including vectors, matrices, eigenvalues, singular values, and least squares. Covers the basics in optimization including convex optimization, linear/quadratic programming, gradient descent, and regularization, building on insights from linear algebra. Explores a variety of applications in science and engineering, where the tools developed give powerful ways to understand complex systems and also extract structure from data.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.062[J]",
+      "name": "Mathematics for Computer Science",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "5-0-7 units. REST",
+      "undergrad": true,
+      "description": "See description under subject 6.1200J.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.063",
+      "name": "Matrix Calculus for Machine Learning and Beyond",
+      "prereqText": "Calculus II (GIR) and 18.06",
+      "prereqCodes": [
+        "18.06"
+      ],
+      "prereqExpr": {
+        "code": "18.06"
+      },
+      "terms": "U (IAP; partial term)",
+      "units": "1-0-2 units",
+      "undergrad": true,
+      "description": "Covers a coherent approach to matrix calculus, showing techniques that allow the student to think of a matrix holistically, rather than as an array of scalars; generalize and compute derivatives of important matrix factorizations and other complicated-looking operations; and understand how differentiation formulas must be reimagined in large-scale computing. Discusses \"adjoint\" or \"reverse-mode\" differentiation, custom vector-Jacobian products, and how modern automatic differentiation is more computer science than calculus.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.065",
+      "name": "Matrix Methods in Data Analysis, Signal Processing, and Machine Learning",
+      "prereqText": "18.06",
+      "prereqCodes": [
+        "18.06"
+      ],
+      "prereqExpr": {
+        "code": "18.06"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Reviews linear algebra with applications to life sciences, finance, engineering, and big data. Covers singular value decomposition, weighted least squares, signal and image processing, principal component analysis, covariance and correlation matrices, directed and undirected graphs, matrix factorizations, neural nets, machine learning, and computations with large matrices.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.075",
+      "name": "Methods for Scientists and Engineers",
+      "prereqText": "Calculus II (GIR) and 18.03",
+      "prereqCodes": [
+        "18.03"
+      ],
+      "prereqExpr": {
+        "code": "18.03"
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Covers functions of a complex variable; calculus of residues. Includes ordinary differential equations; Bessel and Legendre functions; Sturm-Liouville theory; partial differential equations; heat equation; and wave equations.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.085",
+      "name": "Computational Science and Engineering I",
+      "prereqText": "Calculus II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring, Summer)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Review of linear algebra, applications to networks, structures, and estimation, finite difference and finite element solution of differential equations, Laplace's equation and potential flow, boundary-value problems, Fourier series, discrete Fourier transform, convolution. Frequent use of MATLAB in a wide range of scientific and engineering applications.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.086",
+      "name": "Computational Science and Engineering II",
+      "prereqText": "Calculus II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Initial value problems: finite difference methods, accuracy and stability, heat equation, wave equations, conservation laws and shocks, level sets, Navier-Stokes. Solving large systems: elimination with reordering, iterative methods, preconditioning, multigrid, Krylov subspaces, conjugate gradients. Optimization and minimum principles: weighted least squares, constraints, inverse problems, calculus of variations, saddle point problems, linear programming, duality, adjoint methods.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.090",
+      "name": "Introduction to Mathematical Reasoning",
+      "prereqText": "None. Coreq: Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-9 units. REST",
+      "undergrad": true,
+      "description": "Focuses on understanding and constructing mathematical arguments. Discusses foundational topics (such as infinite sets, quantifiers, and methods of proof) as well as selected concepts from algebra (permutations, vector spaces, fields) and analysis (sequences of real numbers). Particularly suitable for students desiring additional experience with proofs before going on to more advanced mathematics subjects or subjects in related areas with significant mathematical content.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.091",
+      "name": "Introduction to Metric Spaces",
+      "prereqText": "18.100A",
+      "prereqCodes": [
+        "18.100A"
+      ],
+      "prereqExpr": {
+        "code": "18.100A"
+      },
+      "terms": "U (IAP; partial term)",
+      "units": "1-0-2 units",
+      "undergrad": true,
+      "description": "Covers metrics, open and closed sets, continuous functions (from a topological perspective), function spaces, completeness, and compactness. Aims to provide more complex concepts and proofs for students who have taken 18.100A as their real analysis subject.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.100A)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.095",
+      "name": "Mathematics Lecture Series",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "Ten lectures by mathematics faculty members on interesting topics from both classical and modern mathematics. All lectures accessible to students with calculus background and an interest in mathematics. At each lecture, reading and exercises are assigned. Students prepare these for discussion in a weekly problem session.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.098",
+      "name": "Internship in Mathematics",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Provides academic credit for students pursuing internships to gain practical experience in the applications of mathematical concepts and methods.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.099",
+      "name": "Independent Study",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Studies (during IAP) or special individual reading (during regular terms). Arranged in consultation with individual faculty members and subject to departmental approval. May not be used to satisfy Mathematics major requirements.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.100A",
+      "name": "Real Analysis",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Covers fundamentals of mathematical analysis: convergence of sequences and series, continuity, differentiability, Riemann integral, sequences and series of functions, uniformity, interchange of limit operations. Shows the utility of abstract concepts and teaches understanding and construction of proofs. Proofs and definitions are less abstract than in 18.100B . Gives applications where possible. Concerned primarily with the real line.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.100B",
+      "name": "Real Analysis",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Covers fundamentals of mathematical analysis: convergence of sequences and series, continuity, differentiability, Riemann integral, sequences and series of functions, uniformity, interchange of limit operations. Shows the utility of abstract concepts and teaches understanding and construction of proofs. More demanding than 18.100A , for students with more mathematical maturity. Places more emphasis on point-set topology and n-space.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.100P",
+      "name": "Real Analysis",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "4-0-11 units",
+      "undergrad": true,
+      "description": "Covers fundamentals of mathematical analysis: convergence of sequences and series, continuity, differentiability, Riemann integral, sequences and series of functions, uniformity, interchange of limit operations. Shows the utility of abstract concepts and teaches understanding and construction of proofs. Proofs and definitions are less abstract than in 18.100B . Gives applications where possible. Concerned primarily with the real line. Includes instruction and practice in written communication. Enrollment limited.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.100Q",
+      "name": "Real Analysis",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "4-0-11 units",
+      "undergrad": true,
+      "description": "Covers fundamentals of mathematical analysis: convergence of sequences and series, continuity, differentiability, Riemann integral, sequences and series of functions, uniformity, interchange of limit operations. Shows the utility of abstract concepts and teaches understanding and construction of proofs. More demanding than 18.100A , for students with more mathematical maturity. Places more emphasis on point-set topology and n-space. Includes instruction and practice in written communication. Enrollment limited.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.101",
+      "name": "Analysis and Manifolds",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduction to the theory of manifolds: vector fields and densities on manifolds, integral calculus in the manifold setting and the manifold version of the divergence theorem. 18.901 helpful but not required.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.102",
+      "name": "Introduction to Functional Analysis",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Normed spaces, completeness, functionals, Hahn-Banach theorem, duality, operators. Lebesgue measure, measurable functions, integrability, completeness of L-p spaces. Hilbert space. Compact, Hilbert-Schmidt and trace class operators. Spectral theorem.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.103",
+      "name": "Fourier Analysis: Theory and Applications",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Roughly half the subject devoted to the theory of the Lebesgue integral with applications to probability, and half to Fourier series and Fourier integrals.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.104",
+      "name": "Seminar in Analysis",
+      "prereqText": "18.100A , 18.100B , 18.100P , or 18.100Q",
+      "prereqCodes": [
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.100A"
+          },
+          {
+            "code": "18.100B"
+          },
+          {
+            "code": "18.100P"
+          },
+          {
+            "code": "18.100Q"
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Students present and discuss material from books or journals. Topics vary from year to year. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.112",
+      "name": "Functions of a Complex Variable",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Studies the basic properties of analytic functions of one complex variable. Conformal mappings and the Poincare model of non-Euclidean geometry. Cauchy-Goursat theorem and Cauchy integral formula. Taylor and Laurent decompositions. Singularities, residues and computation of integrals. Harmonic functions and Dirichlet's problem for the Laplace equation. The partial fractions decomposition. Infinite series and infinite product expansions. The Gamma function. The Riemann mapping theorem. Elliptic functions.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.152",
+      "name": "Introduction to Partial Differential Equations",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduces three main types of partial differential equations: diffusion, elliptic, and hyperbolic. Includes mathematical tools, real-world examples and applications, such as the Black-Scholes equation, the European options problem, water waves, scalar conservation laws, first order equations and traffic problems.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.200",
+      "name": "Principles of Discrete Applied Mathematics",
+      "prereqText": "None. Coreq: 18.06",
+      "prereqCodes": [
+        "18.06"
+      ],
+      "prereqExpr": {
+        "code": "18.06"
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-11 units",
+      "undergrad": true,
+      "description": "Study of illustrative topics in discrete applied mathematics, including probability theory, information theory, coding theory, secret codes, generating functions, and linear programming. Instruction and practice in written communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.200A",
+      "name": "Principles of Discrete Applied Mathematics",
+      "prereqText": "None. Coreq: 18.06",
+      "prereqCodes": [
+        "18.06"
+      ],
+      "prereqExpr": {
+        "code": "18.06"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Study of illustrative topics in discrete applied mathematics, including probability theory, information theory, coding theory, secret codes, generating functions, and linear programming.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.204",
+      "name": "Undergraduate Seminar in Discrete Mathematics",
+      "prereqText": "(( 6.1200[J] or 18.200 ) and ( 18.06 , 18.700 , or 18.701 )) or permission of instructor",
+      "prereqCodes": [
+        "6.1200",
+        "18.200",
+        "18.06",
+        "18.700",
+        "18.701"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "6.1200"
+              },
+              {
+                "code": "18.200"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Seminar in combinatorics, graph theory, and discrete mathematics in general. Participants read and present papers from recent mathematics literature. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 18.200, 18.06, 18.700, 18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.211",
+      "name": "Combinatorial Analysis",
+      "prereqText": "Calculus II (GIR) and ( 18.06 , 18.700 , or 18.701 )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.06"
+          },
+          {
+            "code": "18.700"
+          },
+          {
+            "code": "18.701"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Combinatorial problems and methods for their solution. Enumeration, generating functions, recurrence relations, construction of bijections. Introduction to graph theory. Prior experience with abstraction and proofs is helpful.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.212",
+      "name": "Algebraic Combinatorics",
+      "prereqText": "18.701 or 18.703",
+      "prereqCodes": [
+        "18.701",
+        "18.703"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.701"
+          },
+          {
+            "code": "18.703"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Applications of algebra to combinatorics. Topics include walks in graphs, the Radon transform, groups acting on posets, Young tableaux, electrical networks.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.701, 18.703)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.300",
+      "name": "Principles of Continuum Applied Mathematics",
+      "prereqText": "Calculus II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Covers fundamental concepts in continuous applied mathematics. Applications from traffic flow, fluids, elasticity, granular flows, etc. Also covers continuum limit; conservation laws, quasi-equilibrium; kinematic waves; characteristics, simple waves, shocks; diffusion (linear and nonlinear); numerical solution of wave equations; finite differences, consistency, stability; discrete and fast Fourier transforms; spectral methods; transforms and series (Fourier, Laplace). Additional topics may include sonic booms, Mach cone, caustics, lattices, dispersion and group velocity. Uses MATLAB computing environment.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.303",
+      "name": "Linear Partial Differential Equations: Analysis and Numerics",
+      "prereqText": "18.06 or 18.700",
+      "prereqCodes": [
+        "18.06",
+        "18.700"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.06"
+          },
+          {
+            "code": "18.700"
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Provides students with the basic analytical and computational tools of linear partial differential equations (PDEs) for practical applications in science and engineering, including heat/diffusion, wave, and Poisson equations. Analytics emphasize the viewpoint of linear algebra and the analogy with finite matrix problems. Studies operator adjoints and eigenproblems, series solutions, Green's functions, and separation of variables. Numerics focus on finite-difference and finite-element techniques to reduce PDEs to matrix problems, including stability and convergence analysis and implicit/explicit timestepping. Some programming required for homework and final project.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.330",
+      "name": "Introduction to Numerical Analysis",
+      "prereqText": "Calculus II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Basic techniques for the efficient numerical solution of problems in science and engineering. Root finding, interpolation, approximation of functions, integration, differential equations, direct and iterative methods in linear algebra. Knowledge of programming in a language such as MATLAB, Python, or Julia is helpful.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.352[J]",
+      "name": "Nonlinear Dynamics: The Natural Environment",
+      "prereqText": "Calculus II (GIR) and Physics I (GIR) ; Coreq: 18.03",
+      "prereqCodes": [
+        "18.03"
+      ],
+      "prereqExpr": {
+        "code": "18.03"
+      },
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "See description under subject 12.009[J] .",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.353[J]",
+      "name": "Nonlinear Dynamics: Chaos",
+      "prereqText": "Physics II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "See description under subject 12.006[J] .",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.354[J]",
+      "name": "Nonlinear Dynamics: Continuum Systems",
+      "prereqText": "Physics II (GIR) and ( 18.03 or 18.032 )",
+      "prereqCodes": [
+        "18.03",
+        "18.032"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.032"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "General mathematical principles of continuum systems. From microscopic to macroscopic descriptions in the form of linear or nonlinear (partial) differential equations. Exact solutions, dimensional analysis, calculus of variations and singular perturbation methods. Stability, waves and pattern formation in continuum systems. Subject matter illustrated using natural fluid and solid systems found, for example, in geophysics and biology.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.384",
+      "name": "Undergraduate Seminar in Physical Mathematics",
+      "prereqText": "12.006[J] , 18.300 , 18.354[J] , or permission of instructor",
+      "prereqCodes": [
+        "12.006",
+        "18.300",
+        "18.354"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "12.006"
+          },
+          {
+            "code": "18.300"
+          },
+          {
+            "code": "18.354"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Covers the mathematical modeling of physical systems, with emphasis on the reading and presentation of papers. Addresses a broad range of topics, with particular focus on macroscopic physics and continuum systems: fluid dynamics, solid mechanics, and biophysics. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (12.006, 18.300, 18.354)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.400[J]",
+      "name": "Computability and Complexity Theory",
+      "prereqText": "( 6.1200[J] and 6.1210 ) or permission of instructor",
+      "prereqCodes": [
+        "6.1200",
+        "6.1210"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "6.1200"
+          },
+          {
+            "code": "6.1210"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "See description under subject 6.1400J.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 6.1210)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.404",
+      "name": "Theory of Computation",
+      "prereqText": "6.1200[J] or 18.200",
+      "prereqCodes": [
+        "6.1200",
+        "18.200"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "6.1200"
+          },
+          {
+            "code": "18.200"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "A more extensive and theoretical treatment of the material in 6.1400J/ 18.400[J] , emphasizing computability and computational complexity theory. Regular and context-free languages. Decidable and undecidable problems, reducibility, recursive function theory. Time and space measures on computation, completeness, hierarchy theorems, inherently complex problems, oracles, probabilistic computation, and interactive proof systems.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 18.200)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.410[J]",
+      "name": "Design and Analysis of Algorithms",
+      "prereqText": "6.1200[J] and 6.1210",
+      "prereqCodes": [
+        "6.1200",
+        "6.1210"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "6.1200"
+          },
+          {
+            "code": "6.1210"
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "See description under subject 6.1220J.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 6.1210)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.413",
+      "name": "Introduction to Computational Molecular Biology",
+      "prereqText": "6.1210 or permission of instructor",
+      "prereqCodes": [
+        "6.1210"
+      ],
+      "prereqExpr": {
+        "code": "6.1210"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduction to computational molecular biology with a focus on the basic computational algorithms used to solve problems in practice. Covers classical techniques in the field for solving problems such as genome sequencing, assembly, and search; detecting genome rearrangements; constructing evolutionary trees; analyzing mass spectrometry data; connecting gene expression to cellular function; and machine learning for drug discovery. Prior knowledge of biology is not required. Particular emphasis on problem solving, collaborative learning, theoretical analysis, and practical implementation of algorithms. Students taking graduate version complete additional and more complex assignments.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1210)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.424",
+      "name": "Seminar in Information Theory",
+      "prereqText": "( 6.3700 , 18.05 , or 18.600 ) and ( 18.06 , 18.700 , or 18.701 )",
+      "prereqCodes": [
+        "6.3700",
+        "18.05",
+        "18.600",
+        "18.06",
+        "18.700",
+        "18.701"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "6.3700"
+              },
+              {
+                "code": "18.05"
+              },
+              {
+                "code": "18.600"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Considers various topics in information theory, including data compression, Shannon's Theorems, and error-correcting codes. Students present and discuss the subject matter. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 18.05, 18.600, 18.06, 18.700, 18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.434",
+      "name": "Seminar in Theoretical Computer Science",
+      "prereqText": "6.1220[J]",
+      "prereqCodes": [
+        "6.1220"
+      ],
+      "prereqExpr": {
+        "code": "6.1220"
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Topics vary from year to year. Students present and discuss the subject matter. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.1220)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.453",
+      "name": "Combinatorial Optimization",
+      "prereqText": "18.06 , 18.700 , or 18.701",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.06"
+          },
+          {
+            "code": "18.700"
+          },
+          {
+            "code": "18.701"
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Thorough treatment of linear programming and combinatorial optimization. Topics include matching theory, network flow, matroid optimization, and how to deal with NP-hard optimization problems. Prior exposure to discrete mathematics (such as 18.200 ) helpful.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.504",
+      "name": "Seminar in Logic",
+      "prereqText": "( 18.06 , 18.510 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.510",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.510"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Students present and discuss the subject matter taken from current journals or books. Topics vary from year to year. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.510, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.510",
+      "name": "Introduction to Mathematical Logic and Set Theory",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: U (Spring) Acad Year 2026-2027: Not offered",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Propositional and predicate logic. Zermelo-Fraenkel set theory. Ordinals and cardinals. Axiom of choice and transfinite induction. Elementary model theory: completeness, compactness, and Lowenheim-Skolem theorems. Godel's incompleteness theorem.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.600",
+      "name": "Probability and Random Variables",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "4-0-8 units. REST",
+      "undergrad": true,
+      "description": "Probability spaces, random variables, distribution functions. Binomial, geometric, hypergeometric, Poisson distributions. Uniform, exponential, normal, gamma and beta distributions. Conditional probability, Bayes theorem, joint distributions. Chebyshev inequality, law of large numbers, and central limit theorem. Credit cannot also be received for 6.041A or 6.041B.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.604",
+      "name": "Seminar In Probability Theory",
+      "prereqText": "18.05 or 18.600",
+      "prereqCodes": [
+        "18.05",
+        "18.600"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.05"
+          },
+          {
+            "code": "18.600"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Students work on group presentations on topics selected by students from a provided list of suggestions. Topics may include Benford's law, random walks and electrical networks, and Brownian motions. Assignments include three group presentations, two individual presentations, and a final individual term paper. Instruction in oral and written communication provided to effectively communicate about probability theory. Limited to 16.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.05, 18.600)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.642",
+      "name": "Topics in Mathematics with Applications in Finance",
+      "prereqText": "18.03 , 18.06 , and ( 18.05 or 18.600 )",
+      "prereqCodes": [
+        "18.03",
+        "18.06",
+        "18.05",
+        "18.600"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.06"
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.05"
+              },
+              {
+                "code": "18.600"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduction to mathematical concepts and techniques used in finance. Lectures focusing on linear algebra, probability, statistics, stochastic processes, and numerical methods are interspersed with lectures by financial sector professionals illustrating the corresponding application in the industry. Prior knowledge of economics or finance helpful but not required.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.06, 18.05, 18.600)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.650[J]",
+      "name": "Fundamentals of Statistics",
+      "prereqText": "6.3700 or 18.600",
+      "prereqCodes": [
+        "6.3700",
+        "18.600"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "6.3700"
+          },
+          {
+            "code": "18.600"
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "A rapid introduction to the theoretical foundations of statistical methods that are useful in many applications. Covers a broad range of topics in a short amount of time with the goal of providing a rigorous and cohesive understanding of the modern statistical landscape. Mathematical language is used for intuition and basic derivations but not proofs. Main topics include: parametric estimation, confidence intervals, hypothesis testing, Bayesian inference, and linear and logistic regression. Additional topics may include: causal inference, nonparametric estimation, and classification.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 18.600)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.700",
+      "name": "Linear Algebra",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-0-9 units. REST",
+      "undergrad": true,
+      "description": "Vector spaces, systems of linear equations, bases, linear independence, matrices, determinants, eigenvalues, inner products, quadratic forms, and canonical forms of matrices. More emphasis on theory and proofs than in 18.06 .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.701",
+      "name": "Algebra I",
+      "prereqText": "18.100A , 18.100B , 18.100P , 18.100Q , 18.090 , or permission of instructor",
+      "prereqCodes": [
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q",
+        "18.090"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.100A"
+          },
+          {
+            "code": "18.100B"
+          },
+          {
+            "code": "18.100P"
+          },
+          {
+            "code": "18.100Q"
+          },
+          {
+            "code": "18.090"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "18.701 - 18.702 is more extensive and theoretical than the 18.700 - 18.703 sequence. Experience with proofs necessary. 18.701 focuses on group theory, geometry, and linear algebra.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.100A, 18.100B, 18.100P, 18.100Q, 18.090)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.702",
+      "name": "Algebra II",
+      "prereqText": "18.701",
+      "prereqCodes": [
+        "18.701"
+      ],
+      "prereqExpr": {
+        "code": "18.701"
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Continuation of 18.701 . Focuses on group representations, rings, ideals, fields, polynomial rings, modules, factorization, integers in quadratic number fields, field extensions, and Galois theory.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.703",
+      "name": "Modern Algebra",
+      "prereqText": "Calculus II (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Focuses on traditional algebra topics that have found greatest application in science and engineering as well as in mathematics: group theory, emphasizing finite groups; ring theory, including ideals and unique factorization in polynomial and Euclidean rings; field theory, including properties and applications of finite fields. 18.700 and 18.703 together form a standard algebra sequence.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.704",
+      "name": "Seminar in Algebra",
+      "prereqText": "18.701 , ( 18.06 and 18.703 ), or ( 18.700 and 18.703 )",
+      "prereqCodes": [
+        "18.701",
+        "18.06",
+        "18.703",
+        "18.700"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.701"
+          },
+          {
+            "op": "and",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.703"
+              }
+            ]
+          },
+          {
+            "op": "and",
+            "args": [
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.703"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Topics vary from year to year. Students present and discuss the subject matter. Instruction and practice in written and oral communication provided. Some experience with proofs required. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.701, 18.06, 18.703, 18.700)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.721",
+      "name": "Introduction to Algebraic Geometry",
+      "prereqText": "18.702 and 18.901",
+      "prereqCodes": [
+        "18.702",
+        "18.901"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "18.702"
+          },
+          {
+            "code": "18.901"
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Presents basic examples of complex algebraic varieties, affine and projective algebraic geometry, sheaves, cohomology.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 3 (18.702, 18.901)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.781",
+      "name": "Theory of Numbers",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "An elementary introduction to number theory with no algebraic prerequisites. Primes, congruences, quadratic reciprocity, diophantine equations, irrational numbers, continued fractions, partitions.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.782",
+      "name": "Introduction to Arithmetic Geometry",
+      "prereqText": "18.702",
+      "prereqCodes": [
+        "18.702"
+      ],
+      "prereqExpr": {
+        "code": "18.702"
+      },
+      "terms": "Acad Year 2025-2026: U (Spring) Acad Year 2026-2027: Not offered",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Exposes students to arithmetic geometry, motivated by the problem of finding rational points on curves. Includes an introduction to p-adic numbers and some fundamental results from number theory and algebraic geometry, such as the Hasse-Minkowski theorem and the Riemann-Roch theorem for curves. Additional topics may include Mordell's theorem, the Weil conjectures, and Jacobian varieties.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 3 (18.702)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.783",
+      "name": "Elliptic Curves",
+      "prereqText": "18.702 , 18.703 , or permission of instructor",
+      "prereqCodes": [
+        "18.702",
+        "18.703"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.702"
+          },
+          {
+            "code": "18.703"
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: U (Fall) Acad Year 2026-2027: Not offered",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Computationally focused introduction to elliptic curves, with applications to number theory and cryptography. Topics include point-counting, isogenies, pairings, and the theory of complex multiplication, with applications to integer factorization, primality proving, and elliptic curve cryptography. Includes a brief introduction to modular curves and the proof of Fermat's Last Theorem.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.702, 18.703)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.784",
+      "name": "Seminar in Number Theory",
+      "prereqText": "18.701 or ( 18.703 and ( 18.06 or 18.700 ))",
+      "prereqCodes": [
+        "18.701",
+        "18.703",
+        "18.06",
+        "18.700"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.701"
+          },
+          {
+            "op": "and",
+            "args": [
+              {
+                "code": "18.703"
+              },
+              {
+                "op": "or",
+                "args": [
+                  {
+                    "code": "18.06"
+                  },
+                  {
+                    "code": "18.700"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Topics vary from year to year. Students present and discuss the subject matter. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.701, 18.703, 18.06, 18.700)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.821",
+      "name": "Project Laboratory in Mathematics",
+      "prereqText": "Two mathematics subjects numbered 18.100 or above",
+      "prereqCodes": [
+        "18.100"
+      ],
+      "prereqExpr": {
+        "code": "18.100"
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "3-6-3 units. Institute LAB",
+      "undergrad": true,
+      "description": "Guided research in mathematics, employing the scientific method. Students confront puzzling and complex mathematical situations, through the acquisition of data by computer, pencil and paper, or physical experimentation, and attempt to explain them mathematically. Students choose three projects from a large collection of options. Each project results in a laboratory report subject to revision; oral presentation on one or two projects. Projects drawn from many areas, including dynamical systems, number theory, algebra, fluid mechanics, asymptotic analysis, knot theory, and probability. Enrollment limited.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.100)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.900",
+      "name": "Geometry and Topology in the Plane",
+      "prereqText": "18.03 or 18.06",
+      "prereqCodes": [
+        "18.03",
+        "18.06"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.06"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduction to selected aspects of geometry and topology, using concepts that can be visualized easily. Mixes geometric topics (such as hyperbolic geometry or billiards) and more topological ones (such as loops in the plane). Suitable for students with no prior exposure to differential geometry or topology.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.901",
+      "name": "Introduction to Topology",
+      "prereqText": "18.100A , 18.100B , 18.100P , 18.100Q , or permission of instructor",
+      "prereqCodes": [
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "18.100A"
+          },
+          {
+            "code": "18.100B"
+          },
+          {
+            "code": "18.100P"
+          },
+          {
+            "code": "18.100Q"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduces topology, covering topics fundamental to modern analysis and geometry. Topological spaces and continuous functions, connectedness, compactness, separation axioms, covering spaces, and the fundamental group.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.904",
+      "name": "Seminar in Topology",
+      "prereqText": "18.901",
+      "prereqCodes": [
+        "18.901"
+      ],
+      "prereqExpr": {
+        "code": "18.901"
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Topics vary from year to year. Students present and discuss the subject matter. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.901)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.950",
+      "name": "Differential Geometry",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduction to differential geometry, centered on notions of curvature. Starts with curves in the plane, and proceeds to higher dimensional submanifolds. Computations in coordinate charts: first and second fundamental form, Christoffel symbols. Discusses the distinction between extrinsic and intrinsic aspects, in particular Gauss' theorema egregium. The Gauss-Bonnet theorem. Geodesics. Examples such as hyperbolic space.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.952",
+      "name": "Theory of Differential Forms",
+      "prereqText": "18.101 and ( 18.700 or 18.701 )",
+      "prereqCodes": [
+        "18.101",
+        "18.700",
+        "18.701"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "18.101"
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Multilinear algebra: tensors and exterior forms. Differential forms on R n : exterior differentiation, the pull-back operation and the Poincaré lemma. Applications to physics: Maxwell's equations from the differential form perspective. Integration of forms on open sets of R n . The change of variables formula revisited. The degree of a differentiable mapping. Differential forms on manifolds and De Rham theory. Integration of forms on manifolds and Stokes' theorem. The push-forward operation for forms. Thom forms and intersection theory. Applications to differential topology.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.101, 18.700, 18.701)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.994",
+      "name": "Seminar in Geometry",
+      "prereqText": "( 18.06 , 18.700 , or 18.701 ) and ( 18.100A , 18.100B , 18.100P , or 18.100Q )",
+      "prereqCodes": [
+        "18.06",
+        "18.700",
+        "18.701",
+        "18.100A",
+        "18.100B",
+        "18.100P",
+        "18.100Q"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.06"
+              },
+              {
+                "code": "18.700"
+              },
+              {
+                "code": "18.701"
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "args": [
+              {
+                "code": "18.100A"
+              },
+              {
+                "code": "18.100B"
+              },
+              {
+                "code": "18.100P"
+              },
+              {
+                "code": "18.100Q"
+              }
+            ]
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Students present and discuss subject matter taken from current journals or books. Topics vary from year to year. Instruction and practice in written and oral communication provided. Enrollment limited.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701, 18.100A, 18.100B, 18.100P, 18.100Q)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C20[J]",
+      "name": "Introduction to Computational Science and Engineering",
+      "prereqText": "6.100A ; Coreq: 8.01 and 18.01",
+      "prereqCodes": [
+        "6.100A",
+        "8.01",
+        "18.01"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "6.100A"
+          },
+          {
+            "code": "8.01"
+          },
+          {
+            "code": "18.01"
+          }
+        ]
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject 16.C20[J] .",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 8.01, 18.01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C21",
+      "name": "Interdisciplinary Numerical Methods (New)",
+      "prereqText": "18.03 and 18.06",
+      "prereqCodes": [
+        "18.03",
+        "18.06"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.06"
+          }
+        ]
+      },
+      "terms": "U (Spring; first half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject *UNKNOWN*.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C21A",
+      "name": "Numerical Methods for Partial Differential Equations (New)",
+      "prereqText": "18.C21",
+      "prereqCodes": [
+        "18.C21"
+      ],
+      "prereqExpr": {
+        "code": "18.C21"
+      },
+      "terms": "U (Spring; second half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject *UNKNOWN*.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.C21)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C21B",
+      "name": "Numerical Methods for Large-Scale Linear Algebra (New)",
+      "prereqText": "18.C21",
+      "prereqCodes": [
+        "18.C21"
+      ],
+      "prereqExpr": {
+        "code": "18.C21"
+      },
+      "terms": "U (Spring; second half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject *UNKNOWN*.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.C21)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C21C",
+      "name": "Parallel Numerical Methods (New)",
+      "prereqText": "18.C21",
+      "prereqCodes": [
+        "18.C21"
+      ],
+      "prereqExpr": {
+        "code": "18.C21"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring; second half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject *UNKNOWN*.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.C21)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.C25[J]",
+      "name": "Real World Computation with Julia",
+      "prereqText": "6.100A , 18.03 , and 18.06",
+      "prereqCodes": [
+        "6.100A",
+        "18.03",
+        "18.06"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "6.100A"
+          },
+          {
+            "code": "18.03"
+          },
+          {
+            "code": "18.06"
+          }
+        ]
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Focuses on algorithms and techniques for writing and using modern technical software in a job, lab, or research group environment that may consist of interdisciplinary teams, where performance may be critical, and where the software needs to be flexible and adaptable. Topics include automatic differentiation, matrix calculus, scientific machine learning, parallel and GPU computing, and performance optimization with introductory applications to climate science, economics, agent-based modeling, and other areas. Labs and projects focus on performant, readable, composable algorithms, and software. Programming will be in Julia. Expects students to have some familiarity with Python, Matlab, or R. No Julia experience necessary.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 18.03, 18.06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.UR",
+      "name": "Undergraduate Research",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Undergraduate research opportunities in mathematics. Permission required in advance to register for this subject. For further information, consult the departmental coordinator.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.S001",
+      "name": "Special Subject in Mathematics (New)",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "5-0-7 units",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by member of the Mathematics faculty on an ad hoc basis, subject to departmental approval.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "18.S096",
+      "name": "Special Subject in Mathematics",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by members of the Mathematics faculty on an ad hoc basis, subject to departmental approval.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.S097",
+      "name": "Special Subject in Mathematics",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by members of the Mathematics faculty on an ad hoc basis, subject to departmental approval. 18.S097 is graded P/D/F.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.S190",
+      "name": "Special Subject in Mathematics",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (IAP)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by members of the Mathematics faculty on an ad hoc basis, subject to departmental approval.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.S191",
+      "name": "Special Subject in Mathematics",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by members of the Mathematics faculty on an ad hoc basis, subject to departmental approval.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "18.S192",
+      "name": "Special Subject in Mathematics",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring; second half of term)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Opportunity for group study of subjects in mathematics not otherwise included in the curriculum. Offerings are initiated by member of the Mathematics faculty on an ad hoc basis, subject to departmental approval.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "data-engineer",
+  "name": "Data Engineer",
+  "grounding": "soc",
+  "soc": ["15-1243.00"],
+  "responsibilities": [
+    "Design and document database and data warehouse architecture that other teams' pipelines and dashboards depend on for years",
+    "Build data models, schemas, and interfaces (partitions, indexes, transfer mechanisms) that scale and stay fast as data volume grows",
+    "Integrate new data sources into existing warehouse structures without breaking what already runs on them"
+  ],
+  "skills": [
+    "Data modeling and schema design that survives new sources and new scale",
+    "Database management and query languages, plus cloud-based storage and warehouse platforms",
+    "Enforcing and documenting standards (naming, schemas, access control) so the warehouse stays usable as a team, not a pile of tables",
+    "Systems analysis: tracing how a broken pipeline or slow query affects everything downstream"
+  ],
+  "rawSkillPool": [
+    "Database architecture and data warehouse design",
+    "Data base management system software",
+    "Data base user interface and query software (SQL)",
+    "Cloud-based management and storage software",
+    "Data modeling and metadata management",
+    "ETL and pipeline development",
+    "Systems analysis and systems evaluation",
+    "Programming (Python, Java, or similar)",
+    "Database development standards and documentation",
+    "Data partitioning, indexing, and performance tuning",
+    "Integrating disparate systems and data sources",
+    "Storage networking software"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-1243.00",
+      "quote": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses.",
+      "title": "Database Architects (15-1243.00, alternate title \"Data Engineer\"), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "proposals": {
+    "mit-14-01": [],
+    "mit-14-02": [],
+    "mit-14-30": [
+      {
+        "career": "statistician",
+        "confidence": 0.55,
+        "matchedSkills": ["statistical estimation and inference"],
+        "distinctive": true,
+        "rationale": "Intro course teaches probability and statistical estimation/inference but at an introductory, applied-to-economics level, giving only a modest edge."
+      }
+    ],
+    "mit-14-32": [
+      {
+        "career": "statistician",
+        "confidence": 0.75,
+        "matchedSkills": ["analyzing randomized experiments", "regression analysis for causal inference"],
+        "distinctive": true,
+        "rationale": "Course centers on experimental design (randomized experiments, RD, diff-in-diff) and statistical inference for causal analysis, matching statistician's core distinctive skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.6,
+        "matchedSkills": ["statistical programming"],
+        "distinctive": true,
+        "rationale": "Course requires statistical programming and comparing regression-based methods, giving a moderate opening toward data-scientist statistical-software skills."
+      }
+    ],
+    "mit-14-12": [],
+    "mit-14-15j": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.62,
+        "matchedSkills": ["network optimization"],
+        "distinctive": true,
+        "rationale": "Course explicitly uses optimization and mathematical modeling of networks as one of its three core toolsets, matching or-analyst's distinctive optimization/mathematical modeling skills."
+      }
+    ],
+    "mit-14-19": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["resource allocation modeling"],
+        "distinctive": true,
+        "rationale": "Mechanism design and resource allocation modeling touch or-analyst's mathematical modeling/optimization work, but the course is framed as economic theory rather than applied OR practice."
+      }
+    ],
+    "mit-14-33": [],
+    "mit-14-36": [
+      {
+        "career": "statistician",
+        "confidence": 0.75,
+        "matchedSkills": ["advanced regression methods for causal questions", "regression discontinuity design"],
+        "distinctive": true,
+        "rationale": "Advanced treatment of causal-inference methodology (regression, IV, RD, synthetic control, statistical inference) closely matches statistician's core distinctive skills."
+      }
+    ],
+    "mit-14-38": [
+      {
+        "career": "statistician",
+        "confidence": 0.75,
+        "matchedSkills": ["de-biased machine learning methods", "causal inference with high-dimensional data"],
+        "distinctive": true,
+        "rationale": "Course teaches rigorous statistical methodology (de-biased ML, structural/potential-outcomes inference) for high-dimensional causal parameters, matching statistical-theory distinctive skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.7,
+        "matchedSkills": ["R or Python programming for causal analysis", "adapting machine learning and deep learning models for causal inference"],
+        "distinctive": true,
+        "rationale": "Requires programming in R/Python and adapting ML/deep-learning tools, matching data-scientist's statistical-software distinctive skill in an applied research-to-industry context."
+      }
+    ],
+    "mit-14-39": [
+      {
+        "career": "statistician",
+        "confidence": 0.78,
+        "matchedSkills": ["statistical decision theory", "empirical Bayes methods"],
+        "distinctive": true,
+        "rationale": "Course is built directly on statistical decision theory and empirical Bayes methodology, a strong direct match to statistician's core distinctive skill set."
+      }
+    ],
+    "mit-14-c395j": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.72,
+        "matchedSkills": ["building effective and reliable ML solutions", "designing machine learning and AI algorithms for decision support"],
+        "distinctive": true,
+        "rationale": "Course centers on designing and building end-to-end ML/AI algorithms for real decision-support applications, matching ml-engineer's end-to-end delivery distinctive skill."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.65,
+        "matchedSkills": ["statistical ML frameworks"],
+        "distinctive": true,
+        "rationale": "Combines statistical ML frameworks with applied problem-solving, giving a moderate opening toward data-scientist's modeling distinctive skills."
+      }
+    ]
+  }
+}

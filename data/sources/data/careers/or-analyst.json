@@ -1,0 +1,49 @@
+{
+  "id": "or-analyst",
+  "name": "Operations Research Analyst",
+  "grounding": "soc",
+  "soc": ["15-2031.00"],
+  "responsibilities": [
+    "Turn a messy operational problem into a mathematical or simulation model with real constraints and trade-offs",
+    "Validate and reformulate models until they actually hold up against reality, not just the training data",
+    "Present modeling results and recommendations to management in language decision-makers can act on"
+  ],
+  "skills": [
+    "Formulating mathematical or simulation models that capture constraints, alternatives, and conflicting objectives",
+    "Validating and testing a model, then reformulating it when it fails to hold up",
+    "Defining data requirements and gathering the right information with statistical judgment",
+    "Collaborating with managers to translate a fuzzy operational problem into a solvable one"
+  ],
+  "rawSkillPool": [
+    "Mathematical and simulation modeling",
+    "Optimization methods",
+    "Analytical or scientific software",
+    "Model validation and testing",
+    "Data base user interface and query software",
+    "Defining data requirements",
+    "Preparing management reports with recommendations",
+    "Presenting modeling results to end users",
+    "Mathematics",
+    "Financial analysis software",
+    "Collaborating with senior managers on decision-making",
+    "Studying alternative courses of action",
+    "Object or component oriented development software",
+    "Analyzing data or information"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2031.00",
+      "title": "Operations Research Analysts (SOC 15-2031.00), O*NET 29.1 database",
+      "quote": "Formulate and apply mathematical modeling and other optimizing methods to develop and interpret information that assists management with decisionmaking, policy formulation, or other managerial functions.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2031.00",
+      "title": "Operations Research Analysts: Tasks, O*NET 29.1 database",
+      "quote": "Formulate mathematical or simulation models of problems, relating constants and variables, restrictions, alternatives, conflicting objectives, and their numerical parameters. Perform validation and testing of models to ensure adequacy, and reformulate models, as necessary. Present the results of mathematical modeling and data analysis to management or other end users.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

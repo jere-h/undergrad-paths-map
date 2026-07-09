@@ -1,0 +1,1336 @@
+{
+  "dept": "Management",
+  "sourceUrl": "https://catalog.mit.edu/subjects/15/",
+  "parsedCount": 472,
+  "undergradCount": 78,
+  "courses": [
+    {
+      "catalogCode": "15.000",
+      "name": "Explorations in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "2-0-1 units",
+      "undergrad": true,
+      "description": "Broad introduction to the various aspects of management including analytics, accounting and finance, operations, marketing, entrepreneurship and leadership, organizations, economics, systems dynamics, and negotiation and communication. Introduces the field of management through a variety of experiences as well as discussions led by faculty or industry experts. Also reviews the three undergraduate majors offered by Sloan as well as careers in management. Subject can count toward the 6-unit discovery-focused credit limit for first year students. Limited to undergraduates; preference to first years.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0111",
+      "name": "Economic Analysis for Business Decisions",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "4-0-5 units",
+      "undergrad": true,
+      "description": "Introduces principles of microeconomics as a framework for making more informed managerial decisions. Discusses the supply and demand paradigm with applications to digital marketplaces, innovation, sources of market power, and strategic pricing. Provides an introduction to game theory to study competition and cooperation both within and between firms. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Intended for undergraduate students; not open to Sloan MBA students.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0131",
+      "name": "Economics for Strategic Decisions (New)",
+      "prereqText": "14.01",
+      "prereqCodes": [
+        "14.01"
+      ],
+      "prereqExpr": {
+        "code": "14.01"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Applies principles of economics most relevant for corporate strategy to analysis of particular industries. Topics include: market structure and its determinants; rational strategic behavior in small numbers situations; strategies for price and nonprice competition; dynamic pricing, output, and advertising decisions; entry and entry deterrence; competition with network externalities; investments under uncertainty; competition among platforms; R&D and patent licensing; and the growth and evolution of industries. Meets with 15.013 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (14.01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0161[J]",
+      "name": "Climate and Energy in the Global Economy",
+      "prereqText": "14.01 or 15.0111",
+      "prereqCodes": [
+        "14.01",
+        "15.0111"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "14.01"
+          },
+          {
+            "code": "15.0111"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units. HASS-S",
+      "undergrad": true,
+      "description": "Provides students with a comprehensive understanding of the challenges, opportunities, and policy responses to the global climate and energy crises. Discusses the role of energy in world economies, paying particular attention to low- and middle-income countries, as well as the impacts of climate change on those economies. Considers how access, cost, reliability, and environmental harm drive or hinder economic growth, the political influences on the energy sector, the impacts of climate change on low- and middle-income countries, and the role of energy in mitigating future impacts of climate change. Also discusses global climate solutions, including the role of the United Nations Framework Convention on Climate Change process, trade policy, climate finance, business strategies to reduce emissions, and business strategies to help people adapt to a changing climate. Students taking graduate students complete additional assignments.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (14.01, 15.0111)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0201[J]",
+      "name": "Economics of Energy, Innovation, and Sustainability",
+      "prereqText": "14.01 or 15.0111",
+      "prereqCodes": [
+        "14.01",
+        "15.0111"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "14.01"
+          },
+          {
+            "code": "15.0111"
+          }
+        ]
+      },
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "3-0-9 units. HASS-S",
+      "undergrad": true,
+      "description": "Covers energy and environmental market organization and regulation. Explores economic challenges and solutions to transforming energy markets to be more efficient, accessible, affordable, and sustainable. Applies core economic concepts - consumer choice, firm profit maximization, and strategic behavior - to understand when energy and environmental markets work well and when they fail. They also conduct data-driven economic analysis on the trade-offs of real and proposed policy interventions. Topics include renewable generation sources for electricity, energy access in emerging markets, efficiency programs and fuel efficiency standards, transitioning transportation to alternative fuels, measuring damages and adaptation to climate change, and the effect of energy and environmental policy on innovation. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (14.01, 15.0111)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0251",
+      "name": "Game Theory for Strategic Advantage",
+      "prereqText": "14.01 , 15.0111 , or permission of instructor",
+      "prereqCodes": [
+        "14.01",
+        "15.0111"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "14.01"
+          },
+          {
+            "code": "15.0111"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Develops and applies principles of game theory relevant to managers' strategic decisions. Topics include how to reason about strategies and opponents; strategic commitment and negotiations; reputation and seemingly irrational actions; bidding in auctions; and the design of auctions, contests and markets. Applications to a variety of business decisions that arise in different industries, both within and outside the firm. Meets with 15.025 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (14.01, 15.0111)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.026[J]",
+      "name": "Global Climate Change: Economics, Science, and Policy",
+      "prereqText": "( Calculus II (GIR) , 5.60, and 14.01 ) or permission of instructor",
+      "prereqCodes": [
+        "5.60",
+        "14.01"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "5.60"
+          },
+          {
+            "code": "14.01"
+          }
+        ]
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Introduces scientific, economic, and ecological issues underlying the threat of global climate change, and the institutions engaged in negotiating an international response. Develops an integrated approach to analysis of climate change processes, and assessment of proposed policy measures, drawing on research and model development within the MIT Joint Program on the Science and Policy of Global Change. Graduate students are expected to explore the topic in greater depth through reading and individual research..",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (5.60, 14.01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0291[J]",
+      "name": "United States Energy Policy: Lessons Learned for the Future",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall; second half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject 5.811[J] .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0341",
+      "name": "Business Experiments and Causal Analytics",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "4-0-5 units",
+      "undergrad": true,
+      "description": "<p class=\"xmsonormal\">Looks at predicting and understanding the causal effects of decisions across finance, marketing, human resources, and general business strategy. Develops a toolkit to go beyond correlations and get to causality. Students gain a deeper understanding of designing experiments, modeling natural experiments using multivariate regression, instrumental-variable regression, and machine learning tools including regression trees, random forest, LASSO, and neural networks. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0351",
+      "name": "Energy Market Dynamics in a Decarbonizing Economy",
+      "prereqText": "14.01 or permission of instructor",
+      "prereqCodes": [
+        "14.01"
+      ],
+      "prereqExpr": {
+        "code": "14.01"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring; second half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "Explores how energy markets function, what changes as the world decarbonizes, and the role of new technologies in this change. Examines how market outcomes are influenced by policies, with a focus on environmental policies. Uses economic tools to analyze efficiency and public policy challenges in interconnected energy and environmental markets. Topics include how electricity markets are shaped by large-scale renewable penetration, how decarbonization policies affect different regions and socio-economic groups, measuring the social costs of climate change, and the role of critical minerals in a decarbonizing world. Students gain experience in linking theory to real-world policy problems, particularly through a team-based electricity market simulation that mirrors decision-making by market participants. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Limited to 65.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (14.01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.037[J]",
+      "name": "Energy Economics and Policy",
+      "prereqText": "14.01 or 15.0111",
+      "prereqCodes": [
+        "14.01",
+        "15.0111"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "14.01"
+          },
+          {
+            "code": "15.0111"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units. HASS-S",
+      "undergrad": true,
+      "description": "See description under subject 14.44[J] . Limited to 60.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (14.01, 15.0111)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.039[J]",
+      "name": "Organizational Economics",
+      "prereqText": "14.01",
+      "prereqCodes": [
+        "14.01"
+      ],
+      "prereqExpr": {
+        "code": "14.01"
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units. HASS-S",
+      "undergrad": true,
+      "description": "See description under subject 14.26[J] .",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (14.01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.053",
+      "name": "Optimization Methods in Business Analytics",
+      "prereqText": "1.00 , 1.000 , 6.100A , or permission of instructor",
+      "prereqCodes": [
+        "1.00",
+        "1.000",
+        "6.100A"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "1.00"
+          },
+          {
+            "code": "1.000"
+          },
+          {
+            "code": "6.100A"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units. REST",
+      "undergrad": true,
+      "description": "Introduces optimization methods with a focus on modeling, solution techniques, and analysis. Covers linear programming, network optimization, integer programming, nonlinear programming, and heuristics. Applications to logistics, manufacturing, statistics, machine learning, transportation, game theory, marketing, project management, and finance. Includes projects in which student teams solve optimization problems of practical interest.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (1.00, 1.000, 6.100A)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.0621",
+      "name": "Data Mining: Finding the Models and Predictions that Create Value",
+      "prereqText": "15.075[J] or permission of instructor",
+      "prereqCodes": [
+        "15.075"
+      ],
+      "prereqExpr": {
+        "code": "15.075"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall; first half of term)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "Introduction to data mining, data science, and machine learning for recognizing patterns, developing models and predictive analytics, and making intelligent use of massive amounts of data collected via the internet, e-commerce, electronic banking, medical databases, etc. Topics include logistic regression, association rules, tree-structured classification and regression, cluster analysis, discriminant analysis, and neural network methods. Presents examples of successful applications in credit ratings, fraud detection, marketing, customer relationship management, investments, and synthetic clinical trials. Introduces data-mining software (R and Python). Grading based on homework, cases, and a term project. Expectations and evaluation criteria differ for students taking the graduate version; consult syllabus or instructor for specific details.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (15.075)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.069",
+      "name": "Applied Probability and Statistics",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "4-0-8 units. REST",
+      "undergrad": true,
+      "description": "Presents probability from the perspective of applied mathematics, with strong emphasis on an intuitive overview of key theorems and continuing demonstrations of their usefulness. Covers the laws of probability and numerous important discrete and continuous random variables, both individually and in combination. Introduces simulation. Offers an introduction to statistics that emphasizes its probabilistic foundations and the fact that statistical reasoning is applied common sense. Covers hypothesis testing, statistical sampling, and various forms of regression analysis. Draws applications from economics, finance, engineering, marketing, public policy, operations management, and operations research.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.0711",
+      "name": "The Analytics Edge",
+      "prereqText": "15.053 and 15.069",
+      "prereqCodes": [
+        "15.053",
+        "15.069"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "15.053"
+          },
+          {
+            "code": "15.069"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "Develops models and tools of data analytics that are used to transform businesses and industries, using examples and case studies in e-commerce, healthcare, social media, high technology, criminal justice, the internet, and beyond. Covers analytics methods such as linear regression, logistic regression, classification trees, random forests, neural networks, text analytics, social network analysis, time series modeling, clustering, and optimization. Uses mostly R programming language and some work in Jupyter notebooks. Includes team project. Meets with 15.071 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 3 (15.053, 15.069)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.075[J]",
+      "name": "Statistical Thinking and Data Analysis",
+      "prereqText": "6.3700 or 15.069",
+      "prereqCodes": [
+        "6.3700",
+        "15.069"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "6.3700"
+          },
+          {
+            "code": "15.069"
+          }
+        ]
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-1-8 units. Institute LAB",
+      "undergrad": true,
+      "description": "Introduces a rigorous treatment of statistical data analysis while helping students develop a strong intuition for the strengths and limitations of various methods. Topics include statistical sampling and uncertainty, estimation, hypothesis testing, linear regression, classification, analysis of variation, and elements of data mining. Involves empirical use of hypothesis testing and other statistical methodologies in several domains, including the assessment of A-B experiments on the web and the identification of genes correlated with diseases.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.076",
+      "name": "Analytics for a Better World",
+      "prereqText": "Calculus I (GIR)",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "4-0-8 units. Institute LAB",
+      "undergrad": true,
+      "description": "Introduces predictive and prescriptive analytics methods to solve problems that contribute to the welfare of society. Emphasis on using machine learning and optimization methods in innovative ways using real world data. Methods used include: linear and discrete optimization, linear and logistic regression, optimal classification and regression trees, deep learning, random forests, and boosted trees. Projects utilize Julia, Jump, and Tensor Flow. Assessment based on projects, including a capstone project. Restricted to undergraduates.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.1411",
+      "name": "Economics and Analytics of Health Care Industries",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Uses economics as a framework to provide a better understanding of the US healthcare landscape, as well as incentives for global health investments. Topics include differences between health care and other industries, the role of health insurance, regulatory issues and incentives for innovation, strategic issues in pricing and marketing, use of e-commerce and information technology, and formation and management of various alliances. Describes modern data analytics to measure value, including personalized/stratified therapies. Visiting speakers from industry and academia provide multiple expert viewpoints on these topics. Expectations and evaluation criteria differ for students taking the undergraduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.2191[J]",
+      "name": "Global Energy: Politics, Markets, and Policy",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-9 units. HASS-S",
+      "undergrad": true,
+      "description": "Focuses on the ways economics and politics influence the fate of energy technologies, business models, and policies around the world. Extends fundamental concepts in the social sciences to case studies and simulations that illustrate how corporate, government, and individual decisions shape energy and environmental outcomes. In a final project, students apply the concepts in order to assess the prospects for an energy innovation to scale and advance sustainability goals in a particular regional market. Recommended prerequisite: 14.01 . Meets with 15.219[J] when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Preference to juniors, seniors, and Energy Minors.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.238[J]",
+      "name": "Shaping the Future of Technology: From Early Agriculture to Artificial Intelligence",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "4-0-8 units. HASS-S; CI-H",
+      "undergrad": true,
+      "description": "See description under subject 14.78[J] .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.276",
+      "name": "Communicating with Data",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Equips students with the strategies, tactics, and tools to use quantitative information to inform and persuade others. Emphasizes effective communication skills as the foundation of successful careers. Develops the skills to communicate quantitative information in a business context to drive people and organizations toward better decisions. Focuses heavily on the cycle of practicing, reflecting, and revising. Students receive extensive, personalized feedback from teaching team and classmates. Limited to 25; priority to 15-2 and 6-14 majors.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.279",
+      "name": "Management Communication for Undergraduates",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Develops writing, speaking, teamwork, interpersonal, social media, and cross-cultural communication skills necessary for management professionals. Assignments include creating persuasive memos, writing in response to cases, and giving presentations. Major project involves the production of a team report and presentation on a topic of interest to a professional audience.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.301",
+      "name": "People, Teams, and Organizations Laboratory",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-3-9 units. Institute LAB",
+      "undergrad": true,
+      "description": "Surveys individual and social psychology and organization theory interpreted in the context of the managerial environment. Laboratory involves projects of an applied nature in behavioral science. Emphasizes use of behavioral science research methods to test hypotheses concerning decision-making, group behavior, and organizational behavior. Instruction and practice in communication includes report writing, team projects, and oral and visual presentation. 12 units may be applied to the General Institute Laboratory Requirement. Shares lectures with 15.310 .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.302[J]",
+      "name": "Power: Interpersonal, Organizational, and Global Dimensions",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring)",
+      "units": "3-0-9 units. HASS-S",
+      "undergrad": true,
+      "description": "See description under subject 21A.127[J] .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.305",
+      "name": "Leadership and Management",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Explores leadership from the military perspective taught by professors of military science from the Army, Navy and Air Force. Survey of basic principles for successfully managing and leading people, particularly in public service and the military. Develops skills in topics such as oral and written communication techniques, planning, team building, motivation, ethics, decision-making, and managing change. Relies heavily on interactive experiential classes with case studies, student presentations, role plays, and discussion. Also appropriate for non-management science majors.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.312",
+      "name": "Organizational Processes for Business Analytics",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Develops appreciation for organizational dynamics and competence in navigating social networks, working in a team, demystifying rewards and incentives, leveraging the crowd, understanding change initiatives, and making sound decisions. Provides instruction and practice in written and oral communication through presentations, and interpersonal and group exercises.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3621[J]",
+      "name": "Engineering Innovation: Global Security Systems",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-3-6 units",
+      "undergrad": true,
+      "description": "Offers the perspective of a chief technology officer and systems engineer in innovation-focused organizations such as the Departments of Defense, DARPA, NATO, and the UN. Discusses technological and innovation measures taken to ensure mutual safety and security globally. Outlines the journey from ideation to impact, revolving around complex engineering design challenges. Involves iterative testing and refinement of solutions, focusing on scalability in operational environments. Emphasis placed on efficient team-building and leadership. Examines stakeholders' roles in successfully deploying solutions. Develops skills to organize technical thoughts, write impactful reports, and present arguments effectively. Prepares students to navigate design challenges, adjust to engineering frameworks, and manage use case variations. Students taking graduate version complete additional assignments. Meets with 15.362[J] when offered concurrently.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3641",
+      "name": "Innovation Ecosystems for Regional Entrepreneurship Acceleration Leaders (iEco4REAL)",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Aimed at students seeking an action-oriented understanding of innovation ecosystems, such as Silicon Valley, Greater Boston, Singapore, Lagos, and other sites across the globe. Provides a framework for analyzing these critical innovation economies from the perspective of key stakeholders: large corporations, governments, universities, entrepreneurs, and risk capital providers. Outlines the design and delivery of policies and programs (e.g., hackathons, accelerators, prizes, tax policy, immigration policy) intended to accelerate innovation-driven entrepreneurship in an ecosystem. Focuses on how these programs can be used to drive corporate innovation and entrepreneurship and build stronger cultures of innovation. Meets with 15.364 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.373[J]",
+      "name": "Venture Engineering",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Provides students a rigorous and fun introduction to entrepreneurship. Introduces students to a systematic approach to building successful new ventures. Intended for students who seek to leverage their engineering and science background to create innovation-driven new products and ventures in an efficient, effective, and timely manner. Students form teams and work on creating a new venture with guidance from twice-a-week lectures, workshops, and advising sessions. Provides an opportunity for students to explore this field for future potential career or jump start an entrepreneurial career or venture. Also exposes students to the rich resources available across MIT and beyond.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3781",
+      "name": "Building an Entrepreneurial Venture: Advanced Tools and Techniques",
+      "prereqText": "15.3901 or permission of instructor",
+      "prereqCodes": [
+        "15.3901"
+      ],
+      "prereqExpr": {
+        "code": "15.3901"
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-1-8 units",
+      "undergrad": true,
+      "description": "Intensive, project-based subject intended for startup teams already working on building a new, high-impact venture. Applies advanced entrepreneurial techniques to build and iterate a venture in a time-compressed manner. Includes weekly coaching sessions with instructors and peers, as well as highly interactive and customized sessions that provide practical, in-depth coverage on key topics in entrepreneurship. Topics include venture creation, primary market research, product development, market adoption, team and culture, and scaling processes with constrained resources. Meets with 15.378 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Application required; consult instructor. No listeners.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.3901)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3791[J]",
+      "name": "Mobility Ventures: Driving Innovation in Transportation Systems",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-3-6 units",
+      "undergrad": true,
+      "description": "See description under subject 11.029[J] . Preference to juniors and seniors.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3901",
+      "name": "Entrepreneurship 101: Systematic Approach to New Venture Creation",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "2-2-8 units",
+      "undergrad": true,
+      "description": "Covers the process of identifying and quantifying market opportunities, then conceptualizing, planning, and starting a new, technology-based enterprise. Topics include opportunity assessment, the value proposition, the entrepreneur, legal issues, entrepreneurial ethics, the business plan, the founding team, seeking customers, and raising funds. Students develop detailed business plans for a start-up. Intended for students who want to start their own business, further develop an existing business, be a member of a management team in a new enterprise, or better understand the entrepreneur and the entrepreneurial process. Meets with 15.390 when offered concurrently. Students taking graduate version complete additional assignments.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3941",
+      "name": "Entrepreneurial Founding and Teams",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Explores key organizational and strategic decisions in founding and building a new venture. Through a series of cases, readings, and activities, students examine the trade-offs and consequences of early founder decisions: whom to include in the founding team, how to allocate equity among co-founders, how to determine founder roles, how to hire and motivate early-employees, and whether to involve external investors. Aims to equip students with tools and frameworks to help them understand the implications of early decisions, and to build enduring resources that enable the venture to execute even if the original plan changes substantially. Meets with 15.394 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.3991",
+      "name": "Entrepreneurship Lab",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "2-9-1 units",
+      "undergrad": true,
+      "description": "Project-based subject, in which teams of students from MIT and surrounding colleges work with startups on problems of strategic importance to the venture. Lectures provide an introduction to entrepreneurship, and the action learning component allows students to apply their academic knowledge to the problems faced by entrepreneurial firms. Popular sectors include software, hardware, robotics, clean technology, and life sciences. Meets with 15.399 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.417",
+      "name": "Laboratory in Investments",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-3-9 units. Institute LAB",
+      "undergrad": true,
+      "description": "Introduction to finance with a lab component that puts theory into practice. Designed to build effective decision-making skills for business and to develop hands-on analytical techniques that are used by investment managers and traders. Lectures provide a firm grounding in financial analysis--determining the value of a decision, deciding how to finance a project, and assessing its risk. Lab sessions introduce students to modern tools and methods used in financial markets. Through team projects, students develop and test asset-pricing models, forecasting methods, and investment strategies using real-world market data. Provides instruction in writing and speaking from a financial perspective. Meets with 15.401 when offered concurrently.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.418",
+      "name": "Laboratory in Corporate Finance",
+      "prereqText": "None. Coreq: 15.501",
+      "prereqCodes": [
+        "15.501"
+      ],
+      "prereqExpr": {
+        "code": "15.501"
+      },
+      "terms": "U (Fall, Spring)",
+      "units": "4-2-9 units. Institute LAB",
+      "undergrad": true,
+      "description": "Introduction to corporate finance. Classroom portion primarily uses case studies to introduce financial analytical tools needed to make real-world value-enhancing business decisions across many industries: how to decide which projects to invest in, how to finance those investments, and how to manage the cash flows of the firm. Laboratory sessions are organized around team valuation projects, such as valuation of an oil field and analysis of a potential merger between two public firms proposed by student teams. Projects require extensive use of financial databases. Laboratory sessions also provide instruction on writing and speaking on financial topics. Meets with 15.402 when offered concurrently.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.501)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4311",
+      "name": "Entrepreneurial Finance and Venture Capital",
+      "prereqText": "15.417",
+      "prereqCodes": [
+        "15.417"
+      ],
+      "prereqExpr": {
+        "code": "15.417"
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Examines the elements of entrepreneurial finance, focusing on technology-based start-up ventures, and the early stages of company development. Addresses key questions which challenge all entrepreneurs: how much money can and should be raised; when should it be raised and from whom; what is a reasonable valuation of a company; and how funding, employment contracts and exit decisions should be structured. Aims to prepare students for these decisions, both as entrepreneurs and venture capitalists. In-depth analysis of the structure of the private equity industry. Meets with 15.431 when offered concurrently. Expectations and evaluation criteria for graduate students will differ from those of undergraduates; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.417)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4331",
+      "name": "Financial Markets",
+      "prereqText": "15.417",
+      "prereqCodes": [
+        "15.417"
+      ],
+      "prereqExpr": {
+        "code": "15.417"
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Provides students with a solid understanding of key financial markets and the empirical skills and tools used to support decision making. Employs an in-depth, empirically-driven exploration of markets, including equity, fixed income, and derivatives. Students apply real-world financial data to test and understand financial models, focusing on key risk factors and risk management concerns in these markets, along with the quantitative tools used to analyze risk. Discusses major institutions and players involved in each market, the evolution of the markets, and issues such as liquidity. Meets with 15.433 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Preference to Course 15 students.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.417)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4341",
+      "name": "Advanced Corporate Finance",
+      "prereqText": "15.418",
+      "prereqCodes": [
+        "15.418"
+      ],
+      "prereqExpr": {
+        "code": "15.418"
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Exposes students to advanced application of tools and techniques of corporate financial management. Covers complex valuations, modelling of capital structure decisions, financial restructuring, analysis and modelling of merger transactions, and real options. Additional topics include security design, choice of financial instruments, pricing of convertible bonds and convertible preferred stocks. Also covers project finance and other hybrid financing facilities.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (15.418)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4371",
+      "name": "Options and Futures Markets",
+      "prereqText": "15.417",
+      "prereqCodes": [
+        "15.417"
+      ],
+      "prereqExpr": {
+        "code": "15.417"
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Students develop the economic intuition and technical skills necessary to understand how to hedge and price derivatives, and how to use them for investment and risk management purposes. Topics include determinants of forward and futures prices, hedging and synthetic asset creation with futures, uses of options in investment strategies, relation between puts and calls, option valuation using binomial trees and Monte Carlo simulation, advanced hedging techniques, exotic options, and applications to corporate securities and other financial instruments. Meets with 15.437 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.417)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4381",
+      "name": "Fixed Income Securities and Derivatives",
+      "prereqText": "15.417",
+      "prereqCodes": [
+        "15.417"
+      ],
+      "prereqExpr": {
+        "code": "15.417"
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Develops an overall familiarity with fixed income markets and instruments, and a sophisticated understanding of tools used for valuation, and for quantifying, hedging, and speculating on risk. Topics include duration; convexity; modern approaches to modeling the yield curve; interest rate forwards, futures, swaps and options; credit risk and credit derivatives; mortgages; securitization; with applications to recent market and financial policy developments. Meets with 15.438 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.417)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.4451",
+      "name": "Mergers, Acquisitions, and Private Equity",
+      "prereqText": "15.417 ; Coreq: 15.418",
+      "prereqCodes": [
+        "15.417",
+        "15.418"
+      ],
+      "prereqExpr": {
+        "op": "and",
+        "args": [
+          {
+            "code": "15.417"
+          },
+          {
+            "code": "15.418"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Prepares students to analyze and optimize public and private transactions. The first half covers public mergers & acquisitions (M&A), including dynamic merger modeling, deal structuring (cash, stock, hybrid), value distribution, accretion/dilution, risk management (collars, contingent value rights), and hostile takeovers. The second half focuses on private equity-led deals, including advanced leveraged buyout modeling, add-ons, dividend recaps, earnouts, and fund-level economics (American vs. European waterfalls). Meets with 15.445 when offered concurrently. Expectations and evaluation criteria for graduate students differ from those of undergraduates; consult syllabus or instructor for specific details.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (15.417, 15.418)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.501",
+      "name": "Corporate Financial Accounting",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Preparation and analysis of financial statements. Focuses on why financial statements take the form they do, and how they can be used in evaluating corporate performance and solvency and in valuation of corporate securities. Introduces concepts from finance and economics (e.g., cash flow discounting and valuation) and explains their relation to, and use in, accounting. Students taking the graduate version complete additional assignments.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.5181",
+      "name": "Taxes and Business Strategy",
+      "prereqText": "15.501",
+      "prereqCodes": [
+        "15.501"
+      ],
+      "prereqExpr": {
+        "code": "15.501"
+      },
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Provides conceptual framework for thinking about taxation and decision-making. Topics include taxation of various investments and types of compensation; retirement planning; considerations for choosing organizational form when starting a business; methods of merging, acquiring, divesting business entities; international tax planning strategies; and high wealth planning and estate tax. Applies current debates on tax policy options and recent tax law changes to class discussions. Intended to show how taxes affect individual investment as well as business decisions. Meets with 15.518 when offered concurrently. Expectations and evaluation criteria for graduate students will differ from those of undergraduates; consult syllabus or instructor for specific details.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.501)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.6151",
+      "name": "Essential Law",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Provides a solid grounding in what managers and professionals need to know about how law shapes opportunities and risks for the organizations they manage and their own careers. Enhances leadership skills for navigating critical law-sensitive junctures encountered in young and mature companies. Explores the legal frameworks of cutting-edge digital technologies, effective use of IP, contracts and deals, litigation and liability, employment and changing jobs, regulation and criminal sanctions, and complex transactions. No prior knowledge of law expected. Meets with 15.615 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.6171",
+      "name": "Deals, Finance, and the Law",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Addresses law-sensitive issues arising in the overlapping contexts of complex deals and financial services and products. Covers financial services regulation, employment and job changes, and civil and criminal accountability. Develops managerial skills for handling law-sensitive situations at individual and organizational levels. Meets with 15.617 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.6181",
+      "name": "Startups and the Law",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "The legal framework of entrepreneurship and innovation. Key law-sensitive junctures in launching and growing a startup: assembling a team, organizing a business entity, ownership and compensation, early financing, managing contracts and employees, business distress and winding down, and selling a company. Cutting-edge technologies and intellectual property rights. Designed for those who may start or work in such ventures; or are engaged in research with potential for commercial or social impact; or are otherwise attempting to advance an innovation from idea to impact. No prior knowledge of law expected. Meets with 15.6181 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.6221",
+      "name": "The Law of Artificial Intelligence and Big Data",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "Focuses on the law of artificial intelligence, big data, and related cutting-edge digital technologies. Considers the law's impact on the development and adoption of these technologies, and the legal response to beneficial and mischievous impacts. Emphasis on current issues, but topics generally include the legal frameworks of intellectual property rights, cybersecurity, privacy, bias, fintech, fair competition and fair dealing in digital markets, and political discourse on social media. Gives special attention to the legal concerns of those planning careers built on cutting-edge skills, and of managers, entrepreneurs, scientists, and engineers bringing innovations from ideas to impact. Explores how to find and make good use of legal advice. Meets with 15.622 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.6721",
+      "name": "Negotiation Analysis",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP)",
+      "units": "1-0-2 units",
+      "undergrad": true,
+      "description": "Presents analytical frameworks and strategies to handle a variety of negotiation situations. Includes simulations, games, videos, lectures, discussion, and multiple opportunities to practice and hone negotiation, communication, and influence skills with extensive personalized feedback. Intended for students with a broad spectrum of backgrounds and experience levels. Six-unit version includes additional class time and outside work. Expectations and evaluation criteria differ for students taking graduate version. Limited to 80 via lottery; consult class website for information and deadlines.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.6731",
+      "name": "Negotiation Analysis",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP)",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "Presents analytical frameworks and strategies to handle a variety of negotiation situations. Includes simulations, games, videos, lectures, discussion, and multiple opportunities to practice and hone negotiation, communication, and influence skills with extensive personalized feedback. Intended for students with a broad spectrum of backgrounds and experience levels. Six-unit version includes additional class time and outside work. Expectations and evaluation criteria differ for students taking graduate version. Limited to 80 via lottery; consult class website for information and deadlines.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.690",
+      "name": "Diversity as Discovery",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall; first half of term) Not offered regularly; consult department",
+      "units": "3-0-3 units",
+      "undergrad": true,
+      "description": "Aims to help students discover who they are as individuals and members of a community. Course operates under two basic assumptions: that we can accomplish more together than alone, and that a significant part of who we are as individuals is left out of most organizational settings. Confronts the lack of tools and frameworks for dealing with the wealth of diversity among populations, and discusses the value diversity could potentially create.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.7611",
+      "name": "Introduction to Operations Management",
+      "prereqText": "15.069 , 18.600 , or permission of instructor",
+      "prereqCodes": [
+        "15.069",
+        "18.600"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "15.069"
+          },
+          {
+            "code": "18.600"
+          }
+        ]
+      },
+      "terms": "U (Spring)",
+      "units": "4-0-5 units",
+      "undergrad": true,
+      "description": "Imparts concepts, techniques, and tools to design, analyze, and improve core operational capabilities and apply them to a broad range of domains and industries. Emphasizes the effect of uncertainty in decision-making, as well as the interplay among high-level financial objectives, operational capabilities, and people and organizational issues. Covers topics in capacity analysis, process design, process and business innovation, inventory management, risk pooling, supply chain coordination, sustainable operations, quality management, operational risk management, pricing and revenue management. Underscores how these topics are integrated with different functions of the firm. Case studies and simulation games provide experience in applying central concepts and techniques to solve real-world business challenges. Meets with 15.761 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (15.069, 18.600)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.772[J]",
+      "name": "D-Lab: Supply Chains",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "3-3-6 units",
+      "undergrad": true,
+      "description": "Introduces concepts of supply chain design and planning with a focus on supply chains for products destined to improve quality of life in developing countries. Topics include demand estimation, process analysis and improvement, facility location and capacity planning, inventory management, and supply chain coordination. Also covers issues specific to emerging markets, such as sustainable supply chains, choice of distribution channels, and how to account for the value-adding role of a supply chain. Students conduct D-Lab-based projects on supply chain design or improvement. Students taking graduate version complete additional assignments.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.780",
+      "name": "Analytics of Operations Management",
+      "prereqText": "6.3700 , 15.069 , or permission of instructor",
+      "prereqCodes": [
+        "6.3700",
+        "15.069"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "6.3700"
+          },
+          {
+            "code": "15.069"
+          }
+        ]
+      },
+      "terms": "U (Fall)",
+      "units": "3-0-9 units",
+      "undergrad": true,
+      "description": "Introduces core concepts in data-driven modeling that inform and optimize business decisions under uncertainty. Covers models and frameworks, such as machine learning, time series forecasting, dynamic programming, stochastic optimization, and multi-armed bandits. Draws on real-world applications, with several examples from retail, healthcare, logistics, supply chain, and public sector.",
+      "level": 2000,
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.8141",
+      "name": "Marketing Innovation",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Develops the skills necessary to market innovations, including new products, services, and concepts. Covers how to gain market intelligence, target the right customers, choose the right brand positioning, and combine analytics, frameworks, and research for maximum potential. Emphasizes both marketing theory and practice; students work in teams to market real innovations. Subject updated continually to highlight the latest use of artificial intelligence for marketing.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.8471[J]",
+      "name": "Consumer Behavior",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Examines the behavior of consumers through the lens of behavioral economics, cognitive science, and social psychology. Reviews theory and research and brings this knowledge to bear on a wide range of applications in business and public policy. Lectures are combined with cases, guest speakers, and brainstorming sessions where students work in teams to apply concepts to real-world problems. Meets with 15.847[J] when offered concurrently. Expectations and evaluation criteria may differ for students taking the graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.8731",
+      "name": "System Dynamics: Tools for Solving Complex Problems",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Introduction to field of system dynamics. Builds on ideas of control theory to understand dynamics of social, technological and organizational systems. Focuses on developing skills and tools needed to successfully apply systems thinking and simulation modeling in diverse real-world settings, including sustainability, strategy, project management, product development, public policy, healthcare, forecasting, platform-based businesses, and others. Utilizes simulation models, management flight simulators, and case studies to deepen conceptual and modeling skills. Develops proficiency in using qualitative and quantitative data to formulate and test models and how to work effectively with policy makers and executives to successfully implement change. Meets with 15.873 when offered concurrently. Expectations and evaluation criteria may differ for students taking the graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.874[J]",
+      "name": "People and the Planet: Environmental Governance and Science",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "See description under subject 12.387[J] .",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.9001",
+      "name": "Competitive Strategy",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Spring; first half of term)",
+      "units": "3-0-6 units",
+      "undergrad": true,
+      "description": "Explores a wide range of strategic problems, focusing particularly on the sources of competitive advantage and the interaction between industry structure and organizational capabilities. Introduces a wide variety of modern strategy frameworks and methodologies. Builds upon and integrates material from core topics, such as economics and organizational processes. Meets with 15.900 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.C01",
+      "name": "Modeling with Machine Learning: Financial Technology (New)",
+      "prereqText": "6.C01",
+      "prereqCodes": [
+        "6.C01"
+      ],
+      "prereqExpr": {
+        "code": "6.C01"
+      },
+      "terms": "Acad Year 2025-2026: Not offered Acad Year 2026-2027: U (Spring; second half of term)",
+      "units": "3-0-3 units",
+      "undergrad": true,
+      "description": "Building on core material in 6.C01 , explores applications of machine learning techniques to solve problems in modern finance. Provides an introduction to financial models that balance risk and reward, along with machine learning tools to uncover and analyze financial regularities. Applications include valuation, credit analysis, proprietary trading and hedge-fund strategies, portfolio management, market structure, risk management and stress testing, natural language processing, and personal finance. Students cannot receive credit without completion of 6.C01 .",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.C01)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.C08[J]",
+      "name": "Causal Inference",
+      "prereqText": "6.3800 , 6.3900 , 6.C01 , 14.32 , 17.803 , 18.05 , 18.650[J] , or permission of instructor",
+      "prereqCodes": [
+        "6.3800",
+        "6.3900",
+        "6.C01",
+        "14.32",
+        "17.803",
+        "18.05",
+        "18.650"
+      ],
+      "prereqExpr": {
+        "op": "or",
+        "args": [
+          {
+            "code": "6.3800"
+          },
+          {
+            "code": "6.3900"
+          },
+          {
+            "code": "6.C01"
+          },
+          {
+            "code": "14.32"
+          },
+          {
+            "code": "17.803"
+          },
+          {
+            "code": "18.05"
+          },
+          {
+            "code": "18.650"
+          }
+        ]
+      },
+      "terms": "U (Spring) Not offered regularly; consult department",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "Provides an accessible overview of modern quantitative methods for causal inference: testing whether an action causes an outcome to occur. Makes heavy use of applied, real-data examples using Python or R and drawn from the participating domains (economics, political science, business, public policy, etc.). Covers topics including potential outcomes, causal graphs, randomized controlled trials, observational studies, instrumental variable estimation, and a contrast with machine learning techniques. Seeks to provide an intuitive understanding of the core concepts and techniques to help students produce and consume evidence of causal claims.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (6.3800, 6.3900, 6.C01, 14.32, 17.803, 18.05, 18.650)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.C571[J]",
+      "name": "Optimization Methods",
+      "prereqText": "18.C06[J] or permission of instructor",
+      "prereqCodes": [
+        "18.C06"
+      ],
+      "prereqExpr": {
+        "code": "18.C06"
+      },
+      "terms": "U (Fall)",
+      "units": "4-0-8 units",
+      "undergrad": true,
+      "description": "Introduction to the methods and applications of optimization. Topics include linear optimization, duality, non-linear optimization, integer optimization, and optimization under uncertainty. Instruction provided in modeling techniques to address problems arising in practice, mathematical theory to understand the structure of optimization problems, computational algorithms to solve complex optimization problems, and practical applications. Covers several examples and in-depth case studies based on real-world data to showcase impactful applications of optimization across management and engineering. Computational exercises based on the Julia-based programming language JuMP. Includes a term project. Basic competency in computational programming and linear algebra recommended. Students taking graduate version complete additional assignments. This subject was previously listed as 6.7201. One section primarily reserved for Sloan students; check syllabus for details.",
+      "level": 3000,
+      "levelBasis": "prerequisite chain depth 2 (18.C06)",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S40",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP) Not offered regularly; consult department",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S41",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP) Not offered regularly; consult department",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S42",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (IAP) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S43",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall; first half of term) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S44",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S45",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S46",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.S47",
+      "name": "Special Seminar in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP) Not offered regularly; consult department",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.UAR[J]",
+      "name": "Climate and Sustainability Undergraduate Advanced Research",
+      "prereqText": "Permission of instructor",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring) Not offered regularly; consult department",
+      "units": "2-0-4 units",
+      "undergrad": true,
+      "description": "See description under subject 1.UAR[J] . Application required; consult MCSC website for more information.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "15.UR",
+      "name": "Undergraduate Research in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Participation in the work of a research group which includes such activities as independent study of the literature, direct involvement in the group's research (commensurate with the student's skills and preparation), or project work under an individual faculty member possibly extending over more than one term. Admission by arrangement with individual faculty member. Requires written project report.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.URG",
+      "name": "Undergraduate Studies in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Participation in the work of a research group which includes such activities as independent study of the literature, direct involvement in the group's research (commensurate with the student's skills and preparation), or project work under an individual faculty member possibly extending over more than one term. Admission by arrangement with individual faculty member. Requires written project report.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.EPE",
+      "name": "UPOP Engineering Practice Experience",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, Spring)",
+      "units": "0-0-1 units",
+      "undergrad": true,
+      "description": "See description under subject 2.EPE . Application required; consult UPOP website for more information.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.950",
+      "name": "Independent Study in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.951",
+      "name": "Independent Study in Management",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged",
+      "undergrad": true,
+      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    },
+    {
+      "catalogCode": "15.952",
+      "name": "Curricular Practical Training",
+      "prereqText": "None",
+      "prereqCodes": [],
+      "prereqExpr": null,
+      "terms": "U (Fall, IAP, Spring, Summer)",
+      "units": "Units arranged [P/D/F]",
+      "undergrad": true,
+      "description": "For Course 15 undergraduate students participating in management curriculum-related off-campus internship experiences. Students must have an employment offer from a company or organization and must find a Sloan faculty advisor before enrolling. Consult Sloan Undergraduate Education Office.",
+      "level": 1000,
+      "levelBasis": "no subject prerequisites",
+      "levelTieBreak": false
+    }
+  ]
+}

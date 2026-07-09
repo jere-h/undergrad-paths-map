@@ -1,0 +1,50 @@
+{
+  "id": "data-architect",
+  "name": "Data Architect",
+  "grounding": "soc",
+  "soc": ["15-1243.00"],
+  "responsibilities": [
+    "Design the schemas and data models other teams' applications and reports are built on for years",
+    "Set standards for how data is stored, queried, and secured across the warehouse or platform",
+    "Plan how new systems and data sources integrate into the existing architecture without breaking it"
+  ],
+  "skills": [
+    "Modeling data (relational, dimensional, or warehouse schemas) that stays coherent as scale and requirements grow",
+    "Reasoning about scalability, security, and performance trade-offs in a database design before it ships",
+    "Documenting and communicating schemas with accepted notations so other engineers can build on them safely",
+    "Evaluating and integrating database management, ETL, and cloud storage tools into a working system"
+  ],
+  "rawSkillPool": [
+    "Database architecture and schema design",
+    "Data modeling for warehouses and applications",
+    "Data base management system software",
+    "Data base user interface and query software",
+    "Metadata management software",
+    "Cloud-based management software",
+    "Systems analysis and systems evaluation",
+    "Storage networking software",
+    "Enforcing database development standards",
+    "Enterprise resource planning (ERP) software",
+    "Object or component oriented development software",
+    "Working with computers",
+    "Analyzing data or information",
+    "Programming",
+    "Communicating database design to stakeholders"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-1243.00",
+      "title": "Database Architects (SOC 15-1243.00), O*NET 29.1 database",
+      "quote": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-1243.00",
+      "title": "Database Architects: Tasks, O*NET 29.1 database",
+      "quote": "Develop and document database architectures. Design databases to support business applications, ensuring system scalability, security, performance, and reliability. Develop data models for applications, metadata tables, views or related database structures.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

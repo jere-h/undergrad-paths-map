@@ -206,16 +206,32 @@ test("validateDataset distributional gates reject hub saturation", () => {
   assert.ok(!pilotErrors.some((e) => e.includes("hub career")));
 });
 
-test("validateDataset requires internship coverage or an explicit starved flag", () => {
+test("validateDataset warns (not fails) on lopsided support; fails only on zero total support", () => {
   const ds = validDataset();
+  // b now has course support (c2) but no internship: reachable, so a warning.
   ds.internships[0].destinations = ["a"];
   delete ds.internships[0].edges.b;
   let r = validateDataset(ds);
-  assert.ok(r.errors.some((e) => e.includes("zero internship support")));
-  ds.meta.flags.internshipStarved = ["b"];
-  r = validateDataset(ds);
-  assert.equal(r.ok, true);
-  assert.ok(r.warnings.some((w) => w.includes("internship-starved")));
+  assert.equal(r.ok, true, "course-only career is reachable, not a failure");
+  assert.ok(r.warnings.some((w) => w.includes("course-only")));
+
+  // A career reachable only by an internship (no course) also just warns.
+  const ds2 = validDataset();
+  ds2.courses[1].destinations = ["a"]; // c2 no longer reaches b
+  ds2.courses[1].edges = { a: ds2.courses[1].edges.b };
+  r = validateDataset(ds2);
+  assert.ok(r.warnings.some((w) => w.includes("internship-only")));
+  assert.ok(!r.errors.some((e) => e.includes("orphan")), "b still reached by internship i1");
+
+  // Remove ALL support for b -> orphan failure (the assembler should have
+  // dropped it into unsupportedCareers before validation).
+  const ds3 = validDataset();
+  ds3.courses[1].destinations = ["a"];
+  ds3.courses[1].edges = { a: ds3.courses[1].edges.b };
+  ds3.internships[0].destinations = ["a"];
+  delete ds3.internships[0].edges.b;
+  r = validateDataset(ds3);
+  assert.ok(r.errors.some((e) => e.includes("orphan career b")));
 });
 
 test("gini and jaccard behave", () => {
@@ -275,6 +291,64 @@ test("resolveEdges applies floors, auto-accept, fail-closed band, and top-K in c
   assert.equal(resolveEdges({ id: "c2", level: 3000 }, many, new Map()).length, 3);
   // internships use their own floor: 0.8 is above 3000's floor but banded for internships.
   assert.equal(resolveEdges({ id: "i1", orgType: "Startup" }, [prop("a", 0.8)], new Map()).length, 0);
+});
+
+test("balanceInDegree trims a hub's weakest edges until the gates hold, never fabricates", async () => {
+  const { balanceInDegree } = await import("../scripts/assemble-dataset.mjs");
+  // 20 courses each pointing at hub "H" (strong) plus a distinct minor career.
+  const rows = Array.from({ length: 20 }, (_, i) => ({
+    id: `c${i}`,
+    edges: [
+      { career: "H", confidence: 0.5 + i / 100 },
+      { career: `m${i % 4}`, confidence: 0.9 },
+    ],
+  }));
+  const trimmed = balanceInDegree(rows);
+  assert.ok(trimmed > 0, "should trim the hub");
+  const indeg = {};
+  let total = 0;
+  for (const r of rows) for (const e of r.edges) { indeg[e.career] = (indeg[e.career] || 0) + 1; total++; }
+  assert.ok(indeg.H / total <= 0.25 + 1e-9, `hub share ${indeg.H}/${total} within cap`);
+  // trimmed edges are the hub's LOWEST-confidence ones: survivors are the high end.
+  const survivingH = rows.flatMap((r) => r.edges).filter((e) => e.career === "H").map((e) => e.confidence);
+  assert.ok(Math.min(...survivingH) >= 0.5, "kept the stronger hub edges");
+  // no input was emptied by balancing (each still has its minor-career edge).
+  assert.ok(rows.every((r) => r.edges.length >= 1));
+});
+
+test("assemble balances hubs and drops zero-support careers into a flag", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });
+  // 18 courses, each reaching hub "big" plus one of four minor careers (a
+  // realistic multi-destination shape the balancer can rebalance); career
+  // "ghost" is proposed nowhere valid.
+  const minors = ["small", "m1", "m2", "m3"];
+  const courses = Array.from({ length: 18 }, (_, i) => ({
+    id: `c${i}`, name: `C${i}`, level: 3000, dept: "D",
+  }));
+  const judge = { proposals: {} };
+  courses.forEach((c, i) => {
+    judge.proposals[c.id] = [prop("big", 0.86 + i / 1000), prop(minors[i % 4], 0.9)];
+  });
+  const out = assemble({
+    meta: { runId: "r" },
+    careerFiles: [
+      { id: "big", name: "Big" },
+      ...minors.map((m) => ({ id: m, name: m })),
+      { id: "ghost", name: "Ghost" },
+    ],
+    distinctive: null,
+    courseFiles: [{ dept: "D", courses }],
+    internshipFiles: [],
+    judgeFiles: [judge],
+    verdictFiles: [],
+  });
+  assert.ok(out.meta.flags.edgesTrimmedForBalance > 0, "hub was trimmed");
+  assert.deepEqual(out.meta.flags.unsupportedCareers, ["ghost"], "unreachable career dropped to a flag");
+  assert.ok(!out.careers.find((c) => c.id === "ghost"), "ghost removed from careers");
+  assert.ok(out.careers.find((c) => c.id === "small"), "small (reachable) kept");
+  const bigDeg = out.courses.filter((c) => c.destinations.includes("big")).length;
+  assert.ok(bigDeg / out.courses.reduce((s, c) => s + c.destinations.length, 0) <= 0.25 + 1e-9);
 });
 
 test("assemble merges judge+verdict files, drops zero-edge inputs visibly, flags starved careers", async () => {

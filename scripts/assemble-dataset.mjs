@@ -32,10 +32,18 @@
 
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { join, basename } from "node:path";
+import { gini } from "./validate-dataset.mjs";
 
 export const FLOORS = { 1000: 0.5, 2000: 0.6, 3000: 0.7, internship: 0.75 };
 export const AUTO_ACCEPT = 0.85;
 export const TOPK = { 1000: 5, 2000: 4, 3000: 3, internship: 4 };
+// Balancing targets (mirror the validator's distributional gates). In a narrow
+// single-industry set, a few "core" careers genuinely overlap most courses and
+// absorb the map; per-input top-K bounds out-degree but not in-degree. This
+// greedily trims the most over-represented career's WEAKEST valid edge until
+// the share and Gini gates are met, so hubs stop swallowing differentiation.
+// Only ever drops edges (lowest confidence first) - never fabricates.
+export const BALANCE = { maxInDegreeShare: 0.25, minEdgesForShareGate: 16, maxGini: 0.45 };
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
@@ -85,6 +93,44 @@ export function resolveEdges(input, proposals, verdicts) {
   return kept.slice(0, topK);
 }
 
+// Greedily trim hub in-degree until the share + Gini gates hold. `rows` is a
+// mutable list of { id, edges: [{career, confidence}] } (edges already
+// floor/distinctive/verdict/top-K filtered). Returns trimmed count. Never
+// drops a row's last edge (that would orphan an input mid-balance); a hub
+// reachable only through single-edge inputs is left alone so those inputs are
+// dropped explicitly and visibly downstream instead.
+export function balanceInDegree(rows, gates = BALANCE) {
+  let trimmed = 0;
+  for (let iter = 0; iter < 100000; iter++) {
+    const indeg = new Map();
+    let total = 0;
+    for (const r of rows) for (const e of r.edges) {
+      indeg.set(e.career, (indeg.get(e.career) || 0) + 1);
+      total++;
+    }
+    if (total === 0) break;
+    const entries = [...indeg.entries()];
+    const overShare =
+      total >= gates.minEdgesForShareGate &&
+      entries.some(([, d]) => d / total > gates.maxInDegreeShare);
+    if (!overShare && gini([...indeg.values()]) <= gates.maxGini) break;
+    const hub = entries.sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0][0];
+    let victim = null;
+    for (const r of rows) {
+      if (r.edges.length <= 1) continue;
+      for (let k = 0; k < r.edges.length; k++) {
+        const e = r.edges[k];
+        if (e.career !== hub) continue;
+        if (!victim || e.confidence < victim.e.confidence) victim = { r, k, e };
+      }
+    }
+    if (!victim) break; // hub only reachable via single-edge inputs; leave it
+    victim.r.edges.splice(victim.k, 1);
+    trimmed++;
+  }
+  return trimmed;
+}
+
 export function assemble({
   meta,
   careerFiles,
@@ -97,35 +143,56 @@ export function assemble({
 }) {
   const proposals = collectProposals(judgeFiles);
   const verdicts = collectVerdicts(verdictFiles);
-  const dropped = [];
 
-  const withEdges = (input) => {
-    const edges = resolveEdges(input, proposals.get(input.id), verdicts);
-    if (edges.length === 0) {
-      dropped.push(input.id);
+  // Stage 1: resolve each input's edges (floors, auto-accept, fail-closed
+  // band, per-input top-K). Keep the resolved edges on a mutable row so the
+  // balancer can trim across inputs before we freeze the dataset.
+  const rowFor = (input, kind) => ({
+    input,
+    kind,
+    edges: resolveEdges(input, proposals.get(input.id), verdicts),
+  });
+  const courseRows = courseFiles.flatMap((f) => f.courses.map((c) => rowFor(c, "course")));
+  const internRows = internshipFiles.flatMap((f) => f.roles.map((r) => rowFor(r, "internship")));
+
+  // Stage 2: balance in-degree so a few hub careers can't swallow the map
+  // (full runs only; pilot sets are too small for distributional shaping).
+  const balanceRows = [...courseRows, ...internRows];
+  const trimmed = meta.pilot ? 0 : balanceInDegree(balanceRows);
+
+  const dropped = [];
+  const freeze = (row) => {
+    if (row.edges.length === 0) {
+      dropped.push(row.input.id);
       return null;
     }
     return {
-      ...input,
-      destinations: edges.map((e) => e.career),
+      ...row.input,
+      destinations: row.edges.map((e) => e.career),
       edges: Object.fromEntries(
-        edges.map((e) => [
+        row.edges.map((e) => [
           e.career,
           { confidence: e.confidence, matchedSkills: e.matchedSkills, distinctive: true },
         ])
       ),
     };
   };
+  const courses = courseRows.map(freeze).filter(Boolean);
+  const internships = internRows.map(freeze).filter(Boolean);
 
+  // Stage 3: reconcile careers against surviving support. A career reached by
+  // nothing (no course, no internship) is not part of this evidence base's
+  // map; drop it into a flag rather than ship an orphan / "path closed" node.
   const dist = (distinctive && distinctive.distinctiveSkills) || {};
-  const careers = careerFiles.map((c) =>
-    dist[c.id] ? { ...c, distinctiveSkills: dist[c.id] } : c
-  );
-  const courses = courseFiles.flatMap((f) => f.courses.map(withEdges)).filter(Boolean);
-  const internships = internshipFiles.flatMap((f) => f.roles.map(withEdges)).filter(Boolean);
+  const supported = new Set([...courses, ...internships].flatMap((i) => i.destinations));
+  const allCareers = careerFiles.map((c) => (dist[c.id] ? { ...c, distinctiveSkills: dist[c.id] } : c));
+  const careers = allCareers.filter((c) => supported.has(c.id));
+  const unsupported = allCareers.filter((c) => !supported.has(c.id)).map((c) => c.id);
 
   const flags = { ...(meta.flags || {}) };
   if (dropped.length) flags.droppedInputs = dropped;
+  if (trimmed) flags.edgesTrimmedForBalance = trimmed;
+  if (unsupported.length) flags.unsupportedCareers = unsupported;
   if (distinctive && distinctive.collisions && distinctive.collisions.length)
     flags.socCollisions = distinctive.collisions;
   if (autoFlag) {

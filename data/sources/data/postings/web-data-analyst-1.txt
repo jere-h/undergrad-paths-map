@@ -1,0 +1,11 @@
+Source: ALO Yoga - Data Analyst Intern
+URL: https://job-boards.greenhouse.io/aloyoga/jobs/5789930004?gh_jid=5789930004
+Retrieved via web search snapshot on 2026-07-09 (direct fetch returned closed/redirected posting; content below is the indexed posting text returned by search).
+
+Responsibilities: developing dashboards and reports that monitor business health and campaign performance,
+analyzing customer journeys across digital and retail touchpoints, supporting experimentation and A/B testing
+initiatives, and collaborating with marketing, product, and merchandising teams to surface actionable insights.
+
+Required Qualifications: BS or MS in Data Science, Statistics, or a quantitative discipline; strong SQL and
+data visualization skills (Tableau, Power BI, or Looker); proficiency in Python or R for data analysis.
+Internship runs June 8 through July 31, 40 hours/week at Beverly Hills HQ.

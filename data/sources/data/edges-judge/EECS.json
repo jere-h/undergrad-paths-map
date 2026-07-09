@@ -1,0 +1,159 @@
+{
+  "proposals": {
+    "mit-6-1000": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["building simulations", "optimization problem formulation"],
+        "distinctive": true,
+        "rationale": "Intro course covers optimization problem formulation and simulation building, core or-analyst distinctive skills, but only at introductory breadth."
+      }
+    ],
+    "mit-6-3700": [
+      {
+        "career": "statistician",
+        "confidence": 0.72,
+        "matchedSkills": ["Bayesian estimation and hypothesis testing", "classical statistical inference"],
+        "distinctive": true,
+        "rationale": "Course is a foundational treatment of statistical theory and inference methods, the statistician's core distinctive skill."
+      }
+    ],
+    "mit-6-c35-j": [
+      {
+        "career": "bi-analyst",
+        "confidence": 0.58,
+        "matchedSkills": ["communicating insights from big data", "data analysis for visualization"],
+        "distinctive": true,
+        "rationale": "Course trains identifying and communicating trends/patterns from real datasets via visualization, matching bi-analyst's trend identification skill."
+      }
+    ],
+    "mit-6-1200-j": [],
+    "mit-6-100b": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.62,
+        "matchedSkills": ["optimization problems", "simulation modeling"],
+        "distinctive": true,
+        "rationale": "Course explicitly teaches building optimization and simulation models, matching or-analyst's mathematical/simulation modeling and optimization methods skills."
+      }
+    ],
+    "mit-6-1830": [
+      {
+        "career": "data-engineer",
+        "confidence": 0.82,
+        "matchedSkills": ["scalable database systems (relational, NoSQL, Spark)", "data cleaning and integration", "working with production data processing tools"],
+        "distinctive": true,
+        "rationale": "Course directly teaches building and using scalable database/data-processing systems and integrating disparate data sources, core data-engineer distinctive skills."
+      },
+      {
+        "career": "analytics-engineer",
+        "confidence": 0.6,
+        "matchedSkills": ["data cleaning and integration", "data analytics and data cubes"],
+        "distinctive": true,
+        "rationale": "Data cleaning/integration and analytics-cube work overlap with analytics-engineer's ETL and semantic-layer responsibilities, though the course centers on systems rather than modeling layers like dbt."
+      },
+      {
+        "career": "data-architect",
+        "confidence": 0.55,
+        "matchedSkills": ["scalable database systems (relational, NoSQL, Spark)"],
+        "distinctive": true,
+        "rationale": "Coverage of relational/NoSQL system design touches data-architect's data modeling for warehouses, but the course emphasizes processing/analytics more than architecture standards."
+      }
+    ],
+    "mit-6-3720": [
+      {
+        "career": "statistician",
+        "confidence": 0.8,
+        "matchedSkills": ["hypothesis testing and multiple comparison procedures", "model validation and uncertainty quantification"],
+        "distinctive": true,
+        "rationale": "Course is a rigorous statistical methods course covering hypothesis testing and model validation, squarely matching statistician's core distinctive skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.75,
+        "matchedSkills": ["data exploration and feature selection", "model validation and uncertainty quantification"],
+        "distinctive": true,
+        "rationale": "Explicit coverage of feature selection and comparing/validating predictive models matches data-scientist's distinctive skills on data mining/feature selection and statistical model comparison."
+      },
+      {
+        "career": "or-analyst",
+        "confidence": 0.5,
+        "matchedSkills": ["model validation and uncertainty quantification"],
+        "distinctive": true,
+        "rationale": "Model validation content overlaps with or-analyst's model validation and testing skill, though the course is statistics-focused rather than decision/optimization-focused."
+      }
+    ],
+    "mit-6-c01": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.78,
+        "matchedSkills": ["neural network approaches", "evaluating machine learning models"],
+        "distinctive": true,
+        "rationale": "Course teaches building, adapting, and evaluating neural and other ML models, matching ml-engineer's deep learning design/evaluation distinctive skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.6,
+        "matchedSkills": ["evaluating machine learning models"],
+        "distinctive": true,
+        "rationale": "Model evaluation practice overlaps with data-scientist's skill in comparing models with statistical performance metrics."
+      }
+    ],
+    "mit-6-3900": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.85,
+        "matchedSkills": ["neural network architectures", "gradient-based optimization methods", "supervised, unsupervised, and reinforcement learning"],
+        "distinctive": true,
+        "rationale": "Rigorous course in neural architectures and gradient-based training directly builds ml-engineer's deep learning design and model training/evaluation distinctive skills."
+      },
+      {
+        "career": "or-analyst",
+        "confidence": 0.48,
+        "matchedSkills": ["gradient-based optimization methods"],
+        "distinctive": true,
+        "rationale": "Optimization-perspective framing touches or-analyst's optimization methods skill, but the course's focus is ML modeling rather than operations research applications."
+      }
+    ],
+    "mit-6-5831": [
+      {
+        "career": "data-engineer",
+        "confidence": 0.85,
+        "matchedSkills": ["query processing and optimization", "distributed, parallel, and heterogeneous databases"],
+        "distinctive": true,
+        "rationale": "Advanced database systems course covering query optimization and distributed databases matches data-engineer's database architecture and performance-tuning distinctive skills."
+      },
+      {
+        "career": "data-architect",
+        "confidence": 0.85,
+        "matchedSkills": ["database and schema design", "schema normalization and integrity constraints"],
+        "distinctive": true,
+        "rationale": "Deep coverage of schema/database design and standards directly matches data-architect's data modeling and database-standards distinctive skills."
+      },
+      {
+        "career": "analytics-engineer",
+        "confidence": 0.5,
+        "matchedSkills": ["query processing and optimization"],
+        "distinctive": true,
+        "rationale": "Query optimization skill has some overlap with analytics-engineer's pipeline/query work, though the course is systems-internals focused rather than analytics-modeling focused."
+      }
+    ],
+    "mit-6-c011": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.75,
+        "matchedSkills": ["method design and interpretation of results", "robustness and interpretability analysis"],
+        "distinctive": true,
+        "rationale": "Project-oriented deep dives into ML method design, robustness, and interpretability build ml-engineer's end-to-end ML delivery and model evaluation distinctive skills."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.58,
+        "matchedSkills": ["robustness and interpretability analysis"],
+        "distinctive": true,
+        "rationale": "Interpretability/robustness analysis overlaps with data-scientist's model comparison skill, though the course is engineering-application focused."
+      }
+    ],
+    "mit-6-1220-j": []
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "dept": "Mathematics",
+  "sourceUrl": "https://catalog.mit.edu/subjects/18/",
+  "courses": [
+    {
+      "id": "mit-18-05",
+      "name": "Introduction to Probability and Statistics",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.05",
+      "taughtSkills": [
+        "probability & Bayesian inference",
+        "hypothesis testing & confidence intervals",
+        "bootstrapping",
+        "regression",
+        "using R to simulate, analyze, and visualize data",
+        "statistical thinking about privacy, fairness, and causality"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description frames it as a unified, general introduction to probability and statistics for a broad undergraduate audience, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "A unified introduction to probability, Bayesian inference, and frequentist statistics. Topics include: combinatorics, random variables, (joint) distributions, covariance, central limit theorem; Bayesian updating, odds, posterior prediction; significance tests, confidence intervals, bootstrapping, regression. Students also develop computational skills and statistical thinking by using R to simulate, analyze, and visualize data; and by exploring privacy, fairness, and causality in contemporary media and research. Flipped subject taught in a Technology Enabled Active Learning (TEAL) classroom to facilitate discussion, group problem solving, and coding studios with ample mentorship.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-06",
+      "name": "Linear Algebra",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.06",
+      "taughtSkills": [
+        "matrix theory & linear algebra",
+        "eigenvalues and singular value decomposition",
+        "least-squares approximations",
+        "Markov processes",
+        "Fourier transforms",
+        "using linear algebra software"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description positions it as a basic subject on matrix theory emphasizing applications useful across disciplines, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Basic subject on matrix theory and linear algebra, emphasizing topics useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, singular value decomposition, and positive definite matrices. Applications to least-squares approximations, stability of differential equations, networks, Fourier transforms, and Markov processes. Uses linear algebra software. Compared with 18.700, more emphasis on matrix algorithms and many applications.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-600",
+      "name": "Probability and Random Variables",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.600",
+      "taughtSkills": [
+        "probability spaces & random variables",
+        "modeling with standard distributions (binomial, Poisson, normal, etc.)",
+        "conditional probability & Bayes theorem",
+        "joint distributions",
+        "law of large numbers & central limit theorem"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description covers foundational probability theory topics typically taught as an entry-level course, consistent with level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Probability spaces, random variables, distribution functions. Binomial, geometric, hypergeometric, Poisson distributions. Uniform, exponential, normal, gamma and beta distributions. Conditional probability, Bayes theorem, joint distributions. Chebyshev inequality, law of large numbers, and central limit theorem. Credit cannot also be received for 6.041A or 6.041B.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-c06-j",
+      "name": "Linear Algebra and Optimization",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.C06[J]",
+      "taughtSkills": [
+        "linear algebra fundamentals (vectors, matrices, eigenvalues, SVD)",
+        "least squares",
+        "convex optimization",
+        "linear/quadratic programming",
+        "gradient descent",
+        "regularization",
+        "extracting structure from data"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description explicitly states it assumes no prior exposure to linear algebra and starts from the basics, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Introductory course in linear algebra and optimization, assuming no prior exposure to linear algebra and starting from the basics, including vectors, matrices, eigenvalues, singular values, and least squares. Covers the basics in optimization including convex optimization, linear/quadratic programming, gradient descent, and regularization, building on insights from linear algebra. Explores a variety of applications in science and engineering, where the tools developed give powerful ways to understand complex systems and also extract structure from data.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-065",
+      "name": "Matrix Methods in Data Analysis, Signal Processing, and Machine Learning",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.065",
+      "taughtSkills": [
+        "singular value decomposition",
+        "principal component analysis",
+        "covariance and correlation matrix analysis",
+        "signal and image processing",
+        "matrix factorizations",
+        "neural networks & machine learning fundamentals",
+        "large-scale matrix computation"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Reviews linear algebra with applications to life sciences, finance, engineering, and big data. Covers singular value decomposition, weighted least squares, signal and image processing, principal component analysis, covariance and correlation matrices, directed and undirected graphs, matrix factorizations, neural nets, machine learning, and computations with large matrices.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-650-j",
+      "name": "Fundamentals of Statistics",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.650[J]",
+      "taughtSkills": [
+        "parametric estimation",
+        "confidence intervals & hypothesis testing",
+        "Bayesian inference",
+        "linear and logistic regression",
+        "classification",
+        "causal inference"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "A rapid introduction to the theoretical foundations of statistical methods that are useful in many applications. Covers a broad range of topics in a short amount of time with the goal of providing a rigorous and cohesive understanding of the modern statistical landscape. Mathematical language is used for intuition and basic derivations but not proofs. Main topics include: parametric estimation, confidence intervals, hypothesis testing, Bayesian inference, and linear and logistic regression. Additional topics may include: causal inference, nonparametric estimation, and classification.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-330",
+      "name": "Introduction to Numerical Analysis",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.330",
+      "taughtSkills": [
+        "root finding",
+        "interpolation & function approximation",
+        "numerical integration",
+        "numerical solution of differential equations",
+        "iterative methods in linear algebra",
+        "programming in MATLAB, Python, or Julia"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Basic techniques for the efficient numerical solution of problems in science and engineering. Root finding, interpolation, approximation of functions, integration, differential equations, direct and iterative methods in linear algebra. Knowledge of programming in a language such as MATLAB, Python, or Julia is helpful.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-453",
+      "name": "Combinatorial Optimization",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.453",
+      "taughtSkills": [
+        "linear programming",
+        "matching theory",
+        "network flow",
+        "matroid optimization",
+        "handling NP-hard optimization problems"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Thorough treatment of linear programming and combinatorial optimization. Topics include matching theory, network flow, matroid optimization, and how to deal with NP-hard optimization problems. Prior exposure to discrete mathematics (such as 18.200) helpful.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-642",
+      "name": "Topics in Mathematics with Applications in Finance",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.642",
+      "taughtSkills": [
+        "applying linear algebra to finance",
+        "probability & statistics for financial modeling",
+        "stochastic processes",
+        "numerical methods",
+        "translating industry problems into quantitative models"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.06, 18.05, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Introduction to mathematical concepts and techniques used in finance. Lectures focusing on linear algebra, probability, statistics, stochastic processes, and numerical methods are interspersed with lectures by financial sector professionals illustrating the corresponding application in the industry. Prior knowledge of economics or finance helpful but not required.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-c25-j",
+      "name": "Real World Computation with Julia",
+      "level": 3000,
+      "dept": "Mathematics",
+      "catalogCode": "18.C25[J]",
+      "taughtSkills": [
+        "automatic differentiation",
+        "matrix calculus",
+        "scientific machine learning",
+        "parallel and GPU computing",
+        "performance optimization",
+        "programming in Julia",
+        "building performant, readable, composable software"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 18.03, 18.06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Focuses on algorithms and techniques for writing and using modern technical software in a job, lab, or research group environment that may consist of interdisciplinary teams, where performance may be critical, and where the software needs to be flexible and adaptable. Topics include automatic differentiation, matrix calculus, scientific machine learning, parallel and GPU computing, and performance optimization with introductory applications to climate science, economics, agent-based modeling, and other areas. Labs and projects focus on performant, readable, composable algorithms, and software. Programming will be in Julia. Expects students to have some familiarity with Python, Matlab, or R. No Julia experience necessary.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-413",
+      "name": "Introduction to Computational Molecular Biology",
+      "level": 3000,
+      "dept": "Mathematics",
+      "catalogCode": "18.413",
+      "taughtSkills": [
+        "designing computational algorithms for biological data",
+        "genome sequencing and assembly",
+        "constructing evolutionary trees",
+        "analyzing mass spectrometry data",
+        "machine learning for drug discovery",
+        "implementing algorithms in practice"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1210)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Introduction to computational molecular biology with a focus on the basic computational algorithms used to solve problems in practice. Covers classical techniques in the field for solving problems such as genome sequencing, assembly, and search; detecting genome rearrangements; constructing evolutionary trees; analyzing mass spectrometry data; connecting gene expression to cellular function; and machine learning for drug discovery. Prior knowledge of biology is not required. Particular emphasis on problem solving, collaborative learning, theoretical analysis, and practical implementation of algorithms. Students taking graduate version complete additional and more complex assignments.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-18-404",
+      "name": "Theory of Computation",
+      "level": 3000,
+      "dept": "Mathematics",
+      "catalogCode": "18.404",
+      "taughtSkills": [
+        "computability theory",
+        "computational complexity theory",
+        "reducibility & decidability analysis",
+        "formal language theory (regular and context-free languages)",
+        "probabilistic computation"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 18.200)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "A more extensive and theoretical treatment of the material in 6.1400J/18.400[J], emphasizing computability and computational complexity theory. Regular and context-free languages. Decidable and undecidable problems, reducibility, recursive function theory. Time and space measures on computation, completeness, hierarchy theorems, inherently complex problems, oracles, probabilistic computation, and interactive proof systems.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ]
+    }
+  ]
+}

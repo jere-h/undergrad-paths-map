@@ -141,10 +141,13 @@ function initCatalog() {
     onCareer: showCareer,
   });
 
-  // Pre-select an illustrative, overlapping stack (data-leaning courses plus a
-  // matching internship) so the map shows convergence on first paint. The ids
-  // are catalog-specific; catalogs without them simply start empty.
-  ["cs101", "stats101", "ml301", "mnc-data"].forEach((id) => {
+  // Pre-select an overlapping stack so the map shows convergence on first
+  // paint. Each catalog carries its own preselect (registry); the illustrative
+  // demo falls back to its known data-leaning stack. Missing ids are skipped,
+  // so a catalog without a preselect simply starts empty.
+  const preselect =
+    (activeEntry && activeEntry.preselect) || ["cs101", "stats101", "ml301", "mnc-data"];
+  preselect.forEach((id) => {
     if (inputsById.has(id)) selected.add(id);
   });
 

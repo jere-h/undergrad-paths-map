@@ -31,14 +31,20 @@ const HEADER = `// Catalog registry - the datasets the app can display as tabs.
 
 export function renderRegistry(entries) {
   const body = entries
-    .map(
-      (e) => `  {
-    id: ${JSON.stringify(e.id)},
-    label: ${JSON.stringify(e.label)},
-    module: ${JSON.stringify(e.module)},
-    note: ${JSON.stringify(e.note || "")},
-  },`
-    )
+    .map((e) => {
+      const lines = [
+        `    id: ${JSON.stringify(e.id)},`,
+        `    label: ${JSON.stringify(e.label)},`,
+        `    module: ${JSON.stringify(e.module)},`,
+        `    note: ${JSON.stringify(e.note || "")},`,
+      ];
+      // Optional first-paint selection (input ids) so a default tab opens on a
+      // meaningful convergence instead of an empty map. Preserved across
+      // re-registration so re-runs don't strip a hand-tuned preselect.
+      if (Array.isArray(e.preselect) && e.preselect.length)
+        lines.push(`    preselect: ${JSON.stringify(e.preselect)},`);
+      return `  {\n${lines.join("\n")}\n  },`;
+    })
     .join("\n");
   return `${HEADER}\nexport const CATALOGS = [\n${body}\n];\n`;
 }
@@ -58,11 +64,13 @@ async function main() {
     return i >= 0 ? args[i + 1] : dflt;
   };
   const registryPath = opt("--registry", "data/catalogs/index.js");
+  const preselect = opt("--preselect", "");
   const entry = {
     id: opt("--id"),
     label: opt("--label"),
     module: opt("--module"),
     note: opt("--note", ""),
+    ...(preselect ? { preselect: preselect.split(",").map((s) => s.trim()).filter(Boolean) } : {}),
   };
   if (!entry.id || !entry.label || !entry.module) {
     console.error("usage: register-catalog.mjs --id ID --label LABEL --module ./file.js [--note TEXT]");

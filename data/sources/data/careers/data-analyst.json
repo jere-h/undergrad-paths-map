@@ -1,0 +1,50 @@
+{
+  "id": "data-analyst",
+  "name": "Data Analyst",
+  "grounding": "postings",
+  "responsibilities": [
+    "Write SQL against production and warehouse tables to pull clean, correct datasets, not just whatever query returns first",
+    "Build and maintain dashboards and recurring reports (Tableau, Power BI, or Looker) that stakeholders check without asking you to re-run anything",
+    "Support experimentation and A/B tests, then explain what moved a metric to marketing, product, or ops teams in plain language"
+  ],
+  "skills": [
+    "SQL fluency: joins, aggregations, and window functions against real, messy production data",
+    "Building a dashboard someone other than you can read, trust, and self-serve from",
+    "Choosing the right visualization tool for the audience (Tableau, Power BI, Looker, or Excel)",
+    "Translating a request like 'why did signups drop' into a specific, checkable analysis"
+  ],
+  "rawSkillPool": [
+    "SQL (joins, aggregation, window functions)",
+    "Dashboarding tools (Tableau, Power BI, Looker)",
+    "Excel / spreadsheet modeling",
+    "Python or R for analysis",
+    "A/B testing and experiment support",
+    "Data cleaning and validation",
+    "Business metric definition and reporting",
+    "Stakeholder communication",
+    "Customer journey and funnel analysis",
+    "Data visualization",
+    "Query optimization",
+    "Ad-hoc analysis under deadline"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/aloyoga/jobs/5789930004?gh_jid=5789930004",
+      "company": "ALO Yoga",
+      "title": "Data Analyst Intern",
+      "quote": "developing dashboards and reports that monitor business health and campaign performance, analyzing customer journeys across digital and retail touchpoints, supporting experimentation and A/B testing",
+      "snapshot": "data/sources/data/postings/web-data-analyst-1.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/impiricus/jobs/5160568008",
+      "company": "Impiricus",
+      "title": "Data Analyst Intern",
+      "quote": "support campaign performance analysis and reporting, partnering with Client Services and Engineering to analyze data, validate audiences, and deliver clear, actionable insights",
+      "snapshot": "data/sources/data/postings/web-data-analyst-2.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}
