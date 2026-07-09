@@ -1,9 +1,11 @@
 // main.js - controller / bootstrap for Open Doors.
-// type=module entry point: imports the catalog, the pure analysis + layout, and
-// the DOM render functions. Builds the sidebar and the constellation once,
-// pre-selects an illustrative combo so the map demonstrates itself on first
-// paint, then keeps the map, summary, and panel in sync as the selection changes.
-import * as catalog from "./data/catalog.js";
+// type=module entry point: loads the active catalog from the registry
+// (data/catalogs/index.js), builds the sidebar and constellation for it, and
+// keeps the map, summary, and panel in sync as the selection changes. When the
+// registry lists more than one catalog (e.g. datasets for different
+// industries), a tab strip in the header switches between them; selections do
+// not carry across tabs because edges are only valid within their own dataset.
+import { CATALOGS } from "./data/catalogs/index.js";
 import { analyze, summarize, allInputs } from "./score.js";
 import { layout } from "./graph.js";
 import {
@@ -13,6 +15,10 @@ import {
   openCareerPanel,
   closePanel,
 } from "./render.js";
+
+// Active catalog module ({ CAREERS, COURSES, INTERNSHIPS }) and its registry entry.
+let catalog = null;
+let activeEntry = null;
 
 // Selection state: a Set of selected input ids (courses + internships).
 const selected = new Set();
@@ -118,25 +124,73 @@ function wireChrome() {
   });
 }
 
-function init() {
+// (Re)build everything that depends on the active catalog. Safe to call on
+// every tab switch: buildSidebar/buildGraph clear their containers first.
+function initCatalog() {
+  closePanel();
+  selected.clear();
   inputsById = new Map(allInputs(catalog).map((i) => [i.id, i]));
   careersById = new Map((catalog.CAREERS || []).map((c) => [c.id, c]));
+
+  const disclaimer = document.getElementById("disclaimer");
+  if (disclaimer && activeEntry) disclaimer.textContent = activeEntry.note || "";
 
   buildSidebar(catalog, toggleInput);
   buildGraph(layout(catalog, { width: 1000, height: 1000 }), {
     onInput: toggleInput,
     onCareer: showCareer,
   });
-  wireChrome();
 
-  // Pre-select an illustrative, overlapping stack (data-leaning courses plus a
-  // matching internship) so the map shows convergence on first paint: a few
-  // specializations light up while marginal paths fade. Clearly example state.
-  ["cs101", "stats101", "ml301", "mnc-data"].forEach((id) => {
+  // Pre-select an overlapping stack so the map shows convergence on first
+  // paint. Each catalog carries its own preselect (registry); the illustrative
+  // demo falls back to its known data-leaning stack. Missing ids are skipped,
+  // so a catalog without a preselect simply starts empty.
+  const preselect =
+    (activeEntry && activeEntry.preselect) || ["cs101", "stats101", "ml301", "mnc-data"];
+  preselect.forEach((id) => {
     if (inputsById.has(id)) selected.add(id);
   });
 
   update();
+}
+
+async function activate(entry) {
+  // Module specifiers in the registry are relative to data/catalogs/.
+  catalog = await import(`./data/catalogs/${entry.module}`);
+  activeEntry = entry;
+  const tabs = document.getElementById("catalog-tabs");
+  if (tabs) {
+    tabs.querySelectorAll(".catalog-tab").forEach((b) => {
+      b.classList.toggle("is-active", b.dataset.id === entry.id);
+      b.setAttribute("aria-selected", b.dataset.id === entry.id ? "true" : "false");
+    });
+  }
+  initCatalog();
+}
+
+function buildTabs() {
+  const tabs = document.getElementById("catalog-tabs");
+  if (!tabs || CATALOGS.length < 2) return;
+  tabs.hidden = false;
+  CATALOGS.forEach((entry) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "catalog-tab";
+    btn.dataset.id = entry.id;
+    btn.setAttribute("role", "tab");
+    btn.textContent = entry.label;
+    btn.addEventListener("click", () => {
+      if (activeEntry && activeEntry.id === entry.id) return;
+      activate(entry).catch((err) => console.error(`failed to load catalog ${entry.id}`, err));
+    });
+    tabs.appendChild(btn);
+  });
+}
+
+function init() {
+  wireChrome();
+  buildTabs();
+  activate(CATALOGS[0]).catch((err) => console.error("failed to load default catalog", err));
 }
 
 if (document.readyState === "loading") {

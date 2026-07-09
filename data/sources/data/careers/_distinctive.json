@@ -1,0 +1,83 @@
+{
+  "distinctiveSkills": {
+    "data-scientist": [
+      "Data mining and feature selection algorithms",
+      "Natural language processing",
+      "Comparing models with statistical performance metrics",
+      "Survey and sampling design",
+      "Statistical software (SAS, R, Python)"
+    ],
+    "data-analyst": [
+      "A/B testing and experiment support",
+      "Customer journey and funnel analysis",
+      "Ad-hoc analysis under deadline",
+      "Query optimization",
+      "Excel / spreadsheet modeling",
+      "Business metric definition and reporting"
+    ],
+    "data-engineer": [
+      "Data partitioning, indexing, and performance tuning",
+      "Integrating disparate systems and data sources",
+      "ETL and pipeline development",
+      "Database architecture and data warehouse design",
+      "Systems analysis and systems evaluation",
+      "Storage networking software"
+    ],
+    "ml-engineer": [
+      "PyTorch / TensorFlow",
+      "Deep learning model design and evaluation",
+      "End-to-end ML project delivery",
+      "Time series and unstructured data handling",
+      "Computer vision or NLP specialization",
+      "Linear algebra, calculus, and probability foundations",
+      "Model training, validation, and evaluation metrics"
+    ],
+    "analytics-engineer": [
+      "dbt (models, tests, documentation, CI)",
+      "Semantic layer design",
+      "ETL / reverse-ETL pipelines (Fivetran)",
+      "Entity resolution and canonical data models",
+      "Event tracking and behavioral metrics",
+      "KPI definition and instrumentation",
+      "Version control and code review for analytics code",
+      "Data testing and alerting"
+    ],
+    "bi-analyst": [
+      "Report specification and documentation",
+      "Customer relationship management (CRM) software",
+      "Data collection from industry and public sources",
+      "Testing and validating BI outputs against defined needs",
+      "Financial analysis software",
+      "Trend and pattern identification"
+    ],
+    "data-architect": [
+      "Enterprise resource planning (ERP) software",
+      "Object or component oriented development software",
+      "Communicating database design to stakeholders",
+      "Enforcing database development standards",
+      "Data modeling for warehouses and applications",
+      "Systems analysis and systems evaluation",
+      "Storage networking software"
+    ],
+    "statistician": [
+      "Statistical theory and methods",
+      "Experimental design and sampling techniques",
+      "Evaluating validity, applicability, and accuracy of methods",
+      "Preparing and weighting raw data",
+      "Adapting methods across fields (economics, biology, engineering)",
+      "Identifying relationships and trends in data"
+    ],
+    "or-analyst": [
+      "Mathematical and simulation modeling",
+      "Optimization methods",
+      "Model validation and testing",
+      "Defining data requirements",
+      "Studying alternative courses of action",
+      "Collaborating with senior managers on decision-making",
+      "Financial analysis software"
+    ]
+  },
+  "collisions": [
+    "data-engineer data-architect"
+  ]
+}

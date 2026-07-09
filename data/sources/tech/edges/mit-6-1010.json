@@ -1,0 +1,11 @@
+{
+  "id": "mit-6-1010",
+  "destinations": ["swe"],
+  "edges": {
+    "swe": {
+      "confidence": 0.75,
+      "matchedSkills": ["object oriented development", "development environment software"],
+      "distinctive": true
+    }
+  }
+}

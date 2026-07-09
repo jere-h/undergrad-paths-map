@@ -1,0 +1,12 @@
+{
+  "runId": "pilot-20260709T145556Z",
+  "university": "MIT",
+  "generatedBy": "ground-catalog",
+  "onetVersion": "29.1",
+  "generatedAt": "2026-07-09T14:58:04Z",
+  "pilot": true,
+  "sources": [
+    "https://catalog.mit.edu/subjects/6/",
+    "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
+  ]
+}

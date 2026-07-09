@@ -1,0 +1,5 @@
+# O*NET bulk database: ~13 MB zip / ~106 MB unzipped, re-downloaded by the
+# ground-catalog workflow's setup phase and pinned by version in dataset meta.
+data/sources/onet/
+
+node_modules/

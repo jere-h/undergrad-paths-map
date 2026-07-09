@@ -1,0 +1,40 @@
+{
+  "id": "bi-analyst",
+  "name": "Business Intelligence Analyst",
+  "grounding": "soc",
+  "soc": ["15-2051.01"],
+  "responsibilities": [
+    "Generate standard and custom reports that summarize business, financial, or economic data for executives, managers, and other stakeholders",
+    "Build, maintain, and provide technical support for BI dashboards and tools other teams rely on daily",
+    "Identify and analyze industry or geographic trends and document what they mean for business strategy"
+  ],
+  "skills": [
+    "Business intelligence and data analysis software, plus database query and reporting tools",
+    "Devising methods to find patterns and trends in data pulled from multiple sources (industry reports, internal data, purchased data)",
+    "Documenting specifications for a BI report or dashboard so it can be maintained after you hand it off",
+    "Reading comprehension and writing precise enough to turn a data pattern into a decision-ready recommendation"
+  ],
+  "rawSkillPool": [
+    "Business intelligence and data analysis software",
+    "Database reporting and query software",
+    "Data mining software",
+    "Dashboard design and maintenance",
+    "Metadata management",
+    "Financial analysis software",
+    "Trend and pattern identification",
+    "Report specification and documentation",
+    "Customer relationship management (CRM) software",
+    "Stakeholder reporting and presentation",
+    "Data collection from industry and public sources",
+    "Testing and validating BI outputs against defined needs"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2051.01",
+      "quote": "Produce financial and market intelligence by querying data repositories and generating periodic reports. Devise methods for identifying data patterns and trends in available information sources.",
+      "title": "Business Intelligence Analysts (15-2051.01), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

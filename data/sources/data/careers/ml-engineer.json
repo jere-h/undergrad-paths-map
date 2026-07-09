@@ -1,0 +1,50 @@
+{
+  "id": "ml-engineer",
+  "name": "Machine Learning Engineer",
+  "grounding": "postings",
+  "responsibilities": [
+    "Design, build, and evaluate machine learning models against a real dataset, not a toy benchmark, then justify the architecture choice",
+    "Write clean, efficient, scalable code that takes a model from a notebook to something a team can run and extend",
+    "Analyze complex or unstructured datasets to find the signal a model should be learning, and communicate what you found"
+  ],
+  "skills": [
+    "Python and deep learning frameworks (PyTorch, TensorFlow) used on an actual dataset, not just tutorials",
+    "Foundations that don't go stale: linear algebra, calculus, probability, and statistics behind the models you train",
+    "Shipping at least one end-to-end ML project you can defend in an interview: data, training, evaluation, and failure modes",
+    "Working with messy, high-volume, or time-series data instead of a cleaned CSV"
+  ],
+  "rawSkillPool": [
+    "PyTorch / TensorFlow",
+    "Python for ML pipelines",
+    "Deep learning model design and evaluation",
+    "Linear algebra, calculus, and probability foundations",
+    "Time series and unstructured data handling",
+    "Model training, validation, and evaluation metrics",
+    "Clean, efficient, scalable coding practices",
+    "End-to-end ML project delivery",
+    "Computer vision or NLP specialization",
+    "Data pipeline building for training",
+    "Reading and communicating research or dataset findings",
+    "Collaborating with cross-functional technical teams"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/neuralink/jobs/6594261003?gh_jid=6594261003",
+      "company": "Neuralink",
+      "title": "Machine Learning Engineer Intern",
+      "quote": "Prior experience designing and building Machine Learning models; Deep understanding of machine learning concepts and fundamentals; Strong coding skills, with a focus on clean, efficient, and scalable code development",
+      "snapshot": "data/sources/data/postings/web-ml-engineer-1.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/cloudflare/jobs/7914628",
+      "company": "Cloudflare (and comparable Summer 2026 ML engineer intern postings at Lucid Motors, Gusto, XPeng Motors)",
+      "title": "Machine Learning Engineer Intern (Summer 2026)",
+      "quote": "build and operate pipelines behind AI-driven applications, working alongside experienced data scientists and machine learning engineers",
+      "snapshot": "data/sources/data/postings/web-ml-engineer-2.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

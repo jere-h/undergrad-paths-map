@@ -1,0 +1,50 @@
+{
+  "id": "analytics-engineer",
+  "name": "Analytics Engineer",
+  "grounding": "postings",
+  "responsibilities": [
+    "Own dbt models (staging, intermediate, mart layers) that become the company's one source of truth for a metric, tested and version-controlled like code",
+    "Define and instrument KPIs with the teams that use them (finance, product, sales), then build the self-service dashboards those teams actually use without asking an analyst",
+    "Catch data quality problems before stakeholders do: write dbt tests and alerts, and manage the ETL/reverse-ETL syncs that move data in and out of the warehouse"
+  ],
+  "skills": [
+    "Advanced SQL against a cloud warehouse (Snowflake, BigQuery) treated like production code: version control, review, tests",
+    "dbt: writing models, tests, and documentation, not just ad-hoc queries",
+    "Data modeling: turning raw event and source tables into a semantic layer other people can build on",
+    "BI tool fluency (Looker, Sigma, Tableau) to ship a dashboard stakeholders trust without hand-holding"
+  ],
+  "rawSkillPool": [
+    "dbt (models, tests, documentation, CI)",
+    "Advanced SQL in Snowflake or BigQuery",
+    "Data modeling (staging, intermediate, mart layers)",
+    "BI tools (Looker, Sigma, Tableau, Power BI)",
+    "ETL / reverse-ETL pipelines (Fivetran)",
+    "KPI definition and instrumentation",
+    "Data testing and alerting",
+    "Event tracking and behavioral metrics",
+    "Entity resolution and canonical data models",
+    "Version control and code review for analytics code",
+    "Semantic layer design",
+    "Self-service dashboard design"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/mirakl/jobs/5140266004",
+      "company": "Mirakl",
+      "title": "Analytics Engineer Apprentice",
+      "quote": "Develop data models and comprehensive semantic layer documentation; Build and maintain dashboards guaranteeing reliable access to critical performance indicators",
+      "snapshot": "data/sources/data/postings/web-analytics-engineer-1.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/crexi/jobs/4689327005",
+      "company": "Crexi",
+      "title": "Analytics Engineer",
+      "quote": "Defines and instruments company-level and product-level KPIs in partnership with Finance, Product, and Sales; Hands-on experience with dbt (Core or Cloud), including writing models, tests, and documentation",
+      "snapshot": "data/sources/data/postings/web-analytics-engineer-2.txt",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

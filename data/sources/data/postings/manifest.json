@@ -1,0 +1,85 @@
+{
+  "retrievedAt": "2026-07-09T18:05:43.238Z",
+  "companies": [
+    {
+      "company": "stripe",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/stripe/jobs?content=true",
+      "ok": true,
+      "totalJobs": 503,
+      "internCount": 0,
+      "newGradCount": 3,
+      "file": "data/sources/data/postings/greenhouse-stripe.json"
+    },
+    {
+      "company": "databricks",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/databricks/jobs?content=true",
+      "ok": true,
+      "totalJobs": 786,
+      "internCount": 1,
+      "newGradCount": 0,
+      "file": "data/sources/data/postings/greenhouse-databricks.json"
+    },
+    {
+      "company": "airbnb",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/airbnb/jobs?content=true",
+      "ok": true,
+      "totalJobs": 212,
+      "internCount": 1,
+      "newGradCount": 0,
+      "file": "data/sources/data/postings/greenhouse-airbnb.json"
+    },
+    {
+      "company": "vercel",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/vercel/jobs?content=true",
+      "ok": false,
+      "totalJobs": 67,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "no intern/co-op/new-grad titled postings on this board"
+    },
+    {
+      "company": "anthropic",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true",
+      "ok": false,
+      "totalJobs": 402,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "no intern/co-op/new-grad titled postings on this board"
+    },
+    {
+      "company": "scaleai",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/scaleai/jobs?content=true",
+      "ok": true,
+      "totalJobs": 183,
+      "internCount": 2,
+      "newGradCount": 0,
+      "file": "data/sources/data/postings/greenhouse-scaleai.json"
+    },
+    {
+      "company": "gusto",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/gusto/jobs?content=true",
+      "ok": true,
+      "totalJobs": 76,
+      "internCount": 0,
+      "newGradCount": 1,
+      "file": "data/sources/data/postings/greenhouse-gusto.json"
+    },
+    {
+      "company": "palantir",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/palantir?mode=json",
+      "ok": true,
+      "totalJobs": 270,
+      "internCount": 31,
+      "newGradCount": 17,
+      "file": "data/sources/data/postings/lever-palantir.json"
+    }
+  ]
+}

@@ -1,0 +1,1852 @@
+{
+  "meta": {
+    "runId": "data-20260709T180456Z",
+    "industry": "data",
+    "university": "MIT",
+    "generatedBy": "ground-catalog",
+    "onetVersion": "29.1",
+    "generatedAt": "2026-07-09T18:05:32Z",
+    "pilot": false,
+    "orgTypes": [
+      "MNC",
+      "Startup",
+      "Small Business"
+    ],
+    "sources": [
+      "https://catalog.mit.edu/subjects/6/",
+      "https://catalog.mit.edu/subjects/18/",
+      "https://catalog.mit.edu/subjects/14/",
+      "https://catalog.mit.edu/subjects/15/",
+      "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
+    ],
+    "flags": {
+      "droppedInputs": [
+        "mit-6-1000",
+        "mit-6-1200-j",
+        "mit-6-1220-j",
+        "mit-14-01",
+        "mit-14-02",
+        "mit-14-12",
+        "mit-14-15j",
+        "mit-14-19",
+        "mit-14-33",
+        "mit-15-276",
+        "mit-15-7611",
+        "mit-18-330",
+        "mit-18-642",
+        "mit-18-c25-j",
+        "mit-18-413",
+        "mit-18-404",
+        "mnc-software-engineer-intern"
+      ],
+      "edgesTrimmedForBalance": 5,
+      "unsupportedCareers": [
+        "analytics-engineer"
+      ],
+      "socCollisions": [
+        "data-engineer data-architect"
+      ],
+      "internshipStarved": [
+        "bi-analyst",
+        "data-architect",
+        "data-engineer",
+        "data-scientist",
+        "ml-engineer",
+        "or-analyst",
+        "statistician"
+      ]
+    }
+  },
+  "careers": [
+    {
+      "id": "bi-analyst",
+      "name": "Business Intelligence Analyst",
+      "grounding": "soc",
+      "soc": [
+        "15-2051.01"
+      ],
+      "responsibilities": [
+        "Generate standard and custom reports that summarize business, financial, or economic data for executives, managers, and other stakeholders",
+        "Build, maintain, and provide technical support for BI dashboards and tools other teams rely on daily",
+        "Identify and analyze industry or geographic trends and document what they mean for business strategy"
+      ],
+      "skills": [
+        "Business intelligence and data analysis software, plus database query and reporting tools",
+        "Devising methods to find patterns and trends in data pulled from multiple sources (industry reports, internal data, purchased data)",
+        "Documenting specifications for a BI report or dashboard so it can be maintained after you hand it off",
+        "Reading comprehension and writing precise enough to turn a data pattern into a decision-ready recommendation"
+      ],
+      "rawSkillPool": [
+        "Business intelligence and data analysis software",
+        "Database reporting and query software",
+        "Data mining software",
+        "Dashboard design and maintenance",
+        "Metadata management",
+        "Financial analysis software",
+        "Trend and pattern identification",
+        "Report specification and documentation",
+        "Customer relationship management (CRM) software",
+        "Stakeholder reporting and presentation",
+        "Data collection from industry and public sources",
+        "Testing and validating BI outputs against defined needs"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2051.01",
+          "quote": "Produce financial and market intelligence by querying data repositories and generating periodic reports. Devise methods for identifying data patterns and trends in available information sources.",
+          "title": "Business Intelligence Analysts (15-2051.01), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Report specification and documentation",
+        "Customer relationship management (CRM) software",
+        "Data collection from industry and public sources",
+        "Testing and validating BI outputs against defined needs",
+        "Financial analysis software",
+        "Trend and pattern identification"
+      ]
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "grounding": "postings",
+      "responsibilities": [
+        "Write SQL against production and warehouse tables to pull clean, correct datasets, not just whatever query returns first",
+        "Build and maintain dashboards and recurring reports (Tableau, Power BI, or Looker) that stakeholders check without asking you to re-run anything",
+        "Support experimentation and A/B tests, then explain what moved a metric to marketing, product, or ops teams in plain language"
+      ],
+      "skills": [
+        "SQL fluency: joins, aggregations, and window functions against real, messy production data",
+        "Building a dashboard someone other than you can read, trust, and self-serve from",
+        "Choosing the right visualization tool for the audience (Tableau, Power BI, Looker, or Excel)",
+        "Translating a request like 'why did signups drop' into a specific, checkable analysis"
+      ],
+      "rawSkillPool": [
+        "SQL (joins, aggregation, window functions)",
+        "Dashboarding tools (Tableau, Power BI, Looker)",
+        "Excel / spreadsheet modeling",
+        "Python or R for analysis",
+        "A/B testing and experiment support",
+        "Data cleaning and validation",
+        "Business metric definition and reporting",
+        "Stakeholder communication",
+        "Customer journey and funnel analysis",
+        "Data visualization",
+        "Query optimization",
+        "Ad-hoc analysis under deadline"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/aloyoga/jobs/5789930004?gh_jid=5789930004",
+          "company": "ALO Yoga",
+          "title": "Data Analyst Intern",
+          "quote": "developing dashboards and reports that monitor business health and campaign performance, analyzing customer journeys across digital and retail touchpoints, supporting experimentation and A/B testing",
+          "snapshot": "data/sources/data/postings/web-data-analyst-1.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/impiricus/jobs/5160568008",
+          "company": "Impiricus",
+          "title": "Data Analyst Intern",
+          "quote": "support campaign performance analysis and reporting, partnering with Client Services and Engineering to analyze data, validate audiences, and deliver clear, actionable insights",
+          "snapshot": "data/sources/data/postings/web-data-analyst-2.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "A/B testing and experiment support",
+        "Customer journey and funnel analysis",
+        "Ad-hoc analysis under deadline",
+        "Query optimization",
+        "Excel / spreadsheet modeling",
+        "Business metric definition and reporting"
+      ]
+    },
+    {
+      "id": "data-architect",
+      "name": "Data Architect",
+      "grounding": "soc",
+      "soc": [
+        "15-1243.00"
+      ],
+      "responsibilities": [
+        "Design the schemas and data models other teams' applications and reports are built on for years",
+        "Set standards for how data is stored, queried, and secured across the warehouse or platform",
+        "Plan how new systems and data sources integrate into the existing architecture without breaking it"
+      ],
+      "skills": [
+        "Modeling data (relational, dimensional, or warehouse schemas) that stays coherent as scale and requirements grow",
+        "Reasoning about scalability, security, and performance trade-offs in a database design before it ships",
+        "Documenting and communicating schemas with accepted notations so other engineers can build on them safely",
+        "Evaluating and integrating database management, ETL, and cloud storage tools into a working system"
+      ],
+      "rawSkillPool": [
+        "Database architecture and schema design",
+        "Data modeling for warehouses and applications",
+        "Data base management system software",
+        "Data base user interface and query software",
+        "Metadata management software",
+        "Cloud-based management software",
+        "Systems analysis and systems evaluation",
+        "Storage networking software",
+        "Enforcing database development standards",
+        "Enterprise resource planning (ERP) software",
+        "Object or component oriented development software",
+        "Working with computers",
+        "Analyzing data or information",
+        "Programming",
+        "Communicating database design to stakeholders"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-1243.00",
+          "title": "Database Architects (SOC 15-1243.00), O*NET 29.1 database",
+          "quote": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-1243.00",
+          "title": "Database Architects: Tasks, O*NET 29.1 database",
+          "quote": "Develop and document database architectures. Design databases to support business applications, ensuring system scalability, security, performance, and reliability. Develop data models for applications, metadata tables, views or related database structures.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Enterprise resource planning (ERP) software",
+        "Object or component oriented development software",
+        "Communicating database design to stakeholders",
+        "Enforcing database development standards",
+        "Data modeling for warehouses and applications",
+        "Systems analysis and systems evaluation",
+        "Storage networking software"
+      ]
+    },
+    {
+      "id": "data-engineer",
+      "name": "Data Engineer",
+      "grounding": "soc",
+      "soc": [
+        "15-1243.00"
+      ],
+      "responsibilities": [
+        "Design and document database and data warehouse architecture that other teams' pipelines and dashboards depend on for years",
+        "Build data models, schemas, and interfaces (partitions, indexes, transfer mechanisms) that scale and stay fast as data volume grows",
+        "Integrate new data sources into existing warehouse structures without breaking what already runs on them"
+      ],
+      "skills": [
+        "Data modeling and schema design that survives new sources and new scale",
+        "Database management and query languages, plus cloud-based storage and warehouse platforms",
+        "Enforcing and documenting standards (naming, schemas, access control) so the warehouse stays usable as a team, not a pile of tables",
+        "Systems analysis: tracing how a broken pipeline or slow query affects everything downstream"
+      ],
+      "rawSkillPool": [
+        "Database architecture and data warehouse design",
+        "Data base management system software",
+        "Data base user interface and query software (SQL)",
+        "Cloud-based management and storage software",
+        "Data modeling and metadata management",
+        "ETL and pipeline development",
+        "Systems analysis and systems evaluation",
+        "Programming (Python, Java, or similar)",
+        "Database development standards and documentation",
+        "Data partitioning, indexing, and performance tuning",
+        "Integrating disparate systems and data sources",
+        "Storage networking software"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-1243.00",
+          "quote": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses.",
+          "title": "Database Architects (15-1243.00, alternate title \"Data Engineer\"), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Data partitioning, indexing, and performance tuning",
+        "Integrating disparate systems and data sources",
+        "ETL and pipeline development",
+        "Database architecture and data warehouse design",
+        "Systems analysis and systems evaluation",
+        "Storage networking software"
+      ]
+    },
+    {
+      "id": "data-scientist",
+      "name": "Data Scientist",
+      "grounding": "soc",
+      "soc": [
+        "15-2051.00"
+      ],
+      "responsibilities": [
+        "Frame a vague business question as a data question and pick the right technique (mining, modeling, or plain description) to answer it",
+        "Clean and manipulate large structured and unstructured datasets, then build and compare models on real performance metrics, not just training loss",
+        "Turn analysis into a graph, dashboard, or oral and written presentation that management can act on"
+      ],
+      "skills": [
+        "Data-oriented programming and query languages (SQL, Python or R) plus business intelligence and data analysis software",
+        "Applying data mining, feature selection, and machine learning to extract signal from large datasets",
+        "Designing surveys or sampling methods when the data does not already exist",
+        "Explaining a model's results and limitations to a non-technical audience, in writing and out loud"
+      ],
+      "rawSkillPool": [
+        "Statistical software (SAS, R, Python)",
+        "Business intelligence and data analysis software",
+        "Database user interface and query software",
+        "Data mining and feature selection algorithms",
+        "Natural language processing",
+        "Data cleaning and manipulation",
+        "Mathematics and applied statistics",
+        "Analytical or scientific software",
+        "Cloud-based data management software",
+        "Comparing models with statistical performance metrics",
+        "Survey and sampling design",
+        "Data visualization and reporting",
+        "Complex problem solving",
+        "Written and oral presentation of findings"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2051.00",
+          "quote": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets.",
+          "title": "Data Scientists (15-2051.00), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Data mining and feature selection algorithms",
+        "Natural language processing",
+        "Comparing models with statistical performance metrics",
+        "Survey and sampling design",
+        "Statistical software (SAS, R, Python)"
+      ]
+    },
+    {
+      "id": "ml-engineer",
+      "name": "Machine Learning Engineer",
+      "grounding": "postings",
+      "responsibilities": [
+        "Design, build, and evaluate machine learning models against a real dataset, not a toy benchmark, then justify the architecture choice",
+        "Write clean, efficient, scalable code that takes a model from a notebook to something a team can run and extend",
+        "Analyze complex or unstructured datasets to find the signal a model should be learning, and communicate what you found"
+      ],
+      "skills": [
+        "Python and deep learning frameworks (PyTorch, TensorFlow) used on an actual dataset, not just tutorials",
+        "Foundations that don't go stale: linear algebra, calculus, probability, and statistics behind the models you train",
+        "Shipping at least one end-to-end ML project you can defend in an interview: data, training, evaluation, and failure modes",
+        "Working with messy, high-volume, or time-series data instead of a cleaned CSV"
+      ],
+      "rawSkillPool": [
+        "PyTorch / TensorFlow",
+        "Python for ML pipelines",
+        "Deep learning model design and evaluation",
+        "Linear algebra, calculus, and probability foundations",
+        "Time series and unstructured data handling",
+        "Model training, validation, and evaluation metrics",
+        "Clean, efficient, scalable coding practices",
+        "End-to-end ML project delivery",
+        "Computer vision or NLP specialization",
+        "Data pipeline building for training",
+        "Reading and communicating research or dataset findings",
+        "Collaborating with cross-functional technical teams"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/neuralink/jobs/6594261003?gh_jid=6594261003",
+          "company": "Neuralink",
+          "title": "Machine Learning Engineer Intern",
+          "quote": "Prior experience designing and building Machine Learning models; Deep understanding of machine learning concepts and fundamentals; Strong coding skills, with a focus on clean, efficient, and scalable code development",
+          "snapshot": "data/sources/data/postings/web-ml-engineer-1.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/cloudflare/jobs/7914628",
+          "company": "Cloudflare (and comparable Summer 2026 ML engineer intern postings at Lucid Motors, Gusto, XPeng Motors)",
+          "title": "Machine Learning Engineer Intern (Summer 2026)",
+          "quote": "build and operate pipelines behind AI-driven applications, working alongside experienced data scientists and machine learning engineers",
+          "snapshot": "data/sources/data/postings/web-ml-engineer-2.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "PyTorch / TensorFlow",
+        "Deep learning model design and evaluation",
+        "End-to-end ML project delivery",
+        "Time series and unstructured data handling",
+        "Computer vision or NLP specialization",
+        "Linear algebra, calculus, and probability foundations",
+        "Model training, validation, and evaluation metrics"
+      ]
+    },
+    {
+      "id": "or-analyst",
+      "name": "Operations Research Analyst",
+      "grounding": "soc",
+      "soc": [
+        "15-2031.00"
+      ],
+      "responsibilities": [
+        "Turn a messy operational problem into a mathematical or simulation model with real constraints and trade-offs",
+        "Validate and reformulate models until they actually hold up against reality, not just the training data",
+        "Present modeling results and recommendations to management in language decision-makers can act on"
+      ],
+      "skills": [
+        "Formulating mathematical or simulation models that capture constraints, alternatives, and conflicting objectives",
+        "Validating and testing a model, then reformulating it when it fails to hold up",
+        "Defining data requirements and gathering the right information with statistical judgment",
+        "Collaborating with managers to translate a fuzzy operational problem into a solvable one"
+      ],
+      "rawSkillPool": [
+        "Mathematical and simulation modeling",
+        "Optimization methods",
+        "Analytical or scientific software",
+        "Model validation and testing",
+        "Data base user interface and query software",
+        "Defining data requirements",
+        "Preparing management reports with recommendations",
+        "Presenting modeling results to end users",
+        "Mathematics",
+        "Financial analysis software",
+        "Collaborating with senior managers on decision-making",
+        "Studying alternative courses of action",
+        "Object or component oriented development software",
+        "Analyzing data or information"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2031.00",
+          "title": "Operations Research Analysts (SOC 15-2031.00), O*NET 29.1 database",
+          "quote": "Formulate and apply mathematical modeling and other optimizing methods to develop and interpret information that assists management with decisionmaking, policy formulation, or other managerial functions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2031.00",
+          "title": "Operations Research Analysts: Tasks, O*NET 29.1 database",
+          "quote": "Formulate mathematical or simulation models of problems, relating constants and variables, restrictions, alternatives, conflicting objectives, and their numerical parameters. Perform validation and testing of models to ensure adequacy, and reformulate models, as necessary. Present the results of mathematical modeling and data analysis to management or other end users.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Mathematical and simulation modeling",
+        "Optimization methods",
+        "Model validation and testing",
+        "Defining data requirements",
+        "Studying alternative courses of action",
+        "Collaborating with senior managers on decision-making",
+        "Financial analysis software"
+      ]
+    },
+    {
+      "id": "statistician",
+      "name": "Statistician",
+      "grounding": "soc",
+      "soc": [
+        "15-2041.00"
+      ],
+      "responsibilities": [
+        "Decide which statistical method actually fits the question and the data before running anything",
+        "Design experiments, sampling plans, and analytical methods that hold up to scrutiny",
+        "Report results with the right charts, tables, and caveats so non-statisticians don't over-read them"
+      ],
+      "skills": [
+        "Choosing and applying the right statistical method for the research question, not just the familiar one",
+        "Cleaning, weighting, and validating raw data before it ever reaches a model",
+        "Designing experiments and sampling techniques that produce data you can trust",
+        "Communicating statistical findings clearly to clients, peers, or students through graphs and plain language"
+      ],
+      "rawSkillPool": [
+        "Statistical theory and methods",
+        "Experimental design and sampling techniques",
+        "Analytical or scientific software",
+        "Data mining software",
+        "Business intelligence and data analysis software",
+        "Evaluating validity, applicability, and accuracy of methods",
+        "Preparing and weighting raw data",
+        "Identifying relationships and trends in data",
+        "Mathematics",
+        "Data base user interface and query software",
+        "Spreadsheet software",
+        "Interpreting statistical results for non-technical audiences",
+        "Adapting methods across fields (economics, biology, engineering)",
+        "Reporting results with charts, bullets, and graphs"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2041.00",
+          "title": "Statisticians (SOC 15-2041.00), O*NET 29.1 database",
+          "quote": "Develop or apply mathematical or statistical theory and methods to collect, organize, interpret, and summarize numerical data to provide usable information.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/15-2041.00",
+          "title": "Statisticians: Tasks, O*NET 29.1 database",
+          "quote": "Evaluate the statistical methods and procedures used to obtain data to ensure validity, applicability, efficiency, and accuracy. Prepare data for processing by organizing information, checking for inaccuracies, and adjusting and weighting the raw data. Develop and test experimental designs, sampling techniques, and analytical methods.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Statistical theory and methods",
+        "Experimental design and sampling techniques",
+        "Evaluating validity, applicability, and accuracy of methods",
+        "Preparing and weighting raw data",
+        "Adapting methods across fields (economics, biology, engineering)",
+        "Identifying relationships and trends in data"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "mit-6-3700",
+      "name": "Introduction to Probability",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.3700",
+      "taughtSkills": [
+        "probabilistic modeling",
+        "conditional probability and expectation",
+        "limit theorems",
+        "Bayesian estimation and hypothesis testing",
+        "classical statistical inference",
+        "Markov chains"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Parser flagged a level tie-break (prereq text is 'Calculus II (GIR)', a General Institute Requirement, not a numbered subject). No EECS/course-numbered prerequisites exist, and the description covers only foundational probability/statistics content typical of an intro subject, so it is kept at level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "An introduction to probability theory, the modeling and analysis of probabilistic systems, and elements of statistical inference. Probabilistic models, conditional probability. Discrete and continuous random variables. Expectation and conditional expectation, and further topics about random variables. Limit Theorems. Bayesian estimation and hypothesis testing. Elements of classical statistical inference. Bernoulli and Poisson processes. Markov chains.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.72,
+          "matchedSkills": [
+            "Bayesian estimation and hypothesis testing",
+            "classical statistical inference"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-c35-j",
+      "name": "Interactive Data Visualization and Society",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.C35[J]",
+      "taughtSkills": [
+        "data visualization design",
+        "data analysis for visualization",
+        "coding for visualization tools",
+        "ethical considerations in visualization",
+        "communicating insights from big data",
+        "working with real-world datasets"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Covers the design, ethical, and technical skills for creating effective visualizations. Short assignments build familiarity with the data analysis and visualization design process. Weekly lab sessions present coding and technical skills. A final project provides experience working with real-world big data, provided by external partners, in order to expose and communicate insights about societal issues.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "bi-analyst"
+      ],
+      "edges": {
+        "bi-analyst": {
+          "confidence": 0.58,
+          "matchedSkills": [
+            "communicating insights from big data",
+            "data analysis for visualization"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-100b",
+      "name": "Introduction to Computational Thinking and Data Science",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.100B",
+      "taughtSkills": [
+        "computational modeling",
+        "optimization problems",
+        "simulation modeling",
+        "statistical modeling",
+        "Python programming for data analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Provides an introduction to using computation to build models that can be used to help understand real-world phenomena. Topics include optimization problems, simulation models, and statistical models. Requires experience programming in Python as a prerequisite.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.62,
+          "matchedSkills": [
+            "optimization problems",
+            "simulation modeling"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-1830",
+      "name": "Software Systems for Data Science (New)",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.1830",
+      "taughtSkills": [
+        "data cleaning and integration",
+        "scalable database systems (relational, NoSQL, Spark)",
+        "data analytics and data cubes",
+        "scalable statistics and machine learning",
+        "large-scale data visualization",
+        "working with production data processing tools"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.1000, 6.100A, 6.100B, 6.1210)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Explores techniques and systems for ingesting, efficiently processing, analyzing, and visualizing large data sets. Examines topics such as data cleaning, data integration, scalable systems (relational databases, NoSQL, Spark, etc.), analytics (data cubes, scalable statistics and machine learning), fundamental statistics and machine learning, and scalable visualization of large data sets. Extended programming assignments provide working experience with state-of-the-art data processing tools.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-engineer"
+      ],
+      "edges": {
+        "data-engineer": {
+          "confidence": 0.82,
+          "matchedSkills": [
+            "scalable database systems (relational, NoSQL, Spark)",
+            "data cleaning and integration",
+            "working with production data processing tools"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-3720",
+      "name": "Introduction to Statistical Data Analysis",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.3720",
+      "taughtSkills": [
+        "data exploration and feature selection",
+        "hypothesis testing and multiple comparison procedures",
+        "linear and nonlinear regression",
+        "classification and time series analysis",
+        "model validation and uncertainty quantification",
+        "causal inference"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A, 6.3700, 6.3800, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduction to the central concepts and methods of data science with an emphasis on statistical grounding and modern computational capabilities. Covers principles involved in extracting information from data for the purpose of making predictions or decisions, including data exploration, feature selection, model fitting, and performance assessment. Topics include learning of distributions, hypothesis testing (including multiple comparison procedures), linear and nonlinear regression and prediction, classification, time series, uncertainty quantification, model validation, causal inference, optimization, and decisions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician",
+        "data-scientist"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "hypothesis testing and multiple comparison procedures",
+            "model validation and uncertainty quantification"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "data exploration and feature selection",
+            "model validation and uncertainty quantification"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-c01",
+      "name": "Modeling with Machine Learning: from Algorithms to Applications",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.C01",
+      "taughtSkills": [
+        "supervised and unsupervised machine learning",
+        "neural network approaches",
+        "framing machine learning tasks",
+        "adapting and extending ML methods to problems",
+        "evaluating machine learning models"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A, 1.C01, 2.C01, 3.C01, 6.C011, 7.C01, 15.C01, 22.C01)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Focuses on modeling with machine learning methods with an eye towards applications in engineering and sciences. Introduction to modern machine learning methods, from supervised to unsupervised models, with an emphasis on newer neural approaches. Emphasis on the understanding of how and why the methods work from the point of view of modeling, and when they are applicable. Using concrete examples, covers formulation of machine learning tasks, adapting and extending methods to given problems, and how the methods can and should be evaluated.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "data-scientist"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.78,
+          "matchedSkills": [
+            "neural network approaches",
+            "evaluating machine learning models"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "evaluating machine learning models"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-3900",
+      "name": "Introduction to Machine Learning",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.3900",
+      "taughtSkills": [
+        "supervised, unsupervised, and reinforcement learning",
+        "linear and non-linear modeling",
+        "gradient-based optimization methods",
+        "neural network architectures",
+        "machine learning from an optimization perspective"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1010, 6.1210, 18.03, 18.06, 18.700, 18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduction to the principles and algorithms of machine learning from an optimization perspective. Topics include linear and non-linear models for supervised, unsupervised, and reinforcement learning, with a focus on gradient-based methods and neural-network architectures.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "neural network architectures",
+            "gradient-based optimization methods",
+            "supervised, unsupervised, and reinforcement learning"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-5831",
+      "name": "Database Systems",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.5831",
+      "taughtSkills": [
+        "database and schema design",
+        "schema normalization and integrity constraints",
+        "query processing and optimization",
+        "transactions, recovery, and concurrency control",
+        "distributed, parallel, and heterogeneous databases",
+        "trigger and pub-sub systems"
+      ],
+      "levelBasis": "prerequisite chain depth 4 (6.1210, 6.1220, 6.1800, 6.1810)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Topics related to the engineering and design of database systems, including data models; database and schema design; schema normalization and integrity constraints; query processing; query optimization and cost estimation; transactions; recovery; concurrency control; isolation and consistency; distributed, parallel and heterogeneous databases; adaptive databases; trigger systems; pub-sub systems; semi structured data and XML querying.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-engineer",
+        "data-architect"
+      ],
+      "edges": {
+        "data-engineer": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "query processing and optimization",
+            "distributed, parallel, and heterogeneous databases"
+          ],
+          "distinctive": true
+        },
+        "data-architect": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "database and schema design",
+            "schema normalization and integrity constraints"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-6-c011",
+      "name": "Modeling with Machine Learning for Computer Science",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.C011",
+      "taughtSkills": [
+        "engineering task framing as ML problems",
+        "method design and interpretation of results",
+        "robustness and interpretability analysis",
+        "fairness evaluation in ML systems",
+        "recommender system design",
+        "automated design via machine learning"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 6.C01, 6.1200, 6.3700, 18.06, 18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Focuses on in-depth modeling of engineering tasks as machine learning problems. Emphasizes framing, method design, and interpretation of results. In comparison to broader prerequisite 6.C01 , this project-oriented subject consists of deep dives into select technical areas or engineering tasks involving both supervised and exploratory uses of machine learning. Explores technical areas such robustness, interpretability, fairness and engineering tasks such as recommender systems, performance optimization, and automated design.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "method design and interpretation of results",
+            "robustness and interpretability analysis"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-30",
+      "name": "Introduction to Statistical Methods in Economics",
+      "level": 1000,
+      "dept": "Economics",
+      "catalogCode": "14.30",
+      "taughtSkills": [
+        "probability theory",
+        "statistical estimation and inference",
+        "regression analysis",
+        "causal inference",
+        "program evaluation",
+        "applied data analysis"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Parser flagged a tie-break: prereqText lists only 'Calculus II (GIR)', a general institute requirement with no subject-level economics/math course code, so the prereq chain is empty. The description confirms this is a 'self-contained introduction to probability and statistics' with no economics prerequisite beyond the GIR, taught alongside other foundational level-1000 subjects (14.01/14.02). Classified as level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Self-contained introduction to probability and statistics with applications in economics and the social sciences. Covers elements of probability theory, statistical estimation and inference, regression analysis, causal inference, and program evaluation. Couples methods with applications and with assignments involving data analysis. Uses basic calculus and matrix algebra.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.55,
+          "matchedSkills": [
+            "statistical estimation and inference"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-32",
+      "name": "Econometric Data Science",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.32",
+      "taughtSkills": [
+        "regression analysis for causal inference",
+        "analyzing randomized experiments",
+        "instrumental variables methods",
+        "regression discontinuity design",
+        "differences-in-differences estimation",
+        "time series regression",
+        "statistical programming"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (14.30, 15.069, 18.650)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Introduces regression and other tools for causal inference and descriptive analysis in empirical economics. Topics include analysis of randomized experiments, instrumental variables methods and regression discontinuity designs, differences-in-differences estimation, and regression with time series data. Develops the skills needed to conduct — and critique — empirical studies in economics and related fields. Familiarity with statistical programming languages is helpful.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "analyzing randomized experiments",
+            "regression analysis for causal inference"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-36",
+      "name": "Advanced Econometrics",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.36",
+      "taughtSkills": [
+        "advanced regression methods for causal questions",
+        "machine learning applications in econometrics",
+        "instrumental variables estimation",
+        "differences-in-differences and event-study modeling",
+        "regression discontinuity design",
+        "synthetic control methods",
+        "statistical inference"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Advanced treatment of the core empirical strategies used to answer causal questions in applied microeconometric research. Covers extensions and innovations relating to econometric applications of regression, machine learning, instrumental variables, differences-in-differences and event-study models, regression discontinuity designs, synthetic controls, and statistical inference.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "advanced regression methods for causal questions",
+            "regression discontinuity design"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-38",
+      "name": "Inference on Causal and Structural Parameters Using ML and AI",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.38",
+      "taughtSkills": [
+        "causal inference with high-dimensional data",
+        "structural equation and potential outcomes modeling",
+        "de-biased machine learning methods",
+        "synthetic control methods",
+        "adapting machine learning and deep learning models for causal inference",
+        "R or Python programming for causal analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Provides an applied treatment of modern causal inference with high-dimensional data, focusing on empirical economic problems encountered in academic research and the tech industry. Formulates problems in the languages of structural equation modeling and potential outcomes. Presents state-of-the-art approaches for inference on causal and structural parameters, including de-biased machine learning, synthetic control methods, and reinforcement learning. Introduces tools from machine learning and deep learning developed for prediction purposes, and discusses how to adapt them to learn causal parameters. Requires knowledge of mathematical statistics and regression analysis and programming experience in R or Python.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.7,
+          "matchedSkills": [
+            "R or Python programming for causal analysis",
+            "adapting machine learning and deep learning models for causal inference"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-39",
+      "name": "Large-Scale Decision-Making and Inference",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.39",
+      "taughtSkills": [
+        "data-driven decision-making in high-dimensional environments",
+        "statistical decision theory",
+        "Bayesian inference methods",
+        "empirical Bayes methods",
+        "false discovery rate analysis",
+        "R or Python programming for statistical analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Covers the use of data to guide decision-making, with a focus on data-rich and high-dimensional environments as are now commonly encountered in both academic and industry applications. Begins with an introduction to statistical decision theory, including Bayesian perspectives. Covers empirical Bayes methods, including related concepts such as false discovery rates, illustrated with economic applications. Requires knowledge of mathematical statistics and regression analysis, as well as programming experience in R or Python.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.78,
+          "matchedSkills": [
+            "statistical decision theory",
+            "empirical Bayes methods"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-14-c395j",
+      "name": "Algorithmic and Human Decision-Making (New)",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.C395[J]",
+      "taughtSkills": [
+        "designing machine learning and AI algorithms for decision support",
+        "statistical ML frameworks",
+        "integrating behavioral economics with ML models",
+        "identifying high-impact applied problems",
+        "building effective and reliable ML solutions"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.3700, 6.3900, 6.C01, 14.30, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Explores how to design machine learning and AI algorithms that enhance human decision-making and tackle real-world societal challenges. Combines statistical ML frameworks with behavioral economics, focusing on applications in areas such as education, finance, economic mobility, and policy. Emphasizes identifying high-impact problems and building effective, reliable solutions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.72,
+          "matchedSkills": [
+            "building effective and reliable ML solutions",
+            "designing machine learning and AI algorithms for decision support"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-0341",
+      "name": "Business Experiments and Causal Analytics",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.0341",
+      "taughtSkills": [
+        "designing experiments",
+        "causal inference from natural experiments",
+        "multivariate regression",
+        "instrumental-variable regression",
+        "regression trees and random forest",
+        "LASSO and neural networks"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Looks at predicting and understanding the causal effects of decisions across finance, marketing, human resources, and general business strategy. Develops a toolkit to go beyond correlations and get to causality. Students gain a deeper understanding of designing experiments, modeling natural experiments using multivariate regression, instrumental-variable regression, and machine learning tools including regression trees, random forest, LASSO, and neural networks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.55,
+          "matchedSkills": [
+            "regression trees and random forest",
+            "LASSO and neural networks"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-069",
+      "name": "Applied Probability and Statistics",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.069",
+      "taughtSkills": [
+        "probability theory and random variables",
+        "simulation",
+        "hypothesis testing",
+        "statistical sampling",
+        "regression analysis"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "levelTieBreak true; prereqText is only Calculus I (GIR) and the description frames it as an introduction to probability and statistics ('Offers an introduction to statistics') with no other subject prerequisites, so it is kept at the introductory level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Presents probability from the perspective of applied mathematics, with strong emphasis on an intuitive overview of key theorems and continuing demonstrations of their usefulness. Covers the laws of probability and numerous important discrete and continuous random variables, both individually and in combination. Introduces simulation. Offers an introduction to statistics that emphasizes its probabilistic foundations and the fact that statistical reasoning is applied common sense. Covers hypothesis testing, statistical sampling, and various forms of regression analysis.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "hypothesis testing",
+            "statistical sampling"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-076",
+      "name": "Analytics for a Better World",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.076",
+      "taughtSkills": [
+        "predictive and prescriptive analytics",
+        "linear and discrete optimization",
+        "linear and logistic regression",
+        "optimal classification and regression trees",
+        "deep learning, random forests, boosted trees",
+        "Julia/JuMP and TensorFlow projects"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "levelTieBreak true; prereqText is only Calculus I (GIR), and the description explicitly notes the course is 'Restricted to undergraduates' and project-based with no advanced prerequisite chain, so it is kept at the introductory level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces predictive and prescriptive analytics methods to solve problems that contribute to the welfare of society. Emphasis on using machine learning and optimization methods in innovative ways using real world data. Methods used include: linear and discrete optimization, linear and logistic regression, optimal classification and regression trees, deep learning, random forests, and boosted trees. Projects utilize Julia, Jump, and Tensor Flow.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst",
+        "ml-engineer"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "linear and discrete optimization"
+          ],
+          "distinctive": true
+        },
+        "ml-engineer": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "deep learning, random forests, boosted trees",
+            "Julia/JuMP and TensorFlow projects"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-075j",
+      "name": "Statistical Thinking and Data Analysis",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.075[J]",
+      "taughtSkills": [
+        "statistical sampling and uncertainty",
+        "estimation and hypothesis testing",
+        "linear regression",
+        "classification",
+        "analysis of variance",
+        "data mining fundamentals"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces a rigorous treatment of statistical data analysis while helping students develop a strong intuition for the strengths and limitations of various methods. Topics include statistical sampling and uncertainty, estimation, hypothesis testing, linear regression, classification, analysis of variation, and elements of data mining. Involves empirical use of hypothesis testing and other statistical methodologies in several domains, including the assessment of A-B experiments on the web and the identification of genes correlated with diseases.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician",
+        "data-scientist"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "statistical sampling and uncertainty",
+            "estimation and hypothesis testing"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "data mining fundamentals",
+            "classification"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-780",
+      "name": "Analytics of Operations Management",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.780",
+      "taughtSkills": [
+        "data-driven modeling",
+        "machine learning for operations",
+        "time series forecasting",
+        "dynamic programming",
+        "stochastic optimization",
+        "multi-armed bandits"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces core concepts in data-driven modeling that inform and optimize business decisions under uncertainty. Covers models and frameworks, such as machine learning, time series forecasting, dynamic programming, stochastic optimization, and multi-armed bandits. Draws on real-world applications, with several examples from retail, healthcare, logistics, supply chain, and public sector.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "dynamic programming",
+            "stochastic optimization"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-053",
+      "name": "Optimization Methods in Business Analytics",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.053",
+      "taughtSkills": [
+        "linear programming",
+        "network optimization",
+        "integer programming",
+        "nonlinear programming",
+        "optimization heuristics",
+        "modeling optimization problems for logistics/finance/marketing"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (1.00, 1.000, 6.100A)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces optimization methods with a focus on modeling, solution techniques, and analysis. Covers linear programming, network optimization, integer programming, nonlinear programming, and heuristics. Applications to logistics, manufacturing, statistics, machine learning, transportation, game theory, marketing, project management, and finance. Includes projects in which student teams solve optimization problems of practical interest.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "linear programming",
+            "network optimization",
+            "integer programming",
+            "nonlinear programming",
+            "optimization heuristics"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-0621",
+      "name": "Data Mining: Finding the Models and Predictions that Create Value",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.0621",
+      "taughtSkills": [
+        "logistic regression",
+        "association rules",
+        "tree-structured classification and regression",
+        "cluster analysis",
+        "discriminant analysis",
+        "neural network methods",
+        "data-mining software in R and Python"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (15.075)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduction to data mining, data science, and machine learning for recognizing patterns, developing models and predictive analytics, and making intelligent use of massive amounts of data collected via the internet, e-commerce, electronic banking, medical databases, etc. Topics include logistic regression, association rules, tree-structured classification and regression, cluster analysis, discriminant analysis, and neural network methods. Introduces data-mining software (R and Python).",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "data-mining software in R and Python",
+            "tree-structured classification and regression",
+            "cluster analysis"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-0711",
+      "name": "The Analytics Edge",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.0711",
+      "taughtSkills": [
+        "linear and logistic regression",
+        "classification trees and random forests",
+        "neural networks",
+        "text analytics",
+        "social network analysis",
+        "time series modeling and clustering",
+        "R programming and Jupyter notebooks"
+      ],
+      "levelBasis": "prerequisite chain depth 3 (15.053, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Develops models and tools of data analytics that are used to transform businesses and industries, using examples and case studies in e-commerce, healthcare, social media, high technology, criminal justice, the internet, and beyond. Covers analytics methods such as linear regression, logistic regression, classification trees, random forests, neural networks, text analytics, social network analysis, time series modeling, clustering, and optimization. Uses mostly R programming language and some work in Jupyter notebooks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "text analytics",
+            "R programming and Jupyter notebooks",
+            "classification trees and random forests"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-c08j",
+      "name": "Causal Inference",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.C08[J]",
+      "taughtSkills": [
+        "potential outcomes framework",
+        "causal graphs",
+        "randomized controlled trials",
+        "observational study design",
+        "instrumental variable estimation",
+        "contrasting causal inference with machine learning"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.3800, 6.3900, 6.C01, 14.32, 17.803, 18.05, 18.650)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Provides an accessible overview of modern quantitative methods for causal inference: testing whether an action causes an outcome to occur. Makes heavy use of applied, real-data examples using Python or R and drawn from the participating domains (economics, political science, business, public policy, etc.). Covers topics including potential outcomes, causal graphs, randomized controlled trials, observational studies, instrumental variable estimation, and a contrast with machine learning techniques.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "randomized controlled trials",
+            "observational study design"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-15-c571j",
+      "name": "Optimization Methods",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.C571[J]",
+      "taughtSkills": [
+        "linear optimization and duality",
+        "non-linear and integer optimization",
+        "optimization under uncertainty",
+        "optimization algorithm design",
+        "modeling techniques for practical problems",
+        "JuMP/Julia computational exercises"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduction to the methods and applications of optimization. Topics include linear optimization, duality, non-linear optimization, integer optimization, and optimization under uncertainty. Instruction provided in modeling techniques to address problems arising in practice, mathematical theory to understand the structure of optimization problems, computational algorithms to solve complex optimization problems, and practical applications. Computational exercises based on the Julia-based programming language JuMP.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "linear optimization and duality",
+            "non-linear and integer optimization",
+            "optimization under uncertainty",
+            "optimization algorithm design"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-05",
+      "name": "Introduction to Probability and Statistics",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.05",
+      "taughtSkills": [
+        "probability & Bayesian inference",
+        "hypothesis testing & confidence intervals",
+        "bootstrapping",
+        "regression",
+        "using R to simulate, analyze, and visualize data",
+        "statistical thinking about privacy, fairness, and causality"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description frames it as a unified, general introduction to probability and statistics for a broad undergraduate audience, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "A unified introduction to probability, Bayesian inference, and frequentist statistics. Topics include: combinatorics, random variables, (joint) distributions, covariance, central limit theorem; Bayesian updating, odds, posterior prediction; significance tests, confidence intervals, bootstrapping, regression. Students also develop computational skills and statistical thinking by using R to simulate, analyze, and visualize data; and by exploring privacy, fairness, and causality in contemporary media and research. Flipped subject taught in a Technology Enabled Active Learning (TEAL) classroom to facilitate discussion, group problem solving, and coding studios with ample mentorship.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.5,
+          "matchedSkills": [
+            "using R to simulate, analyze, and visualize data"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-06",
+      "name": "Linear Algebra",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.06",
+      "taughtSkills": [
+        "matrix theory & linear algebra",
+        "eigenvalues and singular value decomposition",
+        "least-squares approximations",
+        "Markov processes",
+        "Fourier transforms",
+        "using linear algebra software"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description positions it as a basic subject on matrix theory emphasizing applications useful across disciplines, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Basic subject on matrix theory and linear algebra, emphasizing topics useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, singular value decomposition, and positive definite matrices. Applications to least-squares approximations, stability of differential equations, networks, Fourier transforms, and Markov processes. Uses linear algebra software. Compared with 18.700, more emphasis on matrix algorithms and many applications.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "matrix theory & linear algebra",
+            "eigenvalues and singular value decomposition"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-600",
+      "name": "Probability and Random Variables",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.600",
+      "taughtSkills": [
+        "probability spaces & random variables",
+        "modeling with standard distributions (binomial, Poisson, normal, etc.)",
+        "conditional probability & Bayes theorem",
+        "joint distributions",
+        "law of large numbers & central limit theorem"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description covers foundational probability theory topics typically taught as an entry-level course, consistent with level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Probability spaces, random variables, distribution functions. Binomial, geometric, hypergeometric, Poisson distributions. Uniform, exponential, normal, gamma and beta distributions. Conditional probability, Bayes theorem, joint distributions. Chebyshev inequality, law of large numbers, and central limit theorem. Credit cannot also be received for 6.041A or 6.041B.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.5,
+          "matchedSkills": [
+            "probability spaces & random variables",
+            "modeling with standard distributions (binomial, Poisson, normal, etc.)"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-c06-j",
+      "name": "Linear Algebra and Optimization",
+      "level": 1000,
+      "dept": "Mathematics",
+      "catalogCode": "18.C06[J]",
+      "taughtSkills": [
+        "linear algebra fundamentals (vectors, matrices, eigenvalues, SVD)",
+        "least squares",
+        "convex optimization",
+        "linear/quadratic programming",
+        "gradient descent",
+        "regularization",
+        "extracting structure from data"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Only prerequisite is Calculus II (GIR); no 18.xxx prerequisite chain. Description explicitly states it assumes no prior exposure to linear algebra and starts from the basics, consistent with a foundational level-1000 course.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Introductory course in linear algebra and optimization, assuming no prior exposure to linear algebra and starting from the basics, including vectors, matrices, eigenvalues, singular values, and least squares. Covers the basics in optimization including convex optimization, linear/quadratic programming, gradient descent, and regularization, building on insights from linear algebra. Explores a variety of applications in science and engineering, where the tools developed give powerful ways to understand complex systems and also extract structure from data.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "or-analyst"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.7,
+          "matchedSkills": [
+            "linear algebra fundamentals (vectors, matrices, eigenvalues, SVD)",
+            "gradient descent",
+            "regularization"
+          ],
+          "distinctive": true
+        },
+        "or-analyst": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "convex optimization",
+            "linear/quadratic programming"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-065",
+      "name": "Matrix Methods in Data Analysis, Signal Processing, and Machine Learning",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.065",
+      "taughtSkills": [
+        "singular value decomposition",
+        "principal component analysis",
+        "covariance and correlation matrix analysis",
+        "signal and image processing",
+        "matrix factorizations",
+        "neural networks & machine learning fundamentals",
+        "large-scale matrix computation"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Reviews linear algebra with applications to life sciences, finance, engineering, and big data. Covers singular value decomposition, weighted least squares, signal and image processing, principal component analysis, covariance and correlation matrices, directed and undirected graphs, matrix factorizations, neural nets, machine learning, and computations with large matrices.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "data-scientist"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.7,
+          "matchedSkills": [
+            "neural networks & machine learning fundamentals",
+            "matrix factorizations"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "principal component analysis",
+            "covariance and correlation matrix analysis"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-650-j",
+      "name": "Fundamentals of Statistics",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.650[J]",
+      "taughtSkills": [
+        "parametric estimation",
+        "confidence intervals & hypothesis testing",
+        "Bayesian inference",
+        "linear and logistic regression",
+        "classification",
+        "causal inference"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "A rapid introduction to the theoretical foundations of statistical methods that are useful in many applications. Covers a broad range of topics in a short amount of time with the goal of providing a rigorous and cohesive understanding of the modern statistical landscape. Mathematical language is used for intuition and basic derivations but not proofs. Main topics include: parametric estimation, confidence intervals, hypothesis testing, Bayesian inference, and linear and logistic regression. Additional topics may include: causal inference, nonparametric estimation, and classification.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "statistician",
+        "data-scientist"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "parametric estimation",
+            "confidence intervals & hypothesis testing",
+            "Bayesian inference"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "linear and logistic regression",
+            "classification"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "mit-18-453",
+      "name": "Combinatorial Optimization",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.453",
+      "taughtSkills": [
+        "linear programming",
+        "matching theory",
+        "network flow",
+        "matroid optimization",
+        "handling NP-hard optimization problems"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.06, 18.700, 18.701)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Thorough treatment of linear programming and combinatorial optimization. Topics include matching theory, network flow, matroid optimization, and how to deal with NP-hard optimization problems. Prior exposure to discrete mathematics (such as 18.200) helpful.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "linear programming",
+            "network flow",
+            "matroid optimization"
+          ],
+          "distinctive": true
+        }
+      }
+    }
+  ],
+  "internships": [
+    {
+      "id": "mnc-business-operations-intern",
+      "role": "Business Operations Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Sales Operations Intern, Italy (Airbnb)",
+        "Deployment Strategist, Internship (Palantir)",
+        "Tech Operations Associate, New Grad (Mexico) (Stripe)"
+      ],
+      "requiredSkills": [
+        "Strong analytical skills to investigate, prioritize, and identify the root cause of issues",
+        "Experience in writing SQL queries to query relational databases",
+        "Excellent English communication skills, both written and verbal",
+        "Extraordinary ability to take on open-ended problems in unstructured environments",
+        "Experience with programming, scripting or statistical packages (e.g. Python, R, Matlab, SQL) is a plus",
+        "Strong organizational and time management skills, with the ability to juggle multiple tasks and priorities",
+        "Track key metrics and KPIs, generate performance reports, and surface actionable insights",
+        "Process-oriented mindset and ability to get things done"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "greenhouse-airbnb",
+          "title": "Sales Operations Intern, Italy",
+          "url": "https://careers.airbnb.com/positions/7979270?gh_jid=7979270",
+          "snapshot": "data/sources/data/postings/greenhouse-airbnb.json",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "company": "lever-palantir",
+          "title": "Deployment Strategist, Internship",
+          "url": "https://jobs.lever.co/palantir/774cf5c9-bf6a-4d77-bf60-d50ef1beb1a0",
+          "snapshot": "data/sources/data/postings/lever-palantir.json",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "company": "greenhouse-stripe",
+          "title": "Tech Operations Associate, New Grad (Mexico)",
+          "url": "https://stripe.com/jobs/search?gh_jid=7718947",
+          "snapshot": "data/sources/data/postings/greenhouse-stripe.json",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "company": "greenhouse-stripe",
+          "title": "Operations Associate, New Grad (Mexico)",
+          "url": "https://stripe.com/jobs/search?gh_jid=7544547",
+          "snapshot": "data/sources/data/postings/greenhouse-stripe.json",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-analyst"
+      ],
+      "edges": {
+        "data-analyst": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "Track key metrics and KPIs, generate performance reports, and surface actionable insights",
+            "Experience in writing SQL queries to query relational databases"
+          ],
+          "distinctive": true
+        }
+      }
+    }
+  ]
+}

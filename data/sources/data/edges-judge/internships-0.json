@@ -1,0 +1,41 @@
+{
+  "proposals": {
+    "mnc-software-engineer-intern": [
+      {
+        "career": "data-engineer",
+        "confidence": 0.35,
+        "matchedSkills": ["Familiarity with data structures, storage systems, cloud infrastructure, front-end frameworks, and other technical tools"],
+        "distinctive": true,
+        "rationale": "Generic exposure to storage systems and cloud infrastructure loosely echoes data-engineer's systems/storage-networking work but the posting is a general-purpose software engineering role with no ETL, pipeline, or warehouse content."
+      },
+      {
+        "career": "data-architect",
+        "confidence": 0.3,
+        "matchedSkills": ["Experience coding in mainstream languages such as Java, Ruby, JavaScript, Scala, and Go"],
+        "distinctive": true,
+        "rationale": "Object-oriented coding experience nominally touches data-architect's 'object or component oriented development software' skill, but nothing in the posting involves data modeling or database design."
+      }
+    ],
+    "mnc-business-operations-intern": [
+      {
+        "career": "data-analyst",
+        "confidence": 0.8,
+        "matchedSkills": [
+          "Track key metrics and KPIs, generate performance reports, and surface actionable insights",
+          "Experience in writing SQL queries to query relational databases"
+        ],
+        "distinctive": true,
+        "rationale": "The role explicitly has interns define/track business KPIs, generate reports, and query relational databases with SQL, directly matching data-analyst's business metric reporting and query skills."
+      },
+      {
+        "career": "bi-analyst",
+        "confidence": 0.62,
+        "matchedSkills": [
+          "Track key metrics and KPIs, generate performance reports, and surface actionable insights"
+        ],
+        "distinctive": true,
+        "rationale": "Generating performance reports and surfacing insights aligns with bi-analyst's report specification and trend-identification work, though the posting lacks explicit BI-tool or dashboard evidence."
+      }
+    ]
+  }
+}

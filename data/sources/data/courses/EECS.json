@@ -1,0 +1,293 @@
+{
+  "dept": "EECS",
+  "sourceUrl": "https://catalog.mit.edu/subjects/6/",
+  "courses": [
+    {
+      "id": "mit-6-1000",
+      "name": "Introduction to Programming and Computer Science (New)",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.1000",
+      "taughtSkills": [
+        "Python programming",
+        "object-oriented programming",
+        "algorithmic complexity analysis",
+        "building simulations",
+        "statistical modeling",
+        "optimization problem formulation"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Develops foundational skills in programming and in computational modeling. Covers widely used programming concepts in Python, including mutability, function objects, and object-oriented programming. Introduces algorithmic complexity and some common libraries. Throughout, demonstrates using computation to help understand real-world phenomena; topics include optimization problems, building simulations, and statistical modeling.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-3700",
+      "name": "Introduction to Probability",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.3700",
+      "taughtSkills": [
+        "probabilistic modeling",
+        "conditional probability and expectation",
+        "limit theorems",
+        "Bayesian estimation and hypothesis testing",
+        "classical statistical inference",
+        "Markov chains"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Parser flagged a level tie-break (prereq text is 'Calculus II (GIR)', a General Institute Requirement, not a numbered subject). No EECS/course-numbered prerequisites exist, and the description covers only foundational probability/statistics content typical of an intro subject, so it is kept at level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "An introduction to probability theory, the modeling and analysis of probabilistic systems, and elements of statistical inference. Probabilistic models, conditional probability. Discrete and continuous random variables. Expectation and conditional expectation, and further topics about random variables. Limit Theorems. Bayesian estimation and hypothesis testing. Elements of classical statistical inference. Bernoulli and Poisson processes. Markov chains.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-c35-j",
+      "name": "Interactive Data Visualization and Society",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.C35[J]",
+      "taughtSkills": [
+        "data visualization design",
+        "data analysis for visualization",
+        "coding for visualization tools",
+        "ethical considerations in visualization",
+        "communicating insights from big data",
+        "working with real-world datasets"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Covers the design, ethical, and technical skills for creating effective visualizations. Short assignments build familiarity with the data analysis and visualization design process. Weekly lab sessions present coding and technical skills. A final project provides experience working with real-world big data, provided by external partners, in order to expose and communicate insights about societal issues.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1200-j",
+      "name": "Mathematics for Computer Science",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.1200[J]",
+      "taughtSkills": [
+        "discrete mathematics proof techniques",
+        "graph theory",
+        "induction and recurrences",
+        "asymptotic notation and algorithm analysis",
+        "combinatorics and counting",
+        "discrete probability"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Parser flagged a level tie-break (prereq text is 'Calculus I (GIR)', a General Institute Requirement, not a numbered subject). No EECS/course-numbered prerequisites exist, so it is kept at level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Elementary discrete mathematics for science and engineering, with a focus on mathematical tools and proof techniques useful in computer science. Topics include logical notation, sets, relations, elementary graph theory, state machines and invariants, induction and proofs by contradiction, recurrences, asymptotic notation, elementary analysis of algorithms, elementary number theory and cryptography, permutations and combinations, counting tools, and discrete probability.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-100b",
+      "name": "Introduction to Computational Thinking and Data Science",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.100B",
+      "taughtSkills": [
+        "computational modeling",
+        "optimization problems",
+        "simulation modeling",
+        "statistical modeling",
+        "Python programming for data analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Provides an introduction to using computation to build models that can be used to help understand real-world phenomena. Topics include optimization problems, simulation models, and statistical models. Requires experience programming in Python as a prerequisite.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1830",
+      "name": "Software Systems for Data Science (New)",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.1830",
+      "taughtSkills": [
+        "data cleaning and integration",
+        "scalable database systems (relational, NoSQL, Spark)",
+        "data analytics and data cubes",
+        "scalable statistics and machine learning",
+        "large-scale data visualization",
+        "working with production data processing tools"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.1000, 6.100A, 6.100B, 6.1210)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Explores techniques and systems for ingesting, efficiently processing, analyzing, and visualizing large data sets. Examines topics such as data cleaning, data integration, scalable systems (relational databases, NoSQL, Spark, etc.), analytics (data cubes, scalable statistics and machine learning), fundamental statistics and machine learning, and scalable visualization of large data sets. Extended programming assignments provide working experience with state-of-the-art data processing tools.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-3720",
+      "name": "Introduction to Statistical Data Analysis",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.3720",
+      "taughtSkills": [
+        "data exploration and feature selection",
+        "hypothesis testing and multiple comparison procedures",
+        "linear and nonlinear regression",
+        "classification and time series analysis",
+        "model validation and uncertainty quantification",
+        "causal inference"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A, 6.3700, 6.3800, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduction to the central concepts and methods of data science with an emphasis on statistical grounding and modern computational capabilities. Covers principles involved in extracting information from data for the purpose of making predictions or decisions, including data exploration, feature selection, model fitting, and performance assessment. Topics include learning of distributions, hypothesis testing (including multiple comparison procedures), linear and nonlinear regression and prediction, classification, time series, uncertainty quantification, model validation, causal inference, optimization, and decisions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-c01",
+      "name": "Modeling with Machine Learning: from Algorithms to Applications",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.C01",
+      "taughtSkills": [
+        "supervised and unsupervised machine learning",
+        "neural network approaches",
+        "framing machine learning tasks",
+        "adapting and extending ML methods to problems",
+        "evaluating machine learning models"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A, 1.C01, 2.C01, 3.C01, 6.C011, 7.C01, 15.C01, 22.C01)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Focuses on modeling with machine learning methods with an eye towards applications in engineering and sciences. Introduction to modern machine learning methods, from supervised to unsupervised models, with an emphasis on newer neural approaches. Emphasis on the understanding of how and why the methods work from the point of view of modeling, and when they are applicable. Using concrete examples, covers formulation of machine learning tasks, adapting and extending methods to given problems, and how the methods can and should be evaluated.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-3900",
+      "name": "Introduction to Machine Learning",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.3900",
+      "taughtSkills": [
+        "supervised, unsupervised, and reinforcement learning",
+        "linear and non-linear modeling",
+        "gradient-based optimization methods",
+        "neural network architectures",
+        "machine learning from an optimization perspective"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1010, 6.1210, 18.03, 18.06, 18.700, 18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduction to the principles and algorithms of machine learning from an optimization perspective. Topics include linear and non-linear models for supervised, unsupervised, and reinforcement learning, with a focus on gradient-based methods and neural-network architectures.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-5831",
+      "name": "Database Systems",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.5831",
+      "taughtSkills": [
+        "database and schema design",
+        "schema normalization and integrity constraints",
+        "query processing and optimization",
+        "transactions, recovery, and concurrency control",
+        "distributed, parallel, and heterogeneous databases",
+        "trigger and pub-sub systems"
+      ],
+      "levelBasis": "prerequisite chain depth 4 (6.1210, 6.1220, 6.1800, 6.1810)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Topics related to the engineering and design of database systems, including data models; database and schema design; schema normalization and integrity constraints; query processing; query optimization and cost estimation; transactions; recovery; concurrency control; isolation and consistency; distributed, parallel and heterogeneous databases; adaptive databases; trigger systems; pub-sub systems; semi structured data and XML querying.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-c011",
+      "name": "Modeling with Machine Learning for Computer Science",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.C011",
+      "taughtSkills": [
+        "engineering task framing as ML problems",
+        "method design and interpretation of results",
+        "robustness and interpretability analysis",
+        "fairness evaluation in ML systems",
+        "recommender system design",
+        "automated design via machine learning"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 6.C01, 6.1200, 6.3700, 18.06, 18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Focuses on in-depth modeling of engineering tasks as machine learning problems. Emphasizes framing, method design, and interpretation of results. In comparison to broader prerequisite 6.C01 , this project-oriented subject consists of deep dives into select technical areas or engineering tasks involving both supervised and exploratory uses of machine learning. Explores technical areas such robustness, interpretability, fairness and engineering tasks such as recommender systems, performance optimization, and automated design.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1220-j",
+      "name": "Design and Analysis of Algorithms",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.1220[J]",
+      "taughtSkills": [
+        "algorithm design and analysis",
+        "sorting and hashing techniques",
+        "divide-and-conquer and dynamic programming",
+        "greedy algorithms",
+        "amortized analysis",
+        "graph algorithms and shortest paths"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 6.1210)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice. Topics include sorting; search trees, heaps, and hashing; divide-and-conquer; dynamic programming; greedy algorithms; amortized analysis; graph algorithms; and shortest paths. Advanced topics may include network flow; computational geometry; number-theoretic algorithms; polynomial and matrix calculations; caching; and parallel computing.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    }
+  ]
+}

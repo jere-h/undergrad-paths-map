@@ -1,0 +1,15 @@
+Source: Neuralink - Machine Learning Engineer Intern
+URL: https://job-boards.greenhouse.io/neuralink/jobs/6594261003?gh_jid=6594261003
+Retrieved via WebFetch on 2026-07-09.
+
+Responsibilities: "develop novel neural decoders to increase control speed and accuracy, improve reliability,
+and expand functionality of BCIs"; work with cross-functional teams of neuroscientists, physicians, software
+engineers, and electrical engineers; design new BCI functionalities and novel computer user interfaces;
+contribute to projects aimed at restoring movement, sight, and speech capabilities.
+
+Required Qualifications: "Evidence in delivering high-impact projects either in academia or industry";
+"Prior experience designing and building Machine Learning models"; "Deep understanding of machine learning
+concepts and fundamentals"; "Experience in analyzing complex datasets, driving insights, and communicating
+results"; "Strong coding skills, with a focus on clean, efficient, and scalable code development".
+Preferred: "Experience working with time series or unstructured data".
+Compensation: $35/hour (California).

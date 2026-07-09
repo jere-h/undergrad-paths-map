@@ -1,0 +1,76 @@
+{
+  "verdicts": [
+    {
+      "input": "mit-6-1000",
+      "career": "or-analyst",
+      "verdict": "drop",
+      "reason": "6.1000 is a general intro-to-programming course (Python/OOP/complexity) that only demonstrates optimization/simulation at introductory breadth, whereas live OR-analyst intern postings expect substantive mathematical/optimization/simulation modeling as a core competency, so the incidental coverage is too thin to support the edge."
+    },
+    {
+      "input": "mit-6-3700",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "Live entry-level statistician postings explicitly require probability, statistical inference, and hypothesis testing (indeed.com/glassdoor), which are exactly the taught skills of 6.3700 Introduction to Probability (classical statistical inference, Bayesian estimation and hypothesis testing)."
+    },
+    {
+      "input": "mit-6-c35-j",
+      "career": "bi-analyst",
+      "verdict": "keep",
+      "reason": "Business Intelligence analyst postings explicitly ask to 'identify trends and patterns from data' and build dashboards/visualizations from real datasets (indeed.com BI job description, ziprecruiter), matching 6.C35-J's taught skills of data visualization design and communicating insights from real-world big data."
+    },
+    {
+      "input": "mit-6-100b",
+      "career": "or-analyst",
+      "verdict": "keep",
+      "reason": "OR-analyst intern postings require developing mathematical models, running simulations, and optimization projects (Lockheed Martin/ziprecruiter listings), and 6.100B is a computational-modeling course whose core topics are explicitly optimization problems and simulation models."
+    },
+    {
+      "input": "mit-6-1830",
+      "career": "data-engineer",
+      "verdict": "keep",
+      "reason": "Data-engineer intern postings list Apache Spark, NoSQL/SQL databases, ETL pipelines, and scalable/big-data systems as must-have skills (indeed.com data-engineer job description, glassdoor), matching 6.1830's taught skills of scalable database systems (relational, NoSQL, Spark), data cleaning/integration, and production data-processing tools."
+    },
+    {
+      "input": "mit-6-1830",
+      "career": "analytics-engineer",
+      "verdict": "drop",
+      "reason": "Live analytics-engineer postings (Mirakl, Crexi) center on dbt models, semantic-layer/data modeling, and advanced warehouse SQL, which 6.1830 does not teach; its systems focus (Spark, NoSQL, data cubes) does not correspond to the modeling-layer subject matter analytics-engineer roles actually require."
+    },
+    {
+      "input": "mit-6-3720",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "Statistician postings require hypothesis testing, regression, and validated statistical inference (indeed.com/glassdoor), directly matching 6.3720's taught hypothesis testing with multiple-comparison procedures, regression, and model validation/uncertainty quantification."
+    },
+    {
+      "input": "mit-6-3720",
+      "career": "data-scientist",
+      "verdict": "keep",
+      "reason": "Data-scientist intern postings emphasize feature selection/engineering, regression/classification, and rigorous model validation/evaluation (enhancv/indeed data-science-intern listings), matching 6.3720's taught data exploration and feature selection, regression, classification, and model validation."
+    },
+    {
+      "input": "mit-6-c01",
+      "career": "ml-engineer",
+      "verdict": "keep",
+      "reason": "ML-engineer intern postings (Neuralink, Cloudflare, Lucid via the postings corpus) require designing/building ML models, deep-learning frameworks, and model evaluation, matching 6.C01's taught supervised/unsupervised and neural machine learning with emphasis on evaluating ML models."
+    },
+    {
+      "input": "mit-6-c01",
+      "career": "data-scientist",
+      "verdict": "keep",
+      "reason": "Data-scientist intern postings require designing, training, and validating machine-learning models and selecting appropriate algorithms (indeed/enhancv), which is exactly 6.C01's subject matter of framing ML tasks and evaluating ML models."
+    },
+    {
+      "input": "mit-6-c011",
+      "career": "ml-engineer",
+      "verdict": "keep",
+      "reason": "ML-engineer postings prize an end-to-end ML project with model design, robustness, and evaluation (corpus web-ml-engineer postings; Gusto/Neuralink), matching 6.C011's project-oriented deep dives into ML method design, robustness, interpretability, and recommender systems."
+    },
+    {
+      "input": "mit-18-05",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "Statistician postings require probability, statistical inference, hypothesis testing, and regression (indeed.com/glassdoor entry-level statistician listings), matching 18.05's taught probability/Bayesian inference, hypothesis testing, confidence intervals, bootstrapping, and regression."
+    }
+  ]
+}

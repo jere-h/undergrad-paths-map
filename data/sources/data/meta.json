@@ -1,0 +1,17 @@
+{
+  "runId": "data-20260709T180456Z",
+  "industry": "data",
+  "university": "MIT",
+  "generatedBy": "ground-catalog",
+  "onetVersion": "29.1",
+  "generatedAt": "2026-07-09T18:05:32Z",
+  "pilot": false,
+  "orgTypes": ["MNC", "Startup", "Small Business"],
+  "sources": [
+    "https://catalog.mit.edu/subjects/6/",
+    "https://catalog.mit.edu/subjects/18/",
+    "https://catalog.mit.edu/subjects/14/",
+    "https://catalog.mit.edu/subjects/15/",
+    "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
+  ]
+}

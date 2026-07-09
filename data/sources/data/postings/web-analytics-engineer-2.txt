@@ -1,0 +1,18 @@
+Source: Crexi - Analytics Engineer
+URL: https://job-boards.greenhouse.io/crexi/jobs/4689327005
+Retrieved via WebFetch on 2026-07-09.
+
+Responsibilities: "Defines and instruments company-level and product-level KPIs in partnership with Finance,
+Product, and Sales"; develops core dbt models including staging, intermediate, and mart layers serving as
+authoritative business metrics; "Builds and maintains Sigma dashboards and self-service datasets that
+stakeholders use without analyst intervention"; manages ETL and Reverse ETL syncs via Fivetran pushing data
+into Salesforce, HubSpot, and Iterable; partners with Product and Engineering on event tracking
+instrumentation, behavioral metrics, and multivariate testing; contributes to entity resolution and
+canonical account/contact models in Snowflake; proactively identifies data quality issues and implements
+dbt tests and alerts.
+
+Required Qualifications: Bachelor's degree in analytical field (Economics, Finance, Mathematics, Statistics,
+Computer Science); "2-5 years of experience in analytics engineering, data engineering, or a data analyst
+role"; advanced SQL proficiency in Snowflake or comparable cloud data warehouse; "Hands-on experience with
+dbt (Core or Cloud), including writing models, tests, and documentation"; BI tool experience (Sigma, Looker,
+or Tableau).

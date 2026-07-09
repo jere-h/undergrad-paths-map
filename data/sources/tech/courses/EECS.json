@@ -1,0 +1,158 @@
+{
+  "dept": "EECS",
+  "sourceUrl": "https://catalog.mit.edu/subjects/6/",
+  "courses": [
+    {
+      "id": "mit-6-c35",
+      "name": "Interactive Data Visualization and Society",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.C35[J]",
+      "taughtSkills": [
+        "data visualization design",
+        "data analysis process",
+        "coding skills for visualization",
+        "working with real-world big data",
+        "communicating insights from data",
+        "ethical considerations in visualization"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Covers the design, ethical, and technical skills for creating effective visualizations. Short assignments build familiarity with the data analysis and visualization design process. Weekly lab sessions present coding and technical skills. A final project provides experience working with real-world big data, provided by external partners, in order to expose and communicate insights about societal issues. Students taking graduate version complete additional assignments. Enrollment limited. Enrollment limited.",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-9140",
+      "name": "Fundamentals of Engineering Project Management",
+      "level": 1000,
+      "dept": "EECS",
+      "catalogCode": "6.9140",
+      "taughtSkills": [
+        "project planning and management",
+        "stakeholder management",
+        "scope estimation",
+        "resource allocation",
+        "schedule forecasting",
+        "risk mitigation",
+        "agile and waterfall project approaches",
+        "engineering teamwork"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduces principles, methods, and tools for project management and teamwork in engineering. Lessons cover historic approaches and contemporary skills for establishing, planning and managing complex projects. Topics include target setting and charters, stakeholders, project architecture, scope estimation, resource allocation, schedule forecasts, and risk mitigation. Project concepts covered include flow-based, waterfall, set-based, spiral, and agile approaches. Lessons include exercises to apply methods learned. Student teams select and design a project approach to apply in areas such as aircraft modification, factory automation, flood prevention engineering, solar farm engineering, enterprise software deployment, and disaster response. IAP version: 4-day off-campus format with preference given to students in the Gordon-MIT Engineering Leadership Program. H3 version: on-campus. Preference given to students in the Bernard M. Gordon-MIT Engineering Leadership Program for IAP session.",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1010",
+      "name": "Fundamentals of Programming",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.1010",
+      "taughtSkills": [
+        "Python programming",
+        "software engineering fundamentals",
+        "algorithmic techniques",
+        "data types and recursion",
+        "software design and construction",
+        "implementing designs in code"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.1000, 6.100A, 6.100B, 16.C20)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduces fundamental concepts of programming. Designed to develop skills in applying basic methods from programming languages to abstract problems. Topics include programming and Python basics, computational concepts, software engineering, algorithmic techniques, data types, and recursion. Lab component consists of software design, construction, and implementation of design. Enrollment may be limited.",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-3720",
+      "name": "Introduction to Statistical Data Analysis",
+      "level": 2000,
+      "dept": "EECS",
+      "catalogCode": "6.3720",
+      "taughtSkills": [
+        "data exploration",
+        "feature selection",
+        "model fitting and performance assessment",
+        "hypothesis testing",
+        "regression and classification",
+        "time series analysis",
+        "model validation",
+        "causal inference"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.100A, 6.3700, 6.3800, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduction to the central concepts and methods of data science with an emphasis on statistical grounding and modern computational capabilities. Covers principles involved in extracting information from data for the purpose of making predictions or decisions, including data exploration, feature selection, model fitting, and performance assessment. Topics include learning of distributions, hypothesis testing (including multiple comparison procedures), linear and nonlinear regression and prediction, classification, time series, uncertainty quantification, model validation, causal inference, optimization, and decisions. Computational case studies and projects drawn from applications in finance, sports, engineering, and machine learning life sciences. Students taking graduate version complete additional assignments. Recommended prerequisite: 18.06 .",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1020",
+      "name": "Software Construction",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.1020",
+      "taughtSkills": [
+        "writing safe, maintainable software",
+        "specifications and invariants",
+        "testing and test-case generation",
+        "abstract data types",
+        "object-oriented design patterns",
+        "concurrent programming",
+        "functional programming",
+        "group programming projects"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1010)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Introduces fundamental principles and techniques of software development: how to write software that is safe from bugs, easy to understand, and ready for change. Topics include specifications and invariants; testing, test-case generation, and coverage; abstract data types and representation independence; design patterns for object-oriented programming; concurrent programming, including message passing and shared memory concurrency, and defending against races and deadlock; and functional programming with immutable data and higher-order functions. Includes weekly programming exercises and larger group programming projects.",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-6-1040",
+      "name": "Software Design",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.1040",
+      "taughtSkills": [
+        "human-computer interaction design (need finding, heuristic evaluation, prototyping, user testing)",
+        "conceptual design",
+        "abstract data modeling",
+        "visual design",
+        "reactive front-end development",
+        "web services and databases",
+        "full-stack web application development",
+        "team-based software projects"
+      ],
+      "levelBasis": "prerequisite chain depth 3 (6.1020, 6.1200)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Provides design-focused instruction on how to build complex software applications. Design topics include classic human-computer interaction (HCI) design tactics (need finding, heuristic evaluation, prototyping, user testing), conceptual design (inventing, modeling and evaluating constituent concepts), social and ethical implications, abstract data modeling, and visual design. Implementation topics include reactive front-ends, web services, and databases. Students work both on individual projects and a larger team project in which they design and build full-stack web applications.",
+          "retrievedAt": "2026-07-09T14:58:04Z"
+        }
+      ]
+    }
+  ]
+}

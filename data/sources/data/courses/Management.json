@@ -1,0 +1,295 @@
+{
+  "dept": "Management",
+  "sourceUrl": "https://catalog.mit.edu/subjects/15/",
+  "courses": [
+    {
+      "id": "mit-15-0341",
+      "name": "Business Experiments and Causal Analytics",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.0341",
+      "taughtSkills": [
+        "designing experiments",
+        "causal inference from natural experiments",
+        "multivariate regression",
+        "instrumental-variable regression",
+        "regression trees and random forest",
+        "LASSO and neural networks"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Looks at predicting and understanding the causal effects of decisions across finance, marketing, human resources, and general business strategy. Develops a toolkit to go beyond correlations and get to causality. Students gain a deeper understanding of designing experiments, modeling natural experiments using multivariate regression, instrumental-variable regression, and machine learning tools including regression trees, random forest, LASSO, and neural networks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-069",
+      "name": "Applied Probability and Statistics",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.069",
+      "taughtSkills": [
+        "probability theory and random variables",
+        "simulation",
+        "hypothesis testing",
+        "statistical sampling",
+        "regression analysis"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "levelTieBreak true; prereqText is only Calculus I (GIR) and the description frames it as an introduction to probability and statistics ('Offers an introduction to statistics') with no other subject prerequisites, so it is kept at the introductory level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Presents probability from the perspective of applied mathematics, with strong emphasis on an intuitive overview of key theorems and continuing demonstrations of their usefulness. Covers the laws of probability and numerous important discrete and continuous random variables, both individually and in combination. Introduces simulation. Offers an introduction to statistics that emphasizes its probabilistic foundations and the fact that statistical reasoning is applied common sense. Covers hypothesis testing, statistical sampling, and various forms of regression analysis.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-076",
+      "name": "Analytics for a Better World",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.076",
+      "taughtSkills": [
+        "predictive and prescriptive analytics",
+        "linear and discrete optimization",
+        "linear and logistic regression",
+        "optimal classification and regression trees",
+        "deep learning, random forests, boosted trees",
+        "Julia/JuMP and TensorFlow projects"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "levelTieBreak true; prereqText is only Calculus I (GIR), and the description explicitly notes the course is 'Restricted to undergraduates' and project-based with no advanced prerequisite chain, so it is kept at the introductory level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces predictive and prescriptive analytics methods to solve problems that contribute to the welfare of society. Emphasis on using machine learning and optimization methods in innovative ways using real world data. Methods used include: linear and discrete optimization, linear and logistic regression, optimal classification and regression trees, deep learning, random forests, and boosted trees. Projects utilize Julia, Jump, and Tensor Flow.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-276",
+      "name": "Communicating with Data",
+      "level": 1000,
+      "dept": "Management",
+      "catalogCode": "15.276",
+      "taughtSkills": [
+        "quantitative communication",
+        "data storytelling",
+        "persuasive presentation of analysis",
+        "revising and refining communication through feedback"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Equips students with the strategies, tactics, and tools to use quantitative information to inform and persuade others. Emphasizes effective communication skills as the foundation of successful careers. Develops the skills to communicate quantitative information in a business context to drive people and organizations toward better decisions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-075j",
+      "name": "Statistical Thinking and Data Analysis",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.075[J]",
+      "taughtSkills": [
+        "statistical sampling and uncertainty",
+        "estimation and hypothesis testing",
+        "linear regression",
+        "classification",
+        "analysis of variance",
+        "data mining fundamentals"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces a rigorous treatment of statistical data analysis while helping students develop a strong intuition for the strengths and limitations of various methods. Topics include statistical sampling and uncertainty, estimation, hypothesis testing, linear regression, classification, analysis of variation, and elements of data mining. Involves empirical use of hypothesis testing and other statistical methodologies in several domains, including the assessment of A-B experiments on the web and the identification of genes correlated with diseases.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-7611",
+      "name": "Introduction to Operations Management",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.7611",
+      "taughtSkills": [
+        "capacity analysis",
+        "process design and improvement",
+        "inventory management",
+        "supply chain coordination",
+        "decision-making under uncertainty",
+        "pricing and revenue management"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (15.069, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Imparts concepts, techniques, and tools to design, analyze, and improve core operational capabilities and apply them to a broad range of domains and industries. Emphasizes the effect of uncertainty in decision-making, as well as the interplay among high-level financial objectives, operational capabilities, and people and organizational issues. Covers topics in capacity analysis, process design, process and business innovation, inventory management, risk pooling, supply chain coordination, sustainable operations, quality management, operational risk management, pricing and revenue management.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-780",
+      "name": "Analytics of Operations Management",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.780",
+      "taughtSkills": [
+        "data-driven modeling",
+        "machine learning for operations",
+        "time series forecasting",
+        "dynamic programming",
+        "stochastic optimization",
+        "multi-armed bandits"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces core concepts in data-driven modeling that inform and optimize business decisions under uncertainty. Covers models and frameworks, such as machine learning, time series forecasting, dynamic programming, stochastic optimization, and multi-armed bandits. Draws on real-world applications, with several examples from retail, healthcare, logistics, supply chain, and public sector.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-053",
+      "name": "Optimization Methods in Business Analytics",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.053",
+      "taughtSkills": [
+        "linear programming",
+        "network optimization",
+        "integer programming",
+        "nonlinear programming",
+        "optimization heuristics",
+        "modeling optimization problems for logistics/finance/marketing"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (1.00, 1.000, 6.100A)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduces optimization methods with a focus on modeling, solution techniques, and analysis. Covers linear programming, network optimization, integer programming, nonlinear programming, and heuristics. Applications to logistics, manufacturing, statistics, machine learning, transportation, game theory, marketing, project management, and finance. Includes projects in which student teams solve optimization problems of practical interest.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-0621",
+      "name": "Data Mining: Finding the Models and Predictions that Create Value",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.0621",
+      "taughtSkills": [
+        "logistic regression",
+        "association rules",
+        "tree-structured classification and regression",
+        "cluster analysis",
+        "discriminant analysis",
+        "neural network methods",
+        "data-mining software in R and Python"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (15.075)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduction to data mining, data science, and machine learning for recognizing patterns, developing models and predictive analytics, and making intelligent use of massive amounts of data collected via the internet, e-commerce, electronic banking, medical databases, etc. Topics include logistic regression, association rules, tree-structured classification and regression, cluster analysis, discriminant analysis, and neural network methods. Introduces data-mining software (R and Python).",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-0711",
+      "name": "The Analytics Edge",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.0711",
+      "taughtSkills": [
+        "linear and logistic regression",
+        "classification trees and random forests",
+        "neural networks",
+        "text analytics",
+        "social network analysis",
+        "time series modeling and clustering",
+        "R programming and Jupyter notebooks"
+      ],
+      "levelBasis": "prerequisite chain depth 3 (15.053, 15.069)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Develops models and tools of data analytics that are used to transform businesses and industries, using examples and case studies in e-commerce, healthcare, social media, high technology, criminal justice, the internet, and beyond. Covers analytics methods such as linear regression, logistic regression, classification trees, random forests, neural networks, text analytics, social network analysis, time series modeling, clustering, and optimization. Uses mostly R programming language and some work in Jupyter notebooks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-c08j",
+      "name": "Causal Inference",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.C08[J]",
+      "taughtSkills": [
+        "potential outcomes framework",
+        "causal graphs",
+        "randomized controlled trials",
+        "observational study design",
+        "instrumental variable estimation",
+        "contrasting causal inference with machine learning"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.3800, 6.3900, 6.C01, 14.32, 17.803, 18.05, 18.650)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Provides an accessible overview of modern quantitative methods for causal inference: testing whether an action causes an outcome to occur. Makes heavy use of applied, real-data examples using Python or R and drawn from the participating domains (economics, political science, business, public policy, etc.). Covers topics including potential outcomes, causal graphs, randomized controlled trials, observational studies, instrumental variable estimation, and a contrast with machine learning techniques.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-15-c571j",
+      "name": "Optimization Methods",
+      "level": 3000,
+      "dept": "Management",
+      "catalogCode": "15.C571[J]",
+      "taughtSkills": [
+        "linear optimization and duality",
+        "non-linear and integer optimization",
+        "optimization under uncertainty",
+        "optimization algorithm design",
+        "modeling techniques for practical problems",
+        "JuMP/Julia computational exercises"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (18.C06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Introduction to the methods and applications of optimization. Topics include linear optimization, duality, non-linear optimization, integer optimization, and optimization under uncertainty. Instruction provided in modeling techniques to address problems arising in practice, mathematical theory to understand the structure of optimization problems, computational algorithms to solve complex optimization problems, and practical applications. Computational exercises based on the Julia-based programming language JuMP.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    }
+  ]
+}

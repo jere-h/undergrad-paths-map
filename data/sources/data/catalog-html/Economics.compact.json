@@ -1,0 +1,278 @@
+[
+  {
+    "code": "14.00",
+    "name": "Undergraduate Internship in Economics",
+    "level": 1000,
+    "desc": "For Course 14 students participating in off-campus internship experiences in economics. Before registering for this subject, students must have an employment offer from a company o"
+  },
+  {
+    "code": "14.009",
+    "name": "Economics and Society's Toughest Problems",
+    "level": 1000,
+    "desc": "Should we trade more or less with China? Why are some countries poor, and some countries rich? Why are the 1% getting richer? Should the US have a universal basic income? Why is ou"
+  },
+  {
+    "code": "14.01",
+    "name": "Principles of Microeconomics",
+    "level": 1000,
+    "desc": "Introduces microeconomic concepts and analysis, supply and demand analysis, theories of the firm and individual behavior, competition and monopoly, and welfare economics. Applicati"
+  },
+  {
+    "code": "14.02",
+    "name": "Principles of Macroeconomics",
+    "level": 1000,
+    "desc": "Provides an overview of macroeconomic issues including the determination of national income, economic growth, unemployment, inflation, interest rates, and exchange rates. Introduce"
+  },
+  {
+    "code": "14.03",
+    "name": "Microeconomic Theory and Public Policy",
+    "level": 2000,
+    "desc": "Students master and apply economic theory, causal inference, and contemporary evidence to analyze policy challenges. These include the effect of minimum wages on employment, the va"
+  },
+  {
+    "code": "14.04",
+    "name": "Intermediate Microeconomic Theory",
+    "level": 2000,
+    "desc": "Features economic science, the utilization of theory and evidence. Presents mechanism design, general equilibrium theory, the welfare theorems, their failure with resolutions, and "
+  },
+  {
+    "code": "14.05",
+    "name": "Intermediate Macroeconomics",
+    "level": 2000,
+    "desc": "Uses the tools of macroeconomics to investigate various macroeconomic issues in depth. Topics range from economic growth and inequality in the long run to economic stability and fi"
+  },
+  {
+    "code": "14.06",
+    "name": "Advanced Macroeconomics",
+    "level": 2000,
+    "desc": "Blends a thorough study of the theoretical foundations of modern macroeconomics with a review of useful mathematical tools, such as dynamic programming, optimal control, and dynami"
+  },
+  {
+    "code": "14.08",
+    "name": "Technical Topics in Economics",
+    "level": 2000,
+    "desc": "Considers technical issues of current research interest in economics."
+  },
+  {
+    "code": "14.09",
+    "name": "Reading Seminar in Economics",
+    "level": 3000,
+    "desc": "Reading and discussion of particular topics in economics. Open to undergraduate students by arrangement with individual faculty members. Consult Department Headquarters."
+  },
+  {
+    "code": "14.10",
+    "name": "Reading Seminar in Economics",
+    "level": 3000,
+    "desc": "Reading and discussion of particular topics in economics. Open to undergraduate students by arrangement with individual faculty members. Consult Department Headquarters."
+  },
+  {
+    "code": "14.11",
+    "name": "Topics in Economics",
+    "level": 2000,
+    "desc": "Considers issues of current research interest in economics."
+  },
+  {
+    "code": "14.12",
+    "name": "Economic Applications of Game Theory",
+    "level": 2000,
+    "desc": "Analysis of strategic behavior in multi-person economic settings. Introduction to solution concepts, such as rationalizability, backwards induction, Nash equilibrium, subgame-perfe"
+  },
+  {
+    "code": "14.13",
+    "name": "Psychology and Economics",
+    "level": 2000,
+    "desc": "Introduces the theoretical and empirical literature of behavioral economics. Examines important and systematic departures from the standard models in economics by incorporating ins"
+  },
+  {
+    "code": "14.15[J]",
+    "name": "Networks",
+    "level": 2000,
+    "desc": "Highlights common principles that permeate the functioning of diverse technological, economic and social networks. Utilizes three sets of tools for analyzing networks -- random gra"
+  },
+  {
+    "code": "14.16",
+    "name": "Strategy and Information",
+    "level": 2000,
+    "desc": "Covers modern applications of game theory where incomplete information plays an important role. Applications include bargaining, auctions, global games, market design, information "
+  },
+  {
+    "code": "14.18",
+    "name": "Mathematical Economic Modeling",
+    "level": 3000,
+    "desc": "Guides students through the process of developing and analyzing formal economic models and effectively communicating their results. Topics include decision theory, game theory, vot"
+  },
+  {
+    "code": "14.19",
+    "name": "Market Design",
+    "level": 2000,
+    "desc": "Covers the design and operation of organized markets, building on ideas from microeconomic and game theory. Topics may include mechanism design, auctions, matching markets, and oth"
+  },
+  {
+    "code": "14.20",
+    "name": "Industrial Organization: Competitive Strategy and Public Policy",
+    "level": 2000,
+    "desc": "Analyzes the current debate over the rise of monopolies, the strategic behavior and performance of firms in imperfectly competitive markets, and the role of competition policy. Top"
+  },
+  {
+    "code": "14.27",
+    "name": "Economics of Digitization",
+    "level": 2000,
+    "desc": "Uses theoretical economic models and empirical evidence to help understand the past and likely future impacts that digitization has had on legacy markets and institutions. These mo"
+  },
+  {
+    "code": "14.26[J]",
+    "name": "Organizational Economics",
+    "level": 2000,
+    "desc": "Provides a rigorous, but not overly technical introduction to the economic theory of organization together with a varying set of applications. Addresses incentives, control, relati"
+  },
+  {
+    "code": "14.30",
+    "name": "Introduction to Statistical Methods in Economics",
+    "level": 1000,
+    "desc": "Self-contained introduction to probability and statistics with applications in economics and the social sciences. Covers elements of probability theory, statistical estimation and "
+  },
+  {
+    "code": "14.32",
+    "name": "Econometric Data Science",
+    "level": 2000,
+    "desc": "Introduces regression and other tools for causal inference and descriptive analysis in empirical economics. Topics include analysis of randomized experiments, instrumental variable"
+  },
+  {
+    "code": "14.33",
+    "name": "Research and Communication in Economics: Topics, Methods, and Implementation",
+    "level": 3000,
+    "desc": "Exposes students to the process of conducting independent research in empirical economics and effectively communicating the results of the research. Emphasizes econometric analysis"
+  },
+  {
+    "code": "14.35",
+    "name": "Why Markets Fail",
+    "level": 3000,
+    "desc": "Guides students through the process of developing and communicating economic and data analysis. Discusses topics in which markets fail to provide efficient outcomes or economic opp"
+  },
+  {
+    "code": "14.36",
+    "name": "Advanced Econometrics",
+    "level": 3000,
+    "desc": "Advanced treatment of the core empirical strategies used to answer causal questions in applied microeconometric research. Covers extensions and innovations relating to econometric "
+  },
+  {
+    "code": "14.38",
+    "name": "Inference on Causal and Structural Parameters Using ML and AI",
+    "level": 3000,
+    "desc": "Provides an applied treatment of modern causal inference with high-dimensional data, focusing on empirical economic problems encountered in academic research and the tech industry."
+  },
+  {
+    "code": "14.39",
+    "name": "Large-Scale Decision-Making and Inference",
+    "level": 3000,
+    "desc": "Covers the use of data to guide decision-making, with a focus on data-rich and high-dimensional environments as are now commonly encountered in both academic and industry applicati"
+  },
+  {
+    "code": "14.41",
+    "name": "Public Finance and Public Policy",
+    "level": 2000,
+    "desc": "Explores the role of government in the economy, applying tools of basic microeconomics to answer important policy questions such as government response to global warming, school ch"
+  },
+  {
+    "code": "14.42",
+    "name": "Environmental Policy and Economics",
+    "level": 2000,
+    "desc": "Introduces key concepts and recent advances in environmental economics, and explores their application to environmental policy questions. Topics include market efficiency and marke"
+  },
+  {
+    "code": "14.43[J]",
+    "name": "Economics of Energy, Innovation, and Sustainability",
+    "level": 2000,
+    "desc": "See description under subject 15.0201J."
+  },
+  {
+    "code": "14.44[J]",
+    "name": "Energy Economics and Policy",
+    "level": 2000,
+    "desc": "Analyzes business and public policy issues in energy markets and in the environmental markets to which they are closely tied. Examines the economic determinants of industry structu"
+  },
+  {
+    "code": "14.45[J]",
+    "name": "Climate and Energy in the Global Economy",
+    "level": 2000,
+    "desc": "See description under subject 15.0161J."
+  },
+  {
+    "code": "14.47[J]",
+    "name": "Global Energy: Politics, Markets, and Policy",
+    "level": 1000,
+    "desc": "See description under subject 15.2191J. Preference to juniors, seniors, and Energy Minors."
+  },
+  {
+    "code": "14.54",
+    "name": "International Trade",
+    "level": 2000,
+    "desc": "Provides an introduction to theoretical and empirical topics in international trade. Offers a brief history of globalization. Introduces the theory of comparative advantage and dis"
+  },
+  {
+    "code": "14.64",
+    "name": "Labor Economics and Public Policy",
+    "level": 2000,
+    "desc": "Provides an introduction to the labor market, how it functions, and the important role it plays in people's lives. Topics include supply and demand, minimum wages, labor market eff"
+  },
+  {
+    "code": "14.70[J]",
+    "name": "Medieval Economic History in Comparative Perspective",
+    "level": 1000,
+    "desc": "See description under subject 21H.134[J] ."
+  },
+  {
+    "code": "14.73",
+    "name": "The Challenge of World Poverty",
+    "level": 1000,
+    "desc": "Designed for students who are interested in the challenge posed by massive and persistent world poverty. Examines extreme poverty over time to see if it is no longer a threat, why "
+  },
+  {
+    "code": "14.74",
+    "name": "Foundations of Development Policy",
+    "level": 2000,
+    "desc": "Explores the foundations of policy making in developing countries, with the goal of spelling out various policy options and quantifying the trade-offs between them. Topics include "
+  },
+  {
+    "code": "14.75",
+    "name": "Political Economy and Economic Development",
+    "level": 2000,
+    "desc": "Explores the relationship between political institutions and economic development, covering key theoretical issues as well as recent empirical evidence. Topics include colonialism "
+  },
+  {
+    "code": "14.76",
+    "name": "Firms, Markets, Trade and Growth",
+    "level": 2000,
+    "desc": "Examines how industrial development and international trade have brought about rapid growth and large-scale reductions in poverty for some developing countries, while globalization"
+  },
+  {
+    "code": "14.78[J]",
+    "name": "Shaping the Future of Technology: From Early Agriculture to Artificial Intelligence",
+    "level": 1000,
+    "desc": "Provides a framework for thinking about major technological transitions over the past 12,000 years as a means to explore paths to a better future. Discusses who gains or loses from"
+  },
+  {
+    "code": "14.C395[J]",
+    "name": "Algorithmic and Human Decision-Making (New)",
+    "level": 3000,
+    "desc": "Explores how to design machine learning and AI algorithms that enhance human decision-making and tackle real-world societal challenges. Combines statistical ML frameworks with beha"
+  },
+  {
+    "code": "14.THU",
+    "name": "Thesis",
+    "level": 3000,
+    "desc": "Program of research and writing of thesis."
+  },
+  {
+    "code": "14.UR",
+    "name": "Undergraduate Research",
+    "level": 2000,
+    "desc": "Participation in research with an individual faculty member or research group, independent research or study under the guidance of a faculty member. Admission by arrangement with i"
+  },
+  {
+    "code": "14.URG",
+    "name": "Undergraduate Research",
+    "level": 2000,
+    "desc": "Participation in research with an individual faculty member or research group, independent research or study under the guidance of a faculty member. Admission by arrangement with i"
+  }
+]

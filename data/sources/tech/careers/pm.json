@@ -1,0 +1,72 @@
+{
+  "id": "pm",
+  "name": "Product Manager",
+  "grounding": "postings",
+  "responsibilities": [
+    "Own a product area end to end: lead user research to find the real pain points, draft the requirements, oversee the build, and coordinate the launch through to field adoption",
+    "Build and prioritize the roadmap, translating complex customer, business, and regulatory problems into clear deliverables engineering can execute",
+    "Align engineering, design, and go to market partners around one direction, and communicate that direction, its trade-offs, and progress to leadership"
+  ],
+  "skills": [
+    "Writing PRDs, specs, and wireframes that make the why and the what unambiguous to engineering and design",
+    "Defining and tracking the KPIs and adoption metrics that show whether a launch actually worked, then iterating on the roadmap from what they say",
+    "Technical fluency in APIs and data modeling: enough to push back on a tech lead on the merits of a direction, not to write the code yourself",
+    "Communicating with influence across technical and executive audiences, and staying effective when the problem is ambiguous"
+  ],
+  "rawSkillPool": [
+    "user research",
+    "product requirements documents (PRDs)",
+    "roadmap prioritization",
+    "product vision and strategy",
+    "product specifications",
+    "wireframes and design artifacts",
+    "usability testing",
+    "KPIs and adoption metrics",
+    "product launches and change management",
+    "stakeholder management",
+    "cross-functional collaboration",
+    "API and data modeling fluency",
+    "product positioning",
+    "leveraging AI tools to prototype",
+    "communicating trade-offs",
+    "comfort with ambiguity"
+  ],
+  "distinctiveSkills": [
+    "product requirements documents (PRDs)",
+    "roadmap prioritization",
+    "user research",
+    "product vision and strategy",
+    "KPIs and adoption metrics",
+    "wireframes and design artifacts",
+    "usability testing",
+    "product launches and change management",
+    "product positioning",
+    "stakeholder management"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://job-boards.greenhouse.io/idmeuniversityrecruiting/jobs/7388902003",
+      "company": "ID.me",
+      "title": "University 2026 Intern: Product Manager",
+      "quote": "Build and prioritize roadmaps, translating complex requirements into clear deliverables that improve scalability, compliance, and user experience. ... Technical fluency in APIs, data modeling, and scalable architectures. ... Strong communicator able to influence across technical and executive audiences.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/7904142?gh_jid=7904142",
+      "company": "Cloudflare",
+      "title": "Product Manager, AI Access",
+      "quote": "Deliver product specifications, prototypes, product positioning, and high-impact launches. Partner with Engineering, Design, Research, and GTM to ship at high velocity. ... A strong communicator who is comfortable with ambiguity. Technically literate ... you should be able to push back on a tech lead on the merits of a particular direction.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://www.samsara.com/company/careers/roles/7750279?gh_jid=7750279",
+      "company": "Samsara",
+      "title": "Product Manager - Revenue Tools",
+      "quote": "Discovery: Lead deep user research to identify, document, and anticipate core seller pain points ... Design: Draft comprehensive Product Requirements Documents (PRDs) and design artifacts (wireframes) ... Launch: Coordinate all aspects of release, including change management, enablement programs, and documentation for seamless field adoption. Adopt & Iterate: Define and track key performance indicators (KPIs and adoption metrics) to measure business impact and inform rapid roadmap iterations.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    }
+  ]
+}

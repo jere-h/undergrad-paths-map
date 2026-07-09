@@ -1,0 +1,153 @@
+{
+  "proposals": {
+    "mit-18-05": [
+      {
+        "career": "statistician",
+        "confidence": 0.6,
+        "matchedSkills": ["probability & Bayesian inference", "hypothesis testing & confidence intervals", "bootstrapping", "regression"],
+        "distinctive": true,
+        "rationale": "Unified intro to probability/statistics covering hypothesis testing, confidence intervals, bootstrapping and regression maps to core statistical theory and methods, though at introductory depth."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.5,
+        "matchedSkills": ["using R to simulate, analyze, and visualize data"],
+        "distinctive": true,
+        "rationale": "Hands-on use of R to simulate, analyze, and visualize data matches the data-scientist distinctive statistical-software skill, though only at an intro level."
+      }
+    ],
+    "mit-18-06": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.65,
+        "matchedSkills": ["matrix theory & linear algebra", "eigenvalues and singular value decomposition"],
+        "distinctive": true,
+        "rationale": "Foundational matrix theory, eigenvalues, and SVD directly build the linear-algebra foundations distinctive to ML engineering roles."
+      }
+    ],
+    "mit-18-600": [
+      {
+        "career": "statistician",
+        "confidence": 0.55,
+        "matchedSkills": ["probability spaces & random variables", "law of large numbers & central limit theorem"],
+        "distinctive": true,
+        "rationale": "Rigorous probability theory course underlies statistical theory and methods, though it stops short of applied statistical practice."
+      },
+      {
+        "career": "ml-engineer",
+        "confidence": 0.5,
+        "matchedSkills": ["probability spaces & random variables", "modeling with standard distributions (binomial, Poisson, normal, etc.)"],
+        "distinctive": true,
+        "rationale": "Covers the probability foundations distinctive to ML engineering, though generic and not ML-specific."
+      }
+    ],
+    "mit-18-c06-j": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.7,
+        "matchedSkills": ["linear algebra fundamentals (vectors, matrices, eigenvalues, SVD)", "gradient descent", "regularization"],
+        "distinctive": true,
+        "rationale": "Explicitly covers linear algebra, gradient descent, and regularization, directly matching the linear algebra/calculus/probability foundations distinctive skill for ML engineers."
+      },
+      {
+        "career": "or-analyst",
+        "confidence": 0.65,
+        "matchedSkills": ["convex optimization", "linear/quadratic programming"],
+        "distinctive": true,
+        "rationale": "Covers convex optimization and linear/quadratic programming, core distinctive optimization methods for OR analysts."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.5,
+        "matchedSkills": ["extracting structure from data", "regularization"],
+        "distinctive": true,
+        "rationale": "Regularization and extracting structure from data touch on data mining/feature selection but the course is optimization-focused rather than data-mining-focused."
+      }
+    ],
+    "mit-18-065": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.7,
+        "matchedSkills": ["neural networks & machine learning fundamentals", "matrix factorizations"],
+        "distinctive": true,
+        "rationale": "Explicitly covers neural nets, machine learning, and matrix foundations, matching the linear algebra and deep-learning distinctive skills for ML engineers."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.6,
+        "matchedSkills": ["principal component analysis", "covariance and correlation matrix analysis"],
+        "distinctive": true,
+        "rationale": "PCA and correlation/covariance analysis for dimensionality reduction map to data mining and feature selection algorithms."
+      }
+    ],
+    "mit-18-650-j": [
+      {
+        "career": "statistician",
+        "confidence": 0.8,
+        "matchedSkills": ["parametric estimation", "confidence intervals & hypothesis testing", "Bayesian inference"],
+        "distinctive": true,
+        "rationale": "Rigorous coverage of estimation, testing, and inference directly builds statistical theory and methods and evaluating accuracy of methods, the core distinctive skills for statisticians."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.65,
+        "matchedSkills": ["linear and logistic regression", "classification"],
+        "distinctive": true,
+        "rationale": "Regression and classification with a focus on rigorous statistical grounding matches comparing models with statistical performance metrics."
+      }
+    ],
+    "mit-18-330": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.5,
+        "matchedSkills": ["numerical solution of differential equations", "iterative methods in linear algebra"],
+        "distinctive": true,
+        "rationale": "Numerical methods for simulation loosely support mathematical/simulation modeling, but the course is general numerical analysis rather than OR-specific."
+      }
+    ],
+    "mit-18-453": [
+      {
+        "career": "or-analyst",
+        "confidence": 0.8,
+        "matchedSkills": ["linear programming", "network flow", "matroid optimization"],
+        "distinctive": true,
+        "rationale": "Thorough treatment of linear programming, network flow, and combinatorial optimization directly matches the optimization-methods distinctive skill for OR analysts."
+      }
+    ],
+    "mit-18-642": [
+      {
+        "career": "statistician",
+        "confidence": 0.55,
+        "matchedSkills": ["probability & statistics for financial modeling"],
+        "distinctive": true,
+        "rationale": "Applying probability and statistics specifically to finance matches adapting statistical methods across fields."
+      },
+      {
+        "career": "or-analyst",
+        "confidence": 0.5,
+        "matchedSkills": ["translating industry problems into quantitative models", "numerical methods"],
+        "distinctive": true,
+        "rationale": "Translating finance-industry problems into quantitative models resembles mathematical/simulation modeling, though the course is finance-specific rather than OR-focused."
+      }
+    ],
+    "mit-18-c25-j": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.6,
+        "matchedSkills": ["automatic differentiation", "scientific machine learning"],
+        "distinctive": true,
+        "rationale": "Automatic differentiation and scientific machine learning are core mechanics behind deep learning model training, matching ML engineer distinctive skills."
+      }
+    ],
+    "mit-18-413": [
+      {
+        "career": "data-scientist",
+        "confidence": 0.4,
+        "matchedSkills": ["machine learning for drug discovery"],
+        "distinctive": true,
+        "rationale": "Touches ML application but the course is domain-specific to computational biology rather than general data mining/modeling practice."
+      }
+    ],
+    "mit-18-404": []
+  }
+}

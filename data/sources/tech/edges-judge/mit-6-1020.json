@@ -1,0 +1,16 @@
+{
+  "id": "mit-6-1020",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "swe",
+      "confidence": 0.9,
+      "matchedSkills": [
+        "software testing and validation",
+        "object oriented development"
+      ],
+      "distinctive": true,
+      "rationale": "The catalog explicitly covers testing, test-case generation and coverage, object-oriented design patterns, abstract data types, and concurrency defenses, directly matching the SWE profile's distinctive testing/validation and object-oriented development skills well beyond a typical career overlap."
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "dept": "Economics",
+  "sourceUrl": "https://catalog.mit.edu/subjects/14/",
+  "courses": [
+    {
+      "id": "mit-14-01",
+      "name": "Principles of Microeconomics",
+      "level": 1000,
+      "dept": "Economics",
+      "catalogCode": "14.01",
+      "taughtSkills": [
+        "supply and demand analysis",
+        "theory of the firm and individual behavior analysis",
+        "competition and monopoly analysis",
+        "welfare economics",
+        "applying economic theory to policy problems"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Introduces microeconomic concepts and analysis, supply and demand analysis, theories of the firm and individual behavior, competition and monopoly, and welfare economics. Applications to problems of current economic policy.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-02",
+      "name": "Principles of Macroeconomics",
+      "level": 1000,
+      "dept": "Economics",
+      "catalogCode": "14.02",
+      "taughtSkills": [
+        "macroeconomic model building",
+        "analyzing national income determination and economic growth",
+        "analyzing unemployment and inflation",
+        "analyzing interest rates and exchange rates",
+        "evaluating monetary and fiscal policy effects",
+        "analyzing government debt and long-term growth policy"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Provides an overview of macroeconomic issues including the determination of national income, economic growth, unemployment, inflation, interest rates, and exchange rates. Introduces basic macroeconomic models and illustrates key principles through applications to the experience of the US and other economies. Explores a range of current policy debates, such as the economic effects of monetary and fiscal policy, the causes of and policy responses to financial crises, the burden of the national debt, and the government policies that affect long-term growth in living standards.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-30",
+      "name": "Introduction to Statistical Methods in Economics",
+      "level": 1000,
+      "dept": "Economics",
+      "catalogCode": "14.30",
+      "taughtSkills": [
+        "probability theory",
+        "statistical estimation and inference",
+        "regression analysis",
+        "causal inference",
+        "program evaluation",
+        "applied data analysis"
+      ],
+      "levelBasis": "no subject prerequisites",
+      "levelNote": "Parser flagged a tie-break: prereqText lists only 'Calculus II (GIR)', a general institute requirement with no subject-level economics/math course code, so the prereq chain is empty. The description confirms this is a 'self-contained introduction to probability and statistics' with no economics prerequisite beyond the GIR, taught alongside other foundational level-1000 subjects (14.01/14.02). Classified as level 1000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Self-contained introduction to probability and statistics with applications in economics and the social sciences. Covers elements of probability theory, statistical estimation and inference, regression analysis, causal inference, and program evaluation. Couples methods with applications and with assignments involving data analysis. Uses basic calculus and matrix algebra.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-32",
+      "name": "Econometric Data Science",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.32",
+      "taughtSkills": [
+        "regression analysis for causal inference",
+        "analyzing randomized experiments",
+        "instrumental variables methods",
+        "regression discontinuity design",
+        "differences-in-differences estimation",
+        "time series regression",
+        "statistical programming"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (14.30, 15.069, 18.650)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Introduces regression and other tools for causal inference and descriptive analysis in empirical economics. Topics include analysis of randomized experiments, instrumental variables methods and regression discontinuity designs, differences-in-differences estimation, and regression with time series data. Develops the skills needed to conduct — and critique — empirical studies in economics and related fields. Familiarity with statistical programming languages is helpful.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-12",
+      "name": "Economic Applications of Game Theory",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.12",
+      "taughtSkills": [
+        "game-theoretic solution concepts",
+        "Nash and subgame-perfect equilibrium analysis",
+        "analyzing dynamic and repeated games",
+        "Bayesian games and signaling analysis",
+        "modeling auctions and bargaining"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (14.01, 6.041B, 14.04, 14.30, 18.05)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Analysis of strategic behavior in multi-person economic settings. Introduction to solution concepts, such as rationalizability, backwards induction, Nash equilibrium, subgame-perfect equilibrium, and sequential equilibrium. Strong emphasis on dynamic games, such as repeated games. Introduction to Bayesian games, focusing on Bayesian Nash Equilibrium, Perfect Bayesian Equilibrium, and signaling games. Applications drawn from microeconomics: imperfect competition, implicit cartels, bargaining, and auctions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-15j",
+      "name": "Networks",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.15[J]",
+      "taughtSkills": [
+        "random graph modeling",
+        "network optimization",
+        "game theory applied to networks",
+        "analyzing informational and learning cascades",
+        "analyzing social, economic, and financial networks",
+        "modeling epidemic spread and control on networks"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 14.30)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Highlights common principles that permeate the functioning of diverse technological, economic and social networks. Utilizes three sets of tools for analyzing networks -- random graph models, optimization, and game theory -- to study informational and learning cascades; economic and financial networks; social influence networks; formation of social groups; communication networks and the Internet; consensus and gossiping; spread and control of epidemics; control and use of energy networks; and biological networks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-19",
+      "name": "Market Design",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.19",
+      "taughtSkills": [
+        "mechanism design",
+        "auction design",
+        "matching market design",
+        "resource allocation modeling",
+        "microeconomic and game-theoretic market analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (14.01)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Covers the design and operation of organized markets, building on ideas from microeconomic and game theory. Topics may include mechanism design, auctions, matching markets, and other resource allocation problems.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-33",
+      "name": "Research and Communication in Economics: Topics, Methods, and Implementation",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.33",
+      "taughtSkills": [
+        "independent empirical research design",
+        "econometric analysis of an assigned economic question",
+        "original data analysis project execution",
+        "oral research communication",
+        "written research reporting"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32, 14.01, 14.02)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Exposes students to the process of conducting independent research in empirical economics and effectively communicating the results of the research. Emphasizes econometric analysis of an assigned economic question and culminates in each student choosing an original topic, performing appropriate analysis, and delivering oral and written project reports.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-36",
+      "name": "Advanced Econometrics",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.36",
+      "taughtSkills": [
+        "advanced regression methods for causal questions",
+        "machine learning applications in econometrics",
+        "instrumental variables estimation",
+        "differences-in-differences and event-study modeling",
+        "regression discontinuity design",
+        "synthetic control methods",
+        "statistical inference"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Advanced treatment of the core empirical strategies used to answer causal questions in applied microeconometric research. Covers extensions and innovations relating to econometric applications of regression, machine learning, instrumental variables, differences-in-differences and event-study models, regression discontinuity designs, synthetic controls, and statistical inference.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-38",
+      "name": "Inference on Causal and Structural Parameters Using ML and AI",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.38",
+      "taughtSkills": [
+        "causal inference with high-dimensional data",
+        "structural equation and potential outcomes modeling",
+        "de-biased machine learning methods",
+        "synthetic control methods",
+        "adapting machine learning and deep learning models for causal inference",
+        "R or Python programming for causal analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Provides an applied treatment of modern causal inference with high-dimensional data, focusing on empirical economic problems encountered in academic research and the tech industry. Formulates problems in the languages of structural equation modeling and potential outcomes. Presents state-of-the-art approaches for inference on causal and structural parameters, including de-biased machine learning, synthetic control methods, and reinforcement learning. Introduces tools from machine learning and deep learning developed for prediction purposes, and discusses how to adapt them to learn causal parameters. Requires knowledge of mathematical statistics and regression analysis and programming experience in R or Python.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-39",
+      "name": "Large-Scale Decision-Making and Inference",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.39",
+      "taughtSkills": [
+        "data-driven decision-making in high-dimensional environments",
+        "statistical decision theory",
+        "Bayesian inference methods",
+        "empirical Bayes methods",
+        "false discovery rate analysis",
+        "R or Python programming for statistical analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Covers the use of data to guide decision-making, with a focus on data-rich and high-dimensional environments as are now commonly encountered in both academic and industry applications. Begins with an introduction to statistical decision theory, including Bayesian perspectives. Covers empirical Bayes methods, including related concepts such as false discovery rates, illustrated with economic applications. Requires knowledge of mathematical statistics and regression analysis, as well as programming experience in R or Python.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    },
+    {
+      "id": "mit-14-c395j",
+      "name": "Algorithmic and Human Decision-Making (New)",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.C395[J]",
+      "taughtSkills": [
+        "designing machine learning and AI algorithms for decision support",
+        "statistical ML frameworks",
+        "integrating behavioral economics with ML models",
+        "identifying high-impact applied problems",
+        "building effective and reliable ML solutions"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.3700, 6.3900, 6.C01, 14.30, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Explores how to design machine learning and AI algorithms that enhance human decision-making and tackle real-world societal challenges. Combines statistical ML frameworks with behavioral economics, focusing on applications in areas such as education, finance, economic mobility, and policy. Emphasizes identifying high-impact problems and building effective, reliable solutions.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ]
+    }
+  ]
+}

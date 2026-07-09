@@ -73,6 +73,65 @@ ramp, and a catalog-integrity guard. `test/graph.test.js` covers the layout
 geometry (bounds, central careers, left/right input placement, edge count,
 determinism).
 
+## Regenerating the dataset from real evidence
+
+The bundled catalog is still the illustrative one, but the repo now ships a
+reusable Claude workflow that regenerates it from verifiable sources: O*NET
+occupation data, a university's published course catalog, and live intern
+postings from public ATS APIs. See `docs/grounding-workflow-plan.md` for the
+full design, acceptance gates, and review history. In a Claude Code session:
+
+```
+Workflow({ name: "ground-catalog", args: { runId: "<timestamp>", pilot: true } })
+```
+
+`pilot: true` proves the plumbing on a small slice; a full run (omit `pilot`)
+must pass the distributional acceptance gates in
+`scripts/validate-dataset.mjs` and human review of `data/review-report.md`
+before the generated catalog replaces the illustrative one (pass
+`apply: true` for that). The deterministic pieces are plain Node scripts under
+`scripts/` (parser, O*NET extractor, posting fetcher, validator, assembler,
+generator), each unit-tested and runnable standalone.
+
+**Cost tiering.** Mechanical stages (setup, posting fetch, finalize) default
+to small/cheap models; per-item stages (career distillation, course labeling,
+edge judging) default to a mid-tier model at medium effort; only the
+judgment-critical stages (cross-career distinctiveness, the adversarial edge
+skeptics) inherit the session's full model. Override any stage via
+`args.tiers`, e.g. `{ tiers: { judge: { model: "haiku" }, skeptic: {} } }`.
+
+**Multiple industries as tabs.** Workflow outputs are namespaced by
+`args.industry`: evidence under `data/sources/<industry>/`, dataset at
+`data/datasets/<industry>.json`, generated catalog at
+`data/catalogs/<industry>.js`, report at `data/review-report-<industry>.md`
+(the O*NET database is shared at `data/sources/onet/`). The app reads the
+catalog registry `data/catalogs/index.js`; with one entry it behaves as
+before, with more it shows dataset tabs in the header, each with its own
+sidebar, map, selections, and honesty banner (selections don't carry across
+tabs because edges are only valid within their own dataset). A gate-passing
+full run with `apply: true` registers its catalog as a tab automatically via
+`scripts/register-catalog.mjs`; the illustrative demo catalog is never
+overwritten.
+
+**Other careers and industries.** Every axis is an argument: `careers` accepts
+plain strings (`["Nurse Practitioner", "Health Informatics Analyst"]`) and the
+workflow decides per career whether an O*NET code honestly fits or falls back
+to posting-grounding; `companies` accepts any `orgType` labels (`Hospital`,
+`Agency`, `Government`), which flow through the validator, the generated
+catalog, and the sidebar without code changes; `catalogPages` points at any
+university, with `parser: "llm"` as a flagged-for-review fallback for catalogs
+that don't use CourseLeaf's `courseblock` markup. Example:
+
+```
+Workflow({ name: "ground-catalog", args: {
+  runId: "...", industry: "healthcare", industryLabel: "Healthcare (UW)",
+  university: "UW",
+  careers: ["Nurse Practitioner", "Clinical Data Analyst", "Health Policy Analyst"],
+  catalogPages: [{ dept: "Nursing", url: "https://.../nursing/", parser: "llm" }],
+  companies: [{ slug: "examplehealth", source: "greenhouse", orgType: "Hospital" }]
+}})
+```
+
 ## Host on GitHub Pages
 
 This repository deploys itself: a GitHub Actions workflow

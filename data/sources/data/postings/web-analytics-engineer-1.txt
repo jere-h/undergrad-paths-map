@@ -1,0 +1,14 @@
+Source: Mirakl - Analytics Engineer Apprentice
+URL: https://job-boards.greenhouse.io/mirakl/jobs/5140266004
+Retrieved via WebFetch on 2026-07-09.
+
+Responsibilities: partner with product and business stakeholders to ensure data solutions deliver actionable
+value; "Develop data models and comprehensive semantic layer documentation" for analytics-ready datasets;
+"Build and maintain dashboards guaranteeing reliable access to critical performance indicators"; develop
+agentic analytical solutions to help users discover insights independently; drive adoption of analytics
+solutions through training, support, and incident resolution.
+
+Required Qualifications: SQL proficiency for data manipulation of large datasets; "Solid understanding of
+data modeling concepts and techniques"; experience with forecasting and statistical analysis.
+Preferred: data visualization tools (Metabase, Superset, Tableau); Python for analytics and automation;
+dbt and AI-powered/agentic tools.

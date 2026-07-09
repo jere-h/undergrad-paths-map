@@ -1,0 +1,42 @@
+{
+  "id": "data-scientist",
+  "name": "Data Scientist",
+  "grounding": "soc",
+  "soc": ["15-2051.00"],
+  "responsibilities": [
+    "Frame a vague business question as a data question and pick the right technique (mining, modeling, or plain description) to answer it",
+    "Clean and manipulate large structured and unstructured datasets, then build and compare models on real performance metrics, not just training loss",
+    "Turn analysis into a graph, dashboard, or oral and written presentation that management can act on"
+  ],
+  "skills": [
+    "Data-oriented programming and query languages (SQL, Python or R) plus business intelligence and data analysis software",
+    "Applying data mining, feature selection, and machine learning to extract signal from large datasets",
+    "Designing surveys or sampling methods when the data does not already exist",
+    "Explaining a model's results and limitations to a non-technical audience, in writing and out loud"
+  ],
+  "rawSkillPool": [
+    "Statistical software (SAS, R, Python)",
+    "Business intelligence and data analysis software",
+    "Database user interface and query software",
+    "Data mining and feature selection algorithms",
+    "Natural language processing",
+    "Data cleaning and manipulation",
+    "Mathematics and applied statistics",
+    "Analytical or scientific software",
+    "Cloud-based data management software",
+    "Comparing models with statistical performance metrics",
+    "Survey and sampling design",
+    "Data visualization and reporting",
+    "Complex problem solving",
+    "Written and oral presentation of findings"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2051.00",
+      "quote": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets.",
+      "title": "Data Scientists (15-2051.00), O*NET 29.1 database, data/sources/onet/db/db_29_1_text",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

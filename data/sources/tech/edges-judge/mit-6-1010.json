@@ -1,0 +1,13 @@
+{
+  "id": "mit-6-1010",
+  "kind": "course",
+  "proposed": [
+    {
+      "career": "swe",
+      "confidence": 0.75,
+      "matchedSkills": ["object oriented development", "development environment software"],
+      "distinctive": true,
+      "rationale": "Catalog explicitly covers Python programming, software engineering, and a lab of software design, construction, and implementation of design, which develops object-oriented development and daily development-environment fluency that O*NET lists as distinctive for software developers."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "data-analyst",
+  "name": "Data Analyst",
+  "grounding": "soc",
+  "soc": ["15-2051.01"],
+  "responsibilities": [
+    "Query data repositories and generate the standard and custom reports that executives, managers, and clients actually review",
+    "Own the dashboards and business intelligence tools: build them, keep them updated, and support the people who depend on them",
+    "Synthesize trend data into recommendations for action, and flag industry or market shifts with strategy implications"
+  ],
+  "skills": [
+    "Query fluency across the data stack: database query, reporting, and business intelligence software as daily tools, not occasional ones",
+    "Interpreting the meaning of data for others: leading with what moved and why, in language a non-analyst can act on",
+    "Writing report and dashboard specifications precise enough to test the output against defined needs",
+    "Enough mathematics and economics/accounting to sanity check a metric before anyone builds a decision on it"
+  ],
+  "rawSkillPool": [
+    "business intelligence and data analysis software",
+    "database query software",
+    "database reporting software",
+    "dashboard design and maintenance",
+    "data mining software",
+    "database management systems",
+    "financial analysis software",
+    "metadata management",
+    "report specification and documentation",
+    "analyzing data or information",
+    "interpreting information for others",
+    "trend and market analysis",
+    "mathematics",
+    "economics and accounting",
+    "computers and electronics",
+    "writing"
+  ],
+  "distinctiveSkills": [
+    "business intelligence and data analysis software",
+    "dashboard design and maintenance",
+    "database reporting software",
+    "data mining software",
+    "trend and market analysis",
+    "financial analysis software",
+    "interpreting information for others",
+    "metadata management",
+    "economics and accounting",
+    "analyzing data or information"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Occupation Data.txt#15-2051.01",
+      "title": "Business Intelligence Analysts (O*NET-SOC 15-2051.01), O*NET database 29.1 text release",
+      "quote": "Produce financial and market intelligence by querying data repositories and generating periodic reports. Devise methods for identifying data patterns and trends in available information sources.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Alternate Titles.txt#15-2051.01",
+      "title": "Alternate Titles for 15-2051.01, O*NET database 29.1: 'Data Analyst' is a listed alternate title for this occupation. The hinted code 15-2041.00 (Statisticians: develop or apply mathematical or statistical theory and methods) was rejected as a dishonest match for the undergrad understanding of Data Analyst.",
+      "quote": "15-2051.01\tData Analyst",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Task Statements.txt#15-2051.01",
+      "title": "Task statements for 15-2051.01, O*NET database 29.1",
+      "quote": "Generate standard or custom reports summarizing business, financial, or economic data for review by executives, managers, clients, and other stakeholders. Maintain or update business intelligence tools, databases, dashboards, systems, or methods. Synthesize current business intelligence or trend data to support recommendations for action.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Technology Skills.txt#15-2051.01",
+      "title": "Technology skills for 15-2051.01, O*NET database 29.1 (data base reporting software, data base user interface and query software, business intelligence and data analysis software, data base management system software, data mining software, financial analysis software, metadata management software)",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Work Activities.txt#15-2051.01",
+      "title": "Work activities and knowledge ratings for 15-2051.01, O*NET database 29.1 (ratedSources: skills, work activities, and knowledge all rated on 15-2051.01 itself, no related-occupation fallback)",
+      "quote": "Analyzing Data or Information (importance 4.73), Working with Computers (4.68), Processing Information (4.64), Interpreting the Meaning of Information for Others (4.55); knowledge: Computers and Electronics (4.29), Mathematics (3.82), Economics and Accounting (3.00)",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    }
+  ]
+}

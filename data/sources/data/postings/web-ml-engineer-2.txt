@@ -1,0 +1,15 @@
+Source: aggregated web search across live 2026 Machine Learning Engineer Intern postings
+(Cloudflare, Lucid Motors, Gusto, Crossing Minds, KUNGFU.AI, XPeng Motors, BlackSky, Klaviyo)
+Retrieved via web search snapshot on 2026-07-09.
+
+Common required qualifications across postings: proficiency in Python; hands-on experience with deep
+learning frameworks (PyTorch, TensorFlow); currently enrolled in or recently completed a degree in
+Computer Science, Data Science, Statistics, Engineering, or a related technical field; solid foundation
+in linear algebra, calculus, and statistics; at least one completed AI/ML project (coursework or research).
+
+Example responsibilities: Cloudflare ML Engineer Intern (Summer 2026) - "build and operate pipelines behind
+AI-driven applications, working alongside experienced data scientists and machine learning engineers."
+Gusto Applied ML Engineering Intern - 12-week hybrid summer experience focused on end-to-end development of
+production-level machine learning systems: building, deploying, and maintaining models.
+Lucid Motors ML Engineer Intern - research, design, implement, optimize, and deploy machine learning models
+that advance perception algorithms for autonomous driving.

@@ -97,6 +97,35 @@ img, svg, video, canvas {
   padding-left: var(--space-3);
 }
 
+/* Dataset tabs (hidden unless the registry lists more than one catalog). */
+.catalog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.catalog-tab {
+  background: var(--color-surface-2);
+  color: var(--color-muted);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.catalog-tab:hover {
+  color: var(--color-fg);
+}
+
+.catalog-tab.is-active {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+}
+
 /* ---------- Layout ---------- */
 
 .layout {

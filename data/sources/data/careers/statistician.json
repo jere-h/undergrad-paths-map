@@ -1,0 +1,49 @@
+{
+  "id": "statistician",
+  "name": "Statistician",
+  "grounding": "soc",
+  "soc": ["15-2041.00"],
+  "responsibilities": [
+    "Decide which statistical method actually fits the question and the data before running anything",
+    "Design experiments, sampling plans, and analytical methods that hold up to scrutiny",
+    "Report results with the right charts, tables, and caveats so non-statisticians don't over-read them"
+  ],
+  "skills": [
+    "Choosing and applying the right statistical method for the research question, not just the familiar one",
+    "Cleaning, weighting, and validating raw data before it ever reaches a model",
+    "Designing experiments and sampling techniques that produce data you can trust",
+    "Communicating statistical findings clearly to clients, peers, or students through graphs and plain language"
+  ],
+  "rawSkillPool": [
+    "Statistical theory and methods",
+    "Experimental design and sampling techniques",
+    "Analytical or scientific software",
+    "Data mining software",
+    "Business intelligence and data analysis software",
+    "Evaluating validity, applicability, and accuracy of methods",
+    "Preparing and weighting raw data",
+    "Identifying relationships and trends in data",
+    "Mathematics",
+    "Data base user interface and query software",
+    "Spreadsheet software",
+    "Interpreting statistical results for non-technical audiences",
+    "Adapting methods across fields (economics, biology, engineering)",
+    "Reporting results with charts, bullets, and graphs"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2041.00",
+      "title": "Statisticians (SOC 15-2041.00), O*NET 29.1 database",
+      "quote": "Develop or apply mathematical or statistical theory and methods to collect, organize, interpret, and summarize numerical data to provide usable information.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/15-2041.00",
+      "title": "Statisticians: Tasks, O*NET 29.1 database",
+      "quote": "Evaluate the statistical methods and procedures used to obtain data to ensure validity, applicability, efficiency, and accuracy. Prepare data for processing by organizing information, checking for inaccuracies, and adjusting and weighting the raw data. Develop and test experimental designs, sampling techniques, and analytical methods.",
+      "retrievedAt": "2026-07-09T18:05:32Z"
+    }
+  ]
+}

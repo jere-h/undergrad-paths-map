@@ -1,0 +1,17 @@
+{
+  "id": "mnc-data-operations-analyst-intern",
+  "kind": "internship",
+  "proposed": [
+    {
+      "career": "data-analyst",
+      "confidence": 0.8,
+      "matchedSkills": [
+        "analyzing data or information",
+        "interpreting information for others",
+        "database query software"
+      ],
+      "distinctive": true,
+      "rationale": "Posting evidence (SQL against relational databases, quantitative analytics across large datasets, presenting results and proposals to analysts through executives) directly exercises the data-analyst's distinctive analyzing-data and interpreting-information-for-others skills plus its core query-fluency toolset."
+    }
+  ]
+}

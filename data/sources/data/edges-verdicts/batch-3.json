@@ -1,0 +1,76 @@
+{
+  "verdicts": [
+    {
+      "input": "mit-14-30",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "MIT's Statistics and Data Science minor lists 14.30 under its 'Statistics 1' (probability/statistics foundations) category and the 6-14 CS-Economics-Data-Science degree lists it in its 'Introductory Probability and Statistics' requirement, tying the course directly to a statistics track."
+    },
+    {
+      "input": "mit-14-32",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "14.32 (Econometric Data Science) is listed under the 'Statistics 2' category of MIT's Statistics and Data Science minor and its randomized-experiment/causal-inference content maps to the statistician's distinctive experimental-design and method-selection skills."
+    },
+    {
+      "input": "mit-14-32",
+      "career": "data-scientist",
+      "verdict": "drop",
+      "reason": "14.32 teaches causal regression (IV/RD/DiD) and statistical programming but no data-mining, feature-selection, or machine-learning content, so it lacks the ML/mining core that distinguishes the data-scientist role beyond the statistician edge already kept."
+    },
+    {
+      "input": "mit-14-15j",
+      "career": "or-analyst",
+      "verdict": "drop",
+      "reason": "The 6-14 degree chart classifies 14.15J (Networks) under the economic 'Theory' group (random graphs, game theory, cascades), not any optimization/operations-research track, and no or-analyst posting demands social-network optimization."
+    },
+    {
+      "input": "mit-14-36",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "14.36 (Advanced Econometrics) is listed under 'Computation & Data Analysis' in the Statistics and Data Science minor and in the 'Data Science' elective group of the 6-14 degree, and its advanced causal-inference methodology (regression, IV, RD, synthetic control) matches statistician method-selection skills."
+    },
+    {
+      "input": "mit-14-38",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "14.38 is listed in the 'Data Science' elective group of MIT's 6-14 CS-Economics-Data-Science degree and teaches advanced statistical inference methodology (de-biased ML, potential-outcomes/structural inference) central to the statistician's core statistical-methods skill."
+    },
+    {
+      "input": "mit-14-38",
+      "career": "data-scientist",
+      "verdict": "keep",
+      "reason": "14.38 is a 'Data Science' degree elective that explicitly teaches adapting machine-learning and deep-learning models with R/Python programming for problems 'encountered in the tech industry,' matching the data-scientist's ML and statistical-software distinctive skills."
+    },
+    {
+      "input": "mit-14-39",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "14.39 is a 'Data Science' elective in the 6-14 degree and is built on statistical decision theory, Bayesian and empirical-Bayes methods, and false-discovery-rate analysis, a direct match to the statistician's core statistical-theory skill set."
+    },
+    {
+      "input": "mit-14-c395j",
+      "career": "ml-engineer",
+      "verdict": "keep",
+      "reason": "Live ML-engineer intern postings (e.g. Neuralink) require 'designing and building Machine Learning models,' 'deep understanding of ML fundamentals,' and at least one completed AI/ML project, all of which this course's ML/AI algorithm-design and build-effective-solutions content provides."
+    },
+    {
+      "input": "mit-15-0341",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "MIT Sloan lists 15.0341 (Business Experiments and Causal Analytics) as a Business Analytics elective focused on experimental design and causal analytics, matching the statistician's distinctive experiment-design and causal-inference skills."
+    },
+    {
+      "input": "mit-15-0341",
+      "career": "data-scientist",
+      "verdict": "keep",
+      "reason": "15.0341 is a data-analytics elective that teaches regression trees, random forest, LASSO, and neural networks, which are exactly the data-scientist's distinctive data-mining, feature-selection, and machine-learning algorithms."
+    },
+    {
+      "input": "mit-15-069",
+      "career": "statistician",
+      "verdict": "keep",
+      "reason": "15.069 (Applied Probability and Statistics) is listed under the 'Statistics 1' category of MIT's Statistics and Data Science minor, and its hypothesis-testing and statistical-sampling content are foundational statistician skills."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "swe",
+  "name": "Software Engineer",
+  "grounding": "soc",
+  "soc": ["15-1252.00"],
+  "responsibilities": [
+    "Design, develop, and modify software systems, and own the testing, validation, and documentation that prove they work",
+    "Analyze user needs and software requirements to judge whether a design is feasible within real time and cost constraints",
+    "Modify existing software to correct errors, adapt it to new hardware, and improve its performance"
+  ],
+  "skills": [
+    "Systems analysis and evaluation: tracing how a change in one component ripples through the rest of the system before you ship it",
+    "Fluency with the working toolchain: development environments, object oriented languages, and file versioning (git) as daily habits",
+    "Designing, querying, and managing the databases inside your application, not treating data as someone else's job",
+    "Conferring with analysts, engineers, and customers to pin down performance requirements and interfaces, then holding the system to them"
+  ],
+  "rawSkillPool": [
+    "object oriented development",
+    "development environment software",
+    "file versioning (git)",
+    "database query software",
+    "database management systems",
+    "web platform development",
+    "cloud-based management software",
+    "operating system software",
+    "enterprise application integration",
+    "software testing and validation",
+    "systems analysis",
+    "systems evaluation",
+    "complex problem solving",
+    "computers and electronics",
+    "engineering and technology",
+    "technical documentation"
+  ],
+  "distinctiveSkills": [
+    "object oriented development",
+    "file versioning (git)",
+    "software testing and validation",
+    "web platform development",
+    "operating system software",
+    "enterprise application integration",
+    "development environment software",
+    "systems evaluation",
+    "systems analysis",
+    "cloud-based management software"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Occupation Data.txt#15-1252.00",
+      "title": "Software Developers (O*NET-SOC 15-1252.00), O*NET database 29.1 text release",
+      "quote": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Task Statements.txt#15-1252.00",
+      "title": "Task statements for 15-1252.00, O*NET database 29.1",
+      "quote": "Design, develop and modify software systems, using scientific analysis and mathematical models to predict and measure outcomes and consequences of design.",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Technology Skills.txt#15-1252.00",
+      "title": "Technology skills for 15-1252.00, O*NET database 29.1 (development environment, object or component oriented development, file versioning, database, web platform, cloud-based management software)",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    },
+    {
+      "type": "onet",
+      "url": "data/sources/onet/db/db_29_1_text/Skills.txt#15-1299.08",
+      "title": "Skills, work activities, and knowledge ratings sourced from related occupation 15-1299.08 Computer Systems Engineers/Architects (O*NET 29.1 ratedSources for 15-1252.00)",
+      "quote": "Systems Analysis (importance 3.88), Systems Evaluation (3.88), Complex Problem Solving (3.75); knowledge: Computers and Electronics (4.91), Engineering and Technology (3.77)",
+      "retrievedAt": "2026-07-09T14:58:04Z"
+    }
+  ]
+}
