@@ -261,6 +261,15 @@ medium effort; only the stages where judgment quality gates the whole dataset
 (cross-career distinctiveness, the adversarial skeptics) inherit the session's
 full model. All tiers are overridable via `args.tiers`.
 
+Outputs are namespaced by `args.industry` so runs never collide:
+`data/sources/<industry>/`, `data/datasets/<industry>.json`,
+`data/catalogs/<industry>.js`, `data/review-report-<industry>.md`, with the
+O*NET DB shared at `data/sources/onet/`. The app renders registered catalogs
+(`data/catalogs/index.js`) as header tabs, each with its own selections and
+epistemic banner; `apply: true` on a gate-passing full run registers the tab
+via `scripts/register-catalog.mjs` and the illustrative demo is never
+overwritten.
+
 The workflow is industry-agnostic by argument: `careers` accepts plain strings
 (grounding mode `auto` lets the agent honestly choose SOC vs. postings per
 career), `companies` accepts arbitrary `orgType` labels which flow through

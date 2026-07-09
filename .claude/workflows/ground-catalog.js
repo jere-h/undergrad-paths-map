@@ -1,7 +1,7 @@
 export const meta = {
   name: 'ground-catalog',
   description: 'Regenerate the Open Doors dataset from real evidence: O*NET, university catalog pages, live intern postings',
-  whenToUse: 'Use to produce an evidence-grounded data/dataset.json (and staged catalog) for this repo, per docs/grounding-workflow-plan.md. Pass {pilot: true} to prove the plumbing cheaply first. Reusable for other industries: pass your own careers (plain strings are fine), companies (with any orgType labels), and catalogPages; pass tiers to override per-stage model/effort.',
+  whenToUse: 'Use to produce an evidence-grounded dataset for this repo, per docs/grounding-workflow-plan.md. Outputs are namespaced by args.industry (data/datasets/<industry>.json, data/catalogs/<industry>.js); apply: true registers the catalog as an app tab on gate-passing full runs. Pass {pilot: true} to prove the plumbing cheaply first. Reusable for other industries: pass industry, careers (plain strings are fine), companies (any orgType labels), catalogPages; pass tiers to override per-stage model/effort.',
   phases: [
     { title: 'Setup', detail: 'O*NET bulk DB, source probes, run metadata' },
     { title: 'Postings', detail: 'fetch + prefilter ATS boards mechanically' },
@@ -18,6 +18,12 @@ export const meta = {
 // ---------------------------------------------------------------------------
 
 const DEFAULTS = {
+  // Namespace for every output path, so runs for different industries never
+  // collide: data/sources/<industry>/, data/datasets/<industry>.json,
+  // data/catalogs/<industry>.js, data/review-report-<industry>.md. The O*NET
+  // DB is shared across industries at data/sources/onet/.
+  industry: 'tech',
+  industryLabel: 'Tech (MIT)',
   university: 'MIT',
   catalogPages: [
     { dept: 'EECS', url: 'https://catalog.mit.edu/subjects/6/' },
@@ -66,8 +72,10 @@ const DEFAULTS = {
   ],
   maxCoursesPerDept: 12,
   onetZipUrl: 'https://www.onetcenter.org/dl_files/database/db_29_1_text.zip',
-  // Replace data/catalog.js only when explicitly asked AND full gates pass;
-  // otherwise the generated catalog is staged next to it for inspection.
+  // apply: true registers the generated catalog as an app tab (via
+  // scripts/register-catalog.mjs) when a full, gate-passing run finishes.
+  // Without it the catalog is only staged at data/catalogs/<industry>.js for
+  // inspection. The illustrative demo catalog is never overwritten.
   apply: false,
   pilot: false,
 }
@@ -116,7 +124,12 @@ const TIER_DEFAULTS = {
 const tiers = { ...TIER_DEFAULTS, ...(argObj.tiers || {}) }
 const tier = (stage) => tiers[stage] || {}
 
-const ROOT = 'data/sources'
+cfg.industry = String(cfg.industry).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const ROOT = `data/sources/${cfg.industry}`
+const ONET_ROOT = 'data/sources/onet' // shared across industries
+const DATASET = `data/datasets/${cfg.industry}.json`
+const CATALOG_OUT = `data/catalogs/${cfg.industry}.js`
+const REPORT = `data/review-report-${cfg.industry}.md`
 const careerIdList = cfg.careers.map((c) => c.id).join(', ')
 const careerProfilesNote = `Career profiles live in ${ROOT}/careers/<id>.json (ids: ${careerIdList}).`
 
@@ -141,12 +154,12 @@ log(`ground-catalog run ${cfg.runId}${cfg.pilot ? ' (pilot)' : ''}: ${cfg.career
 
 const setup = await agent(
   `You are Phase 0 of the ground-catalog workflow in this repo (read docs/grounding-workflow-plan.md if unsure). Do exactly this, via Bash:
-1. mkdir -p ${ROOT}/onet ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges
-2. If ${ROOT}/onet/db/ does not already contain "Occupation Data.txt" in some subdirectory: curl -sSL --max-time 300 -o ${ROOT}/onet/db.zip "${cfg.onetZipUrl}" and unzip -oq into ${ROOT}/onet/db/. Record the O*NET version from the zip filename or Read Me.txt.
-3. Verify: node scripts/onet-extract.mjs --db ${ROOT}/onet/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
+1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges data/datasets data/catalogs
+2. If ${ONET_ROOT}/db/ does not already contain "Occupation Data.txt" in some subdirectory (the DB is shared across industry runs): curl -sSL --max-time 300 -o ${ONET_ROOT}/db.zip "${cfg.onetZipUrl}" and unzip -oq into ${ONET_ROOT}/db/. Record the O*NET version from the zip filename or Read Me.txt.
+3. Verify: node scripts/onet-extract.mjs --db ${ONET_ROOT}/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
 4. Probe each catalog URL with curl -sS -o /dev/null -w "%{http_code}": ${cfg.catalogPages.map((p) => p.url).join(' ')}
 5. Get the current UTC timestamp with: date -u +%Y-%m-%dT%H:%M:%SZ
-6. Write ${ROOT}/meta.json: { "runId": "${cfg.runId}", "university": ${JSON.stringify(cfg.university)}, "generatedBy": "ground-catalog", "onetVersion": "<found>", "generatedAt": "<timestamp>", "pilot": ${cfg.pilot}, "orgTypes": ${JSON.stringify(cfg.orgTypes)}, "sources": [<the catalog URLs and "${cfg.onetZipUrl}">] }
+6. Write ${ROOT}/meta.json: { "runId": "${cfg.runId}", "industry": ${JSON.stringify(cfg.industry)}, "university": ${JSON.stringify(cfg.university)}, "generatedBy": "ground-catalog", "onetVersion": "<found>", "generatedAt": "<timestamp>", "pilot": ${cfg.pilot}, "orgTypes": ${JSON.stringify(cfg.orgTypes)}, "sources": [<the catalog URLs and "${cfg.onetZipUrl}">] }
 Fail (ok:false, explain in failures) if the O*NET DB cannot be fetched/verified or any catalog URL is unreachable. Return the manifest with path=${ROOT}/meta.json, ids=[], and notes = the onet db directory path (the one containing Occupation Data.txt) and the timestamp.`,
   {
     ...tier('setup'),
@@ -368,28 +381,34 @@ log(`edges: ${verdicts.length}/${inputs.length} inputs judged+verified; skeptic 
 phase('Finalize')
 const finalize = await agent(
   `Finalizer for the ground-catalog workflow (run ${cfg.runId}). Execute via Bash, in order, and report VERBATIM outputs:
-1. node scripts/assemble-dataset.mjs --sources ${ROOT} --out data/dataset.json
+1. node scripts/assemble-dataset.mjs --sources ${ROOT} --out ${DATASET}
    (If it fails because some input has no edge file, delete that input's entry ONLY by removing it from its ${ROOT}/courses/ or ${ROOT}/internships/ file - an input the skeptic zeroed out must not ship - then rerun. Record every removal.)
-2. node scripts/validate-dataset.mjs data/dataset.json ${cfg.pilot ? '--pilot' : ''}
-3. If validation PASSED: node scripts/build-catalog.mjs data/dataset.json --out ${cfg.apply && !cfg.pilot ? 'data/catalog.js' : 'data/catalog.generated.js'}
-4. node --test (must stay green; if you generated to data/catalog.js and tests fail, revert that file via git checkout -- data/catalog.js and say so)
-Do not edit the validator, the gates, or data/dataset.json by hand to force a pass; a failing gate is a finding, not an obstacle. Return ok = whether validation passed, path = the generated catalog path (or data/dataset.json if generation was skipped), ids = [], failures = every validator FAIL line, notes = removals + test summary.`,
+2. node scripts/validate-dataset.mjs ${DATASET} ${cfg.pilot ? '--pilot' : ''}
+3. If validation PASSED: node scripts/build-catalog.mjs ${DATASET} --out ${CATALOG_OUT}
+${
+  cfg.apply && !cfg.pilot
+    ? `4. If validation PASSED: register the catalog as an app tab: node scripts/register-catalog.mjs --id ${cfg.industry} --label ${JSON.stringify(cfg.industryLabel)} --module ./${cfg.industry}.js --note "Evidence-grounded dataset (${cfg.university}, live postings, O*NET). Edges are a verified skill-overlap heuristic over official descriptions and postings, not measured student outcomes."
+5. node --test (must stay green; if registration broke it, undo via git checkout -- data/catalogs/index.js and say so)`
+    : `4. node --test (must stay green)`
+}
+Never write to data/catalog.js (the illustrative demo tab). Do not edit the validator, the gates, or ${DATASET} by hand to force a pass; a failing gate is a finding, not an obstacle. Return ok = whether validation passed, path = ${CATALOG_OUT} (or ${DATASET} if generation was skipped), ids = [], failures = every validator FAIL line, notes = removals + test summary${cfg.apply && !cfg.pilot ? ' + whether the tab was registered' : ''}.`,
   { ...tier('finalize'), label: 'assemble+validate', phase: 'Finalize', schema: MANIFEST }
 )
 
 const report = await agent(
-  `Write the human sign-off report for ground-catalog run ${cfg.runId} to data/review-report.md. Sources: data/dataset.json, ${ROOT}/ (careers, courses, internships, edges-judge vs edges for what the skeptic dropped), the postings manifest ${ROOT}/postings/manifest.json, and this validation result: ${JSON.stringify((finalize && finalize.failures) || []).slice(0, 2000)}.
+  `Write the human sign-off report for ground-catalog run ${cfg.runId} (industry: ${cfg.industry}) to ${REPORT}. Sources: ${DATASET}, ${ROOT}/ (careers, courses, internships, edges-judge vs edges for what the skeptic dropped), the postings manifest ${ROOT}/postings/manifest.json, and this validation result: ${JSON.stringify((finalize && finalize.failures) || []).slice(0, 2000)}.
 Structure, flagged items FIRST:
-1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before data/catalog.js may be replaced.
+1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before this catalog ships as an app tab (registered via apply: true).
 2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions, dead/empty company boards, judge-vs-skeptic disagreement rate ${verdicts.length ? Math.round((100 * disagreements) / verdicts.length) : 0}% (flag "skeptic decorative" if near 0).
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
 4. Staleness: postings churn in weeks; recommend a re-run cadence.
-Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=data/review-report.md, ids=[]).`,
+Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=${REPORT}, ids=[]).`,
   { ...tier('report'), label: 'review-report', phase: 'Finalize', schema: MANIFEST }
 )
 
 return {
   runId: cfg.runId,
+  industry: cfg.industry,
   pilot: cfg.pilot,
   careers: groundedCareerIds.length,
   courses: courseFiles.flatMap((m) => m.ids).length,

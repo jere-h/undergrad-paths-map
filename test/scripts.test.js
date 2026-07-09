@@ -295,3 +295,17 @@ test("validator and generator accept custom org types declared in meta.orgTypes"
   assert.ok(validateDataset(ds).errors.some((e) => e.includes("not in meta.orgTypes")));
   assert.throws(() => generateCatalog(ds), /not in meta.orgTypes/);
 });
+
+// ---------- catalog registry ----------
+
+test("register-catalog upsert replaces by id and renders importable JS", async () => {
+  const { upsert, renderRegistry } = await import("../scripts/register-catalog.mjs");
+  const base = [{ id: "illustrative", label: "Demo", module: "../catalog.js", note: "n1" }];
+  const added = upsert(base, { id: "health", label: "Health", module: "./health.js", note: "n2" });
+  assert.equal(added.length, 2);
+  const replaced = upsert(added, { id: "health", label: "Health v2", module: "./health.js", note: "n3" });
+  assert.equal(replaced.length, 2);
+  assert.equal(replaced[1].label, "Health v2");
+  const mod = await import(`data:text/javascript,${encodeURIComponent(renderRegistry(replaced))}`);
+  assert.deepEqual(mod.CATALOGS.map((c) => c.id), ["illustrative", "health"]);
+});

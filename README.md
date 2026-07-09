@@ -100,6 +100,19 @@ judgment-critical stages (cross-career distinctiveness, the adversarial edge
 skeptics) inherit the session's full model. Override any stage via
 `args.tiers`, e.g. `{ tiers: { judge: { model: "haiku" }, skeptic: {} } }`.
 
+**Multiple industries as tabs.** Workflow outputs are namespaced by
+`args.industry`: evidence under `data/sources/<industry>/`, dataset at
+`data/datasets/<industry>.json`, generated catalog at
+`data/catalogs/<industry>.js`, report at `data/review-report-<industry>.md`
+(the O*NET database is shared at `data/sources/onet/`). The app reads the
+catalog registry `data/catalogs/index.js`; with one entry it behaves as
+before, with more it shows dataset tabs in the header, each with its own
+sidebar, map, selections, and honesty banner (selections don't carry across
+tabs because edges are only valid within their own dataset). A gate-passing
+full run with `apply: true` registers its catalog as a tab automatically via
+`scripts/register-catalog.mjs`; the illustrative demo catalog is never
+overwritten.
+
 **Other careers and industries.** Every axis is an argument: `careers` accepts
 plain strings (`["Nurse Practitioner", "Health Informatics Analyst"]`) and the
 workflow decides per career whether an O*NET code honestly fits or falls back
@@ -111,7 +124,8 @@ that don't use CourseLeaf's `courseblock` markup. Example:
 
 ```
 Workflow({ name: "ground-catalog", args: {
-  runId: "...", university: "UW",
+  runId: "...", industry: "healthcare", industryLabel: "Healthcare (UW)",
+  university: "UW",
   careers: ["Nurse Practitioner", "Clinical Data Analyst", "Health Policy Analyst"],
   catalogPages: [{ dept: "Nursing", url: "https://.../nursing/", parser: "llm" }],
   companies: [{ slug: "examplehealth", source: "greenhouse", orgType: "Hospital" }]
