@@ -34,6 +34,22 @@ const FADE_K = 0.35; // how fast contrast sharpens per extra selection
 const FADE_THRESHOLD = 0.15; // relative-emphasis floor below which a career fades
 const SPECIALIZATION_AT = 0.6; // absolute strength at/above which a career is a specialization
 
+// Crowding-out layer: doors can CLOSE, not just fade, so the open count is
+// non-monotone - a senior's committal stack narrows options the way real
+// specialization does. Two ingredients, both deliberate:
+//   - Only COMMITTAL picks (3000-level courses, internships; strength >=
+//     COMMITTAL_STRENGTH) count toward the closing gate, so no quantity of
+//     broad intros ever closes anything. Breadth keeps doors open by design.
+//   - Once committal commitment passes CLOSE_FREE_COMMITMENT, a reached career
+//     whose gamma-sharpened leader-relative emphasis falls below
+//     CLOSE_EMPHASIS is CROWDED OUT (tier "closed"). Reusing the emphasis
+//     signal keeps one normalization for fade and close (leader-relative, so
+//     it is invariant to how many careers a catalog has), and it reopens
+//     honestly: add support for the career and its emphasis recovers.
+const COMMITTAL_STRENGTH = 0.85; // picks at/above this strength commit
+const CLOSE_FREE_COMMITMENT = 2.5; // committal sum below which nothing closes (~3 advanced courses)
+const CLOSE_EMPHASIS = 1e-3; // emphasis floor below which a reached career is crowded out
+
 // Heat ramp endpoints (mirror --color-accent cool end and --color-hot warm end).
 const HEAT_COOL = { r: 0x5e, g: 0xb3, b: 0xd6 };
 const HEAT_HOT = { r: 0xe8, g: 0xa0, b: 0x4b };
@@ -198,6 +214,14 @@ export function analyze(selectedIds, catalog) {
   // converged and marginal careers widens, so marginal ones fade.
   const gamma = 1 + FADE_K * Math.max(0, n - 1);
 
+  // Committal commitment: how much of the stack is advanced/experience picks.
+  // Intros never contribute, so breadth alone can never trigger closing.
+  const committal = inputs.reduce((sum, input) => {
+    const w = inputStrength(input);
+    return w >= COMMITTAL_STRENGTH ? sum + w : sum;
+  }, 0);
+  const closingActive = committal > CLOSE_FREE_COMMITMENT;
+
   const careers = new Map();
   raw.forEach((v, careerId) => {
     const strength = maxSupport > 0 ? clamp(v.support / STRONG_REF, 0, 1) : 0;
@@ -205,8 +229,13 @@ export function analyze(selectedIds, catalog) {
     const emphasis = Math.pow(rel, gamma);
     // Fade only once there is a stack to contrast against (n > 1).
     const faded = n > 1 && emphasis < FADE_THRESHOLD;
+    // Crowded out: the stack has committed hard elsewhere and this reached
+    // career has fallen far behind the leaders. Closed is a subset of faded;
+    // it reopens if later picks bring its support (hence emphasis) back up.
+    const closed = closingActive && emphasis < CLOSE_EMPHASIS;
     let tier;
-    if (faded) tier = "fading";
+    if (closed) tier = "closed";
+    else if (faded) tier = "fading";
     else if (strength >= SPECIALIZATION_AT) tier = "specialization";
     else tier = "open";
     careers.set(careerId, {
@@ -215,24 +244,28 @@ export function analyze(selectedIds, catalog) {
       strength,
       rel,
       emphasis,
-      faded,
+      faded: faded || closed,
+      closed,
       tier,
     });
   });
 
-  return { careers, selectedCount: n, maxSupport, gamma };
+  return { careers, selectedCount: n, maxSupport, gamma, committal, closingActive };
 }
 
 /**
- * summarize(analysis, careers) -> { open, specializations, fadingCount, top }
- * Headline figures for the summary band: how many paths are reachable, the
- * specialization names (strongest first), how many are fading, and the single
- * most-supported career.
+ * summarize(analysis, careers) -> { open, specializations, fadingCount,
+ *   closedCount, top }
+ * Headline figures for the summary band. `open` counts reached careers that
+ * are NOT crowded out, so it is deliberately non-monotone: early breadth grows
+ * it, a committal senior stack narrows it. `closedCount` reports the crowded-
+ * out doors; fading counts de-emphasised-but-open paths only.
  */
 export function summarize(analysis, careers) {
   const list = Array.isArray(careers) ? careers : [];
   const specs = [];
   let fadingCount = 0;
+  let closedCount = 0;
   let top = null;
 
   list.forEach((career) => {
@@ -241,12 +274,19 @@ export function summarize(analysis, careers) {
     if (info.tier === "specialization") {
       specs.push({ id: career.id, name: career.name, strength: info.strength });
     }
-    if (info.faded) fadingCount += 1;
+    if (info.closed) closedCount += 1;
+    else if (info.faded) fadingCount += 1;
     if (top === null || info.support > top.support) {
       top = { id: career.id, name: career.name, support: info.support };
     }
   });
 
   specs.sort((a, b) => b.strength - a.strength);
-  return { open: analysis.careers.size, specializations: specs, fadingCount, top };
+  return {
+    open: analysis.careers.size - closedCount,
+    specializations: specs,
+    fadingCount,
+    closedCount,
+    top,
+  };
 }

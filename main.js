@@ -48,7 +48,7 @@ function update() {
 }
 
 function updateSummary(analysis) {
-  const { open, specializations, fadingCount } = summarize(analysis, catalog.CAREERS);
+  const { open, specializations, fadingCount, closedCount } = summarize(analysis, catalog.CAREERS);
 
   const countEl = document.getElementById("open-count");
   if (countEl) countEl.textContent = String(open);
@@ -73,6 +73,9 @@ function updateSummary(analysis) {
   tail.push(specializations.length === 1 ? "1 strongly viable" : `${specializations.length} strongly viable`);
   if (fadingCount > 0) {
     tail.push(`${fadingCount} fading as you specialize`);
+  }
+  if (closedCount > 0) {
+    tail.push(`${closedCount} crowded out by your specialization`);
   }
   detail.textContent = `${parts[0]}. ${open} paths reachable, ${tail.join(", ")}.`;
 }

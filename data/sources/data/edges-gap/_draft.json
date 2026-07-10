@@ -39,9 +39,7 @@
         "mit-18-404",
         "mnc-software-engineer-intern"
       ],
-      "edgesTrimmedForBalance": 10,
       "inferredEdges": 11,
-      "judgedEdges": 23,
       "unsupportedCareers": [
         "analytics-engineer"
       ],
@@ -534,8 +532,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "ml-engineer"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -545,18 +542,8 @@
             "classical statistical inference"
           ],
           "distinctive": true
-        },
-        "ml-engineer": {
-          "confidence": 0.5,
-          "inferred": true,
-          "judged": true,
-          "rationale": "MIT's own ML sequence (6.3900, 6.C011) lists 6.3700 as a prerequisite; probability foundations are explicitly in the ML engineer skill pool.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "ml-engineer"
-      ]
+      }
     },
     {
       "id": "mit-6-c35-j",
@@ -582,8 +569,7 @@
         }
       ],
       "destinations": [
-        "bi-analyst",
-        "data-analyst"
+        "bi-analyst"
       ],
       "edges": {
         "bi-analyst": {
@@ -593,18 +579,8 @@
             "data analysis for visualization"
           ],
           "distinctive": true
-        },
-        "data-analyst": {
-          "confidence": 0.65,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Designing visualizations and communicating insights from real-world datasets is the analyst's dashboard-and-reporting core.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-analyst"
-      ]
+      }
     },
     {
       "id": "mit-6-100b",
@@ -629,8 +605,7 @@
         }
       ],
       "destinations": [
-        "or-analyst",
-        "data-scientist"
+        "or-analyst"
       ],
       "edges": {
         "or-analyst": {
@@ -640,18 +615,8 @@
             "simulation modeling"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.6,
-          "inferred": true,
-          "judged": true,
-          "rationale": "An intro data-science course in Python covering statistical and simulation modeling is a standard first step toward data science.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-6-1830",
@@ -830,7 +795,8 @@
         }
       ],
       "destinations": [
-        "ml-engineer"
+        "ml-engineer",
+        "data-scientist"
       ],
       "edges": {
         "ml-engineer": {
@@ -841,8 +807,20 @@
             "supervised, unsupervised, and reinforcement learning"
           ],
           "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "ml-engineer",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with ml-engineer"
+          ]
         }
-      }
+      },
+      "inferred": [
+        "data-scientist"
+      ]
     },
     {
       "id": "mit-6-5831",
@@ -914,8 +892,7 @@
         }
       ],
       "destinations": [
-        "ml-engineer",
-        "data-scientist"
+        "ml-engineer"
       ],
       "edges": {
         "ml-engineer": {
@@ -925,18 +902,8 @@
             "robustness and interpretability analysis"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.55,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Framing tasks as ML problems and interpreting results with robustness/fairness analysis is modeling work data scientists do daily.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-14-30",
@@ -963,8 +930,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "data-analyst"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -973,18 +939,8 @@
             "statistical estimation and inference"
           ],
           "distinctive": true
-        },
-        "data-analyst": {
-          "confidence": 0.45,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Regression and applied data analysis on real datasets support the analyst's experiment-support and metric-analysis work.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-analyst"
-      ]
+      }
     },
     {
       "id": "mit-14-32",
@@ -1011,8 +967,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "data-scientist"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -1022,18 +977,8 @@
             "regression analysis for causal inference"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.6,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Randomized-experiment analysis, IV, and diff-in-diff are exactly the causal-inference toolkit tech data scientists use for experimentation.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-14-36",
@@ -1060,8 +1005,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "data-scientist"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -1071,18 +1015,8 @@
             "regression discontinuity design"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.55,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Advanced causal methods plus ML applications in econometrics map onto the data scientist's modeling and experiment-analysis scope.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-14-38",
@@ -1167,8 +1101,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "data-scientist"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -1178,18 +1111,8 @@
             "empirical Bayes methods"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.6,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Data-driven decision-making in high-dimensional settings with Bayesian methods in R/Python is core industry data-science practice.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-14-c395j",
@@ -1214,8 +1137,7 @@
         }
       ],
       "destinations": [
-        "ml-engineer",
-        "data-scientist"
+        "ml-engineer"
       ],
       "edges": {
         "ml-engineer": {
@@ -1225,18 +1147,8 @@
             "designing machine learning and AI algorithms for decision support"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.55,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Building reliable ML solutions for decision support on high-impact applied problems is data-science work as much as ML engineering.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-15-0341",
@@ -1263,8 +1175,7 @@
       ],
       "destinations": [
         "statistician",
-        "data-scientist",
-        "data-analyst"
+        "data-scientist"
       ],
       "edges": {
         "statistician": {
@@ -1282,18 +1193,8 @@
             "LASSO and neural networks"
           ],
           "distinctive": true
-        },
-        "data-analyst": {
-          "confidence": 0.6,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Designing business experiments and reading causal effects is the analyst's A/B-testing and experiment-support skill, a distinctive analyst skill in this dataset.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-analyst"
-      ]
+      }
     },
     {
       "id": "mit-15-069",
@@ -1319,8 +1220,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "or-analyst"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -1330,18 +1230,8 @@
             "statistical sampling"
           ],
           "distinctive": true
-        },
-        "or-analyst": {
-          "confidence": 0.45,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Probability and simulation are the mathematical base of OR modeling; the course explicitly introduces simulation.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "or-analyst"
-      ]
+      }
     },
     {
       "id": "mit-15-076",
@@ -1684,8 +1574,7 @@
         }
       ],
       "destinations": [
-        "statistician",
-        "data-scientist"
+        "statistician"
       ],
       "edges": {
         "statistician": {
@@ -1695,18 +1584,8 @@
             "observational study design"
           ],
           "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.6,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Causal inference with real data in Python/R, contrasted with ML, is core experimentation work on industry data-science teams.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "data-scientist"
-      ]
+      }
     },
     {
       "id": "mit-15-c571j",
@@ -1732,8 +1611,7 @@
         }
       ],
       "destinations": [
-        "or-analyst",
-        "ml-engineer"
+        "or-analyst"
       ],
       "edges": {
         "or-analyst": {
@@ -1745,18 +1623,8 @@
             "optimization algorithm design"
           ],
           "distinctive": true
-        },
-        "ml-engineer": {
-          "confidence": 0.45,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Optimization theory and algorithm design (including optimization under uncertainty) underpin how ML models are trained and tuned.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "ml-engineer"
-      ]
+      }
     },
     {
       "id": "mit-18-05",
@@ -1784,7 +1652,7 @@
       ],
       "destinations": [
         "statistician",
-        "data-analyst"
+        "data-scientist"
       ],
       "edges": {
         "statistician": {
@@ -1797,17 +1665,14 @@
           ],
           "distinctive": true
         },
-        "data-analyst": {
+        "data-scientist": {
           "confidence": 0.5,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Using R to simulate, analyze, and visualize data plus regression and hypothesis testing supports the analyst's day-to-day analysis work.",
-          "matchedSkills": []
+          "matchedSkills": [
+            "using R to simulate, analyze, and visualize data"
+          ],
+          "distinctive": true
         }
-      },
-      "inferred": [
-        "data-analyst"
-      ]
+      }
     },
     {
       "id": "mit-18-06",
@@ -1834,8 +1699,7 @@
         }
       ],
       "destinations": [
-        "ml-engineer",
-        "or-analyst"
+        "ml-engineer"
       ],
       "edges": {
         "ml-engineer": {
@@ -1845,18 +1709,8 @@
             "eigenvalues and singular value decomposition"
           ],
           "distinctive": true
-        },
-        "or-analyst": {
-          "confidence": 0.45,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Matrix methods and linear algebra software are the working substrate of linear programming and network models in OR.",
-          "matchedSkills": []
         }
-      },
-      "inferred": [
-        "or-analyst"
-      ]
+      }
     },
     {
       "id": "mit-18-600",

@@ -275,6 +275,31 @@ the Data run) without fabricating grounded claims; `meta.flags.inferredEdges`
 and `inferenceOnlyCareers` disclose their extent. Toggle with
 `args.inferAdjacency` (default on).
 
+### Judgment tier 2: user-intuition gap review
+
+Evidence-grounded edge inference plus adjacency still leaves gaps a user feels
+immediately: a Level 1000 "Introduction to Probability" opening exactly one
+career contradicts the product's premise that broad early choices open many
+doors. The structural cause is the distinctive-skill rule — it prevents
+generic-skill saturation, but it also under-connects *foundational* courses,
+whose value to several careers flows through skills that are distinctive to
+none of them.
+
+The **Gaps phase** repairs this with the same honest judgment machinery:
+detection is deterministic (`scripts/report-gaps.mjs` flags inputs below their
+level's expected breadth — 1000: 3+, 2000/3000/internship: 2+ — and careers
+with fewer than 3 supporters), and only the repair is an LLM call. The
+gap-review agent proposes additional input→career edges under an explicit bar
+("would both an undergrad and their advisor nod?"), with modest confidence
+(0.4–0.7) and a one-line rationale each. The assembler enforces the floor, a
+hard cap of 2 judged edges per input, dedupe against existing edges, and the
+distributional balance gates — so intuition is repaired without reopening
+saturation. Judged edges ship as the inferred tier (drawn softer, labeled
+judgment-based in the panel, counted in `meta.flags.judgedEdges` with
+rationales preserved in `edges-gap/judged.json`). A genuinely narrow course is
+allowed to stay narrow; the agent reports what it left alone. Toggle with
+`args.reviewGaps` (default on).
+
 ### Cost tiering and reuse across industries
 
 Per-stage model/effort tiers keep the fan-out affordable: mechanical stages

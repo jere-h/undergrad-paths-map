@@ -445,13 +445,22 @@ img, svg, video, canvas {
 
 /* A path that has fallen behind your stronger ones recedes (and drops its label
    below) so adding more selections focuses the map rather than cluttering it. */
+/* Crowded out: dimmer than fading, hollow ring, never labeled at rest. The
+   door is closed by the current specialization, not erased from the map. */
+.node-career.tier-closed circle {
+  fill: transparent;
+  stroke: var(--color-line);
+  stroke-dasharray: 2 3;
+  opacity: 0.55;
+}
+
 .node-career.tier-fading {
   opacity: 0.4;
 }
 
 /* Career labels show for open/specialization paths, or on hover / focus. Fading
    and closed paths stay unlabeled to keep the constellation legible. */
-.node-career.is-open:not(.tier-fading) .node-label,
+.node-career.is-open:not(.tier-fading):not(.tier-closed) .node-label,
 .node-career:hover .node-label,
 .node-career:focus .node-label,
 .node-career:focus-visible .node-label {

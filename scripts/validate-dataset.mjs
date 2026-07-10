@@ -15,6 +15,7 @@
 // Exits 0 with a PASS report, or 1 with every failure listed.
 
 import { readFileSync } from "node:fs";
+import { analyze, summarize, allInputs, edgeStrength } from "../score.js";
 
 // Rendered link strength rises 1000 -> 2000 -> 3000 -> internship, so the
 // confidence bar rises with it: an internship edge draws as the boldest line
@@ -56,6 +57,50 @@ export function jaccard(a, b) {
   const inter = [...sa].filter((x) => sb.has(x)).length;
   const union = new Set([...sa, ...sb]).size;
   return union === 0 ? 0 : inter / union;
+}
+
+// Senior-narrowing simulation: a dataset must SHAPE-wise support the product's
+// story - breadth opens doors, a committal senior stack narrows them. Both
+// checks are deterministic and run on the dataset itself via the real scoring
+// model. Skipped for tiny career sets, where narrowing has no room to show.
+export const NARROWING = { minCareers: 6, stackSize: 12 };
+
+export function simulateNarrowing(ds) {
+  const catalog = { CAREERS: ds.careers || [], COURSES: ds.courses || [], INTERNSHIPS: ds.internships || [] };
+  const inputs = allInputs(catalog);
+
+  // Breadth check: every 1000-level course selected at once must close nothing.
+  const intros = inputs.filter((i) => i.level === 1000).map((i) => i.id);
+  const breadth = summarize(analyze(intros, catalog), catalog.CAREERS);
+
+  // Greedy committal stack toward the most-supported career. Deterministic by
+  // construction: target = max summed edgeStrength (ties by id); candidates =
+  // inputs reaching the target, sorted by strength desc then id asc; take
+  // min(stackSize, all).
+  const supportOf = new Map(catalog.CAREERS.map((c) => [c.id, 0]));
+  for (const i of inputs)
+    for (const d of i.destinations) if (supportOf.has(d)) supportOf.set(d, supportOf.get(d) + edgeStrength(i, d));
+  const target = [...supportOf.entries()].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]?.[0];
+  const stack = inputs
+    .filter((i) => i.destinations.includes(target))
+    .sort((a, b) => edgeStrength(b, target) - edgeStrength(a, target) || (a.id < b.id ? -1 : 1))
+    .slice(0, NARROWING.stackSize)
+    .map((i) => i.id);
+
+  const opens = [];
+  let final = null;
+  for (let k = 1; k <= stack.length; k++) {
+    final = summarize(analyze(stack.slice(0, k), catalog), catalog.CAREERS);
+    opens.push(final.open);
+  }
+  return {
+    target,
+    stack,
+    breadthClosed: breadth.closedCount,
+    peakOpen: opens.length ? Math.max(...opens) : 0,
+    finalOpen: final ? final.open : 0,
+    finalClosed: final ? final.closedCount : 0,
+  };
 }
 
 export function validateDataset(ds, { pilot = false } = {}) {
@@ -133,12 +178,17 @@ export function validateDataset(ds, { pilot = false } = {}) {
       }
       if (edge.inferred) {
         // Judgment tier: softer bar, no distinctive-skill requirement, but must
-        // trace to a source career this input also directly reaches.
+        // be traceable - either to a source career this input directly reaches
+        // (adjacency) or to an explicit gap-review rationale (judged).
         if (!(edge.confidence >= INFERENCE.floor))
           err(`${input.id} -> ${d}: inferred confidence ${edge.confidence} below inference floor ${INFERENCE.floor}`);
-        if (!edge.via) err(`${input.id} -> ${d}: inferred edge missing "via" source career`);
-        else if (!(input.destinations || []).includes(edge.via))
+        if (edge.judged) {
+          if (!edge.rationale) err(`${input.id} -> ${d}: judged edge missing rationale`);
+        } else if (!edge.via) {
+          err(`${input.id} -> ${d}: inferred edge missing "via" source career (or judged rationale)`);
+        } else if (!(input.destinations || []).includes(edge.via)) {
           err(`${input.id} -> ${d}: inferred via ${edge.via}, which this input does not directly reach`);
+        }
         continue;
       }
       if (!(edge.confidence >= floor))
@@ -212,6 +262,23 @@ export function validateDataset(ds, { pilot = false } = {}) {
         err(
           `internship ${i.id}: postings from ${companies.size} company(ies); need ${GATES.minCompaniesPerInternship}+`
         );
+    }
+
+    // Senior-narrowing shape gates: breadth must never close a door, and the
+    // greedy committal stack must produce an open-then-narrow arc.
+    if (careers.length >= NARROWING.minCareers) {
+      const sim = simulateNarrowing(ds);
+      warnings.push(
+        `narrowing simulation (target ${sim.target}): breadth closes ${sim.breadthClosed}; senior stack peaks ${sim.peakOpen} open, ends ${sim.finalOpen} open / ${sim.finalClosed} crowded out`
+      );
+      if (sim.breadthClosed > 0)
+        err(`narrowing: selecting every 1000-level course closes ${sim.breadthClosed} career(s); breadth must never close doors`);
+      if (!(sim.peakOpen > sim.finalOpen))
+        err(`narrowing: the committal senior stack never narrows (peak ${sim.peakOpen} open vs final ${sim.finalOpen}); the dataset cannot tell the open-then-specialize story`);
+      if (sim.finalClosed < 1)
+        err(`narrowing: the senior stack crowds out nothing; specialization has no cost in this dataset`);
+      if (sim.finalOpen < 2)
+        err(`narrowing: the senior stack leaves fewer than 2 careers open; closing is over-aggressive for this dataset`);
     }
   }
 

@@ -244,14 +244,15 @@ export function applyState(selectedIds, analysis) {
   document.querySelectorAll(".node-career").forEach((node) => {
     const info = careers.get(node.dataset.id);
     const circle = node.querySelector("circle:not(.hit)");
-    node.classList.remove("is-open", "is-dim", "tier-specialization", "tier-open", "tier-fading");
+    node.classList.remove("is-open", "is-dim", "tier-specialization", "tier-open", "tier-fading", "tier-closed");
 
     if (info) {
       node.classList.add("is-open", `tier-${info.tier}`);
       if (circle) {
-        circle.style.fill = heatColor(info.strength);
+        // Crowded-out careers shrink harder than faded ones and lose their heat.
+        circle.style.fill = info.closed ? "" : heatColor(info.strength);
         const base = 8 + Math.round(info.strength * 12);
-        circle.setAttribute("r", String(info.faded ? Math.round(base * 0.6) : base));
+        circle.setAttribute("r", String(info.closed ? 5 : info.faded ? Math.round(base * 0.6) : base));
       }
     } else {
       node.classList.add("is-dim");
@@ -295,6 +296,10 @@ export function openCareerPanel(career, info, contributors, allReachers) {
       status.textContent = "Not open yet by your current choices.";
     } else if (info.tier === "specialization") {
       status.textContent = `A strong specialization right now, opened by ${labelCount(contributors.length)}.`;
+    } else if (info.tier === "closed") {
+      status.textContent =
+        "Crowded out by your current specialization: your committed picks point elsewhere. " +
+        "Not gone for good, but reopening it would take choices that lead here.";
     } else if (info.tier === "fading") {
       status.textContent = `Reachable, but fading behind your stronger paths. Opened by ${labelCount(contributors.length)}.`;
     } else {
@@ -337,10 +342,11 @@ export function openCareerPanel(career, info, contributors, allReachers) {
     const group = document.createElement("span");
     group.className = "muted";
     const isActive = contributors.some((c) => c.id === reacher.id);
-    // An inferred reacher opens this career via scope overlap, not a direct
-    // skill match; label it so the softer link is explained, not mysterious.
-    const viaOverlap = reacher.inferred && reacher.inferred.has(career.id);
-    const suffix = viaOverlap ? " (scope overlap)" : "";
+    // An inferred reacher opens this career by judgment (career scope overlap
+    // or gap review), not a direct skill match; label it so the softer link is
+    // explained, not mysterious.
+    const viaJudgment = reacher.inferred && reacher.inferred.has(career.id);
+    const suffix = viaJudgment ? " (judgment-based)" : "";
     group.textContent = (isActive ? `${reacher.group}, selected` : reacher.group) + suffix;
     li.append(name, group);
     list.appendChild(li);

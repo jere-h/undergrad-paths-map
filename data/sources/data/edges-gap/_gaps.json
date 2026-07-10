@@ -1,0 +1,418 @@
+{
+  "sparseInputs": [
+    {
+      "id": "mit-6-3700",
+      "kind": "course",
+      "level": 1000,
+      "name": "Introduction to Probability",
+      "skills": [
+        "probabilistic modeling",
+        "conditional probability and expectation",
+        "limit theorems",
+        "Bayesian estimation and hypothesis testing",
+        "classical statistical inference",
+        "Markov chains"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-6-c35-j",
+      "kind": "course",
+      "level": 1000,
+      "name": "Interactive Data Visualization and Society",
+      "skills": [
+        "data visualization design",
+        "data analysis for visualization",
+        "coding for visualization tools",
+        "ethical considerations in visualization",
+        "communicating insights from big data",
+        "working with real-world datasets"
+      ],
+      "destinations": [
+        "bi-analyst"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-6-100b",
+      "kind": "course",
+      "level": 2000,
+      "name": "Introduction to Computational Thinking and Data Science",
+      "skills": [
+        "computational modeling",
+        "optimization problems",
+        "simulation modeling",
+        "statistical modeling",
+        "Python programming for data analysis"
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-6-c011",
+      "kind": "course",
+      "level": 3000,
+      "name": "Modeling with Machine Learning for Computer Science",
+      "skills": [
+        "engineering task framing as ML problems",
+        "method design and interpretation of results",
+        "robustness and interpretability analysis",
+        "fairness evaluation in ML systems",
+        "recommender system design",
+        "automated design via machine learning"
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-14-30",
+      "kind": "course",
+      "level": 1000,
+      "name": "Introduction to Statistical Methods in Economics",
+      "skills": [
+        "probability theory",
+        "statistical estimation and inference",
+        "regression analysis",
+        "causal inference",
+        "program evaluation",
+        "applied data analysis"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-14-32",
+      "kind": "course",
+      "level": 2000,
+      "name": "Econometric Data Science",
+      "skills": [
+        "regression analysis for causal inference",
+        "analyzing randomized experiments",
+        "instrumental variables methods",
+        "regression discontinuity design",
+        "differences-in-differences estimation",
+        "time series regression",
+        "statistical programming"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-14-36",
+      "kind": "course",
+      "level": 3000,
+      "name": "Advanced Econometrics",
+      "skills": [
+        "advanced regression methods for causal questions",
+        "machine learning applications in econometrics",
+        "instrumental variables estimation",
+        "differences-in-differences and event-study modeling",
+        "regression discontinuity design",
+        "synthetic control methods",
+        "statistical inference"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-14-39",
+      "kind": "course",
+      "level": 3000,
+      "name": "Large-Scale Decision-Making and Inference",
+      "skills": [
+        "data-driven decision-making in high-dimensional environments",
+        "statistical decision theory",
+        "Bayesian inference methods",
+        "empirical Bayes methods",
+        "false discovery rate analysis",
+        "R or Python programming for statistical analysis"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-14-c395j",
+      "kind": "course",
+      "level": 3000,
+      "name": "Algorithmic and Human Decision-Making (New)",
+      "skills": [
+        "designing machine learning and AI algorithms for decision support",
+        "statistical ML frameworks",
+        "integrating behavioral economics with ML models",
+        "identifying high-impact applied problems",
+        "building effective and reliable ML solutions"
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-15-0341",
+      "kind": "course",
+      "level": 1000,
+      "name": "Business Experiments and Causal Analytics",
+      "skills": [
+        "designing experiments",
+        "causal inference from natural experiments",
+        "multivariate regression",
+        "instrumental-variable regression",
+        "regression trees and random forest",
+        "LASSO and neural networks"
+      ],
+      "destinations": [
+        "statistician",
+        "data-scientist"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-15-069",
+      "kind": "course",
+      "level": 1000,
+      "name": "Applied Probability and Statistics",
+      "skills": [
+        "probability theory and random variables",
+        "simulation",
+        "hypothesis testing",
+        "statistical sampling",
+        "regression analysis"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-15-780",
+      "kind": "course",
+      "level": 2000,
+      "name": "Analytics of Operations Management",
+      "skills": [
+        "data-driven modeling",
+        "machine learning for operations",
+        "time series forecasting",
+        "dynamic programming",
+        "stochastic optimization",
+        "multi-armed bandits"
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-15-053",
+      "kind": "course",
+      "level": 3000,
+      "name": "Optimization Methods in Business Analytics",
+      "skills": [
+        "linear programming",
+        "network optimization",
+        "integer programming",
+        "nonlinear programming",
+        "optimization heuristics",
+        "modeling optimization problems for logistics/finance/marketing"
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-15-c08j",
+      "kind": "course",
+      "level": 3000,
+      "name": "Causal Inference",
+      "skills": [
+        "potential outcomes framework",
+        "causal graphs",
+        "randomized controlled trials",
+        "observational study design",
+        "instrumental variable estimation",
+        "contrasting causal inference with machine learning"
+      ],
+      "destinations": [
+        "statistician"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-15-c571j",
+      "kind": "course",
+      "level": 3000,
+      "name": "Optimization Methods",
+      "skills": [
+        "linear optimization and duality",
+        "non-linear and integer optimization",
+        "optimization under uncertainty",
+        "optimization algorithm design",
+        "modeling techniques for practical problems",
+        "JuMP/Julia computational exercises"
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "mit-18-05",
+      "kind": "course",
+      "level": 1000,
+      "name": "Introduction to Probability and Statistics",
+      "skills": [
+        "probability & Bayesian inference",
+        "hypothesis testing & confidence intervals",
+        "bootstrapping",
+        "regression",
+        "using R to simulate, analyze, and visualize data",
+        "statistical thinking about privacy, fairness, and causality"
+      ],
+      "destinations": [
+        "statistician",
+        "data-scientist"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-18-06",
+      "kind": "course",
+      "level": 1000,
+      "name": "Linear Algebra",
+      "skills": [
+        "matrix theory & linear algebra",
+        "eigenvalues and singular value decomposition",
+        "least-squares approximations",
+        "Markov processes",
+        "Fourier transforms",
+        "using linear algebra software"
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-18-600",
+      "kind": "course",
+      "level": 1000,
+      "name": "Probability and Random Variables",
+      "skills": [
+        "probability spaces & random variables",
+        "modeling with standard distributions (binomial, Poisson, normal, etc.)",
+        "conditional probability & Bayes theorem",
+        "joint distributions",
+        "law of large numbers & central limit theorem"
+      ],
+      "destinations": [
+        "statistician",
+        "ml-engineer"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-18-c06-j",
+      "kind": "course",
+      "level": 1000,
+      "name": "Linear Algebra and Optimization",
+      "skills": [
+        "linear algebra fundamentals (vectors, matrices, eigenvalues, SVD)",
+        "least squares",
+        "convex optimization",
+        "linear/quadratic programming",
+        "gradient descent",
+        "regularization",
+        "extracting structure from data"
+      ],
+      "destinations": [
+        "ml-engineer",
+        "or-analyst"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "mit-18-453",
+      "kind": "course",
+      "level": 2000,
+      "name": "Combinatorial Optimization",
+      "skills": [
+        "linear programming",
+        "matching theory",
+        "network flow",
+        "matroid optimization",
+        "handling NP-hard optimization problems"
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "expected": 2
+    }
+  ],
+  "sparseCareers": [
+    {
+      "id": "data-architect",
+      "name": "Data Architect",
+      "supporters": [
+        "mit-6-1830",
+        "mit-6-5831"
+      ]
+    },
+    {
+      "id": "data-engineer",
+      "name": "Data Engineer",
+      "supporters": [
+        "mit-6-1830",
+        "mit-6-5831"
+      ]
+    }
+  ],
+  "careers": [
+    {
+      "id": "bi-analyst",
+      "name": "Business Intelligence Analyst"
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst"
+    },
+    {
+      "id": "data-architect",
+      "name": "Data Architect"
+    },
+    {
+      "id": "data-engineer",
+      "name": "Data Engineer"
+    },
+    {
+      "id": "data-scientist",
+      "name": "Data Scientist"
+    },
+    {
+      "id": "ml-engineer",
+      "name": "Machine Learning Engineer"
+    },
+    {
+      "id": "or-analyst",
+      "name": "Operations Research Analyst"
+    },
+    {
+      "id": "statistician",
+      "name": "Statistician"
+    }
+  ]
+}
