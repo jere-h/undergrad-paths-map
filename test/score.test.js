@@ -150,7 +150,8 @@ test("analyze: adding an overlapping qualification sharpens contrast", () => {
 test("summarize reports reachable, specialization and fading counts", () => {
   const a = analyze(["cs101", "stats101", "ml301", "mnc-data"], catalog);
   const s = summarize(a, CAREERS);
-  assert.equal(s.open, a.careers.size);
+  assert.equal(s.open, a.careers.size - s.closedCount);
+  assert.equal(s.closedCount, 0, "a 4-pick sophomore stack closes nothing");
   assert.ok(s.specializations.length >= 1);
   assert.ok(s.fadingCount >= 1);
   assert.ok(s.top && s.top.support > 0);
@@ -159,6 +160,48 @@ test("summarize reports reachable, specialization and fading counts", () => {
   assert.equal(empty.open, 0);
   assert.equal(empty.specializations.length, 0);
   assert.equal(empty.top, null);
+});
+
+test("crowding out: breadth never closes doors, a committal senior stack narrows them", () => {
+  // Every 1000-level intro in the fixture: maximal breadth, zero closing.
+  const intros = allInputs(catalog).filter((i) => i.level === 1000).map((i) => i.id);
+  const breadth = summarize(analyze(intros, catalog), CAREERS);
+  assert.equal(breadth.closedCount, 0, "no quantity of intros ever closes a door");
+
+  // A CS-leaning 4-year accumulation: open count must rise, then NARROW.
+  const journey = ["cs101", "stats101", "econ101", "psych101", "ds201", "db201",
+    "ml301", "systems", "mnc-swe", "st-founding-eng"];
+  const opens = [];
+  for (let k = 1; k <= journey.length; k++) {
+    opens.push(summarize(analyze(journey.slice(0, k), catalog), CAREERS).open);
+  }
+  const final = summarize(analyze(journey, catalog), CAREERS);
+  assert.ok(Math.max(...opens) > opens[opens.length - 1], "open count is non-monotone: specialization narrows");
+  assert.ok(final.closedCount >= 1, "the senior stack crowds out at least one career");
+  assert.ok(final.open >= 2, "narrowing never closes everything");
+  // Closed careers are a subset of faded, carry the closed tier, and are
+  // excluded from the open headline.
+  const a = analyze(journey, catalog);
+  a.careers.forEach((info) => {
+    if (info.closed) {
+      assert.equal(info.tier, "closed");
+      assert.equal(info.faded, true);
+    }
+  });
+  assert.equal(final.open, a.careers.size - final.closedCount);
+});
+
+test("crowding out: a closed door reopens when later picks support it", () => {
+  const journey = ["cs101", "stats101", "ds201", "ml301", "systems", "mnc-swe", "st-founding-eng"];
+  const before = analyze(journey, catalog);
+  const closedId = [...before.careers.entries()].find(([, info]) => info.closed)?.[0];
+  assert.ok(closedId, "the committal stack closes something to reopen");
+  // Add inputs that reach the closed career: emphasis recovers, door reopens.
+  const supporters = allInputs(catalog)
+    .filter((i) => i.destinations.includes(closedId) && !journey.includes(i.id))
+    .map((i) => i.id);
+  const after = analyze([...journey, ...supporters], catalog);
+  assert.equal(after.careers.get(closedId).closed, false, "support reopens a crowded-out career");
 });
 
 test("catalog integrity: ids unique and every destination resolves", () => {

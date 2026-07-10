@@ -541,3 +541,30 @@ test("register-catalog upsert replaces by id and renders importable JS", async (
   const mod = await import(`data:text/javascript,${encodeURIComponent(renderRegistry(replaced))}`);
   assert.deepEqual(mod.CATALOGS.map((c) => c.id), ["illustrative", "health"]);
 });
+
+// ---------- senior-narrowing simulation ----------
+
+test("simulateNarrowing: fixture shows the open-then-narrow arc; all-intro datasets cannot narrow", async () => {
+  const { simulateNarrowing } = await import("../scripts/validate-dataset.mjs");
+  const fix = await import("../test/fixtures/catalog.js");
+  const sim = simulateNarrowing({
+    careers: fix.CAREERS,
+    courses: fix.COURSES,
+    internships: fix.INTERNSHIPS,
+  });
+  assert.equal(sim.breadthClosed, 0, "breadth closes nothing");
+  assert.ok(sim.peakOpen > sim.finalOpen, "committal stack narrows from its peak");
+  assert.ok(sim.finalClosed >= 1, "specialization has a cost");
+  assert.ok(sim.finalOpen >= 2, "narrowing is not annihilation");
+  assert.ok(Array.isArray(sim.stack) && sim.stack.length > 0 && sim.target, "deterministic stack + target");
+
+  // A dataset with only intro courses can never trigger closing - the gate
+  // (finalClosed >= 1) would correctly fail it on a full run.
+  const flat = simulateNarrowing({
+    careers: fix.CAREERS,
+    courses: fix.COURSES.filter((c) => c.level === 1000),
+    internships: [],
+  });
+  assert.equal(flat.finalClosed, 0);
+  assert.equal(flat.breadthClosed, 0);
+});

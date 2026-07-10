@@ -24,6 +24,13 @@ paths burn bright.
   Level 1000 intro draws thin dotted threads to its many fields; a Level 3000
   course or an internship draws bold solid lines to its few. (Strength: 1000 <
   2000 < 3000 < internship.)
+- **Doors can close:** the open-paths count is deliberately non-monotone.
+  Broad intro courses never close anything, but once a stack accumulates real
+  commitment (3000-level courses, internships), careers that have fallen far
+  behind your leaders are **crowded out** — shown as dim hollow rings and
+  counted separately, mirroring how a senior's specialization narrows options.
+  Crowded-out is not gone: picks that lead there reopen it. (Design and
+  review history: `docs/narrowing-plan.md`.)
 - **Convergence, not just breadth:** a career's support is the summed strength of
   the selected inputs that reach it. Where your picks overlap, support stacks and
   that career becomes a hot, larger **specialization** with bold links. Careers
