@@ -79,6 +79,46 @@ export function collectProposals(judgeFiles) {
 // they enrich reachability without saturating or fabricating.
 export const ADJACENCY = { minWeight: INFERENCE.minWeight, damping: 0.85, floor: INFERENCE.floor, maxPerInput: 3 };
 
+// Gap-review judged edges: the second judgment tier. A gap-review agent looks
+// at the ASSEMBLED map from the app user's perspective (scripts/report-gaps.mjs
+// flags inputs opening fewer doors than their level promises, and careers with
+// dead-end-few supporters) and proposes additional input->career edges on
+// domain judgment alone - e.g. "Introduction to Probability" genuinely helps
+// toward Data Scientist even though 'probability' wasn't a distinctive skill.
+// Capped per input and floored so intuition is repaired without reopening the
+// saturation the distinctive-skill rule exists to prevent.
+export const JUDGED = { floor: INFERENCE.floor, maxPerInput: 2 };
+
+// gapFiles: [{ judged: [{ input, career, confidence, rationale }] }]
+export function mergeJudgedEdges(rows, gapFiles, careerIds, opts = JUDGED) {
+  const byInput = new Map(rows.map((r) => [r.input.id, r]));
+  const perInput = new Map();
+  let added = 0;
+  for (const f of gapFiles || []) {
+    for (const j of f.judged || []) {
+      const r = byInput.get(j.input);
+      if (!r) continue;
+      if (!careerIds.has(j.career)) continue; // judge typo: skip, report shows counts
+      if (!(j.confidence >= opts.floor)) continue;
+      if (!j.rationale) continue;
+      if (r.edges.some((e) => e.career === j.career)) continue;
+      const n = perInput.get(j.input) || 0;
+      if (n >= opts.maxPerInput) continue;
+      perInput.set(j.input, n + 1);
+      r.edges.push({
+        career: j.career,
+        confidence: Number(Number(j.confidence).toFixed(3)),
+        inferred: true,
+        judged: true,
+        rationale: j.rationale,
+        matchedSkills: [],
+      });
+      added++;
+    }
+  }
+  return added;
+}
+
 // adjacency: { pairs: [{ from, to, weight, rationale }] } (directional).
 export function propagateAdjacency(rows, adjacency, opts = ADJACENCY) {
   if (!adjacency || !Array.isArray(adjacency.pairs)) return 0;
@@ -95,8 +135,7 @@ export function propagateAdjacency(rows, adjacency, opts = ADJACENCY) {
     // Only propagate from DIRECT edges (no chaining inference off inference).
     for (const e of r.edges.filter((x) => !x.inferred)) {
       for (const a of byFrom.get(e.career) || []) {
-        const direct = have.get(a.to);
-        if (direct && !direct.inferred) continue; // never shadow a directly grounded edge
+        if (have.has(a.to)) continue; // never shadow or duplicate an existing edge (direct or judged)
         const confidence = e.confidence * a.weight * opts.damping;
         if (confidence < opts.floor) continue;
         const cur = byTarget.get(a.to);
@@ -188,6 +227,7 @@ export function assemble({
   careerFiles,
   distinctive,
   adjacency,
+  gapFiles,
   courseFiles,
   internshipFiles,
   judgeFiles,
@@ -208,9 +248,12 @@ export function assemble({
   const courseRows = courseFiles.flatMap((f) => f.courses.map((c) => rowFor(c, "course")));
   const internRows = internshipFiles.flatMap((f) => f.roles.map((r) => rowFor(r, "internship")));
 
-  // Stage 1b: judgment layer - propagate edges along career scope-overlap so
-  // arguably-true relationships surface even without direct evidence.
+  // Stage 1b: judgment layers. Gap-review judged edges merge first (they are
+  // explicit assertions about a specific input), then adjacency propagates
+  // scope-overlap edges around whatever now exists - never duplicating either.
   const balanceRows = [...courseRows, ...internRows];
+  const careerIdSet = new Set(careerFiles.map((c) => c.id));
+  const judged = mergeJudgedEdges(balanceRows, gapFiles, careerIdSet);
   const inferred = propagateAdjacency(balanceRows, adjacency);
 
   // Stage 2: balance in-degree so a few hub careers can't swallow the map
@@ -229,13 +272,15 @@ export function assemble({
     const edges = {};
     for (const e of row.edges) {
       if (e.inferred) {
-        edges[e.career] = {
-          confidence: e.confidence,
-          inferred: true,
-          via: e.via,
-          adjacencyWeight: e.adjacencyWeight,
-          matchedSkills: e.matchedSkills || [],
-        };
+        edges[e.career] = e.judged
+          ? { confidence: e.confidence, inferred: true, judged: true, rationale: e.rationale, matchedSkills: [] }
+          : {
+              confidence: e.confidence,
+              inferred: true,
+              via: e.via,
+              adjacencyWeight: e.adjacencyWeight,
+              matchedSkills: e.matchedSkills || [],
+            };
         inferredDests.push(e.career);
       } else {
         edges[e.career] = { confidence: e.confidence, matchedSkills: e.matchedSkills, distinctive: true };
@@ -271,6 +316,7 @@ export function assemble({
   if (dropped.length) flags.droppedInputs = dropped;
   if (trimmed) flags.edgesTrimmedForBalance = trimmed;
   if (inferred) flags.inferredEdges = inferred;
+  if (judged) flags.judgedEdges = judged;
   if (inferenceOnly.length) flags.inferenceOnlyCareers = inferenceOnly;
   if (unsupported.length) flags.unsupportedCareers = unsupported;
   if (distinctive && distinctive.collisions && distinctive.collisions.length)
@@ -301,6 +347,7 @@ function main() {
     careerFiles: readDir(join(sources, "careers")),
     distinctive: existsSync(distinctivePath) ? readJson(distinctivePath) : null,
     adjacency: existsSync(adjacencyPath) ? readJson(adjacencyPath) : null,
+    gapFiles: readDir(join(sources, "edges-gap")),
     courseFiles: readDir(join(sources, "courses")),
     internshipFiles: readDir(join(sources, "internships")),
     judgeFiles: readDir(join(sources, "edges-judge")),
@@ -312,6 +359,7 @@ function main() {
   console.log(
     `wrote ${out}: ${dataset.careers.length} careers, ${dataset.courses.length} courses, ${dataset.internships.length} internships` +
       (f.inferredEdges ? `; +${f.inferredEdges} inferred edges (adjacency)` : "") +
+      (f.judgedEdges ? `; +${f.judgedEdges} judged edges (gap review)` : "") +
       (f.inferenceOnlyCareers ? `; inference-only careers: ${f.inferenceOnlyCareers.join(", ")}` : "") +
       (f.droppedInputs ? `; dropped inputs (no surviving edges): ${f.droppedInputs.join(", ")}` : "") +
       (f.internshipStarved ? `; internship-starved: ${f.internshipStarved.join(", ")}` : "")

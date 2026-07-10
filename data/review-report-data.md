@@ -91,11 +91,36 @@ evidence, and the detail panel labels those links "(scope overlap)".
 analytics-engineer stayed dropped: even with adjacency, no directly-supported
 neighbor propagated an edge above the inference floor to it.
 
-## Distribution (post-balance + inference)
+## Judgment tier 2: user-intuition gap review
 
-- Careers: 8 · Courses: 32 · Internship roles: 1 · Edges: 57 (46 direct + 11 inferred)
-- Max career in-degree share 25% (cap 25%) · **Gini 0.33** (cap 0.45) ·
-  same-level course mean Jaccard 0.15–0.23 (courses well-differentiated)
+A user-perspective review found 20 of 32 courses opening fewer doors than
+their level promises — worst, foundational 1000-level courses with a single
+destination ("Introduction to Probability" → statistician only; "Linear
+Algebra" → ml-engineer only). Structural cause: the distinctive-skill rule
+that prevents saturation also under-connects foundational material, whose
+value to several careers flows through skills distinctive to none of them.
+
+The gap-review agent proposed **23 judged edges** (confidence 0.45–0.65, each
+with an advisor-defensible rationale, ≤2 per input), and showed honest
+restraint: it left the pure-theory Combinatorial Optimization course narrow
+and declined to force edges to data-engineer/data-architect, correctly naming
+their sparsity a *coverage* gap (MIT's applied-database offerings beyond
+6.1830/6.5831 were dropped upstream), not a judgment gap.
+
+**Balance held**: the agent over-proposed toward data-scientist (as it
+predicted), and the in-degree balancer trimmed the 10 weakest judged edges to
+keep the hub at 24% share. Net: sparse inputs 20 → 12, and every repaired
+course now opens 2 doors instead of 1. The remaining 12 sit at 2 destinations
+against the 1000-level aspiration of 3 — the deliberate ceiling of an 8-career
+map, where giving every intro course 3+ doors would re-saturate the hubs the
+gates exist to prevent.
+
+## Distribution (post-balance + both judgment tiers)
+
+- Careers: 8 · Courses: 32 · Internship roles: 1 · Edges: 70
+  (46 direct + 11 adjacency-inferred + 23 gap-judged, minus 10 balance-trimmed)
+- Max career in-degree share 24% (cap 25%) · **Gini 0.34** (cap 0.45)
+- Judged-edge rationales preserved in `data/sources/data/edges-gap/judged.json`
 
 ## What a human should confirm before this stays the default map
 

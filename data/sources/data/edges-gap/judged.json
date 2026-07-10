@@ -1,0 +1,142 @@
+{
+  "judged": [
+    {
+      "input": "mit-6-3700",
+      "career": "data-scientist",
+      "confidence": 0.55,
+      "rationale": "Probability, Bayesian estimation, and statistical inference are the foundation every data scientist builds models on, even though none is distinctive to the role."
+    },
+    {
+      "input": "mit-6-3700",
+      "career": "ml-engineer",
+      "confidence": 0.5,
+      "rationale": "MIT's own ML sequence (6.3900, 6.C011) lists 6.3700 as a prerequisite; probability foundations are explicitly in the ML engineer skill pool."
+    },
+    {
+      "input": "mit-6-c35-j",
+      "career": "data-analyst",
+      "confidence": 0.65,
+      "rationale": "Designing visualizations and communicating insights from real-world datasets is the analyst's dashboard-and-reporting core."
+    },
+    {
+      "input": "mit-6-c35-j",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Data visualization and presenting findings from big data are named data-scientist responsibilities, even if not distinctive to the role."
+    },
+    {
+      "input": "mit-6-100b",
+      "career": "data-scientist",
+      "confidence": 0.6,
+      "rationale": "An intro data-science course in Python covering statistical and simulation modeling is a standard first step toward data science."
+    },
+    {
+      "input": "mit-6-c011",
+      "career": "data-scientist",
+      "confidence": 0.55,
+      "rationale": "Framing tasks as ML problems and interpreting results with robustness/fairness analysis is modeling work data scientists do daily."
+    },
+    {
+      "input": "mit-14-30",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Estimation, regression, and causal inference with applied data assignments are the statistical base of data-science work."
+    },
+    {
+      "input": "mit-14-30",
+      "career": "data-analyst",
+      "confidence": 0.45,
+      "rationale": "Regression and applied data analysis on real datasets support the analyst's experiment-support and metric-analysis work."
+    },
+    {
+      "input": "mit-14-32",
+      "career": "data-scientist",
+      "confidence": 0.6,
+      "rationale": "Randomized-experiment analysis, IV, and diff-in-diff are exactly the causal-inference toolkit tech data scientists use for experimentation."
+    },
+    {
+      "input": "mit-14-36",
+      "career": "data-scientist",
+      "confidence": 0.55,
+      "rationale": "Advanced causal methods plus ML applications in econometrics map onto the data scientist's modeling and experiment-analysis scope."
+    },
+    {
+      "input": "mit-14-39",
+      "career": "data-scientist",
+      "confidence": 0.6,
+      "rationale": "Data-driven decision-making in high-dimensional settings with Bayesian methods in R/Python is core industry data-science practice."
+    },
+    {
+      "input": "mit-14-c395j",
+      "career": "data-scientist",
+      "confidence": 0.55,
+      "rationale": "Building reliable ML solutions for decision support on high-impact applied problems is data-science work as much as ML engineering."
+    },
+    {
+      "input": "mit-15-0341",
+      "career": "data-analyst",
+      "confidence": 0.6,
+      "rationale": "Designing business experiments and reading causal effects is the analyst's A/B-testing and experiment-support skill, a distinctive analyst skill in this dataset."
+    },
+    {
+      "input": "mit-15-069",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Applied probability, hypothesis testing, and regression are the statistical foundation data-science modeling assumes."
+    },
+    {
+      "input": "mit-15-069",
+      "career": "or-analyst",
+      "confidence": 0.45,
+      "rationale": "Probability and simulation are the mathematical base of OR modeling; the course explicitly introduces simulation."
+    },
+    {
+      "input": "mit-15-780",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Time series forecasting, ML for operations, and multi-armed bandits are standard data-science techniques applied to business decisions."
+    },
+    {
+      "input": "mit-15-053",
+      "career": "data-scientist",
+      "confidence": 0.45,
+      "rationale": "Prescriptive optimization applied to logistics, marketing, and finance rounds out the data scientist's modeling toolkit; the course itself cites ML and statistics applications."
+    },
+    {
+      "input": "mit-15-c08j",
+      "career": "data-scientist",
+      "confidence": 0.6,
+      "rationale": "Causal inference with real data in Python/R, contrasted with ML, is core experimentation work on industry data-science teams."
+    },
+    {
+      "input": "mit-15-c571j",
+      "career": "ml-engineer",
+      "confidence": 0.45,
+      "rationale": "Optimization theory and algorithm design (including optimization under uncertainty) underpin how ML models are trained and tuned."
+    },
+    {
+      "input": "mit-18-05",
+      "career": "data-analyst",
+      "confidence": 0.5,
+      "rationale": "Using R to simulate, analyze, and visualize data plus regression and hypothesis testing supports the analyst's day-to-day analysis work."
+    },
+    {
+      "input": "mit-18-06",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Eigenvalues, SVD, and least squares are the mathematics behind PCA, regression, and dimensionality reduction in data-science practice."
+    },
+    {
+      "input": "mit-18-06",
+      "career": "or-analyst",
+      "confidence": 0.45,
+      "rationale": "Matrix methods and linear algebra software are the working substrate of linear programming and network models in OR."
+    },
+    {
+      "input": "mit-18-600",
+      "career": "data-scientist",
+      "confidence": 0.5,
+      "rationale": "Probability theory through standard distributions and limit theorems is the foundation of statistical modeling for data science."
+    }
+  ]
+}

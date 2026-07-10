@@ -406,6 +406,79 @@ test("assemble surfaces inferred edges, softer, and flags inference-only careers
   assert.ok(out.careers.find((c) => c.id === "da"), "da rescued into the map by inference");
 });
 
+test("findGaps flags inputs below their level's expected breadth and dead-end careers", async () => {
+  const { findGaps } = await import("../scripts/report-gaps.mjs");
+  const gaps = findGaps({
+    careers: [{ id: "a", name: "A" }, { id: "b", name: "B" }, { id: "c", name: "C" }],
+    courses: [
+      { id: "intro", name: "Intro", level: 1000, taughtSkills: ["x"], destinations: ["a"] }, // 1000 expects 3
+      { id: "deep", name: "Deep", level: 3000, destinations: ["a", "b"] }, // meets 3000's 2
+    ],
+    internships: [{ id: "i1", role: "R", destinations: ["a", "b", "c"] }],
+  });
+  assert.deepEqual(gaps.sparseInputs.map((s) => s.id), ["intro"]);
+  assert.equal(gaps.sparseInputs[0].expected, 3);
+  // b and c each have 2 supporters (< 3) -> sparse careers; a has 3.
+  assert.deepEqual(gaps.sparseCareers.map((s) => s.id).sort(), ["b", "c"]);
+});
+
+test("mergeJudgedEdges caps per input, floors, dedupes, and skips unknown careers", async () => {
+  const { mergeJudgedEdges } = await import("../scripts/assemble-dataset.mjs");
+  const rows = [
+    { input: { id: "c1" }, edges: [{ career: "a", confidence: 0.9, matchedSkills: ["s"], distinctive: true }] },
+  ];
+  const careerIds = new Set(["a", "b", "c", "d"]);
+  const added = mergeJudgedEdges(rows, [{
+    judged: [
+      { input: "c1", career: "a", confidence: 0.6, rationale: "dup" }, // already direct -> skipped
+      { input: "c1", career: "b", confidence: 0.6, rationale: "real overlap" },
+      { input: "c1", career: "c", confidence: 0.5, rationale: "real overlap 2" },
+      { input: "c1", career: "d", confidence: 0.7, rationale: "over cap" }, // 3rd addition -> capped
+      { input: "c1", career: "d", confidence: 0.3, rationale: "below floor" },
+      { input: "cX", career: "b", confidence: 0.6, rationale: "unknown input" },
+      { input: "c1", career: "zz", confidence: 0.6, rationale: "unknown career" },
+    ],
+  }], careerIds);
+  assert.equal(added, 2, "cap of 2 judged edges per input");
+  const judged = rows[0].edges.filter((e) => e.judged);
+  assert.deepEqual(judged.map((e) => e.career), ["b", "c"]);
+  assert.ok(judged.every((e) => e.inferred && e.rationale));
+});
+
+test("assemble merges gap-review judged edges; adjacency never duplicates them; validator accepts them", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });
+  const out = assemble({
+    meta: { runId: "r", pilot: true },
+    careerFiles: [{ id: "ds", name: "DS" }, { id: "da", name: "DA" }],
+    distinctive: null,
+    // adjacency would also propose ds->da; the judged edge must win, not duplicate.
+    adjacency: { pairs: [{ from: "ds", to: "da", weight: 0.8, rationale: "overlap" }] },
+    gapFiles: [{ judged: [{ input: "c1", career: "da", confidence: 0.55, rationale: "intro stats serves analyst work" }] }],
+    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 1000, dept: "D" }] }],
+    internshipFiles: [],
+    judgeFiles: [{ proposals: { c1: [prop("ds", 0.9)] } }],
+    verdictFiles: [],
+  });
+  const c1 = out.courses.find((c) => c.id === "c1");
+  assert.deepEqual(c1.destinations.sort(), ["da", "ds"]);
+  assert.equal(c1.destinations.filter((d) => d === "da").length, 1, "no duplicate da edge");
+  assert.ok(c1.edges.da.judged && c1.edges.da.rationale, "judged edge won over adjacency");
+  assert.equal(out.meta.flags.judgedEdges, 1);
+  // Validator accepts a judged edge (rationale, no via) but rejects one without rationale.
+  const ds = {
+    meta: { flags: out.meta.flags },
+    careers: out.careers.map((c) => ({ ...c, grounding: "postings", responsibilities: ["r"], skills: ["s"], evidence: [{ type: "t", retrievedAt: "x" }] })),
+    courses: out.courses.map((c) => ({ ...c, evidence: [{ type: "t", retrievedAt: "x" }] })),
+    internships: [{ id: "i1", role: "R", orgType: "Startup", destinations: ["ds", "da"], edges: { ds: prop("ds", 0.9), da: prop("da", 0.9) }, evidence: [{ type: "posting", company: "x", retrievedAt: "x" }, { type: "posting", company: "y", retrievedAt: "x" }] }],
+  };
+  let r = validateDataset(ds, { pilot: true });
+  assert.deepEqual(r.errors, []);
+  ds.courses[0].edges.da = { confidence: 0.55, inferred: true, judged: true };
+  r = validateDataset(ds, { pilot: true });
+  assert.ok(r.errors.some((e) => e.includes("judged edge missing rationale")));
+});
+
 test("assemble merges judge+verdict files, drops zero-edge inputs visibly, flags starved careers", async () => {
   const { assemble } = await import("../scripts/assemble-dataset.mjs");
   const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });

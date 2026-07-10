@@ -93,15 +93,18 @@ before the generated catalog replaces the illustrative one (pass
 `scripts/` (parser, O*NET extractor, posting fetcher, validator, assembler,
 generator), each unit-tested and runnable standalone.
 
-**Judgment tier (adjacency inference).** Beyond edges that direct evidence
-supports, an adjacency agent judges how much careers' scopes overlap
-(directional, e.g. Data Scientist → Data Analyst strong, reverse weak). The
-assembler propagates *inferred* edges along it — so a Data Scientist
-qualification also keeps a Data Analyst path reachable — dampened, capped, and
-never shadowing a grounded edge. The app draws them thinner/dashed and labels
-them "scope overlap"; the dataset flags their extent. This expresses
-arguably-true relationships without fabricating grounded claims. Disable with
-`args.inferAdjacency: false`.
+**Judgment tiers.** Beyond edges that direct evidence supports, two capped
+LLM-judgment stages keep the map intuitive without fabricating grounded
+claims. *Adjacency*: an agent judges directional career scope overlap (Data
+Scientist → Data Analyst strong, reverse weak) and the assembler propagates
+inferred edges along it, dampened and never shadowing a grounded edge.
+*Gap review*: a deterministic detector (`scripts/report-gaps.mjs`) flags
+inputs opening fewer doors than their level promises and dead-end careers;
+an agent repairs only those with judged edges (≤2 per input, modest
+confidence, advisor-defensible rationale each), and the distributional
+balance gates still apply. The app draws all judgment-based links
+thinner/dashed and labels them in the detail panel; the dataset flags their
+extent. Disable with `args.inferAdjacency: false` / `args.reviewGaps: false`.
 
 **Cost tiering.** Mechanical stages (setup, posting fetch, finalize) default
 to small/cheap models; per-item stages (career distillation, course labeling,

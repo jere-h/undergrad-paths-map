@@ -8,6 +8,7 @@ export const meta = {
     { title: 'Courses', detail: 'parse catalog pages, shortlist, label taught skills' },
     { title: 'Internships', detail: 'cluster intern roles across org types' },
     { title: 'Edges', detail: 'batched judges; skeptics only on the uncertain band' },
+    { title: 'Gaps', detail: 'user-intuition gap review; capped judged edges' },
     { title: 'Finalize', detail: 'assemble (mechanical edge policy), gates, report' },
   ],
 }
@@ -80,6 +81,7 @@ const DEFAULTS = {
   careerBatchSize: 6, // careers grounded per agent
   skepticBatchSize: 12, // banded edges verified per agent
   inferAdjacency: true, // judgment tier: infer scope-overlap edges between careers
+  reviewGaps: true, // judgment tier: repair user-intuition gaps with capped judged edges
   onetZipUrl: 'https://www.onetcenter.org/dl_files/database/db_29_1_text.zip',
   // apply: true registers the generated catalog as an app tab (via
   // scripts/register-catalog.mjs) when a full, gate-passing run finishes.
@@ -122,6 +124,7 @@ const TIER_DEFAULTS = {
   career: { model: 'sonnet', effort: 'medium' }, // batched distillation
   distinctiveness: {}, // inherit: whole-set judgment gates edge quality
   adjacency: {}, // inherit: domain judgment of career scope overlap
+  gaps: {}, // inherit: user-perspective judgment repairing sparse spots
   courses: { model: 'sonnet', effort: 'medium' }, // shortlist + label parsed JSON
   internships: { model: 'sonnet', effort: 'medium' }, // cluster prefiltered titles
   judge: { model: 'sonnet', effort: 'medium' }, // batched edge proposals
@@ -176,7 +179,7 @@ for (const c of cfg.companies) bySource[c.source].push(c.slug)
 
 const setup = await agent(
   `You are Phase 0 of the ground-catalog workflow in this repo (read docs/grounding-workflow-plan.md if unsure). Do exactly this, via Bash:
-1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges-verdicts data/datasets data/catalogs
+1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges-verdicts ${ROOT}/edges-gap data/datasets data/catalogs
 2. If ${ONET_ROOT}/db/ does not already contain "Occupation Data.txt" in some subdirectory (the DB is shared across industry runs): curl -sSL --max-time 300 -o ${ONET_ROOT}/db.zip "${cfg.onetZipUrl}" and unzip -oq into ${ONET_ROOT}/db/. Record the O*NET version from the zip filename or Read Me.txt.
 3. Verify: node scripts/onet-extract.mjs --db ${ONET_ROOT}/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
 4. Fetch and prefilter the posting boards: node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}
@@ -443,7 +446,32 @@ const keptByskeptic = skepticResults.filter(Boolean).flatMap((r) => r.ids).lengt
 log(`skeptics kept ${keptByskeptic}/${bandedPairs.length} banded edges; assembler applies floors/top-K deterministically`)
 
 // ---------------------------------------------------------------------------
-// Phase 5 - Assemble (mechanical edge policy in code), validate gates, report
+// Phase 5 - Gap review: look at the ASSEMBLED map the way an undergrad user
+// will, and repair intuition gaps with capped domain judgment. Detection is
+// deterministic (scripts/report-gaps.mjs); only the repair is an LLM call, and
+// the assembler dampens, caps (2/input), and balance-gates whatever it adds.
+// ---------------------------------------------------------------------------
+
+phase('Gaps')
+const gapReview =
+  cfg.reviewGaps === false
+    ? null
+    : await agent(
+        `Gap review for the ground-catalog workflow (run ${cfg.runId}): repair user-intuition gaps with capped domain judgment.
+1. Bash: node scripts/assemble-dataset.mjs --sources ${ROOT} --out ${ROOT}/edges-gap/_draft.json
+2. Bash: node scripts/report-gaps.mjs ${ROOT}/edges-gap/_draft.json > ${ROOT}/edges-gap/_gaps.json - then Read it. It lists sparseInputs (courses/internships opening fewer doors than their level promises, with their skills) and sparseCareers (jobs with dead-end-few supporters), plus the full career id list.
+3. For each sparse INPUT, judge which ADDITIONAL careers from the list it genuinely helps toward. This is where the distinctive-skill rule under-connects foundational material: "Introduction to Probability" really does help toward Data Scientist even though probability is not distinctive to it. The bar: would both an undergrad AND their advisor nod at the link? Confidence 0.4-0.7 (this is judgment, not evidence; score modestly). At most 2 additions per input; a genuinely narrow course SHOULD stay narrow - do not force additions.
+4. For each sparse CAREER, scan the draft dataset's other inputs (names + skills are in _draft.json) for ones whose content plausibly serves it, and propose those edges under the same bar and caps.
+5. Read the career profiles in ${ROOT}/careers/ if you need each career's actual scope to judge honestly.
+Write ${ROOT}/edges-gap/judged.json:
+{ "judged": [{ "input": "<inputId>", "career": "<careerId>", "confidence": <0.4-0.7>, "rationale": "<one line an advisor would accept>" }] }
+The assembler enforces the floor (0.4), the 2-per-input cap, dedupe against existing edges, and the distributional balance gates; the app draws judged edges softer and labels them judgment-based. Return the manifest: path=${ROOT}/edges-gap/judged.json, ids=["<input>-><career>" per proposal], notes=how many sparse items you left as-is and why.`,
+        { ...tier('gaps'), label: 'gap-review', phase: 'Gaps', schema: MANIFEST }
+      )
+if (gapReview) log(`gap review proposed ${gapReview.ids.length} judged edges; ${gapReview.notes || ''}`)
+
+// ---------------------------------------------------------------------------
+// Phase 6 - Assemble (mechanical edge policy in code), validate gates, report
 // ---------------------------------------------------------------------------
 
 phase('Finalize')
@@ -468,7 +496,7 @@ const report = await agent(
 Edge pipeline stats for context: ${autoAccepted} auto-accepted (>= ${AUTO_ACCEPT}), ${autoDropped} below floor, ${bandedPairs.length} banded of which skeptics kept ${keptByskeptic} (fail-closed: unreviewed banded edges drop).
 Structure, flagged items FIRST:
 1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before this catalog ships as an app tab (registered via apply: true).
-2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding (meta.flags.unsupportedCareers), dropped inputs (meta.flags.droppedInputs), inferred edges (meta.flags.inferredEdges) and careers reachable ONLY via inference (meta.flags.inferenceOnlyCareers) - state plainly that these rest on scope-overlap judgment, not direct evidence, and are drawn softer, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), edges trimmed for balance (meta.flags.edgesTrimmedForBalance), dead/empty company boards, and whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run).
+2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding (meta.flags.unsupportedCareers), dropped inputs (meta.flags.droppedInputs), inferred edges (meta.flags.inferredEdges), gap-review judged edges (meta.flags.judgedEdges, with their rationales from ${ROOT}/edges-gap/judged.json), and careers reachable ONLY via inference (meta.flags.inferenceOnlyCareers) - state plainly that these rest on judgment (scope overlap or gap review), not direct evidence, and are drawn softer, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), edges trimmed for balance (meta.flags.edgesTrimmedForBalance), dead/empty company boards, and whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run).
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
 4. Staleness: postings churn in weeks; recommend a re-run cadence.
 Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=${REPORT}, ids=[]).`,

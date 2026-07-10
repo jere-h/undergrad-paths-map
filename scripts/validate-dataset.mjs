@@ -133,12 +133,17 @@ export function validateDataset(ds, { pilot = false } = {}) {
       }
       if (edge.inferred) {
         // Judgment tier: softer bar, no distinctive-skill requirement, but must
-        // trace to a source career this input also directly reaches.
+        // be traceable - either to a source career this input directly reaches
+        // (adjacency) or to an explicit gap-review rationale (judged).
         if (!(edge.confidence >= INFERENCE.floor))
           err(`${input.id} -> ${d}: inferred confidence ${edge.confidence} below inference floor ${INFERENCE.floor}`);
-        if (!edge.via) err(`${input.id} -> ${d}: inferred edge missing "via" source career`);
-        else if (!(input.destinations || []).includes(edge.via))
+        if (edge.judged) {
+          if (!edge.rationale) err(`${input.id} -> ${d}: judged edge missing rationale`);
+        } else if (!edge.via) {
+          err(`${input.id} -> ${d}: inferred edge missing "via" source career (or judged rationale)`);
+        } else if (!(input.destinations || []).includes(edge.via)) {
           err(`${input.id} -> ${d}: inferred via ${edge.via}, which this input does not directly reach`);
+        }
         continue;
       }
       if (!(edge.confidence >= floor))
