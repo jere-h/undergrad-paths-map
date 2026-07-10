@@ -52,8 +52,14 @@ export function renderRegistry(entries) {
 export function upsert(entries, entry) {
   const i = entries.findIndex((e) => e.id === entry.id);
   const next = [...entries];
-  if (i >= 0) next[i] = entry;
-  else next.push(entry);
+  if (i >= 0) {
+    // A re-registration without --preselect keeps the existing hand-tuned
+    // preselect: workflow re-runs must not blank a tab's first-paint state.
+    const preselect = entry.preselect ?? next[i].preselect;
+    next[i] = preselect ? { ...entry, preselect } : entry;
+  } else {
+    next.push(entry);
+  }
   return next;
 }
 

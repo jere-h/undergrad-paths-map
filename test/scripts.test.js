@@ -538,6 +538,11 @@ test("register-catalog upsert replaces by id and renders importable JS", async (
   const replaced = upsert(added, { id: "health", label: "Health v2", module: "./health.js", note: "n3" });
   assert.equal(replaced.length, 2);
   assert.equal(replaced[1].label, "Health v2");
+  // Re-registration preserves a hand-tuned preselect unless a new one is given.
+  const withPre = upsert(replaced, { id: "health", label: "H", module: "./health.js", note: "n", preselect: ["x", "y"] });
+  const rereg = upsert(withPre, { id: "health", label: "H2", module: "./health.js", note: "n" });
+  assert.deepEqual(rereg[1].preselect, ["x", "y"], "workflow re-runs must not blank the tab's first paint");
+  assert.equal(rereg[1].label, "H2");
   const mod = await import(`data:text/javascript,${encodeURIComponent(renderRegistry(replaced))}`);
   assert.deepEqual(mod.CATALOGS.map((c) => c.id), ["illustrative", "health"]);
 });
