@@ -68,6 +68,9 @@ export function generateCatalog(ds) {
     };
     const inf = inferredOf(i);
     if (inf.length) out.inferred = inf;
+    // Validated-canonical roles carry their honesty marker into the app so the
+    // UI can render them distinctly (diamond marker, chip badge, legend).
+    if (i.grounding === "canonical") out.canonical = true;
     return out;
   });
 

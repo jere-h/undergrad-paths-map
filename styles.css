@@ -273,6 +273,29 @@ img, svg, video, canvas {
   background: #06131b;
 }
 
+/* Validated-canonical internship roles: the chip carries a visible badge (a
+   tooltip alone never fires on touch) so judgment-tier roles are never read
+   as posting-clustered evidence. */
+.chip--canonical .chip__dot {
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+.chip__badge {
+  font-size: 0.68rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--color-muted);
+  color: var(--color-muted);
+  flex: 0 0 auto;
+}
+
+.chip[aria-pressed="true"] .chip__badge {
+  border-color: #06131b;
+  color: #06131b;
+}
+
 /* ---------- Map area ---------- */
 
 .map-area {

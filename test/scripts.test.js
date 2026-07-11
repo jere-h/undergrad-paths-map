@@ -11,8 +11,19 @@ import {
   stripTags,
   decodeEntities,
 } from "../scripts/parse-catalog-html.mjs";
-import { filterGreenhouse, filterLever, cleanContent } from "../scripts/fetch-postings.mjs";
-import { gini, jaccard, validateDataset } from "../scripts/validate-dataset.mjs";
+import {
+  filterGreenhouse,
+  filterLever,
+  cleanContent,
+  filterSimplify,
+  simplifyCompanies,
+  serializeSimplify,
+  normalizeCompany,
+} from "../scripts/fetch-postings.mjs";
+import { gini, jaccard, validateDataset, checkCanonicalRole } from "../scripts/validate-dataset.mjs";
+import { mkdtempSync, writeFileSync, mkdirSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { generateCatalog } from "../scripts/build-catalog.mjs";
 import { parseTsv } from "../scripts/onet-extract.mjs";
 
@@ -149,12 +160,20 @@ function validDataset() {
       { id: "c1", name: "C1", level: 1000, dept: "D", destinations: ["a"], edges: { a: edge }, evidence: ev },
       { id: "c2", name: "C2", level: 3000, dept: "D", destinations: ["b"], edges: { b: edge }, evidence: ev },
     ],
+    // Four distinct internship roles so the suite exercises the variety gate
+    // rather than tripping over it (the gate FAILs full runs below 4). i1 is
+    // the one the single-internship tests manipulate; i2-i4 reach only "a", so
+    // "b" stays reachable-only-through-i1 for the lopsided/orphan cases. With
+    // 2 careers the coverage gate (>=6 careers) is skipped.
     internships: [
       {
         id: "i1", role: "R Intern", orgType: "Startup",
         destinations: ["a", "b"], edges: { a: edge, b: edge },
         evidence: [posting("x"), posting("y")],
       },
+      { id: "i2", role: "R2 Intern", orgType: "Startup", destinations: ["a"], edges: { a: edge }, evidence: [posting("x"), posting("z")] },
+      { id: "i3", role: "R3 Intern", orgType: "Startup", destinations: ["a"], edges: { a: edge }, evidence: [posting("y"), posting("z")] },
+      { id: "i4", role: "R4 Intern", orgType: "Startup", destinations: ["a"], edges: { a: edge }, evidence: [posting("x"), posting("w")] },
     ],
   };
 }
@@ -567,4 +586,271 @@ test("simulateNarrowing: fixture shows the open-then-narrow arc; all-intro datas
   });
   assert.equal(flat.finalClosed, 0);
   assert.equal(flat.breadthClosed, 0);
+});
+
+// ---------- SimplifyJobs intern list ----------
+
+const SIMPLIFY = [
+  { title: "Data Analyst Intern", company_name: "Interstates", active: true, is_visible: true, category: "AI/ML/Data", url: "u1", locations: ["Sioux Falls, SD"], date_posted: 1763031422 },
+  { title: "Data Scientist Intern", company_name: "Ardian", active: true, is_visible: true, category: "Data Science, AI & Machine Learning", url: "u2", date_posted: 1763031000 },
+  { title: "SWE Intern", company_name: "Foo", active: false, is_visible: true, category: "Software", url: "u3" }, // inactive -> dropped
+  { title: "Quant Intern", company_name: "Bar", active: true, is_visible: false, category: "Quant", url: "u4" }, // hidden -> dropped
+  { title: "BI Intern", company_name: "Interstates", active: true, is_visible: true, category: "AI/ML/Data", url: "u5" }, // no date -> null postedAt
+];
+
+test("filterSimplify keeps active+visible, matches alias categories by token, maps shape", () => {
+  const all = filterSimplify(SIMPLIFY);
+  assert.equal(all.totalListings, 5);
+  assert.equal(all.postings.length, 3, "two dropped: inactive + hidden");
+  // token/substring category filter catches the alias "Data Science, AI & ML".
+  const data = filterSimplify(SIMPLIFY, { categories: ["data"] });
+  assert.deepEqual(data.postings.map((p) => p.title).sort(), ["BI Intern", "Data Analyst Intern", "Data Scientist Intern"]);
+  assert.ok(data.categoryCounts["AI/ML/Data"] === 2 && data.categoryCounts["Data Science, AI & Machine Learning"] === 1);
+  const p0 = data.postings.find((p) => p.title === "Data Analyst Intern");
+  assert.equal(p0.company, "Interstates");
+  assert.equal(p0.entryLevel, "intern");
+  assert.equal(p0.postedAt, new Date(1763031422 * 1000).toISOString(), "epoch seconds -> ISO");
+  assert.equal(data.postings.find((p) => p.title === "BI Intern").postedAt, null, "missing date -> null");
+});
+
+test("simplifyCompanies aggregates and serializeSimplify keeps postings one-per-line", () => {
+  const { postings } = filterSimplify(SIMPLIFY, { categories: ["data"] });
+  const byCo = simplifyCompanies(postings);
+  assert.deepEqual(byCo["Interstates"], ["BI Intern", "Data Analyst Intern"], "titles deduped + sorted per company");
+  const snap = serializeSimplify({ source: "simplify", retrievedAt: "x", totalListings: 5, categoryCounts: {}, postings });
+  const parsed = JSON.parse(snap);
+  assert.equal(parsed.postings.length, 3);
+  // one posting object per line inside the postings array
+  const arrayBody = snap.slice(snap.indexOf('"postings": [') + 13, snap.lastIndexOf("]"));
+  assert.equal(arrayBody.trim().split("\n").length, 3);
+});
+
+test("normalizeCompany collapses source prefixes and casing so one employer counts once", () => {
+  assert.equal(normalizeCompany("lever-palantir"), normalizeCompany("Palantir"));
+  assert.equal(normalizeCompany("greenhouse-stripe"), "stripe");
+  assert.notEqual(normalizeCompany("Palantir"), normalizeCompany("Databricks"));
+});
+
+// ---------- internship variety + coverage gates ----------
+
+test("variety gate fails below 4 internship roles on full runs, pilot skips", () => {
+  const ds = validDataset();
+  ds.internships = ds.internships.slice(0, 3); // 3 roles
+  const r = validateDataset(ds);
+  assert.ok(r.errors.some((e) => e.includes("internship variety")), "3 roles fails the variety gate");
+  assert.ok(!validateDataset(ds, { pilot: true }).errors.some((e) => e.includes("variety")), "pilot skips it");
+  assert.deepEqual(validateDataset(validDataset()).errors, [], "4 roles passes");
+});
+
+test("coverage gate fails when internships reach too few careers at scale (>=6 careers)", () => {
+  const ev = [{ type: "test", retrievedAt: "2026-07-09T00:00:00Z" }];
+  const posting = (co) => ({ type: "posting", company: co, retrievedAt: "2026-07-09T00:00:00Z" });
+  const edge = { confidence: 0.9, matchedSkills: ["s"], distinctive: true };
+  const careerIds = ["a", "b", "c", "d", "e", "f"];
+  const ds = {
+    meta: { flags: {} },
+    careers: careerIds.map((id) => ({ id, name: id.toUpperCase(), grounding: "postings", responsibilities: ["r"], skills: ["s"], evidence: ev })),
+    // every career reachable by a course so nothing orphans
+    courses: careerIds.map((id, i) => ({ id: `c${i}`, name: `C${i}`, level: 1000, dept: "D", destinations: [id], edges: { [id]: edge }, evidence: ev })),
+    // 4 internship roles, ALL pointing only at "a": variety passes, coverage fails
+    internships: [0, 1, 2, 3].map((i) => ({ id: `i${i}`, role: `R${i} Intern`, orgType: "Startup", destinations: ["a"], edges: { a: edge }, evidence: [posting("x"), posting("y")] })),
+  };
+  const r = validateDataset(ds);
+  assert.ok(r.errors.some((e) => e.includes("internship coverage")), "4 titles on 1 hub career fails coverage");
+});
+
+// ---------- validated-canonical internship tier ----------
+
+function canonicalRole(overrides = {}, root) {
+  const snapshot = "postings/simplify.json";
+  if (root) {
+    mkdirSync(join(root, "postings"), { recursive: true });
+    writeFileSync(join(root, snapshot), 'includes the role Data Analyst Intern and company Ardian');
+  }
+  return {
+    id: "canonical-data-analyst-intern",
+    role: "Data Analyst Intern",
+    orgType: "Startup",
+    grounding: "canonical",
+    skillsBasis: "judgment",
+    requiredSkills: ["SQL", "dashboards"],
+    exampleTitles: ["Data Analyst Intern (Interstates)"],
+    destinations: ["a"],
+    edges: { a: { confidence: 0.6, inferred: true, judged: true, rationale: "advisor would nod", matchedSkills: [] } },
+    evidence: [
+      { type: "intern-list", company: "Interstates", title: "Data Analyst Intern", snapshot, retrievedAt: "2026-07-11T00:00:00Z" },
+      { type: "posting", company: "Ardian", title: "Data Scientist Intern", snapshot, retrievedAt: "2026-07-11T00:00:00Z", postedAt: "2026-06-01T00:00:00Z" },
+    ],
+    ...overrides,
+  };
+}
+
+test("checkCanonicalRole passes an honest role and enforces its structural gates", () => {
+  const root = mkdtempSync(join(tmpdir(), "canon-"));
+  assert.deepEqual(checkCanonicalRole(canonicalRole({}, root), { snapshotRoot: root }), [], "well-formed canonical role passes");
+
+  // missing skillsBasis
+  assert.ok(checkCanonicalRole(canonicalRole({ skillsBasis: undefined }, root), { snapshotRoot: root }).some((e) => e.includes("skillsBasis")));
+  // wrong id prefix
+  assert.ok(checkCanonicalRole(canonicalRole({ id: "data-analyst-intern" }, root), { snapshotRoot: root }).some((e) => e.includes("canonical-")));
+  // a direct (non-judged) edge blurs tiers
+  assert.ok(checkCanonicalRole(canonicalRole({ edges: { a: { confidence: 0.6, matchedSkills: ["s"], distinctive: true } } }, root), { snapshotRoot: root }).some((e) => e.includes("not judged-tier")));
+  // only one distinct employer
+  const oneCo = canonicalRole({ evidence: [
+    { type: "intern-list", company: "Interstates", title: "Data Analyst Intern", snapshot: "postings/simplify.json", retrievedAt: "2026-07-11T00:00:00Z" },
+  ] }, root);
+  assert.ok(checkCanonicalRole(oneCo, { snapshotRoot: root }).some((e) => e.includes("distinct employer")));
+  // no current evidence (both archived postings, no intern-list)
+  const stale = canonicalRole({ evidence: [
+    { type: "posting", company: "Foo", title: "Data Analyst Intern", snapshot: "postings/simplify.json", retrievedAt: "2026-07-11T00:00:00Z", postedAt: "2019-01-01T00:00:00Z" },
+    { type: "posting", company: "Bar", title: "Data Analyst Intern", snapshot: "postings/simplify.json", retrievedAt: "2026-07-11T00:00:00Z", postedAt: "2019-01-01T00:00:00Z" },
+  ] }, root);
+  assert.ok(checkCanonicalRole(stale, { snapshotRoot: root }).some((e) => e.includes("CURRENT")));
+  // exampleTitle not backed by evidence
+  assert.ok(checkCanonicalRole(canonicalRole({ exampleTitles: ["Invented Title (Nobody)"] }, root), { snapshotRoot: root }).some((e) => e.includes("does not match")));
+});
+
+test("checkCanonicalRole opens the snapshot: a missing or irrelevant file fails", () => {
+  const root = mkdtempSync(join(tmpdir(), "canon-"));
+  // snapshot path never written to disk
+  const ghost = canonicalRole({}, null); // do not create the file
+  assert.ok(checkCanonicalRole(ghost, { snapshotRoot: root }).some((e) => e.includes("missing or empty")));
+  // snapshot exists but mentions neither role nor company
+  mkdirSync(join(root, "postings"), { recursive: true });
+  writeFileSync(join(root, "postings/simplify.json"), "totally unrelated text");
+  assert.ok(checkCanonicalRole(canonicalRole({}, null), { snapshotRoot: root }).some((e) => e.includes("mentions neither")));
+});
+
+test("validateDataset counts clustered internship companies across posting+intern-list, normalized, and needs a full-text source", () => {
+  const ds = validDataset();
+  // i2: one employer seen twice via two sources must NOT satisfy the 2-company rule.
+  ds.internships[1].evidence = [
+    { type: "posting", company: "lever-palantir", title: "t", retrievedAt: "x" },
+    { type: "intern-list", company: "Palantir", title: "t", snapshot: "s", retrievedAt: "x" },
+  ];
+  let r = validateDataset(ds);
+  assert.ok(r.errors.some((e) => e.includes("i2") && e.includes("distinct company")), "same employer via 2 sources = 1");
+  // intern-list-only (2 companies) still fails for lack of a full-text skill source.
+  ds.internships[1].evidence = [
+    { type: "intern-list", company: "Alpha", title: "t", snapshot: "s", retrievedAt: "x" },
+    { type: "intern-list", company: "Beta", title: "t", snapshot: "s", retrievedAt: "x" },
+  ];
+  r = validateDataset(ds);
+  assert.ok(r.errors.some((e) => e.includes("i2") && e.includes("full-text")), "titles alone cannot ground skills");
+});
+
+// ---------- assembler: canonical join ----------
+
+test("buildCanonicalRoles joins on intersection, prefixes ids, derives titles, applies edge policy", async () => {
+  const { buildCanonicalRoles } = await import("../scripts/assemble-dataset.mjs");
+  const proposals = { proposals: [
+    { id: "data-analyst-intern", role: "Data Analyst Intern", orgType: "Startup", requiredSkills: ["SQL"], candidateEdges: [
+      { career: "a", confidence: 0.6, rationale: "yes" },
+      { career: "b", confidence: 0.3, rationale: "below floor" }, // dropped
+      { career: "ghost", confidence: 0.6, rationale: "unknown career" }, // dropped
+    ] },
+    { id: "unvalidated-intern", role: "Unvalidated Intern", orgType: "Startup", candidateEdges: [{ career: "a", confidence: 0.6, rationale: "x" }] },
+  ] };
+  const validation = { validated: [
+    { id: "data-analyst-intern", evidence: [{ type: "intern-list", company: "Interstates", title: "Data Analyst Intern" }] },
+    // "unvalidated-intern" absent -> skipped
+  ] };
+  const { rows, skipped } = buildCanonicalRoles(proposals, validation, new Set(["a", "b"]));
+  assert.equal(rows.length, 1, "only the validated proposal builds a role");
+  assert.ok(skipped.some((s) => s.includes("unvalidated-intern")));
+  const role = rows[0].input;
+  assert.equal(role.id, "canonical-data-analyst-intern", "id prefixed to avoid collisions");
+  assert.equal(role.grounding, "canonical");
+  assert.equal(role.skillsBasis, "judgment");
+  assert.deepEqual(role.exampleTitles, ["Data Analyst Intern (Interstates)"], "titles derived from evidence, not invented");
+  assert.deepEqual(rows[0].edges.map((e) => e.career), ["a"], "sub-floor and unknown-career edges dropped");
+  assert.ok(rows[0].edges[0].judged && rows[0].edges[0].inferred);
+});
+
+test("assemble ships validated-canonical roles as judged-tier, dedupes titles, flags the tier", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const out = assemble({
+    meta: { runId: "r", pilot: true, orgTypes: ["Startup"] },
+    careerFiles: [{ id: "a", name: "A" }, { id: "b", name: "B" }],
+    distinctive: null,
+    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 1000, dept: "D" }] }],
+    internshipFiles: [{ orgType: "Startup", roles: [{ id: "clustered-de-intern", role: "Data Engineer Intern", orgType: "Startup", evidence: [{ type: "posting", company: "x" }] }] }],
+    judgeFiles: [{ proposals: { c1: [{ career: "a", confidence: 0.9, matchedSkills: ["s"], distinctive: true }], "clustered-de-intern": [{ career: "b", confidence: 0.9, matchedSkills: ["s"], distinctive: true }] } }],
+    verdictFiles: [],
+    canonicalProposals: { proposals: [
+      { id: "da-intern", role: "Data Analyst Intern", orgType: "Startup", requiredSkills: ["SQL"], candidateEdges: [{ career: "a", confidence: 0.6, rationale: "advisor nod" }] },
+      { id: "dupe", role: "Data Engineer Intern", orgType: "Startup", candidateEdges: [{ career: "b", confidence: 0.6, rationale: "x" }] }, // title dupes clustered -> dropped
+    ] },
+    canonicalValidation: { validated: [
+      { id: "da-intern", evidence: [{ type: "intern-list", company: "Interstates", title: "Data Analyst Intern" }, { type: "posting", company: "Ardian", title: "DA Intern" }] },
+      { id: "dupe", evidence: [{ type: "intern-list", company: "Foo", title: "Data Engineer Intern" }] },
+    ] },
+  });
+  const canon = out.internships.find((i) => i.id === "canonical-da-intern");
+  assert.ok(canon, "validated canonical role ships");
+  assert.equal(canon.grounding, "canonical");
+  assert.ok(canon.edges.a.judged && canon.edges.a.inferred, "canonical edges are judged-tier");
+  assert.deepEqual(canon.inferred, ["a"], "generator marker set so the app renders it softer");
+  assert.deepEqual(out.meta.flags.canonicalInternships, ["canonical-da-intern"]);
+  assert.deepEqual(out.meta.flags.internshipVariety, { total: 2, clustered: 1, canonical: 1 });
+  assert.ok((out.meta.flags.canonicalSkipped || []).some((s) => s.includes("dupe") && s.includes("duplicates clustered")));
+  // "a" is reached by a course too, so it is not canonical-only; add a check that the flag logic runs
+  assert.ok(!out.meta.flags.canonicalOnlyInternshipCareers || Array.isArray(out.meta.flags.canonicalOnlyInternshipCareers));
+});
+
+test("mergeJudgedEdges gives internships a higher cap and counts pre-existing judged edges", async () => {
+  const { mergeJudgedEdges } = await import("../scripts/assemble-dataset.mjs");
+  // an internship row that already carries 1 judged (canonical) edge
+  const rows = [
+    { input: { id: "canonical-x" }, kind: "internship", edges: [{ career: "a", confidence: 0.6, judged: true, inferred: true, rationale: "seed" }] },
+  ];
+  const added = mergeJudgedEdges(rows, [{ judged: [
+    { input: "canonical-x", career: "b", confidence: 0.6, rationale: "1" },
+    { input: "canonical-x", career: "c", confidence: 0.6, rationale: "2" },
+    { input: "canonical-x", career: "d", confidence: 0.6, rationale: "over cap" }, // 1 seed + 3 = would be 4 -> capped at 3
+  ] }], new Set(["a", "b", "c", "d"]));
+  assert.equal(added, 2, "internship cap is 3 total incl. the pre-existing judged edge");
+  assert.deepEqual(rows[0].edges.map((e) => e.career), ["a", "b", "c"]);
+});
+
+test("register-catalog upsert preserves an existing preselect when the new entry omits one", async () => {
+  const { upsert } = await import("../scripts/register-catalog.mjs");
+  const base = [{ id: "data", label: "Data", module: "./data.js", note: "n", preselect: ["mit-18-05", "mnc-x"] }];
+  const reReg = upsert(base, { id: "data", label: "Data v2", module: "./data.js", note: "n2" }); // no preselect
+  assert.deepEqual(reReg[0].preselect, ["mit-18-05", "mnc-x"], "hand-tuned preselect survives re-registration");
+  assert.equal(reReg[0].label, "Data v2");
+  const explicit = upsert(base, { id: "data", label: "Data", module: "./data.js", note: "n", preselect: ["new"] });
+  assert.deepEqual(explicit[0].preselect, ["new"], "an explicit preselect still overrides");
+});
+
+test("generateCatalog and allInputs carry the canonical marker through to the app", async () => {
+  const { generateCatalog } = await import("../scripts/build-catalog.mjs");
+  const { allInputs } = await import("../score.js");
+  const ds = validDataset();
+  ds.internships[0].grounding = "canonical";
+  const mod = await import(`data:text/javascript,${encodeURIComponent(generateCatalog(ds))}`);
+  const i0 = mod.INTERNSHIPS.find((i) => i.id === "i1");
+  assert.equal(i0.canonical, true, "canonical marker emitted");
+  assert.ok(!mod.INTERNSHIPS.find((i) => i.id === "i2").canonical, "clustered roles carry no marker");
+  const inputs = allInputs({ CAREERS: mod.CAREERS, COURSES: mod.COURSES, INTERNSHIPS: mod.INTERNSHIPS });
+  assert.equal(inputs.find((i) => i.id === "i1").canonical, true, "allInputs passes canonical through");
+});
+
+test("narrowing simulation holds on a canonical-heavy internship set; committal stays 1.0 per pick", async () => {
+  const { simulateNarrowing } = await import("../scripts/validate-dataset.mjs");
+  const { inputStrength } = await import("../score.js");
+  const fix = await import("../test/fixtures/catalog.js");
+  // a canonical internship is still a full-strength committal pick (its edge
+  // support is dampened, not its commitment).
+  assert.equal(inputStrength({ kind: "internship", canonical: true }), 1.0);
+  // splice several canonical (inferred-edge) internships into the fixture and
+  // confirm the open-then-narrow arc still holds.
+  const canon = [0, 1, 2].map((i) => ({
+    id: `canonical-x${i}`, role: `X${i} Intern`, orgType: "Startup",
+    destinations: [fix.CAREERS[i % fix.CAREERS.length].id],
+    inferred: [fix.CAREERS[i % fix.CAREERS.length].id],
+  }));
+  const sim = simulateNarrowing({ careers: fix.CAREERS, courses: fix.COURSES, internships: [...fix.INTERNSHIPS, ...canon] });
+  assert.equal(sim.breadthClosed, 0, "breadth still closes nothing");
+  assert.ok(sim.peakOpen > sim.finalOpen && sim.finalClosed >= 1 && sim.finalOpen >= 2, "arc preserved");
 });

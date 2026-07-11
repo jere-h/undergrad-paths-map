@@ -14,8 +14,10 @@
 //
 // Exits 0 with a PASS report, or 1 with every failure listed.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { analyze, summarize, allInputs, edgeStrength } from "../score.js";
+import { normalizeCompany } from "./fetch-postings.mjs";
 
 // Rendered link strength rises 1000 -> 2000 -> 3000 -> internship, so the
 // confidence bar rises with it: an internship edge draws as the boldest line
@@ -37,6 +39,35 @@ export const GATES = {
   maxGini: 0.45,
   maxMeanJaccard: 0.5,
   minCompaniesPerInternship: 2,
+  // Internship variety: a map with one internship node misrepresents how
+  // people actually enter these careers. Full runs FAIL below this count -
+  // deliberately with NO scale guard, because a guard would silently defeat
+  // the detection this gate exists for.
+  minInternshipVariety: 4,
+  // Coverage: variety alone can be gamed by four titles all pointing at one
+  // hub career while every other career stays internship-starved. At
+  // realistic career-set scale, internship edges must reach a minimum number
+  // of distinct careers. (Skipped below minCareersForCoverageGate, mirroring
+  // the narrowing gates' scale guard - with 2 careers the bar is unmeetable.)
+  minInternshipCareers: 4,
+  minCareersForCoverageGate: 6,
+};
+
+// Validated-canonical internship tier: roles proposed by LLM judgment and
+// validated to EXIST by grounding search. The honesty bar is structural:
+// evidence from >= 2 distinct (normalized) employers, at least one of them
+// current, snapshots that actually exist on disk and mention the role or
+// company, judgment-marked skills, and judged-tier-only edges.
+export const CANONICAL = {
+  idPrefix: "canonical-",
+  minCompanies: 2,
+  // How recent "current" is: an intern-list entry (filtered to active
+  // listings at snapshot time) is current by construction; a posting or
+  // employer page must have a postedAt within this many days of retrieval.
+  // ~1.5 posting cycles: honest for seasonal roles without accepting a 2021
+  // archive as proof of a 2026 market.
+  currentWindowDays: 550,
+  evidenceTypes: ["posting", "employer-page", "intern-list"],
 };
 
 const DASH_RE = /[—–]/;
@@ -103,7 +134,63 @@ export function simulateNarrowing(ds) {
   };
 }
 
-export function validateDataset(ds, { pilot = false } = {}) {
+const isCanonical = (i) => i.grounding === "canonical";
+
+function evidenceIsCurrent(e) {
+  if (e.type === "intern-list") return true; // snapshot filtered to active listings
+  if (!e.postedAt || !e.retrievedAt) return false;
+  const posted = Date.parse(e.postedAt);
+  const retrieved = Date.parse(e.retrievedAt);
+  if (Number.isNaN(posted) || Number.isNaN(retrieved)) return false;
+  return Math.abs(retrieved - posted) <= CANONICAL.currentWindowDays * 24 * 3600 * 1000;
+}
+
+// Structural honesty gates for a validated-canonical internship role. Always
+// on (pilot included): a canonical role that cannot meet these is not a
+// smaller-scale success, it is an unvalidated claim. snapshotRoot lets tests
+// point the on-disk snapshot check at a fixture directory.
+export function checkCanonicalRole(i, { snapshotRoot = "." } = {}) {
+  const errors = [];
+  const err = (m) => errors.push(`canonical internship ${i.id}: ${m}`);
+  if (!String(i.id || "").startsWith(CANONICAL.idPrefix))
+    err(`id must start with "${CANONICAL.idPrefix}" (prevents collisions with evidence-tier inputs)`);
+  if (i.skillsBasis !== "judgment")
+    err(`skillsBasis must be "judgment" (requiredSkills are LLM priors, not posting-extracted; say so)`);
+  for (const [career, edge] of Object.entries(i.edges || {})) {
+    if (!(edge.inferred && edge.judged))
+      err(`edge to ${career} is not judged-tier (a canonical role with a direct-evidence edge blurs tiers)`);
+  }
+  const ev = i.evidence || [];
+  for (const e of ev) {
+    if (!CANONICAL.evidenceTypes.includes(e.type))
+      err(`evidence type ${JSON.stringify(e.type)} not allowed (expected ${CANONICAL.evidenceTypes.join("/")})`);
+    if (!e.snapshot) err(`evidence (${e.company || "?"}) missing snapshot path`);
+    if (!e.retrievedAt) err(`evidence (${e.company || "?"}) missing retrievedAt`);
+    if (e.snapshot) {
+      const path = join(snapshotRoot, e.snapshot);
+      if (!existsSync(path) || !(statSync(path).size > 0)) {
+        err(`snapshot ${e.snapshot} missing or empty on disk (a snapshot path is a claim, not evidence)`);
+      } else {
+        const text = readFileSync(path, "utf8").toLowerCase();
+        const roleToken = String(i.role || "").toLowerCase();
+        const companyToken = String(e.company || "").toLowerCase();
+        if (!(roleToken && text.includes(roleToken)) && !(companyToken && text.includes(companyToken)))
+          err(`snapshot ${e.snapshot} mentions neither the role nor the company (${e.company || "?"})`);
+      }
+    }
+  }
+  const companies = new Set(ev.map((e) => normalizeCompany(e.company)).filter(Boolean));
+  if (companies.size < CANONICAL.minCompanies)
+    err(`evidence from ${companies.size} distinct employer(s); need ${CANONICAL.minCompanies}+ to call the role validated`);
+  if (!ev.some(evidenceIsCurrent))
+    err(`no CURRENT evidence (an active intern-list entry, or postedAt within ${CANONICAL.currentWindowDays} days of retrieval); archived history alone cannot validate a current role`);
+  const titles = new Set(ev.filter((e) => e.title).map((e) => `${e.title} (${e.company})`));
+  for (const t of i.exampleTitles || [])
+    if (!titles.has(t)) err(`exampleTitle ${JSON.stringify(t)} does not match any validation evidence entry`);
+  return errors;
+}
+
+export function validateDataset(ds, { pilot = false, snapshotRoot = "." } = {}) {
   const errors = [];
   const warnings = [];
   const err = (m) => errors.push(m);
@@ -166,6 +253,7 @@ export function validateDataset(ds, { pilot = false } = {}) {
     }
   };
   careers.forEach((c) => checkEvidence(c, `career ${c.id}`));
+  for (const i of internships) if (isCanonical(i)) errors.push(...checkCanonicalRole(i, { snapshotRoot }));
   for (const input of inputs) {
     checkEvidence(input, `${input.kind} ${input.id}`);
     const floorKey = input.kind === "internship" ? "internship" : input.level;
@@ -254,13 +342,41 @@ export function validateDataset(ds, { pilot = false } = {}) {
         warnings.push(`career ${c.id}: internship-starved (flagged; see review report)`);
     }
 
+    // Posting-clustered roles (grounding absent or "postings"): the
+    // 2-distinct-companies rule, counting NORMALIZED companies across posting
+    // and intern-list evidence (one employer seen through two sources is one
+    // employer), plus at least one full-text source, because requiredSkills
+    // must come from real posting text, not from title-only list entries.
+    // Canonical roles have their own always-on gates (checkCanonicalRole).
     for (const i of internships) {
+      if (isCanonical(i)) continue;
       const companies = new Set(
-        (i.evidence || []).filter((e) => e.type === "posting").map((e) => e.company)
+        (i.evidence || [])
+          .filter((e) => e.type === "posting" || e.type === "intern-list")
+          .map((e) => normalizeCompany(e.company))
+          .filter(Boolean)
       );
       if (companies.size < GATES.minCompaniesPerInternship)
         err(
-          `internship ${i.id}: postings from ${companies.size} company(ies); need ${GATES.minCompaniesPerInternship}+`
+          `internship ${i.id}: postings from ${companies.size} distinct company(ies); need ${GATES.minCompaniesPerInternship}+`
+        );
+      if (!(i.evidence || []).some((e) => e.type === "posting" || e.type === "employer-page"))
+        err(
+          `internship ${i.id}: no full-text evidence (posting/employer-page); intern-list titles alone cannot ground requiredSkills`
+        );
+    }
+
+    // Internship variety + coverage: the map must offer a realistic set of
+    // intern roles, and those roles must reach more than one hub career.
+    if (internships.length < GATES.minInternshipVariety)
+      err(
+        `internship variety: ${internships.length} role(s) shipped; need ${GATES.minInternshipVariety}+ (one-internship maps misrepresent entry paths; broaden grounding or enable the canonical tier)`
+      );
+    if (careers.length >= GATES.minCareersForCoverageGate) {
+      const reachedByInternships = new Set(internships.flatMap((i) => i.destinations || []));
+      if (reachedByInternships.size < GATES.minInternshipCareers)
+        err(
+          `internship coverage: internship edges reach ${reachedByInternships.size} career(s); need ${GATES.minInternshipCareers}+ (variety without coverage leaves careers internship-starved)`
         );
     }
 

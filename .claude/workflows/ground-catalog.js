@@ -8,6 +8,7 @@ export const meta = {
     { title: 'Courses', detail: 'parse catalog pages, shortlist, label taught skills' },
     { title: 'Internships', detail: 'cluster intern roles across org types' },
     { title: 'Edges', detail: 'batched judges; skeptics only on the uncertain band' },
+    { title: 'Intern variety', detail: 'canonical common roles proposed by judgment, validated against real postings' },
     { title: 'Gaps', detail: 'user-intuition gap review; capped judged edges' },
     { title: 'Finalize', detail: 'assemble (mechanical edge policy), gates, report' },
   ],
@@ -82,6 +83,19 @@ const DEFAULTS = {
   skepticBatchSize: 12, // banded edges verified per agent
   inferAdjacency: true, // judgment tier: infer scope-overlap edges between careers
   reviewGaps: true, // judgment tier: repair user-intuition gaps with capped judged edges
+  // Intern-variety repair (judgment tier 3): when fewer clustered roles
+  // SURVIVE edge policy than minInternshipVariety (the validator gate), an
+  // LLM proposes canonical common intern roles and a grounding search must
+  // validate each against real postings from >= 2 distinct employers.
+  // Validated roles ship with grounding: "canonical" and judgment-only edges.
+  canonicalInterns: true,
+  minInternshipVariety: 4, // mirrors GATES.minInternshipVariety in the validator
+  maxCanonicalInterns: 6,
+  // SimplifyJobs intern list: broad title+company coverage across hundreds of
+  // employers (title evidence only, never skill text). Set simplifyUrl: null
+  // to disable; bump the season as new lists open.
+  simplifyUrl: 'https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/.github/scripts/listings.json',
+  simplifyCategories: '', // token/substring filter, e.g. 'data,quant'; empty keeps all
   onetZipUrl: 'https://www.onetcenter.org/dl_files/database/db_29_1_text.zip',
   // apply: true registers the generated catalog as an app tab (via
   // scripts/register-catalog.mjs) when a full, gate-passing run finishes.
@@ -129,6 +143,8 @@ const TIER_DEFAULTS = {
   internships: { model: 'sonnet', effort: 'medium' }, // cluster prefiltered titles
   judge: { model: 'sonnet', effort: 'medium' }, // batched edge proposals
   skeptic: {}, // inherit: adversarial verification is where quality binds
+  canonicalPropose: {}, // inherit: domain judgment of what roles are commonly offered gates the tier
+  canonicalValidate: { model: 'sonnet', effort: 'medium' }, // search + verify existence
   finalize: { model: 'sonnet', effort: 'low' }, // executes scripts, reports verbatim
   report: { model: 'sonnet', effort: 'high' }, // long-form synthesis, no discovery
 }
@@ -179,11 +195,11 @@ for (const c of cfg.companies) bySource[c.source].push(c.slug)
 
 const setup = await agent(
   `You are Phase 0 of the ground-catalog workflow in this repo (read docs/grounding-workflow-plan.md if unsure). Do exactly this, via Bash:
-1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges-verdicts ${ROOT}/edges-gap data/datasets data/catalogs
+1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/internships-canonical ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges-verdicts ${ROOT}/edges-gap data/datasets data/catalogs
 2. If ${ONET_ROOT}/db/ does not already contain "Occupation Data.txt" in some subdirectory (the DB is shared across industry runs): curl -sSL --max-time 300 -o ${ONET_ROOT}/db.zip "${cfg.onetZipUrl}" and unzip -oq into ${ONET_ROOT}/db/. Record the O*NET version from the zip filename or Read Me.txt.
 3. Verify: node scripts/onet-extract.mjs --db ${ONET_ROOT}/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
-4. Fetch and prefilter the posting boards: node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}
-   Save its JSON summary verbatim to ${ROOT}/postings/manifest.json. Do not retry failed slugs with guessed alternatives.
+4. Fetch and prefilter the posting boards: node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}${cfg.simplifyUrl ? ` --simplify "${cfg.simplifyUrl}"${cfg.simplifyCategories ? ` --simplify-categories "${cfg.simplifyCategories}"` : ''}` : ''}
+   Save its JSON summary verbatim to ${ROOT}/postings/manifest.json. Do not retry failed slugs with guessed alternatives.${cfg.simplifyUrl ? ` The --simplify source writes ${ROOT}/postings/simplify.json (durable snapshot, one posting per line) and ${ROOT}/postings/simplify-companies.json (compact {company:[titles]} view). Simplify entries are title+company evidence only, never skill text.` : ''}
 5. Probe each catalog URL with curl -sS -o /dev/null -w "%{http_code}": ${cfg.catalogPages.map((p) => p.url).join(' ')}
 6. Get the current UTC timestamp with: date -u +%Y-%m-%dT%H:%M:%SZ
 7. Write ${ROOT}/meta.json: { "runId": "${cfg.runId}", "industry": ${JSON.stringify(cfg.industry)}, "university": ${JSON.stringify(cfg.university)}, "generatedBy": "ground-catalog", "onetVersion": "<found>", "generatedAt": "<timestamp>", "pilot": ${cfg.pilot}, "orgTypes": ${JSON.stringify(cfg.orgTypes)}, "sources": [<the catalog URLs and "${cfg.onetZipUrl}">] }
@@ -336,8 +352,8 @@ const internshipTask = async () => {
   const m = await agent(
     `Canonicalize intern roles for the ground-catalog workflow, across ALL org types. Prefiltered postings are ${ROOT}/postings/<source>-<slug>.json (title, entryLevel: "intern"|"new-grad", url, content). Companies by org type:
 ${byOrgType}
-1. Read those files. Per org type, cluster the intern-titled postings into 2-4 canonical roles (e.g. "Software Engineer Intern"). A role needs intern or new-grad postings from >= 2 distinct companies; prefer entryLevel "intern", use "new-grad" postings only to supplement skills. If an org type cannot support 2 roles from real postings, output fewer and say so in failures; NEVER invent roles.
-2. For each role, extract "requiredSkills": 5-10 short phrases the posting texts actually ask for (quote-derived, not imagined).
+${cfg.simplifyUrl ? `Also available: ${ROOT}/postings/simplify-companies.json (a compact {company: [titles]} map from the SimplifyJobs intern list, hundreds of employers). These are TITLE + COMPANY evidence only - there is NO description text, so they can broaden a role's example titles and its distinct-company count, but they can NEVER be a role's skill source. Do not read the full simplify.json (it is thousands of lines); grep it only if you need a specific listing's URL.\n` : ''}1. Read the ATS posting files (and the compact simplify view if present). Per org type, cluster the intern-titled postings into 2-4 canonical roles (e.g. "Software Engineer Intern"). A role needs intern or new-grad postings from >= 2 distinct companies (Simplify entries count toward that company count via their company_name); prefer entryLevel "intern", use "new-grad" postings only to supplement skills. If an org type cannot support 2 roles from real postings, output fewer and say so in failures; NEVER invent roles.
+2. For each role, extract "requiredSkills": 5-10 short phrases the posting texts actually ask for (quote-derived, not imagined). A role's skills MUST come from full posting text (an ATS "content" field or a web-fetched posting you snapshot to ${ROOT}/postings/web-<slug>-<n>.txt); a role supported only by Simplify titles cannot carry skills, so either fetch+snapshot 1-2 of its listings first or do not emit it. Use evidence type "posting" for ATS/fetched postings and "intern-list" for a SimplifyJobs entry.
 3. Write ONE file per org type, ${ROOT}/internships/<orgtype-slug>.json:
 { "orgType": "<label>", "roles": [{ "id": "<orgtype-slug>-<role-slug>", "role": "<canonical title>", "orgType": "<label>", "exampleTitles": ["<title> (<Company>)"], "requiredSkills": [...], "evidence": [{ "type": "posting", "company": "<slug>", "title": "<posting title>", "url": "<posting url>", "snapshot": "<the postings file path>", "retrievedAt": "${NOW}" } per supporting posting] }] }
 Return the manifest: path=${ROOT}/internships, ids=[ALL role ids across org types], failures per unsupportable org type.`,
@@ -446,6 +462,73 @@ const keptByskeptic = skepticResults.filter(Boolean).flatMap((r) => r.ids).lengt
 log(`skeptics kept ${keptByskeptic}/${bandedPairs.length} banded edges; assembler applies floors/top-K deterministically`)
 
 // ---------------------------------------------------------------------------
+// Phase 4b - Intern variety. In plain code, reproduce the assembler's
+// keep-decision for internship edges (floor / auto-accept / fail-closed
+// skeptic verdict) to count clustered roles that will SURVIVE assembly - the
+// raw clustered count overstates it (a general-SWE cluster whose edges all
+// fall below the 0.75 internship floor dies at assembly and shipped nothing
+// last run). If survivors fall short of the variety gate, an LLM proposes
+// canonical common intern roles and a grounding search validates each against
+// real postings from >= 2 distinct employers. The deterministic join in
+// assemble-dataset.mjs (buildCanonicalRoles) is the sole producer of roles;
+// agents never transcribe fields across the proposal/evidence boundary.
+// ---------------------------------------------------------------------------
+
+const skepticKept = new Set(skepticResults.filter(Boolean).flatMap((r) => r.ids))
+const survivingInternRoles = new Set()
+for (const r of judgeResults.filter(Boolean)) {
+  for (const p of r.proposals || []) {
+    if (p.kindKey !== 'internship') continue
+    const survives = (p.edges || []).some(
+      (e) => e.confidence >= FLOORS.internship && (e.confidence >= AUTO_ACCEPT || skepticKept.has(`${p.id}|${e.career}`))
+    )
+    if (survives) survivingInternRoles.add(p.id)
+  }
+}
+const clusteredSurvivors = survivingInternRoles.size
+const starvedForProposer = cfg.careers.map((c) => c.id).filter((id) => groundedCareerIds.includes(id))
+log(`intern variety: ${clusteredSurvivors} clustered role(s) will survive edge policy (target ${cfg.minInternshipVariety})`)
+
+let canonicalProposal = null
+if (cfg.canonicalInterns !== false && clusteredSurvivors < cfg.minInternshipVariety) {
+  phase('Intern variety')
+  const orgTypeList = cfg.orgTypes.join(', ')
+  canonicalProposal = await agent(
+    `Canonical intern-role PROPOSER for the ground-catalog workflow (run ${cfg.runId}). Only ${clusteredSurvivors} posting-clustered intern role(s) will survive assembly, below the variety target of ${cfg.minInternshipVariety}. Postings are seasonally thin; your job is DOMAIN JUDGMENT: name the canonical, commonly-offered intern roles a student in this field would recognize, so the map is not misleadingly empty. You do NOT validate them (a separate agent does); you propose.
+Read the career files ${ROOT}/careers/<id>.json (ids: ${groundedCareerIds.join(', ')}) for each career's real scope, and the already-clustered roles in ${ROOT}/internships/*.json (do NOT duplicate them).
+Org types available: ${orgTypeList}. Careers currently short of internship support (target these where honest): ${starvedForProposer.join(', ')}.
+Propose up to ${cfg.maxCanonicalInterns} canonical intern roles. For EACH:
+- role: the common title (e.g. "Data Analyst Intern", "Data Engineering Intern").
+- orgType: pick from [${orgTypeList}] where the role is most commonly offered.
+- requiredSkills: 5-8 short phrases the role standardly asks for. These are JUDGMENT (industry priors), not posting-extracted - they will ship marked skillsBasis "judgment".
+- candidateEdges: at most 3 { career (from the id list), confidence 0.4-0.7, rationale }. Bar: would both an undergrad AND their advisor nod at this link? Prefer starved careers where honest; do NOT invent a role just to cover a career.
+- searchHints: 2-4 concrete queries/companies a validator could use to find real postings for this role.
+Write ONE file ${ROOT}/internships-canonical/_proposals.json:
+{ "proposals": [{ "id": "<role-slug>", "role", "orgType", "whyCommon": "<one line>", "requiredSkills": [...], "candidateEdges": [{ "career", "confidence", "rationale" }], "searchHints": [...] }] }
+Report starved careers you deliberately left unserved (and why) in notes. Return the manifest: path=that file, ids=[role slugs], notes.`,
+    { ...tier('canonicalPropose'), label: 'canonical-propose', phase: 'Intern variety', schema: MANIFEST }
+  )
+
+  const canonicalValidation = canonicalProposal && canonicalProposal.ids && canonicalProposal.ids.length
+    ? await agent(
+        `Canonical intern-role VALIDATOR for the ground-catalog workflow (run ${cfg.runId}). The proposer wrote ${ROOT}/internships-canonical/_proposals.json (roles it believes are commonly offered). Your job is EXISTENCE VERIFICATION only: for each proposed role, find REAL evidence it exists in the world. You do NOT re-judge edges, rewrite skills, or add roles the proposer did not propose.
+For each proposal (read the file; use its searchHints):
+1. First check local snapshots: grep ${ROOT}/postings/simplify.json and read the ATS files ${ROOT}/postings/*.json for postings whose title matches the role.
+2. If needed, WebSearch for live or recent postings / employer early-careers pages, WebFetch them, and SAVE the relevant text to ${ROOT}/postings/web-<role-slug>-<n>.txt (the snapshot IS the durable evidence).
+3. A role validates ONLY with evidence from >= 2 DISTINCT employers, at least one CURRENT: an intern-list (Simplify) entry, or a posting/page whose postedAt is within ~18 months of today. Use the company's real name for "company".
+Write ONE file ${ROOT}/internships-canonical/validation.json:
+{ "validated": [{ "id": "<matching proposal id>", "evidence": [{ "type": "posting"|"employer-page"|"intern-list", "company": "<real name>", "title": "<posting title>", "url": "<url>", "snapshot": "<path under ${ROOT}/postings/ ; for a Simplify entry use ${ROOT}/postings/simplify.json>", "retrievedAt": "${NOW}", "postedAt": "<ISO or null>" }], "queries": ["<searches you ran>"] }], "failures": ["<id>: reason it could not be validated with 2+ current employers"] }
+Only include a role in "validated" if it truly clears the >=2-distinct-employers, >=1-current bar; otherwise put it in failures (fail-visible). The assembler joins your validation with the proposals deterministically - a role you omit ships nothing. Return the manifest: path=that file, ids=[validated role ids], failures.`,
+        { ...tier('canonicalValidate'), label: 'canonical-validate', phase: 'Intern variety', schema: MANIFEST }
+      )
+    : null
+  if (canonicalValidation)
+    log(`canonical interns: proposed ${canonicalProposal.ids.length}, validated ${canonicalValidation.ids.length}; ${(canonicalValidation.failures || []).join('; ') || 'no failures'}`)
+} else if (cfg.canonicalInterns !== false) {
+  log(`intern variety sufficient (${clusteredSurvivors} >= ${cfg.minInternshipVariety}); canonical tier skipped`)
+}
+
+// ---------------------------------------------------------------------------
 // Phase 5 - Gap review: look at the ASSEMBLED map the way an undergrad user
 // will, and repair intuition gaps with capped domain judgment. Detection is
 // deterministic (scripts/report-gaps.mjs); only the repair is an LLM call, and
@@ -497,8 +580,9 @@ Edge pipeline stats for context: ${autoAccepted} auto-accepted (>= ${AUTO_ACCEPT
 Structure, flagged items FIRST:
 1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before this catalog ships as an app tab (registered via apply: true).
 2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding (meta.flags.unsupportedCareers), dropped inputs (meta.flags.droppedInputs), inferred edges (meta.flags.inferredEdges), gap-review judged edges (meta.flags.judgedEdges, with their rationales from ${ROOT}/edges-gap/judged.json), and careers reachable ONLY via inference (meta.flags.inferenceOnlyCareers) - state plainly that these rest on judgment (scope overlap or gap review), not direct evidence, and are drawn softer, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), edges trimmed for balance (meta.flags.edgesTrimmedForBalance), dead/empty company boards, whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run), and the senior-narrowing simulation line from the validator output (breadth must close nothing; the committal stack should peak then narrow).
+2b. Validated-canonical internship tier (if meta.flags.canonicalInternships is present): a DEDICATED section. For each canonical role list its validation evidence WITH AGE (postedAt vs retrievedAt - a historical posting must read as historical, not current), its judged-edge rationales (from ${ROOT}/internships-canonical/_proposals.json), and state explicitly that its requiredSkills are JUDGMENT (skillsBasis "judgment"), not posting-extracted. Report the variety split (meta.flags.internshipVariety: clustered vs canonical), any roles the join skipped (meta.flags.canonicalSkipped: unvalidated or title-duplicate), careers whose internship support is entirely canonical (meta.flags.canonicalOnlyInternshipCareers), and which starved careers remain unserved (from the proposer's notes). Say plainly: canonical roles are validated to EXIST at real employers; their career links are judgment, not measured outcomes.
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
-4. Staleness: postings churn in weeks; recommend a re-run cadence.
+4. Staleness: postings churn in weeks; recommend a re-run cadence, and note the canonical tier's evidence is seasonal too (re-validate each cycle).
 Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=${REPORT}, ids=[]).`,
   { ...tier('report'), label: 'review-report', phase: 'Finalize', schema: MANIFEST }
 )
