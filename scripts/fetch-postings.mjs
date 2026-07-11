@@ -11,7 +11,14 @@
 // Usage:
 //   node scripts/fetch-postings.mjs --out data/sources/postings \
 //        [--greenhouse stripe,databricks] [--lever palantir] \
-//        [--simplify <listings.json url>] [--simplify-categories "AI/ML/Data,Quant"]
+//        [--simplify <listings.json url>] [--simplify-categories "AI/ML/Data,Quant"] \
+//        [--mycareersfuture "accounting,audit,tax"] [--mcf-max 40]
+//
+// --mycareersfuture queries Singapore's national jobs portal
+// (mycareersfuture.gov.sg) for Internship/Attachment postings matching each
+// comma-separated search term, deduped by job id, WITH full descriptions and a
+// structured skills array (a genuine skill source, unlike the title-only
+// SimplifyJobs list). It fills the Greenhouse/Lever gap for Singapore.
 //
 // Writes one snapshot file per company plus a summary manifest to stdout:
 //   { retrievedAt, companies: [{ company, source, url, ok, totalJobs,
@@ -55,6 +62,15 @@ function curlJson(url) {
     maxBuffer: 64 * 1024 * 1024,
     encoding: "utf8",
   });
+  return JSON.parse(out);
+}
+
+function curlPostJson(url, body) {
+  const out = execFileSync(
+    "curl",
+    ["-sS", "--max-time", "60", "-L", "-X", "POST", "-H", "Content-Type: application/json", "-d", JSON.stringify(body), url],
+    { maxBuffer: 64 * 1024 * 1024, encoding: "utf8" }
+  );
   return JSON.parse(out);
 }
 
@@ -161,6 +177,93 @@ export function serializeSimplify(snapshot) {
   return shell.replace('"postings": []', `"postings": [\n${lines.join(",\n")}\n  ]`);
 }
 
+// MyCareersFuture (Singapore's national jobs portal, mycareersfuture.gov.sg).
+// Its public v2 search API filters by employment type, so we ask for
+// Internship/Attachment postings directly. Unlike the SimplifyJobs title list,
+// each posting carries a structured skills array AND a full description (from
+// the per-job detail endpoint), so a MyCareersFuture posting is a genuine SKILL
+// source, not just title+company. This fills the Greenhouse/Lever gap for
+// Singapore (and other markets those ATS boards miss).
+export const MCF_SEARCH_URL = "https://api.mycareersfuture.gov.sg/v2/search";
+export const MCF_JOB_URL = (uuid) => `https://api.mycareersfuture.gov.sg/v2/jobs/${uuid}`;
+const MCF_JOB_PAGE = (r) =>
+  (r.metadata && r.metadata.jobDetailsUrl) ||
+  (r.uuid ? `https://www.mycareersfuture.gov.sg/job/${r.uuid}` : null);
+
+// Map a search result (+ optional detail JSON with the full description) to a
+// posting. Pure and testable; the network calls live in fetchMyCareersFuture.
+export function mcfPosting(result, detail = null) {
+  const skills = (result.skills || (detail && detail.skills) || [])
+    .map((s) => (typeof s === "string" ? s : s.skill))
+    .filter(Boolean);
+  const categories = (result.categories || []).map((c) => (typeof c === "string" ? c : c.category)).filter(Boolean);
+  const description = detail ? cleanContent(detail.description) : "";
+  return {
+    title: result.title,
+    company: (result.postedCompany && result.postedCompany.name) || (result.hiringCompany && result.hiringCompany.name) || null,
+    url: MCF_JOB_PAGE(result),
+    uuid: result.uuid,
+    categories,
+    skills,
+    postedAt: (result.metadata && (result.metadata.newPostingDate || result.metadata.originalPostingDate)) || null,
+    entryLevel: "intern", // filtered to Internship/Attachment at the query
+    content: description,
+  };
+}
+
+// Dedupe by uuid across queries; keep genuine internship postings only.
+// Staffing-agency reposts tag EVERY employment type (Full Time + Contract +
+// Internship + ...), so an internship employment tag alone is not enough:
+// require the title to read as an internship, or the posting to be (almost)
+// internship-only.
+const MCF_INTERN_TITLE = /\b(intern(ship)?|attachment|trainee)\b/i;
+const MCF_SENIOR_TITLE = /\b(manager|senior|snr|director|head|lead|principal|vp|chief|executive)\b/i;
+export function collectMcfResults(pages) {
+  const byUuid = new Map();
+  for (const page of pages)
+    for (const r of (page && page.results) || []) {
+      const types = (r.employmentTypes || []).map((e) => (typeof e === "string" ? e : e.employmentType));
+      const title = r.title || "";
+      const titleIntern = MCF_INTERN_TITLE.test(title);
+      if (!types.some((t) => /intern|attachment/i.test(t || ""))) continue;
+      // Agency reposts tag every employment type; a senior title with an intern
+      // tag is not an internship. Keep only genuine intern signals.
+      if (!titleIntern && types.length > 2) continue;
+      if (!titleIntern && MCF_SENIOR_TITLE.test(title)) continue;
+      if (r.uuid && !byUuid.has(r.uuid)) byUuid.set(r.uuid, r);
+    }
+  return [...byUuid.values()];
+}
+
+// Runs the search (one POST per query term, paginated) + per-job detail fetches
+// for full descriptions. Bounded by max to keep it cheap. Returns
+// { totalResults, postings }.
+function fetchMyCareersFuture(queries, { limit = 20, maxPages = 3, max = 40 } = {}) {
+  const pages = [];
+  for (const q of queries) {
+    for (let page = 0; page < maxPages; page++) {
+      const res = curlPostJson(`${MCF_SEARCH_URL}?limit=${limit}&page=${page}`, {
+        search: q,
+        employmentTypes: ["Internship/Attachment"],
+        sortBy: ["new_posting_date"],
+      });
+      pages.push(res);
+      if (!res.results || res.results.length < limit) break; // last page for this query
+    }
+  }
+  const results = collectMcfResults(pages).slice(0, max);
+  const postings = results.map((r) => {
+    let detail = null;
+    try {
+      detail = curlJson(MCF_JOB_URL(r.uuid));
+    } catch {
+      detail = null; // fall back to the search-result skills; description stays empty
+    }
+    return mcfPosting(r, detail);
+  });
+  return { totalResults: results.length, postings };
+}
+
 const SOURCES = {
   greenhouse: {
     url: (co) => `https://boards-api.greenhouse.io/v1/boards/${co}/jobs?content=true`,
@@ -235,6 +338,36 @@ function main() {
           serializeSimplify({ source: "simplify", url: simplifyUrl, retrievedAt, totalListings, categoryCounts, postings })
         );
         writeFileSync(entry.companiesFile, JSON.stringify(simplifyCompanies(postings), null, 2));
+      }
+    } catch (err) {
+      entry.error = String(err.message || err).slice(0, 300);
+    }
+    companies.push(entry);
+  }
+
+  // MyCareersFuture (Singapore). --mycareersfuture takes comma-separated search
+  // terms (e.g. "accounting,audit,tax"); each is queried for Internship/
+  // Attachment postings, results deduped by uuid, and full descriptions pulled
+  // from the detail endpoint. Snapshot carries real skill text, so these count
+  // as full-text posting evidence downstream.
+  const mcfQueries = opt("--mycareersfuture").split(",").map((s) => s.trim()).filter(Boolean);
+  if (mcfQueries.length) {
+    const entry = { company: "mycareersfuture", source: "mycareersfuture", url: MCF_SEARCH_URL, queries: mcfQueries, ok: false };
+    try {
+      const max = Number(opt("--mcf-max", "40")) || 40;
+      const { totalResults, postings } = fetchMyCareersFuture(mcfQueries, { max });
+      entry.totalResults = totalResults;
+      entry.internCount = postings.length;
+      entry.withDescription = postings.filter((p) => p.content).length;
+      if (postings.length === 0) {
+        entry.error = "no Internship/Attachment postings matched the search terms";
+      } else {
+        entry.ok = true;
+        entry.file = join(outDir, "mycareersfuture.json");
+        writeFileSync(
+          entry.file,
+          serializeSimplify({ source: "mycareersfuture", url: MCF_SEARCH_URL, queries: mcfQueries, retrievedAt, totalResults, postings })
+        );
       }
     } catch (err) {
       entry.error = String(err.message || err).slice(0, 300);

@@ -19,6 +19,8 @@ import {
   simplifyCompanies,
   serializeSimplify,
   normalizeCompany,
+  mcfPosting,
+  collectMcfResults,
 } from "../scripts/fetch-postings.mjs";
 import { gini, jaccard, validateDataset, checkCanonicalRole } from "../scripts/validate-dataset.mjs";
 import { mkdtempSync, writeFileSync, mkdirSync } from "node:fs";
@@ -623,6 +625,51 @@ test("simplifyCompanies aggregates and serializeSimplify keeps postings one-per-
   // one posting object per line inside the postings array
   const arrayBody = snap.slice(snap.indexOf('"postings": [') + 13, snap.lastIndexOf("]"));
   assert.equal(arrayBody.trim().split("\n").length, 3);
+});
+
+// ---------- MyCareersFuture (Singapore) ----------
+
+test("collectMcfResults keeps genuine internships, drops agency multi-type and senior reposts, dedupes by uuid", () => {
+  const et = (...names) => names.map((employmentType) => ({ employmentType }));
+  const pages = [
+    { results: [
+      { uuid: "1", title: "Accounting Intern", employmentTypes: et("Internship/Attachment") },
+      { uuid: "2", title: "Audit and Tax Intern", employmentTypes: et("Full Time", "Internship/Attachment") },
+      // agency repost: senior title, many types incl. internship -> dropped
+      { uuid: "3", title: "Finance & Accounting Manager", employmentTypes: et("Full Time", "Contract", "Internship/Attachment") },
+      // senior title, <=2 types, still not an intern -> dropped by the senior guard
+      { uuid: "4", title: "Senior Auditor", employmentTypes: et("Full Time", "Internship/Attachment") },
+      // full-time only -> dropped (no intern employment tag)
+      { uuid: "5", title: "Accountant", employmentTypes: et("Full Time") },
+    ] },
+    { results: [{ uuid: "1", title: "Accounting Intern", employmentTypes: et("Internship/Attachment") }] }, // dup
+  ];
+  const kept = collectMcfResults(pages);
+  assert.deepEqual(kept.map((r) => r.uuid), ["1", "2"], "only genuine internships survive, deduped");
+});
+
+test("mcfPosting maps title/company/url/skills/description; detail fills the description", () => {
+  const result = {
+    uuid: "abc",
+    title: "Accounting Intern",
+    postedCompany: { name: "RSM Stone Forest" },
+    categories: [{ category: "Accounting / Auditing / Taxation" }],
+    skills: [{ skill: "Bookkeeping" }, { skill: "Microsoft Excel" }],
+    employmentTypes: [{ employmentType: "Internship/Attachment" }],
+    metadata: { jobDetailsUrl: "https://www.mycareersfuture.gov.sg/job/accounting/intern-abc", newPostingDate: "2026-07-08" },
+  };
+  const p = mcfPosting(result, { description: "<p>Assist with <strong>ledgers</strong> &amp; reconciliations.</p>", skills: [] });
+  assert.equal(p.company, "RSM Stone Forest");
+  assert.equal(p.url, "https://www.mycareersfuture.gov.sg/job/accounting/intern-abc");
+  assert.equal(p.entryLevel, "intern");
+  assert.deepEqual(p.skills, ["Bookkeeping", "Microsoft Excel"]);
+  assert.deepEqual(p.categories, ["Accounting / Auditing / Taxation"]);
+  assert.equal(p.postedAt, "2026-07-08");
+  assert.ok(/ledgers & reconciliations/.test(p.content), "description is de-escaped and tag-stripped");
+  // falls back to search-result skills and empty description when detail is absent
+  const p2 = mcfPosting(result, null);
+  assert.equal(p2.content, "");
+  assert.deepEqual(p2.skills, ["Bookkeeping", "Microsoft Excel"]);
 });
 
 test("normalizeCompany collapses source prefixes and casing so one employer counts once", () => {
