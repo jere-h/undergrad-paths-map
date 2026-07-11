@@ -1,0 +1,83 @@
+{
+  "proposals": {
+    "ntu-ab0301": [
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["Law and government knowledge"],
+        "distinctive": true,
+        "rationale": "Course teaches anti-bribery/corruption law, ESG governance, and designing compliance programs for risk management, matching the compliance analyst's law/regulatory knowledge base."
+      }
+    ],
+    "ntu-ab0403": [],
+    "ntu-ab1201": [],
+    "ntu-ab1202": [],
+    "ntu-ab1301": [
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["Law and government knowledge"],
+        "distinctive": true,
+        "rationale": "Foundational business law (contracts, agency, business organisations, torts) builds the legal literacy compliance analysts need to interpret regulatory requirements."
+      }
+    ],
+    "ntu-ab5101": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.85,
+        "matchedSkills": ["Valuation modeling"],
+        "distinctive": true,
+        "rationale": "Course is a direct, in-depth treatment of business valuation approaches, IVSC standards, and discounts/premiums, squarely matching the financial analyst's core valuation-modeling skill."
+      }
+    ],
+    "ntu-ab5102": [
+      {
+        "career": "forensic-accountant",
+        "confidence": 0.92,
+        "matchedSkills": ["Fraud investigation", "Expert witness support", "Working with law enforcement and legal counsel"],
+        "distinctive": true,
+        "rationale": "Course explicitly teaches fraud investigation methodology, IT forensics, interviewing/interrogation, and the role of an expert witness, directly matching forensic accountant duties."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.5,
+        "matchedSkills": ["Detecting deficient controls or fraud"],
+        "distinctive": true,
+        "rationale": "Analysis of financial-statement and cash fraud schemes gives auditors relevant fraud-detection grounding, though the course is forensics-focused rather than audit-testing focused."
+      }
+    ],
+    "ntu-ac3104": [
+      {
+        "career": "internal-auditor",
+        "confidence": 0.75,
+        "matchedSkills": ["Risk-based audit scoping"],
+        "distinctive": true,
+        "rationale": "Course teaches ERM frameworks for identifying/assessing/managing risk plus audit analytics, directly building risk-based audit scoping capability."
+      },
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.6,
+        "matchedSkills": ["Law and government knowledge"],
+        "distinctive": true,
+        "rationale": "ERM and sustainability-assurance frameworks overlap with compliance analysts' need to evaluate organizational risk and regulatory exposure."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.55,
+        "matchedSkills": ["Detecting deficient controls or fraud"],
+        "distinctive": true,
+        "rationale": "Hands-on data analytics/data-mining for business and fraud risk assessment and audit analytics gives relevant fraud-detection technique exposure."
+      }
+    ],
+    "ntu-ab3601": [],
+    "ntu-ac3105": [
+      {
+        "career": "financial-accountant",
+        "confidence": 0.6,
+        "matchedSkills": ["Conformance to reporting standards"],
+        "distinctive": true,
+        "rationale": "Course teaches preparing/interpreting sustainability reports against mandatory ESG standards (TCFD, GRI, IR, SASB, ISSB), matching the financial accountant's reporting-standards-conformance skill."
+      }
+    ]
+  }
+}

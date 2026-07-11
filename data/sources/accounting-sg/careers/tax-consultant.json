@@ -1,0 +1,46 @@
+{
+  "id": "tax-consultant",
+  "name": "Tax Consultant",
+  "grounding": "soc",
+  "soc": ["13-2082.00"],
+  "responsibilities": [
+    "Interview clients about income and deductible expenses, then prepare returns from simple individual filings up to complex small-business cases",
+    "Apply every legitimate adjustment, deduction, and credit available so a client's tax bill is minimized without stepping over the line",
+    "Explain tax law in plain terms and advise clients on future tax planning, not just this year's filing"
+  ],
+  "skills": [
+    "Reading financial records (income statements, expense documentation) to figure out which forms actually apply",
+    "Working tax preparation and compliance software rather than filling forms by hand",
+    "Checking your own and others' entries for arithmetic or data-entry errors before anything gets filed",
+    "Consulting tax law handbooks or bulletins to handle an atypical return instead of guessing"
+  ],
+  "rawSkillPool": [
+    "Tax preparation software",
+    "Compliance software",
+    "Reviewing income statements and expense documentation",
+    "Tax law research (handbooks, bulletins)",
+    "Client interviewing for taxable income and deductions",
+    "Arithmetic / data-entry verification",
+    "Future tax planning advice",
+    "Accounting software",
+    "Spreadsheet software",
+    "Document management software",
+    "Explaining tax law to individuals and companies",
+    "Economics and accounting knowledge",
+    "Customer and personal service orientation"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2082.00",
+      "quote": "Prepare tax returns for individuals or small businesses. Use all appropriate adjustments, deductions, and credits to keep clients' taxes to a minimum.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2082.00",
+      "quote": "Interview clients to obtain additional information on taxable income and deductible expenses and allowances. Answer questions and provide future tax planning to clients.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

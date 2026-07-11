@@ -1,0 +1,132 @@
+{
+  "orgType": "Corporate Finance",
+  "roles": [
+    {
+      "id": "corporate-finance-finance-intern",
+      "role": "Finance Intern",
+      "orgType": "Corporate Finance",
+      "exampleTitles": [
+        "Finance Intern (OJJ Foods)",
+        "Finance Intern (Reolink Technology)",
+        "Finance Intern (Aug to Dec 26) (Hong Ye Group)",
+        "Finance Admin - Intern (Sunway Concrete Products)",
+        "Finance Intern (Cyrus Technology)",
+        "Accounts Intern (3 - 6 months) (NTL Naigai Trans Line)",
+        "Finance Intern (The Singapore Resort & Spa)"
+      ],
+      "requiredSkills": [
+        "Microsoft Excel / Google Sheets proficiency",
+        "accounts payable / accounts receivable support",
+        "bank reconciliation",
+        "month-end / monthly closing support",
+        "preparation of financial reports and statements",
+        "data entry and maintenance of financial records",
+        "attention to detail and organizational skills",
+        "ERP / accounting system data entry (e.g. SAP, EPICOR, i2000/JDE)"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "ojj-foods",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/banking-finance/finance-intern-ojj-foods-6133bf6c559891dc61cddc8421d8c41a",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "reolink-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-reolink-technology-f9bfc344cc9213f6b191079f4be0577c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "hong-ye-group",
+          "title": "Finance Intern (Aug to Dec 26)",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-hong-ye-group-832d2a716eea7edf23cef03789aa085c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "sunway-concrete-products",
+          "title": "Finance Admin - Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/banking-finance/finance-admin-intern-sunway-concrete-products-d96ed0c7a49498aaf6bd6b22eb5d51ea",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "cyrus-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/admin/finance-intern-cyrus-technology-2d760e5507b218b6976d31e80b35e8e7",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "ntl-naigai-trans-line",
+          "title": "Accounts Intern (3 - 6 months)",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounts-intern-ntl-naigai-trans-line-3030840f4fbef96dddd035010f5043cf",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "the-singapore-resort-spa",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-singapore-resort-spa-88ed3b0659b600adf859c83f07f60b5f",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "corporate-finance-fpa-controlling-intern",
+      "role": "FP&A / Finance Controlling Intern",
+      "orgType": "Corporate Finance",
+      "exampleTitles": [
+        "Finance Controlling Intern (Tod's Singapore)",
+        "Finance Intern (Innowave Tech)",
+        "Finance Intern (Reolink Technology)"
+      ],
+      "requiredSkills": [
+        "annual planning and quarterly forecast process",
+        "variance analysis (actual vs budget)",
+        "management report / dashboard preparation",
+        "financial modeling",
+        "Microsoft Excel proficiency",
+        "SAP / financial systems exposure",
+        "consolidation and elimination schedules"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "tods-singapore",
+          "title": "Finance Controlling Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-controlling-intern-tods-singapore-c846ee50bb245adc966cb352581a20db",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "innowave-tech",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-innowave-tech-0f16a8ac252b7add2d924e60725bfa30",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "reolink-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-reolink-technology-f9bfc344cc9213f6b191079f4be0577c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

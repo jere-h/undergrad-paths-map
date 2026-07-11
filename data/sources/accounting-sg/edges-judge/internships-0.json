@@ -1,0 +1,52 @@
+{
+  "proposals": {
+    "corporate-finance-finance-intern": [
+      {
+        "career": "financial-accountant",
+        "confidence": 0.85,
+        "matchedSkills": ["preparation of financial reports and statements", "bank reconciliation", "accounts payable / accounts receivable support"],
+        "distinctive": true,
+        "rationale": "Preparing financial statements and reconciling cash/AP/AR is the core of a financial accountant's distinctive work, not generic skill."
+      },
+      {
+        "career": "accounting-systems-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["ERP / accounting system data entry (e.g. SAP, EPICOR, i2000/JDE)", "accounts payable / accounts receivable support"],
+        "distinctive": true,
+        "rationale": "ERP data entry touches the GL/AP-AR system-support skill but at intern data-entry depth, not the configuration/support level the career demands."
+      }
+    ],
+    "corporate-finance-fpa-controlling-intern": [
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.92,
+        "matchedSkills": ["annual planning and quarterly forecast process", "variance analysis (actual vs budget)", "management report / dashboard preparation"],
+        "distinctive": true,
+        "rationale": "The internship's core tasks (FP&A, budgeting/forecasting, variance analysis, management dashboards) directly mirror the corporate finance analyst's distinctive skill set."
+      },
+      {
+        "career": "management-accountant",
+        "confidence": 0.55,
+        "matchedSkills": ["variance analysis (actual vs budget)", "annual planning and quarterly forecast process"],
+        "distinctive": true,
+        "rationale": "Planning/forecast and variance work overlaps with cost and budgetary systems design but lacks the operational cost-system design focus of a management accountant."
+      }
+    ],
+    "mid-tier-firm-accounting-intern": [
+      {
+        "career": "financial-accountant",
+        "confidence": 0.85,
+        "matchedSkills": ["preparation of unaudited financial statements", "account reconciliations and variance analysis"],
+        "distinctive": true,
+        "rationale": "Producing financial statements and reconciling accounts is squarely the financial accountant's distinctive work."
+      },
+      {
+        "career": "tax-consultant",
+        "confidence": 0.65,
+        "matchedSkills": ["corporate tax computations and GST return preparation"],
+        "distinctive": true,
+        "rationale": "Hands-on corporate tax computation and GST filing builds real tax-preparation competence, though the intern role is broader than tax alone."
+      }
+    ]
+  }
+}

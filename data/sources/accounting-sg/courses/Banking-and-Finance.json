@@ -1,0 +1,276 @@
+{
+  "dept": "Banking and Finance",
+  "sourceUrl": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+  "courses": [
+    {
+      "id": "ntu-bf2213",
+      "name": "Introduction to Compliance",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2213",
+      "taughtSkills": [
+        "Understanding regulatory and financial compliance requirements",
+        "Identifying compliance risks in financial institutions",
+        "Anti-money laundering (AML) risk assessment",
+        "Designing effective internal control mechanisms",
+        "Evaluating the impact of FinTech/RegTech on compliance"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a broad understanding of the role of compliance in financial institutions and introduce you to the common issues in the space of regulatory and financial compliance. Course topics include understanding the financial services sector, the role of compliance within financial institutions, the financial regulatory environment and requirements, compliance risks, anti-money laundering risks, and the importance of well-designed and effective control mechanisms. The course will also explore the impact of financial technology (FINTech) and regulatory technology (REGTech) advancements on the compliance landscape.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf3201",
+      "name": "Corporate Finance & Strategy",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3201",
+      "taughtSkills": [
+        "Corporate governance analysis",
+        "Capital budgeting decision-making",
+        "Capital structure analysis",
+        "Working capital management",
+        "Excel-based financial computation",
+        "Strategic financial decision making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prereq text (AB1201 OR RE8005 OR BU8201 OR BU5201) is only intro-level, which would map to 2000 by the strict prereq-depth rule. However the catalog code (BF3201) and the description ('expands upon the concepts covered in AB1201', targets careers in 'strategic financial decision making, including corporate finance, investment banking, private equity') indicate an advanced, strategy-focused course intended for upper-level students, so level was set to 3000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "The course covers fundamental issues of corporate finance, including corporate governance, capital budgeting, capital structure, distribution policies, and working capital management. The course emphasizes financial practices in the real world. The course expands upon the concepts covered in AB1201 Financial Management. We emphasize using EXCEL to conduct computation. The background knowledge is provided through the textbook and lecture notes. By the end of the course, you should have developed a deeper understanding of how corporate financial managers make decisions in the dynamic corporate world and how these decisions impact firm value and stakeholders. The course is intended for students who are interested in pursuing a career in strategic financial decision making, including corporate finance, investment banking, private equity, consulting, etc.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2201",
+      "name": "Investments",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2201",
+      "taughtSkills": [
+        "Portfolio analysis and construction",
+        "Asset allocation",
+        "Modern portfolio theory application",
+        "Investment valuation techniques",
+        "Excel-based investment analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This is an introductory but demanding course in investments. This course endeavours to provide the basic understanding and tools to conduct portfolio analysis, make investment decisions, and manage portfolios. By the end of this course, students should have a broad understanding of investments and portfolio management. This course covers the analysis of various investment vehicles, allocation of assets, and modern portfolio theory. Students will learn valuation, portfolio construction and evaluation techniques, and apply investment techniques using Excel.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf3203",
+      "name": "Equity Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3203",
+      "taughtSkills": [
+        "Equity securities valuation",
+        "Valuation of distressed and private companies",
+        "Financial asset pricing analysis",
+        "Bloomberg terminal proficiency",
+        "Thomson Reuters data analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prereq text (AB1201 OR BU8201 OR BU5201) is only intro-level, which would map to 2000 by the strict prereq-depth rule. The catalog code (BF3203) and the description's coverage of advanced valuation topics (going-concern firms, financial service firms, start-ups, private companies, distressed firms) and professional tools (Bloomberg, Thomson Reuters) indicate an upper-level applied course, so level was set to 3000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "The objective of this course is to provide students with a comprehensive coverage of the principles and techniques in equity securities analysis, especially asset valuation. Valuation is at the heart of every investment decision, whether that decision is to buy, sell, or hold. Due to the globalization process and ever-changing dynamics of the modern financial markets, the pricing of any financial asset has become a more complex task. This course will guide students through the theory and application of valuation models and highlights their strengths and weaknesses. It will cover the valuation of conventional going concern firms, financial service firms, start-ups, private companies, distressed firms. This course will also equip the students with Bloomberg and Thomson Reuters.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf3204",
+      "name": "Financial Modelling",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3204",
+      "taughtSkills": [
+        "Numerical and statistical financial analysis",
+        "Database analysis for finance",
+        "Advanced Excel financial modeling",
+        "Quantitative financial analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course reviews, advances, and applies the principles taught in prior introductory courses in finance. It takes a hands-on approach and provides students with ample opportunities to apply numerical and statistical analysis, table and graphical presentations, and database analysis. It exclusively uses MS Excel as a main tool for computing and analysis. After the completion of the course, you should be equipped with a strong foundation of finance and quantitative skills. The course benefits students who wish to become a quantitative financial analyst.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2302",
+      "name": "International Tax & Trading Law",
+      "level": 1000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2302",
+      "taughtSkills": [
+        "International tax law principles",
+        "Tax treaty interpretation",
+        "BEPS and international tax developments analysis",
+        "International trade law issues",
+        "Case law analysis in tax and trade"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "BF2302 International Tax and Trading Law introduces students to key income tax and legal concepts and principles of international taxation and trade law. Particular emphasis will be placed on the international tax and legal implications of the international trading of commodities. Relevant case law, the interpretation and application of tax treaties and recent international tax developments, including the OECD's Base Erosion and Profit Shifting (BEPS) Action Plan, will also be covered in the course. The Law segment will cover legal issues of international commercial transactions.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2100",
+      "name": "Ethics in the Investment Profession",
+      "level": 1000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2100",
+      "taughtSkills": [
+        "CFA Ethics code application",
+        "Business ethics awareness",
+        "Ethical compliance in financial markets"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This aim of this course is to train students with the basic understanding of the CFA Ethics code. It seeks to increase students' awareness of business ethics and improve their willingness to comply it. It will help students with their future career and contribute to the society. Moreover, it is also a component of the CFA exams.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2229",
+      "name": "Global Financial Markets & Institutions",
+      "level": 1000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2229",
+      "taughtSkills": [
+        "Analyzing central banking policy impact",
+        "Interpreting economic and market indicators",
+        "Understanding global financial market institutions",
+        "Capital market dynamics analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "The aim of this course is to determine and understand forces and institutions impacting the global financial market. In particular, it treats central banking policy as a major force in shaping capital movements and market dynamics. Some of the questions the course will attempt to answer are: (1) How do central banking policies impact the global financial market? (2) What are key economic and market indicators that can help us determine the direction of the financial market.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2209",
+      "name": "Derivative Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2209",
+      "taughtSkills": [
+        "Pricing and valuing financial derivatives",
+        "Derivatives-based risk management",
+        "Hedging and option strategy design",
+        "Arbitrage strategy design"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "Through this course, students will learn the features of various derivatives and how to price, value (calculate the Profit/Loss) and structure them for investment and risk management. Students will also learn basic and slightly more advance option strategies and how to use them for hedging and trading. They will be able to design arbitrage strategies to take advantage of mispricing in various derivatives.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf3202",
+      "name": "Fixed Income Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3202",
+      "taughtSkills": [
+        "Fixed income securities pricing",
+        "Fixed income structuring analysis",
+        "Fixed income risk management"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to support you to: 1. Price a wide range of fixed income securities 2. Understand the structure of different fixed income securities 3. Learn how to manage the risks of fixed income securities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2214",
+      "name": "FinTech in Investment Management",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2214",
+      "taughtSkills": [
+        "Blockchain and cryptocurrency fundamentals",
+        "FinTech business model analysis",
+        "Payment systems innovation understanding",
+        "Evaluating regulatory concerns in FinTech"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "We will cover cryptocurrency and blockchain technology, innovations in the payment system, marketplace lending, and technology innovations in the insurance industry. The course will provide you a comprehensive understanding of the business models under these innovations as well as the challenges facing by FinTech firms and the major concerns financial regulators have.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bf2228",
+      "name": "Sustainable Finance",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2228",
+      "taughtSkills": [
+        "ESG factor analysis",
+        "Sustainability risk measurement",
+        "Impact and responsible investment evaluation",
+        "Climate-related financial risk assessment"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "Students will learn how ESG (environmental, social, and governance) factors affect the various sectors in finance, how to interpret these metrics of companies to access financial returns, and how to measure risks associated with sustainable issues such as climate change.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

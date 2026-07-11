@@ -1,0 +1,87 @@
+{
+  "distinctiveSkills": {
+    "external-auditor": [
+      "Financial statement audit",
+      "Sampling and substantive testing",
+      "Audit evidence documentation",
+      "GAAP / SFRS familiarity",
+      "Detecting deficient controls or fraud",
+      "Internal controls testing",
+      "Client communication under time pressure"
+    ],
+    "internal-auditor": [
+      "Risk-based audit scoping",
+      "Interviewing staff / process walkthroughs",
+      "Root-cause control recommendations",
+      "Data integrity and systems reliability review",
+      "Internal controls evaluation",
+      "Documenting audit workpapers"
+    ],
+    "tax-consultant": [
+      "Tax preparation software",
+      "Tax law research (handbooks, bulletins)",
+      "Client interviewing for taxable income and deductions",
+      "Future tax planning advice",
+      "Explaining tax law to individuals and companies",
+      "Reviewing income statements and expense documentation",
+      "Arithmetic / data-entry verification"
+    ],
+    "management-accountant": [
+      "Cost and budgetary systems design",
+      "Recommending operational changes from financial data",
+      "Reporting on asset utilization",
+      "Administration and management knowledge",
+      "Coordination with supervisors and peers"
+    ],
+    "financial-accountant": [
+      "Financial statement preparation",
+      "Account reconciliation (cash, receivables, payables)",
+      "Conformance to reporting standards",
+      "Confer with officials on financial matters",
+      "Administrative knowledge"
+    ],
+    "forensic-accountant": [
+      "Forensic data analytics software (IDEA, ACL)",
+      "Financial document reconstruction",
+      "Expert witness support",
+      "Report writing for legal/regulatory review",
+      "Bank record and tax return analysis",
+      "Working with law enforcement and legal counsel",
+      "Fraud investigation"
+    ],
+    "financial-analyst": [
+      "Valuation modeling",
+      "Analyzing company financial and operational performance",
+      "Client presentations of plan details",
+      "Advising on capitalization, sources, and timing of financing",
+      "Debt restructuring and refinancing analysis"
+    ],
+    "risk-compliance-analyst": [
+      "Reviewing balance sheets and loan documentation",
+      "Investigating institutional activity for regulatory violations",
+      "Writing examination and compliance reports",
+      "Reviewing internal and external audit reports",
+      "Law and government knowledge",
+      "Process mapping and design software"
+    ],
+    "corporate-finance-analyst": [
+      "Financial planning and analysis (FP&A)",
+      "Treasury analysis",
+      "Budgeting and forecasting",
+      "Variance analysis (actual vs. budget)",
+      "Cash flow monitoring",
+      "Management reporting and dashboards"
+    ],
+    "accounting-systems-analyst": [
+      "ERP finance module configuration (SAP FI/CO, Oracle Financials, NetSuite)",
+      "General ledger, fixed assets, AP/AR system support",
+      "Requirements gathering and functional specifications",
+      "ERP upgrade and rollout support",
+      "Business systems analysis",
+      "Cross-functional coordination with IT",
+      "Reconciliation and month-end close automation",
+      "Troubleshooting accounting platform issues"
+    ]
+  },
+  "collisions": []
+}

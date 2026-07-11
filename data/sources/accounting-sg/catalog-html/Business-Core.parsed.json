@@ -1,0 +1,184 @@
+{
+  "courses": [
+    {
+      "catalogCode": "AB0301",
+      "name": "Legal & Ethical Issues in Sustainability",
+      "prereqText": "",
+      "description": "Sustainability focuses on meeting the needs of the present without compromising the ability of future generations to meet their needs. The concept of business sustainability comprises three pillars: economic, environmental and social (Human & Labor) - also known as people, planet and profits. (Investopedia https://www.investopedia.com/terms/s/sustainability.asp_). The focus recently (including by regulators) has added a fourth pillar - governance (anti-bribery and corruption). Organizations in the pursuit of profit have been implicated in a number of scandals involving bribery & corruption, fraud, labor and human rights abuses, and environmental degradation. What role does law and ethics play in holding companies and individuals responsible for such scandals? How can companies ensure that they pay attention to social, environmental and governance factors and remain profitable? How do individuals and organizations decide what is the right thing to do? This course will require students to understand broad business sustainability issues and to apply ethical reasoning processes to decision making. As sustainability, anti-corruption and corporate social responsibility (\"CSR\") issues gain recognition as fundamental to strategy and execution in all organizations, this course will examine the measures we can take to ensure sustainability. Initiatives & laws such as Anti-Bribery and Corruption (e.g., the United States Foreign Corrupt Practices Act (FCPA), the UK Bribery Act), the Sustainable Development Goals, the Universal Declaration of Human Rights and the United Nations Global Compact will be considered, along with practical examples of implementation or lack thereof. The focus will be on best practices in addressing sustainability/CSR challenges and opportunities faced by all entities/organizations. Entities that incorporate sustainability practices into their operations benefit directly and indirectly, including but not limited to, productivity gains, improved image and enhanced reputation, and attraction and retention of human capital. We will discuss some international and local laws that are relevant to doing business in Singapore, Asia and globally. We will refer to industry codes and/or case studies to identify practical examples of corporate implementation of good governance, or lack thereof. We will examine the elements of an effective compliance program as a tool to risk management. At the completion of this course, you will gain an understanding of the importance of incorporating legal, ethical and sustainability practices in your careers and how these benefits entities in productivity gains, improved image and enhanced reputation, and attraction and retention of human capital and in stakeholder management. All students will benefit from the content - whether they chose a career in for profit or not for profit companies or in government. These skills are relevant to everyone and cut across all industries and professions and are necessary in your personal as well as professional life. Ethical leadership is becoming a fundamental success factor in today's dynamic external environment.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB0403",
+      "name": "Decision Making with Programming & Analytics",
+      "prereqText": "",
+      "description": "This is an introductory course designed for business or accountancy undergraduate students who have no programming background and are interested to learn how to manage data and conduct business analytics programmatically. It is oriented to enhance their technical skillset. The aim of this course is to provide a broad understanding on how to manage data, the process of preparing data for analysis, basics of analytics, and the means to communicate analytics outcome. This course will equip students with the ability to write customized solutions to inform business decision, integrate statistical libraries for data analysis, and construct visuals or reports for business understanding. This module will provide students with individual hands-on practices to hone their coding skills and opportunities to develop coding solutions in a team. We utilize Python language as the medium of learning because it is one of the most in-demand coding language and its user-friendly syntax is well suited for the beginner level. Students will utilise modern development tools to turn information into insights.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB0602",
+      "name": "Communication Management Strategies",
+      "prereqText": "Prerequisite: AB0601 OR CC0001 OR SP0001",
+      "description": "The purpose of this course is to prepare you for the communication challenges that you are likely to meet in rapidly evolving global business environments. It will help you to present yourself confidently, persuasively, and professionally in the way you speak, write and participate in your chosen profession. AB0602 starts with the basic - and well-rounded - premise that Communication Theory, Strategies and Skills are all needed in a highly complementary way for today's young executives preparing for workplace effectiveness. Theory provides a conceptual framework that guides strategy and skills. Strategy allows communicators to make intelligent choices about content, organisation, style, tone, delivery, and timing of messages. Skills are needed to craft effective written documents, give constructive feedback, and create as well as deliver persuasive business presentations. Throughout, the emphasis is on the art of persuasion for effectiveness in the corporate context. In addition, the course addresses other new demands in today's work culture. One such emerging demand is the need for effective Small Group Communication, a skill valued for collaborative work and team building. As such, you will be trained to go beyond prepared presentations to help you operate effectively in contexts which require spontaneous yet formal communication. Such contexts include small talk, meetings, team briefings and group discussions. Another new demand comes with the prevalence of online communication. To prepare for this trend, you will be guided to enhance your Executive Presence (EP) in both face-to-face and online settings, with special emphasis on social media and personal branding. Building on the theoretical foundation provided by EP experts, you will learn how to be an effective communicator across each medium - in-person, written or virtually - and in diverse situations. Finally, this course also offers you the opportunity to acquire an understanding of the method of Principled Negotiation developed by the Harvard Negotiation Project. You will gain hands-on experience in negotiation through engagement in negotiation simulations. To sum up, this course is planned to align with the broader vision of preparing you well for the workplace and address the increasingly complex needs of industry. As Mr. Ong Ye Kung, speaking as Acting Minister for Education (Higher Education and Skills), has noted: 'IHLs (institutes of higher learning) must help students to build up their essential soft skills, such as interpersonal skills, working in teams and across cultures, the ability to communicate well, negotiate effectively, and be resourceful and enterprising.' Approximating the real-world work environment and culture to the extent possible for a course, the teaching approach consistently keeps the final outcome in mind: 'your development as a work-ready young executive able to operate in the corporate context with presence and persuasion.'",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB0603",
+      "name": "Social Entrepreneurship",
+      "prereqText": "",
+      "description": "This course introduces you to cutting-edge concepts, frameworks and practices that are current in social entrepreneurship, as well as critical issues in business ethics as a knowledge foundation for analysing and practicing social entrepreneurship. The course considers how social entrepreneurship plays out in organizations ranging from conventional companies seeking to adopt corporate social responsibility practices to double-bottom-line businesses and social enterprises. The course specifies strategic and implementation tensions inherent in aligning business and social/environmental values, and provides frameworks with which to analyse and resolve the tensions at play.This course trains you into a quasi-expert of social entrepreneurship by enabling them to apply frameworks to making tough decisions in real business contexts. The course includes four modules: strategic corporate social responsibility (SCSR); double-bottom-line business (DBL), social enterprise (SE) and business ethics (BE). It begins by analysing and making decisions on the cases of conventional companies conducting social innovation initiatives through SCSR and DBL. We will then move to explore the cases of social enterprises. You will observe both the common and distinctive challenges facing conventional companies and social enterprises. The modules of SCSR, DBL and SE will be followed by an Entrepreneur Panel where social entrepreneurs introduce their initiatives and engage in a highly interactive conversation with students. The course will finish by taking a look at business ethics theories and issues that provide analytical depth and clarification to your understanding of social entrepreneurship.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1201",
+      "name": "Financial Management",
+      "prereqText": "",
+      "description": "This course aims to provide business and accounting students with a broad understanding of all the important financial principles, concepts, and analytical tools. This is a first course in finance and is compulsory for all business and accounting students. For students intending to major in banking and finance, this course is an important foundation course in order to better prepare themselves for other advanced courses such as Advanced Corporate Finance, Financial Markets and Institutions, International Financial Management, Investments, Equity Securities, Fixed Income Securities, and Derivatives Securities.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1202",
+      "name": "Statistics & Analysis",
+      "prereqText": "",
+      "description": "This course introduces the concepts and methods of statistical inferences: the process of inferring unknowns under uncertainty. Students of this course will also learn programming skills in the R environment for basic statistical analyses. This course consists of three main sections. Section 1 covers elements of probability models. Section 2 covers the basic theories in statistical inferences. Section 3 introduces the basic of two powerful and widely used analytic tools: regression and simulation analysis. Each weekly topic will be supplemented with relevant computer applications in the R environment.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1301",
+      "name": "Business Law",
+      "prereqText": "",
+      "description": "The aim of this course is to provide students with the foundational and intellectual skills to navigate the legal aspects of business. Specifically, this course provides a solid foundation on the legal methodology and the main principles of law relating to business transactions. A number of topics will be discussed in this course ranging from the formation of contracts, terms of a contract, breach and termination of a contract, law of agency, business organisations and torts. At the completion of this course, students will gain foundational competencies in how commercial law and business practices inter-relate and often influence each other in shaping modern commerce and industry. Key legal topics will be explained and illustrated from a business perspective. At the completion of this course, students will also gain a deeper understanding of the legal issues impacting on businesses.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1403",
+      "name": "Intermediate Excel",
+      "prereqText": "",
+      "description": "This course focuses on teaching introductory through intermediate techniques in Excel. No prior knowledge in programming or advanced math skills are necessary. Upon completion of the course, students will gain skills in Excel, data management and real-world problem solving.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1501",
+      "name": "Marketing",
+      "prereqText": "",
+      "description": "This course aims to provide you with the opportunity to learn and the application of the basic principles of marketing in the Singapore market. A good understanding of marketing, by itself and in relation to other disciplines, is critical for anyone interested in developing successful and sustainable business enterprises. Hence, this course is a foundational course for marketing that is suitable for all students interested in business and accountancy. At the end of this course, you will be able to develop suitable customer-driven strategies to take advantage of potential market opportunities and manage the marketing process.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB1601",
+      "name": "Organisational Behaviour & Design",
+      "prereqText": "",
+      "description": "Business is in the midst of a revolutionary transformation. Emerging technologies that combine AI, machine learning, cutting-edge visualization techniques, and social robots are fast revolutionizing the business workplace globally. Building a motived workforce is a critical responsibility of managers. To do so, managers must know why people behave in organizations the way they do. Research in cognitive sciences, artificial intelligence and neuroscience has generated significant insights that can enrich our knowledge of people. This course is designed to focus on processes and methods that can improve the attitudes and behaviors of organizational members. You will learn to know more about yourself and others. You will also learn how to influence and predict your own behaviours as well as those of others. Within the context of a world of social media, AI, and machine learning, you will learn various organizational behaviour theories and concepts, and then apply them appropriately to real-life situations to make sense of human behaviours and human-robots interactions at work. This course adopts a flipped classroom approach, which will give you ample opportunity to share your knowledge with others and also learn with them collaboratively.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB2008",
+      "name": "Careers Future Forward",
+      "prereqText": "",
+      "description": "This course will help you in your career development journey and prepares you for your future career. You will understand yourself better, realise your strengths and plan and map your career aspirations. Through this course, you will also have a broader understanding of the diverse industries, market requirements and current and future job trends. You will also learn how to stand out on LinkedIn, build your brand and be equipped with networking skills to engage employers and the business community for internships and job opportunities.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB3601",
+      "name": "Strategic Management",
+      "prereqText": "Prerequisite: AB1501 & AB1601",
+      "description": "The purpose of the Strategic Management Course is to develop your knowledge and skills to identify and evaluate the sources of superior firm performance through using conceptual frameworks. You will learn to analyze the external and internal environments of the firm, formulate and execute different types of strategies with the consideration of good corporate governance. This course is appropriate for final-year accounting and business students who have already taken entry-level courses in accounting ratio analyses, organizational behaviour and marketing. Upon completion of the course, you will be able to critically analyze business issues from a strategic perspective such as why and how firms can achieve sustainable competitive advantage in a highly volatile and competitive global environment.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB3602",
+      "name": "Strategic Management",
+      "prereqText": "Prerequisite: Year 3 standing Prerequisite: AB1501 & AB1601",
+      "description": "The purpose of the Strategic Management Course is to develop students' knowledge and skills to identify and evaluate the sources of superior firm performance through applying selected conceptual frameworks. Students will learn to analyse the external and internal environments of the firm, and formulate strategies with the consideration of good corporate governance. This course is appropriate for accounting and business students who have already taken entry-level courses in accounting ratio analyses, organizational behaviour, and marketing. Upon completion of the course, students will be able to critically analyse business issues from a strategic perspective such as why and how firms can achieve sustainable competitive advantages in a highly volatile and competitive global business environment.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB5101",
+      "name": "Business Valuation: From Theory to Practice",
+      "prereqText": "Prerequisite: AC1102 OR AD1101 OR AC1104 OR AD1102",
+      "description": "This course provides students with the conceptual background, practical skills and knowledge that are necessary to conduct business valuation in the marketplace. The course will link the theory and practical aspects of business valuation and provides the students with the first-hand knowledge of how valuation is carried out in the 'real world'. It will explore the global business valuation landscape, the role that business valuation plays in the financial and corporate world and study the competences, role, and behaviour of business valuers. It will also cover the fundamental concepts and principles of valuation, examine the various terms, definitions and premises of values that are widely used in practice. Additionally, it will provide an insight into the international valuation standards promulgated by the International Valuation Standards Council (IVSC) and in-depth coverage on the valuation process as well as the contents that is expected of a detailed valuation report. A detailed study of the various valuation approaches and methods commonly used to value business and equity for transactions purposes will also be carried out. Finally, the course will also address the challenges encountered by valuers relating to discounts/ premiums and valuation of public listed entities and private companies. This course allows students to explore and understand the various technical and practical issues involved in the various valuation approaches and methods. After completing the course, students are expected to be familiar with the application of the various valuation approaches and methods, and the pros and cons of adopting such approaches and methods when conducting business valuation in the marketplace for transaction purposes.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB5102",
+      "name": "Forensic Accounting & Fraud Investigation",
+      "prereqText": "Prerequisite: AC1102 OR AD1101 OR AC1104 OR AD1102",
+      "description": "The course provides an understanding of white collar crimes in Singapore by analyzing real case studies of major crimes. Students will be taught the investigation methodology in the detection of fraud and the use of information technology forensics and social media tracing to examine documents and evidence within the Singapore legal, regulatory and professional rule-based environment. Various fraudulent schemes will be examined including financial statements, cash receipt, cash disbursement, defalcation and cybercrimes. Finally, the course teaches students effective interviewing and interrogation techniques, and the role of an expert witness.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB5601",
+      "name": "Negotiate to Get What You Want: Strategy & Practice",
+      "prereqText": "Prerequisite: Proficiency in English is essential",
+      "description": "We negotiate extensively in our personal and professional lives, sometimes without being aware of it. You will negotiate to ensure that the M&A deal meets your key organisational interests. You will negotiate to get a good deal from a vendor for an outsourced service. You may have to negotiate with a photographer over the copyright for your wedding photographs. When there is a leak in your bathroom ceiling, you may have to negotiate with your neighbour who believes that they are not responsible for the cost of repair. You will need to negotiate every time you are not able to achieve what you want on your own. Wherever they occur, negotiations are governed by similar principles. On this course, you will learn these principles. You will develop your negotiation skills in a series of simulations that address bargaining situations in both deal making and conflict resolution. You will develop an understanding of the strategies, and tactics of effective negotiation, conflict and relationship management, and enhance your ability to assess the variables in negotiations and to negotiate effectively. You will get the opportunity to evaluate your effectiveness through feedback from your peers, group debriefs and through a critical reflection of your experiences Very often, students prioritize analytical and technical skills and knowledge 'to do the job', to devise solutions for the task at hand. We sometimes forget that we also need the skills to persuade others and sell our ideas. This course is designed to foster learning through doing; you will explore your own approaches, skills, development areas and strengths as a negotiator. Take this opportunity to learn about yourself and how you respond in specific negotiation situations. This course provides a safe and low-risk environment to learn and practise negotiating.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3104",
+      "name": "Enterprise Risk Management & Sustainability",
+      "prereqText": "Prerequisite: AC1103(Corequisite) OR AD1102(Corequisite) OR BU5101(Corequisite)",
+      "description": "To sustain value, key executives and managers in corporations today recognize the need for active engagement in setting objectives and overseeing programs associated with Enterprise Risk Management (ERM). The course starts with an overview of risks that can threaten the attainment of organizational objectives, and the ERM concepts, frameworks and techniques for identifying, assessing and managing risks. Both the internal and external auditors increasingly need to understand ERM to properly appreciate key risks, controls and governance issues of the companies they audit. The later part of the course extends the knowledge and techniques covered ERM by examining the longer-term risks, opportunities and enterprise value creation through Enterprise Sustainability. Enterprise sustainability creates long-term value beyond financial success by making a positive impact socially as well as environmentally. As climate change and global warming pose an existential threat to humanity and affect all industry sectors, there is an urgent need for businesses to monitor and seek innovative green solutions to reduce their carbon footprints and to deliver on their targeted net-zero goals. Students will learn key concepts and apply widely-adopted methodologies of carbon management, sustainability reporting and assurance. Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3105",
+      "name": "Sustainability Reporting",
+      "prereqText": "Prerequisite: AC3104",
+      "description": "In the recent years, there is an exponential increase in the number of companies that measure, manage and communicate their corporate sustainability performance. With increasing pressure from stakeholders and investors, corporations both small and large are reporting their sustainability (or Environmental, Societal and Governance [ESG]) efforts and performance. In many countries, sustainability reporting is a mandatory requirement, especially for listed companies. Having an appreciation of sustainability reporting and reporting standards is a must for any sustainability professional. Corporate sustainability involves business strategies to create long-term financial value through measurable societal impact. The focus of this course will be on both preparing and interpreting sustainability and integrated reports. This course covers some of the key existing standards used for environmental, social and governance (ESG) such as Task Force on Climate Related Financial Disclosures (TCFD), Global Reporting Initiatives (GRI), Integrated Reporting (IR), Sustainability Reporting Standards Board (SASB) and International Sustainability Standards Board (ISSB).",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    }
+  ]
+}

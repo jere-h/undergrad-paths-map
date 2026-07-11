@@ -1,0 +1,28 @@
+{
+  "pairs": [
+    { "from": "external-auditor", "to": "internal-auditor", "weight": 0.75, "rationale": "Both test internal controls and document workpapers; external audit skill transfers directly, internal only adds risk-based scoping." },
+    { "from": "internal-auditor", "to": "external-auditor", "weight": 0.7, "rationale": "Controls evaluation, transaction testing, and workpaper documentation overlap; external audit adds financial-statement/GAAP opinion work." },
+    { "from": "external-auditor", "to": "financial-accountant", "weight": 0.7, "rationale": "Reading and evaluating full financial statements against SFRS/GAAP is the same knowledge base the accountant uses to prepare and reconcile them." },
+    { "from": "financial-accountant", "to": "external-auditor", "weight": 0.6, "rationale": "Statement preparation and account reconciliation give the substance auditors test; audit adds sampling and testing methodology." },
+    { "from": "external-auditor", "to": "forensic-accountant", "weight": 0.6, "rationale": "Detecting fraud and deficient controls, tracing to source documents, and documenting evidence are core to both; forensic adds legal/expert-witness rigor." },
+    { "from": "forensic-accountant", "to": "external-auditor", "weight": 0.55, "rationale": "Reconstructing financial trails and analytics on transaction populations map onto audit testing; external audit needs statement-opinion scope." },
+    { "from": "external-auditor", "to": "risk-compliance-analyst", "weight": 0.6, "rationale": "Evaluating compliance against standards and reading controls/statements transfers; compliance adds law and regulatory-examination focus." },
+    { "from": "internal-auditor", "to": "risk-compliance-analyst", "weight": 0.65, "rationale": "Compliance evaluation, control gaps, and writing management-facing examination reports overlap heavily." },
+    { "from": "risk-compliance-analyst", "to": "internal-auditor", "weight": 0.55, "rationale": "Reviewing audit reports, balance sheets, and compliance findings feeds internal audit; internal audit adds sampling and scoping." },
+    { "from": "internal-auditor", "to": "forensic-accountant", "weight": 0.5, "rationale": "Investigating transactions and testing populations with data-analysis software overlaps; forensic adds fraud reconstruction and legal support." },
+    { "from": "internal-auditor", "to": "accounting-systems-analyst", "weight": 0.5, "rationale": "Data-integrity and system-reliability review plus ERP/access-control knowledge overlap the systems analyst's controls and configuration scope." },
+    { "from": "financial-accountant", "to": "management-accountant", "weight": 0.6, "rationale": "Shared accounting knowledge, ERP/BI reporting, and reconciliation; management side adds costing/budget system design." },
+    { "from": "management-accountant", "to": "financial-accountant", "weight": 0.6, "rationale": "Cost/budget data reporting and ERP reconciliation groundwork transfer to statement preparation and conformance work." },
+    { "from": "management-accountant", "to": "corporate-finance-analyst", "weight": 0.65, "rationale": "Budgetary data, variance analysis, and cadence management reporting are shared; corporate finance adds forecasting models and financing advice." },
+    { "from": "corporate-finance-analyst", "to": "management-accountant", "weight": 0.6, "rationale": "Budgeting, variance-to-driver analysis, and management dashboards overlap; management accounting adds costing-system design." },
+    { "from": "financial-analyst", "to": "corporate-finance-analyst", "weight": 0.75, "rationale": "Same SOC family: modeling, variance/forecasting, and capitalization advice transfer almost fully to the FP&A budgeting cycle." },
+    { "from": "corporate-finance-analyst", "to": "financial-analyst", "weight": 0.7, "rationale": "Rolling forecast models, variance analysis, and capital-structure advice overlap; financial analyst adds business valuation modeling." },
+    { "from": "financial-accountant", "to": "accounting-systems-analyst", "weight": 0.55, "rationale": "Reconciliation, month-end close, and ERP finance-module fluency feed the systems analyst's close-automation and configuration scope." },
+    { "from": "accounting-systems-analyst", "to": "financial-accountant", "weight": 0.5, "rationale": "ERP finance-module and accounting-standards knowledge plus reconciliation automation transfer; financial accounting adds end-to-end statement prep." },
+    { "from": "management-accountant", "to": "accounting-systems-analyst", "weight": 0.55, "rationale": "Designing cost/budget systems, ERP/BI reporting, and dashboards overlap the systems analyst's requirements and reporting-design work." },
+    { "from": "accounting-systems-analyst", "to": "management-accountant", "weight": 0.5, "rationale": "ERP finance modules, reporting/dashboard design, and reconciliation automation feed management reporting; adds costing-system judgment." },
+    { "from": "financial-accountant", "to": "tax-consultant", "weight": 0.5, "rationale": "Reviewing income statements and expense records with accounting/spreadsheet software overlaps; tax adds tax-law research and filing." },
+    { "from": "forensic-accountant", "to": "risk-compliance-analyst", "weight": 0.5, "rationale": "Investigating activity for violations and writing findings reports for regulatory review overlaps; compliance adds regulatory-standard framing." },
+    { "from": "risk-compliance-analyst", "to": "external-auditor", "weight": 0.5, "rationale": "Reviewing balance sheets, audit reports, and evaluating against standards overlaps audit work; external audit adds statement testing and opinion." }
+  ]
+}

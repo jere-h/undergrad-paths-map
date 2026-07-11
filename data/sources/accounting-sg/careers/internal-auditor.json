@@ -1,0 +1,46 @@
+{
+  "id": "internal-auditor",
+  "name": "Internal Auditor",
+  "grounding": "soc",
+  "soc": ["13-2011.00"],
+  "responsibilities": [
+    "Supervise and scope internal audits of a business unit or process, deciding how deep to dig based on where the risk actually is",
+    "Examine records and interview staff to check transactions were recorded properly and policies were actually followed, not just documented",
+    "Recommend controls to management that fix root causes (system reliability, data integrity) instead of one-off patches"
+  ],
+  "skills": [
+    "Scoping an audit: deciding what to sample and why, given limited time",
+    "Reading a process end to end and spotting where a control could be bypassed",
+    "Writing recommendations a business owner will actually implement, not just file away",
+    "Using ERP, GRC, or data analysis software to pull and test the population of transactions rather than eyeballing a sample"
+  ],
+  "rawSkillPool": [
+    "Internal controls evaluation",
+    "Risk-based audit scoping",
+    "Enterprise resource planning ERP software",
+    "Compliance software",
+    "Business intelligence and data analysis software",
+    "Interviewing staff / process walkthroughs",
+    "Root-cause control recommendations",
+    "Data integrity and systems reliability review",
+    "Economics and accounting knowledge",
+    "Coordination with management",
+    "Documenting audit workpapers",
+    "Evaluating compliance with standards",
+    "Reporting to management on asset utilization"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Supervise auditing of establishments, and determine scope of investigation required. Examine and evaluate financial and information systems, recommending controls to ensure system reliability and data integrity.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Examine records and interview workers to ensure recording of transactions and compliance with laws and regulations. Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

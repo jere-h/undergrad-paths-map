@@ -1,0 +1,196 @@
+{
+  "proposals": {
+    "ntu-ac1103": [
+      {
+        "career": "financial-accountant",
+        "confidence": 0.6,
+        "matchedSkills": ["presenting and disclosing items in financial statements", "applying Singapore Financial Reporting Standards (SFRS(I))"],
+        "distinctive": true,
+        "rationale": "Intro course teaches recognition, measurement, presentation and disclosure of FS elements under SFRS(I), core financial-accountant work."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.55,
+        "matchedSkills": ["applying Singapore Financial Reporting Standards (SFRS(I))"],
+        "distinctive": true,
+        "rationale": "Builds the SFRS familiarity auditors need to assess client compliance, though this course is preparer- not auditor-focused."
+      }
+    ],
+    "ntu-ac2401": [
+      {
+        "career": "accounting-systems-analyst",
+        "confidence": 0.7,
+        "matchedSkills": ["using enterprise information systems", "evaluating business processes"],
+        "distinctive": true,
+        "rationale": "Directly builds the business-process and enterprise information systems foundation this career requires."
+      },
+      {
+        "career": "internal-auditor",
+        "confidence": 0.5,
+        "matchedSkills": ["evaluating business processes"],
+        "distinctive": true,
+        "rationale": "Process-evaluation skills relate to systems reliability review but course is a systems/business course, not audit-focused."
+      }
+    ],
+    "ntu-ac1104": [
+      {
+        "career": "management-accountant",
+        "confidence": 0.65,
+        "matchedSkills": ["using various costing systems", "performing cost allocation"],
+        "distinctive": true,
+        "rationale": "Introduces costing systems and cost allocation, core management-accountant tools."
+      },
+      {
+        "career": "financial-accountant",
+        "confidence": 0.55,
+        "matchedSkills": ["applying intermediate financial accounting knowledge (recognition & measurement)"],
+        "distinctive": true,
+        "rationale": "Deepens recognition/measurement knowledge underlying financial statement preparation and conformance to standards."
+      }
+    ],
+    "ntu-ac2105": [
+      {
+        "career": "management-accountant",
+        "confidence": 0.75,
+        "matchedSkills": ["using managerial accounting techniques for planning and control", "linking organizational strategy to accounting information"],
+        "distinctive": true,
+        "rationale": "Course centers on managerial accounting tools for planning/control tied to strategy, the core of this career's distinctive skills."
+      },
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["applying cost management concepts and tools"],
+        "distinctive": true,
+        "rationale": "Cost/budget management concepts feed into FP&A-style budgeting and variance analysis work, though course is not finance-team specific."
+      }
+    ],
+    "ntu-ac2301": [
+      {
+        "career": "tax-consultant",
+        "confidence": 0.85,
+        "matchedSkills": ["applying tax laws to business and personal transactions", "devising strategies for minimization of tax costs", "understanding the structure of Singapore income tax and GST"],
+        "distinctive": true,
+        "rationale": "Directly teaches Singapore tax law application and tax planning strategy, the core distinctive work of a tax consultant."
+      }
+    ],
+    "ntu-ac2302": [
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.6,
+        "matchedSkills": ["examining the legal framework governing companies", "analyzing corporate governance mechanisms"],
+        "distinctive": true,
+        "rationale": "Builds law/governance knowledge relevant to investigating institutional compliance, though course is legal rather than compliance-review focused."
+      }
+    ],
+    "ntu-ac3104": [
+      {
+        "career": "internal-auditor",
+        "confidence": 0.75,
+        "matchedSkills": ["applying Enterprise Risk Management (ERM) concepts, frameworks and techniques to identify, assess and manage risk", "appreciating auditors' role in evaluating risk, controls and governance"],
+        "distinctive": true,
+        "rationale": "ERM frameworks and evaluating risk/controls/governance map directly onto risk-based audit scoping and internal controls evaluation."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.65,
+        "matchedSkills": ["appreciating auditors' role in evaluating risk, controls and governance"],
+        "distinctive": true,
+        "rationale": "Course explicitly ties ERM to auditors' need to understand controls and governance for audit purposes."
+      },
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.6,
+        "matchedSkills": ["applying Enterprise Risk Management (ERM) concepts, frameworks and techniques to identify, assess and manage risk"],
+        "distinctive": true,
+        "rationale": "ERM risk identification/assessment supports the review of audit reports and institutional risk activity central to compliance analysis."
+      },
+      {
+        "career": "forensic-accountant",
+        "confidence": 0.55,
+        "matchedSkills": ["conducting hands-on data analytics and data-mining for business and fraud risk assessment"],
+        "distinctive": true,
+        "rationale": "Hands-on data-mining for fraud risk assessment builds toward forensic fraud investigation, though not the course's main focus."
+      }
+    ],
+    "ntu-ab5102": [
+      {
+        "career": "forensic-accountant",
+        "confidence": 0.88,
+        "matchedSkills": ["applying fraud investigation methodology", "understanding the role of an expert witness", "conducting interviewing and interrogation techniques"],
+        "distinctive": true,
+        "rationale": "Course is a direct match: fraud investigation methodology, expert witness role, and interview/interrogation technique are core distinctive skills."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.6,
+        "matchedSkills": ["examining fraudulent schemes in financial statements and cash transactions"],
+        "distinctive": true,
+        "rationale": "Examining fraudulent schemes in financial statements supports detecting deficient controls or fraud during audits."
+      },
+      {
+        "career": "internal-auditor",
+        "confidence": 0.5,
+        "matchedSkills": ["conducting interviewing and interrogation techniques"],
+        "distinctive": true,
+        "rationale": "Interviewing/interrogation technique overlaps with process walkthroughs and interviewing staff, though course is investigation- not audit-focused."
+      }
+    ],
+    "ntu-ac2101": [
+      {
+        "career": "financial-accountant",
+        "confidence": 0.75,
+        "matchedSkills": ["disclosing financial statement information", "measuring assets, liabilities, equity, revenue and expenses"],
+        "distinctive": true,
+        "rationale": "Advanced-level, deeper-chain course on recognition/measurement/disclosure of FS elements, the technical core of financial statement preparation."
+      },
+      {
+        "career": "external-auditor",
+        "confidence": 0.6,
+        "matchedSkills": ["applying conceptual and technical financial reporting knowledge"],
+        "distinctive": true,
+        "rationale": "Deep technical financial-reporting knowledge underlies GAAP/SFRS familiarity needed to audit statements, though course does not teach audit procedures."
+      }
+    ],
+    "ntu-ac2104": [
+      {
+        "career": "external-auditor",
+        "confidence": 0.9,
+        "matchedSkills": ["conducting financial statement audits and assurance services", "exercising professional skepticism"],
+        "distinctive": true,
+        "rationale": "Course is explicitly designed to build financial statement audit and assurance skills including professional skepticism, the defining distinctive skills."
+      },
+      {
+        "career": "internal-auditor",
+        "confidence": 0.55,
+        "matchedSkills": ["applying assurance concepts and methodologies"],
+        "distinctive": true,
+        "rationale": "Assurance methodology and workpaper-adjacent skills transfer to internal audit documentation, though course centers on external assurance engagements."
+      }
+    ],
+    "ntu-ac3102": [
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.65,
+        "matchedSkills": ["using derivatives to manage market and firm-specific risk"],
+        "distinctive": true,
+        "rationale": "Derivatives-based risk management maps to treasury analysis, a distinctive corporate-finance-analyst skill."
+      },
+      {
+        "career": "financial-accountant",
+        "confidence": 0.6,
+        "matchedSkills": ["financial measurement and reporting for inter-company shareholdings and transactions", "handling multi-currency financial reporting"],
+        "distinctive": true,
+        "rationale": "Advanced reporting for inter-company transactions and multi-currency statements extends financial statement preparation to consolidated/complex entities."
+      }
+    ],
+    "ntu-ac3103": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.85,
+        "matchedSkills": ["assessing and applying information to analyze and value business activities", "valuing intangibles following mergers and acquisitions"],
+        "distinctive": true,
+        "rationale": "Course directly teaches valuation modeling of business activities and M&A intangibles/goodwill, the core distinctive skill of a financial analyst."
+      }
+    ]
+  }
+}

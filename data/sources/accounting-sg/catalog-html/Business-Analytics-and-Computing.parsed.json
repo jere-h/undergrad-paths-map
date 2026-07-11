@@ -1,0 +1,64 @@
+{
+  "courses": [
+    {
+      "catalogCode": "BC2402",
+      "name": "Designing & Developing Databases",
+      "prereqText": "",
+      "description": "This course introduces participants to design, tools, techniques, and issues concerning the management of data. Data management is the foundation for organizations' business analytics; and for problem solving and decision-making. Participants will analyse a variety of business process, identify data requirements and develop an information system to support business processes and gather information for business analytics. In this course, participants will have an opportunity to apply their design and development competencies by implementing a database solution.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BC2406",
+      "name": "Analytics I: Visual & Predictive Techniques",
+      "prereqText": "Year 2 standing",
+      "description": "Most organizations are data rich and information poor. The large volumes of data in an organization are 'oilfields' rich in information content that are pending extraction with the right tools and models. Analytics involves the art of data exploration, visualization, communication and the science of analyzing large quantities of data in order to discover meaningful patterns and useful insights to support decision-making. The primary objective of this course is to introduce students to various techniques available to extract useful insights from the large volumes of data. At the end of the course, students will not only see the substantial opportunities that exist in real world, but also learn techniques that allow them to exploit these opportunities. This course focus on the use of open source R software, which is one of the key analytics software used in various industries and a critical skillset required in the job market for analytics and data science professionals.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BC3405",
+      "name": "Lean Operations & Analytics",
+      "prereqText": "AB1202",
+      "description": "The main objectives of this course are i) to appreciate the key principles/approaches of lean operations including waste elimination, increased speed and response, improved quality, and reduced cost & ii) to gain an understanding of the methodologies, tools, and techniques necessary for analyzing, implementing, managing, and continuously improving operations in both manufacturing and service industries. Topics covered in the course include Toyota Production System, Lean Principles, Value Stream Mapping, Pull Systems, Six Sigma, Lean thinking in manufacturing and service operations, and use of tools like optimization, queuing, simulation, and statistical analyses for modelling and analyzing real life systems. The course will use a mix of lectures, case studies, and problem-solving exercises, to introduce the students to the latest tools, techniques, issues, and strategies in lean operations management. A special focus of the course will be on the operations and technology function in both manufacturing and service sectors. This segment will provide rich opportunities for students to be exposed to challenges in manufacturing and service operations and gain insights through projects.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BC3409",
+      "name": "AI in Accounting & Finance",
+      "prereqText": "BC2406",
+      "description": "This is an introductory course designed for business or accountancy or Finance undergraduate students who are interested to learn how to manage data, conduct business analytics programmatically, create AI model to automate business processes and create predictive model to increase profitability or return. It is oriented to enhance their technical skillset. The aim of this course is to provide a broad understanding on how to manage data, the process of preparing data for analysis, basics of analytics, using AI to automate financial analysis process and generate accounting reports. This course will equip you with the ability to write customized solutions to make informed business decisions, integrate statistical libraries for data analysis, create AI models to automate accounting and financial process. This module will provide you with individual hands-on practices to hone your coding skills and opportunities to develop coding solutions in a team. We utilize R and Python language as the medium of learning because it is one of the most in-demand coding language and its user-friendly syntax is well suited for the beginner level. You will utilise modern development tools to turn information into insights including Keras' Deep Learning model, Google Brain TensorFlow, Hadoop, Spark and Cloud.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BC3411",
+      "name": "Lean Operations & Analytics",
+      "prereqText": "AB1202",
+      "description": "The main objectives of this course are i) to appreciate the key principles/approaches of lean operations including waste elimination, increased speed and response, improved quality, and reduced cost & ii) to gain an understanding of the methodologies, tools, and techniques necessary for analyzing, implementing, managing, and continuously improving operations in both manufacturing and service industries. Topics covered in the course include Toyota Production System, Lean Principles, Value Stream Mapping, Pull Systems, Six Sigma, Lean thinking in manufacturing and service operations, and use of tools like optimization, queuing, simulation, and statistical analyses for modelling and analyzing real life systems. The course will use a mix of lectures, case studies, and problem-solving exercises, to introduce the students to the latest tools, techniques, issues, and strategies in lean operations management. A special focus of the course will be on the operations and technology function in both manufacturing and service sectors. This segment will provide rich opportunities for students to be exposed to challenges in manufacturing and service operations and gain insights through projects.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BC3415",
+      "name": "AI in Accounting & Finance",
+      "prereqText": "BC2406",
+      "description": "This is an introductory course designed for business or accountancy or Finance undergraduate students who are interested to learn how to manage data, conduct business analytics programmatically, create AI model to automate business processes and create predictive model to increase profitability or return. It is oriented to enhance their technical skillset. The aim of this course is to provide a broad understanding on how to manage data, the process of preparing data for analysis, basics of analytics, using AI to automate financial analysis process and generate accounting reports. This course will equip you with the ability to write customized solutions to make informed business decisions, integrate statistical libraries for data analysis, create AI models to automate accounting and financial process. This module will provide you with individual hands-on practices to hone your coding skills and opportunities to develop coding solutions in a team. We utilize R and Python language as the medium of learning because it is one of the most in-demand coding language and its user-friendly syntax is well suited for the beginner level. You will utilise modern development tools to turn information into insights including Keras' Deep Learning model, Google Brain TensorFlow, Hadoop, Spark and Cloud.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "financial-analyst",
+  "name": "Financial Analyst",
+  "grounding": "soc",
+  "soc": ["13-2051.00"],
+  "responsibilities": [
+    "Build valuation and financial models for companies or investment programs, then defend the assumptions behind every number",
+    "Analyze a company's financial or operational performance to spot trouble early and recommend a fix, not just a diagnosis",
+    "Package findings into client-ready presentations and recommendations on capitalization, financing, or deal structure"
+  ],
+  "skills": [
+    "Reading financial statements fast enough to know which line moved a valuation and why",
+    "Building and stress-testing models in spreadsheet and financial analysis software instead of trusting a single scenario",
+    "Framing a recommendation on capital raising, refinancing, or debt restructuring in terms a non-finance client will act on",
+    "Pulling data from business intelligence and database tools to back an argument, not just an opinion"
+  ],
+  "rawSkillPool": [
+    "Financial analysis software",
+    "Business intelligence and data analysis software",
+    "Valuation modeling",
+    "Analyzing company financial and operational performance",
+    "Advising on capitalization, sources, and timing of financing",
+    "Debt restructuring and refinancing analysis",
+    "Client presentations of plan details",
+    "Spreadsheet software",
+    "Database management system software",
+    "Accounting software",
+    "Mathematics and quantitative reasoning",
+    "Complex problem solving",
+    "Judgment and decision making",
+    "Enterprise resource planning (ERP) software"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2051.00",
+      "quote": "Conduct quantitative analyses of information involving investment programs or financial data of public or private institutions, including valuation of businesses.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2051.00",
+      "quote": "Analyze financial or operational performance of companies facing financial difficulties to identify or recommend remedies. Advise clients on aspects of capitalization, such as amounts, sources, or timing.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

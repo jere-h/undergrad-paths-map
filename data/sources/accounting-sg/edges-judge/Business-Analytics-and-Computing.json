@@ -1,0 +1,73 @@
+{
+  "proposals": {
+    "ntu-bc2402": [
+      {
+        "career": "accounting-systems-analyst",
+        "confidence": 0.65,
+        "matchedSkills": [
+          "business process analysis to identify data requirements",
+          "information systems development to support business processes",
+          "database design and development"
+        ],
+        "distinctive": true,
+        "rationale": "Course teaches analyzing business processes to build database/information systems, directly overlapping with business systems analysis and requirements-gathering work done by accounting systems analysts."
+      }
+    ],
+    "ntu-bc2406": [
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.5,
+        "matchedSkills": [
+          "data exploration and visualization",
+          "communicating insights to support decision-making"
+        ],
+        "distinctive": true,
+        "rationale": "Data visualization and insight communication are useful groundwork for management reporting and dashboards, but the course is generic analytics rather than finance-specific, so the margin over a typical career is modest."
+      }
+    ],
+    "ntu-bc3405": [
+      {
+        "career": "management-accountant",
+        "confidence": 0.5,
+        "matchedSkills": [
+          "statistical analysis for operations decision-making",
+          "lean process improvement and waste elimination"
+        ],
+        "distinctive": true,
+        "rationale": "Operations-improvement and cost/waste-reduction analysis loosely support the management accountant's job of recommending operational changes from financial data, though the course is operations-management focused, not accounting-specific."
+      }
+    ],
+    "ntu-bc3409": [
+      {
+        "career": "accounting-systems-analyst",
+        "confidence": 0.75,
+        "matchedSkills": [
+          "using AI to automate financial analysis and generate accounting reports",
+          "using modern tools (Keras, TensorFlow, Hadoop, Spark, Cloud) to automate accounting and finance processes"
+        ],
+        "distinctive": true,
+        "rationale": "Directly teaches automating accounting/finance processes and generating accounting reports with modern tooling, closely matching accounting systems analysts' work automating month-end close and platform processes."
+      },
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.62,
+        "matchedSkills": [
+          "building predictive models to inform business decisions",
+          "managing and preparing data for analysis"
+        ],
+        "distinctive": true,
+        "rationale": "Building predictive models to inform business decisions supports FP&A-style forecasting and management reporting work central to corporate finance analysts."
+      },
+      {
+        "career": "financial-analyst",
+        "confidence": 0.5,
+        "matchedSkills": [
+          "using AI to automate financial analysis and generate accounting reports",
+          "building predictive models to inform business decisions"
+        ],
+        "distinctive": true,
+        "rationale": "AI-driven financial analysis and predictive modeling give partial groundwork for analyzing company financial performance, but the course lacks valuation-specific content that most distinguishes financial analysts."
+      }
+    ]
+  }
+}

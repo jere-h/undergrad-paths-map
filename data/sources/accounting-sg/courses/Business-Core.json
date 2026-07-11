@@ -1,0 +1,242 @@
+{
+  "dept": "Business Core",
+  "sourceUrl": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+  "courses": [
+    {
+      "id": "ntu-ab0301",
+      "name": "Legal & Ethical Issues in Sustainability",
+      "level": 1000,
+      "dept": "Business Core",
+      "catalogCode": "AB0301",
+      "taughtSkills": [
+        "applying ethical reasoning to business decision-making",
+        "analyzing anti-bribery and corruption laws (e.g., FCPA, UK Bribery Act)",
+        "evaluating corporate sustainability/ESG and governance practices",
+        "designing elements of an effective compliance program for risk management",
+        "stakeholder management"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed for this course, so it is entry-level (1000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course will require students to understand broad business sustainability issues and to apply ethical reasoning processes to decision making. ... Initiatives & laws such as Anti-Bribery and Corruption (e.g., the United States Foreign Corrupt Practices Act (FCPA), the UK Bribery Act), the Sustainable Development Goals, the Universal Declaration of Human Rights and the United Nations Global Compact will be considered... We will examine the elements of an effective compliance program as a tool to risk management.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab0403",
+      "name": "Decision Making with Programming & Analytics",
+      "level": 1000,
+      "dept": "Business Core",
+      "catalogCode": "AB0403",
+      "taughtSkills": [
+        "managing and preparing data for analysis",
+        "writing Python code for customized business analytics solutions",
+        "integrating statistical libraries for data analysis",
+        "constructing visuals and reports to communicate analytics outcomes"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed; the description calls it 'an introductory course... for students who have no programming background', so 1000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course will equip students with the ability to write customized solutions to inform business decision, integrate statistical libraries for data analysis, and construct visuals or reports for business understanding. ... We utilize Python language as the medium of learning because it is one of the most in-demand coding language and its user-friendly syntax is well suited for the beginner level.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab1201",
+      "name": "Financial Management",
+      "level": 1000,
+      "dept": "Business Core",
+      "catalogCode": "AB1201",
+      "taughtSkills": [
+        "understanding core financial principles and concepts",
+        "applying analytical tools for financial decision-making",
+        "foundational finance knowledge for business and accounting students",
+        "preparing for advanced finance coursework (corporate finance, financial markets, investments)"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed; text states 'This is a first course in finance and is compulsory for all business and accounting students,' confirming entry-level (1000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide business and accounting students with a broad understanding of all the important financial principles, concepts, and analytical tools. This is a first course in finance and is compulsory for all business and accounting students.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab1202",
+      "name": "Statistics & Analysis",
+      "level": 1000,
+      "dept": "Business Core",
+      "catalogCode": "AB1202",
+      "taughtSkills": [
+        "statistical inference under uncertainty",
+        "programming in R for statistical analysis",
+        "probability modeling",
+        "regression analysis",
+        "simulation analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed, and the description frames this as an introductory statistics course, so 1000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course introduces the concepts and methods of statistical inferences: the process of inferring unknowns under uncertainty. Students of this course will also learn programming skills in the R environment for basic statistical analyses. ... Section 1 covers elements of probability models. Section 2 covers the basic theories in statistical inferences. Section 3 introduces the basic of two powerful and widely used analytic tools: regression and simulation analysis.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab1301",
+      "name": "Business Law",
+      "level": 1000,
+      "dept": "Business Core",
+      "catalogCode": "AB1301",
+      "taughtSkills": [
+        "legal methodology and principles of business law",
+        "contract formation, terms, breach and termination",
+        "law of agency",
+        "business organisations and torts fundamentals",
+        "analyzing how commercial law and business practices inter-relate"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed, and the course is described as providing a 'solid foundation' on legal methodology, so 1000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "this course provides a solid foundation on the legal methodology and the main principles of law relating to business transactions. A number of topics will be discussed in this course ranging from the formation of contracts, terms of a contract, breach and termination of a contract, law of agency, business organisations and torts.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab5101",
+      "name": "Business Valuation: From Theory to Practice",
+      "level": 2000,
+      "dept": "Business Core",
+      "catalogCode": "AB5101",
+      "taughtSkills": [
+        "conducting business valuation using recognized approaches and methods",
+        "applying international valuation standards (IVSC)",
+        "valuing businesses and equity for transaction purposes",
+        "understanding valuation terms, definitions, and premises of value",
+        "analyzing discounts/premiums in valuing public and private companies"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is a single intro-level accounting course (AC1102 OR AD1101 OR AC1104 OR AD1102), so 2000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course provides students with the conceptual background, practical skills and knowledge that are necessary to conduct business valuation in the marketplace. ... it will provide an insight into the international valuation standards promulgated by the International Valuation Standards Council (IVSC) and in-depth coverage on the valuation process ... A detailed study of the various valuation approaches and methods commonly used to value business and equity for transactions purposes will also be carried out. ... the course will also address the challenges encountered by valuers relating to discounts/ premiums and valuation of public listed entities and private companies.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab5102",
+      "name": "Forensic Accounting & Fraud Investigation",
+      "level": 2000,
+      "dept": "Business Core",
+      "catalogCode": "AB5102",
+      "taughtSkills": [
+        "fraud investigation methodology",
+        "IT forensics and social media tracing for evidence examination",
+        "analyzing fraudulent schemes (financial statement, cash receipt/disbursement, defalcation, cybercrime)",
+        "interviewing and interrogation techniques",
+        "understanding the role of an expert witness"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is a single intro-level accounting course (AC1102 OR AD1101 OR AC1104 OR AD1102), so 2000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "The course provides an understanding of white collar crimes in Singapore by analyzing real case studies of major crimes. Students will be taught the investigation methodology in the detection of fraud and the use of information technology forensics and social media tracing to examine documents and evidence within the Singapore legal, regulatory and professional rule-based environment. Various fraudulent schemes will be examined including financial statements, cash receipt, cash disbursement, defalcation and cybercrimes. Finally, the course teaches students effective interviewing and interrogation techniques, and the role of an expert witness.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac3104",
+      "name": "Enterprise Risk Management & Sustainability",
+      "level": 2000,
+      "dept": "Business Core",
+      "catalogCode": "AC3104",
+      "taughtSkills": [
+        "identifying, assessing, and managing enterprise risks (ERM frameworks)",
+        "applying carbon management and sustainability reporting/assurance methodologies",
+        "hands-on data analytics and data mining for business and fraud risk assessment",
+        "audit analytics"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is a single intro-level accounting course taken as a corequisite (AC1103 OR AD1102 OR BU5101), so 2000-level despite the '3xxx' catalog number.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "The course starts with an overview of risks that can threaten the attainment of organizational objectives, and the ERM concepts, frameworks and techniques for identifying, assessing and managing risks. ... Students will learn key concepts and apply widely-adopted methodologies of carbon management, sustainability reporting and assurance. Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ab3601",
+      "name": "Strategic Management",
+      "level": 3000,
+      "dept": "Business Core",
+      "catalogCode": "AB3601",
+      "taughtSkills": [
+        "analyzing external and internal environments of a firm",
+        "formulating and executing business strategy",
+        "evaluating sources of superior firm performance using conceptual frameworks",
+        "incorporating corporate governance considerations into strategy",
+        "critically analyzing business issues from a strategic perspective"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite requires two prior 1000-level courses together (AB1501 & AB1601), and the description targets 'final-year' students, indicating a deeper chain (3000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "The purpose of the Strategic Management Course is to develop your knowledge and skills to identify and evaluate the sources of superior firm performance through using conceptual frameworks. You will learn to analyze the external and internal environments of the firm, formulate and execute different types of strategies with the consideration of good corporate governance. This course is appropriate for final-year accounting and business students who have already taken entry-level courses in accounting ratio analyses, organizational behaviour and marketing.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac3105",
+      "name": "Sustainability Reporting",
+      "level": 3000,
+      "dept": "Business Core",
+      "catalogCode": "AC3105",
+      "taughtSkills": [
+        "preparing and interpreting sustainability/integrated reports",
+        "applying ESG reporting standards (TCFD, GRI, IR, SASB, ISSB)",
+        "measuring and communicating corporate sustainability performance",
+        "understanding mandatory sustainability reporting requirements for listed companies"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC3104, itself a course with prerequisites, so this is a deeper chain (3000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "corporations both small and large are reporting their sustainability (or Environmental, Societal and Governance [ESG]) efforts and performance. In many countries, sustainability reporting is a mandatory requirement, especially for listed companies. ... The focus of this course will be on both preparing and interpreting sustainability and integrated reports. This course covers some of the key existing standards used for environmental, social and governance (ESG) such as Task Force on Climate Related Financial Disclosures (TCFD), Global Reporting Initiatives (GRI), Integrated Reporting (IR), Sustainability Reporting Standards Board (SASB) and International Sustainability Standards Board (ISSB).",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

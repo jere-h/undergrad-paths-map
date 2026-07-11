@@ -1,0 +1,154 @@
+{
+  "courses": [
+    {
+      "catalogCode": "AB5101",
+      "name": "Business Valuation: From Theory To Practice",
+      "prereqText": "AC1102 OR AD1101 OR AC1104 OR AD1102",
+      "description": "This course provides students with the conceptual background, practical skills and knowledge that are necessary to conduct business valuation in the marketplace. The course will link the theory and practical aspects of business valuation and provides the students with the first-hand knowledge of how valuation is carried out in the 'real world'. It will explore the global business valuation landscape, the role that business valuation plays in the financial and corporate world and study the competences, role, and behaviour of business valuers. It will also cover the fundamental concepts and principles of valuation, examine the various terms, definitions and premises of values that are widely used in practice. Additionally, it will provide an insight into the international valuation standards promulgated by the International Valuation Standards Council (IVSC) and in-depth coverage on the valuation process as well as the contents that is expected of a detailed valuation report. A detailed study of the various valuation approaches and methods commonly used to value business and equity for transactions purposes will also be carried out. Finally, the course will also address the challenges encountered by valuers relating to discounts/ premiums and valuation of public listed entities and private companies. This course allows students to explore and understand the various technical and practical issues involved in the various valuation approaches and methods. After completing the course, students are expected to be familiar with the application of the various valuation approaches and methods, and the pros and cons of adopting such approaches and methods when conducting business valuation in the marketplace for transaction purposes.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB5102",
+      "name": "Forensic Accounting & Fraud Investigation",
+      "prereqText": "AC1102 OR AD1101 OR AC1104 OR AD1102",
+      "description": "The course provides an understanding of white collar crimes in Singapore by analyzing real case studies of major crimes. Students will be taught the investigation methodology in the detection of fraud and the use of information technology forensics and social media tracing to examine documents and evidence within the Singapore legal, regulatory and professional rule-based environment. Various fraudulent schemes will be examined including financial statements, cash receipt, cash disbursement, defalcation and cybercrimes. Finally, the course teaches students effective interviewing and interrogation techniques, and the role of an expert witness.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AB5601",
+      "name": "Negotiate To Get What You Want: Strategy & Practice",
+      "prereqText": "Proficiency in English is essential",
+      "description": "We negotiate extensively in our personal and professional lives, sometimes without being aware of it. You will negotiate to ensure that the M&A deal meets your key organisational interests. You will negotiate to get a good deal from a vendor for an outsourced service. You may have to negotiate with a photographer over the copyright for your wedding photographs. When there is a leak in your bathroom ceiling, you may have to negotiate with your neighbour who believes that they are not responsible for the cost of repair. You will need to negotiate every time you are not able to achieve what you want on your own. Wherever they occur, negotiations are governed by similar principles. On this course, you will learn these principles. You will develop your negotiation skills in a series of simulations that address bargaining situations in both deal making and conflict resolution. You will develop an understanding of the strategies, and tactics of effective negotiation, conflict and relationship management, and enhance your ability to assess the variables in negotiations and to negotiate effectively. You will get the opportunity to evaluate your effectiveness through feedback from your peers, group debriefs and through a critical reflection of your experiences. Very often, students prioritize analytical and technical skills and knowledge 'to do the job', to devise solutions for the task at hand. We sometimes forget that we also need the skills to persuade others and sell our ideas. This course is designed to foster learning through doing; you will explore your own approaches, skills, development areas and strengths as a negotiator. Take this opportunity to learn about yourself and how you respond in specific negotiation situations. This course provides a safe and low-risk environment to learn and practise negotiating.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC1103",
+      "name": "Accounting I",
+      "prereqText": "",
+      "description": "Accounting is the language of business. This first accounting course aims to provide students with the knowledge and skills to apply the Singapore Financial Reporting Standards (International) ('SFRS(I)') to recognise, measure, present and disclose assets, liabilities, equity, revenue and expenses in the financial statements.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC1104",
+      "name": "Accounting II",
+      "prereqText": "AC1103 OR AC1101",
+      "description": "This course covers two major parts, namely financial accounting and management accounting. For financial accounting, the aim is to provide you with necessary intermediate financial accounting knowledge continued from AC1103 Accounting I. You are to be equipped with strong conceptual and technical knowledge in the recognition and measurement of the elements of the financial statements, and understand how the quality of financial information could be affected by various factors, and thus affect the decision making process by both internal and external users of companies. For management accounting, the aim is to provide you with an introductory of cost management. The focuses are on basic cost concept, various costing systems and cost allocation.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2101",
+      "name": "Accounting Recognition & Measurement",
+      "prereqText": "AB1102 OR AC1102 OR AC1104",
+      "description": "This course equips students with a strong conceptual and technical knowledge of the recognition, measurement and disclosure of the financial statement elements, namely, assets, liabilities, equity, revenue and expenses.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2104",
+      "name": "Assurance & Auditing",
+      "prereqText": "AB1102 OR AC1102 OR AC1104",
+      "description": "This course provides students with an in-depth understanding of key assurance concepts and methodologies, as well as develops the skills and attitudes needed to effectively and efficiently conduct financial statements audits and other assurance services. This course aims to inculcate in students' critical knowledge, skills and attitudes that an effective assurance professional should possess, and emphasizes active learning at both individual and group levels through project work, seminar discussions and activities. Critical skills that are developed and reinforced through the various course activities include problem solving and decision making, critical thinking, research, communication, teamwork and interpersonal skills. Important attitudes and values that this course aims to impart include professional values and ethics, social responsibilities, receptiveness to differing views, professional skepticism and a passion for proactive self-learning.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2105",
+      "name": "Accounting For Decision Making & Control",
+      "prereqText": "AC1103",
+      "description": "This course focuses on the strategic use of managerial accounting to support decision-making and assist management in achieving the organization's goals. Specifically, it aims to develop a strong understanding of cost management concepts and tools, and to explore the linkages between organizational strategy and accounting information for effective decision-making, planning, and control. The course emphasizes how managerial accounting serves as a critical resource in aligning operational actions with strategic objectives. It encourages students to think beyond the numbers and consider how accounting insights can influence behavior, improve processes, and enhance performance across various levels of management. By the end of the course, students will be familiar with the key concepts and techniques of managerial accounting and will gain a strong understanding of how accounting information supports both routine operations and broader strategic initiatives. They will be equipped to interpret, analyze, and apply managerial accounting techniques to solve problems and make informed decisions. With a strong emphasis on practical application and analytical thinking, the course also strengthens students' data analytics competencies in the context of managerial decision-making, equipping them with skills that complement traditional accounting techniques. The course is designed to prepare students to navigate complex business environments and use managerial accounting as a strategic tool in modern organizations.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2301",
+      "name": "Principles Of Taxation",
+      "prereqText": "AD1102 OR AC1101 OR AD1101 OR AC1103",
+      "description": "This course aims to provide you with a framework to understand the structure of the Singapore income tax and the goods and services tax, to enable you to obtain a working knowledge of key tax concepts and principles, and to instil an awareness in you of the impact that taxes may have on the decision-making processes of businesses and individuals. At the end of the course, you should be able to apply the tax laws to ascertain the tax treatment of common business and personal transactions, and to devise appropriate strategies for the minimization of tax costs.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2302",
+      "name": "Company Law & Corporate Governance",
+      "prereqText": "AB1301",
+      "description": "As an accounting or business professional, it is essential for you to have a firm understanding of the legal and regulatory mechanisms that govern companies. In this course you will examine the legal framework and laws governing how companies may be constituted, the relationship between its various stakeholders, corporate governance mechanisms, corporate finance and insolvency.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC2401",
+      "name": "Accounting Information Systems",
+      "prereqText": "",
+      "description": "This course aims to provide you with a strong conceptual and technical foundation in key business processes and enterprise information systems, a necessary pre-requisite for effective performance of business professionals in the current digital era. After the completion of this course, you should be able to apply your knowledge and skills to effectively evaluate business processes, and to use enterprise information systems in your future roles as business managers, professionals, and consultants.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3102",
+      "name": "Risk Reporting & Analysis",
+      "prereqText": "AC2101",
+      "description": "The course is designed to provide students with strong accounting conceptual knowledge and technical skills to understand the financial measurement and reporting implications of business entities' shareholdings in, and transactions with, other business entities with the same or different functional/presentation currencies, and use of derivatives to manage certain market and firm-specific risks and opportunities.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3103",
+      "name": "Accounting Analysis & Valuation",
+      "prereqText": "AC2101",
+      "description": "There are two parts to this course. Part 1 examines the role of financial reporting in the functioning of capital markets and focuses on identifying, assessing and applying information for the purposes of analyzing and valuing business activities and entities. Part 2 focuses on the valuation issues following mergers and acquisitions, namely valuation of intangibles and impairment testing of goodwill.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3104",
+      "name": "Enterprise Risk Management & Sustainability",
+      "prereqText": "AC1103(Corequisite) OR AD1102(Corequisite) OR BU5101(Corequisite)",
+      "description": "To sustain value, key executives and managers in corporations today recognize the need for active engagement in setting objectives and overseeing programs associated with Enterprise Risk Management (ERM). The course starts with an overview of risks that can threaten the attainment of organizational objectives, and the ERM concepts, frameworks and techniques for identifying, assessing and managing risks. Both the internal and external auditors increasingly need to understand ERM to properly appreciate key risks, controls and governance issues of the companies they audit. The later part of the course extends the knowledge and techniques covered ERM by examining the longer-term risks, opportunities and enterprise value creation through Enterprise Sustainability. Enterprise sustainability creates long-term value beyond financial success by making a positive impact socially as well as environmentally. As climate change and global warming pose an existential threat to humanity and affect all industry sectors, there is an urgent need for businesses to monitor and seek innovative green solutions to reduce their carbon footprints and to deliver on their targeted net-zero goals. Students will learn key concepts and apply widely-adopted methodologies of carbon management, sustainability reporting and assurance. Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "AC3105",
+      "name": "Sustainability Reporting",
+      "prereqText": "AC3104",
+      "description": "In the recent years, there is an exponential increase in the number of companies that measure, manage and communicate their corporate sustainability performance. With increasing pressure from stakeholders and investors, corporations both small and large are reporting their sustainability (or Environmental, Societal and Governance [ESG]) efforts and performance. In many countries, sustainability reporting is a mandatory requirement, especially for listed companies. Having an appreciation of sustainability reporting and reporting standards is a must for any sustainability professional. Corporate sustainability involves business strategies to create long-term financial value through measurable societal impact. The focus of this course will be on both preparing and interpreting sustainability and integrated reports. This course covers some of the key existing standards used for environmental, social and governance (ESG) such as Task Force on Climate Related Financial Disclosures (TCFD), Global Reporting Initiatives (GRI), Integrated Reporting (IR), Sustainability Reporting Standards Board (SASB) and International Sustainability Standards Board (ISSB).",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    }
+  ]
+}

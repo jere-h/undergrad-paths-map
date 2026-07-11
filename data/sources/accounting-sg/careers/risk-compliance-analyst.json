@@ -1,0 +1,47 @@
+{
+  "id": "risk-compliance-analyst",
+  "name": "Risk and Compliance Analyst",
+  "grounding": "soc",
+  "soc": ["13-2061.00"],
+  "responsibilities": [
+    "Review balance sheets, loan documentation, and operating accounts to confirm an institution's stated assets and liabilities are real",
+    "Investigate transactions and institutional activity to flag violations of financial regulations before they become enforcement actions",
+    "Write examination reports that lay out an institution's compliance gaps and recommend concrete fixes to management"
+  ],
+  "skills": [
+    "Evaluating information against a specific regulatory standard instead of a general sense of 'looks fine'",
+    "Reading audit reports (internal and external) closely enough to catch what they gloss over",
+    "Working compliance and financial analysis software to track findings across many accounts or entities at once",
+    "Communicating findings to supervisors, external auditors, and the people who have to fix the problem"
+  ],
+  "rawSkillPool": [
+    "Compliance software",
+    "Financial analysis software",
+    "Reviewing balance sheets and loan documentation",
+    "Evaluating information to determine compliance with standards",
+    "Investigating institutional activity for regulatory violations",
+    "Writing examination and compliance reports",
+    "Reviewing internal and external audit reports",
+    "Economics and accounting knowledge",
+    "Law and government knowledge",
+    "Spreadsheet software",
+    "Database user interface and query software",
+    "Monitoring and judgment/decision making",
+    "Enterprise resource planning (ERP) software",
+    "Process mapping and design software"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2061.00",
+      "quote": "Enforce or ensure compliance with laws and regulations governing financial and securities institutions and financial and real estate transactions. May examine, verify, or authenticate records.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2061.00",
+      "quote": "Recommend actions to ensure compliance with laws and regulations, or to protect solvency of institutions. Review balance sheets, operating income and expense accounts, and loan documentation to confirm institution assets and liabilities.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}
