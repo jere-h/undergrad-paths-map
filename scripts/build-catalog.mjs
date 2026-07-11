@@ -32,6 +32,11 @@ export function generateCatalog(ds) {
     name: clean(c.name, `career ${c.id} name`),
     responsibilities: c.responsibilities.map((t, i) => clean(t, `career ${c.id} responsibility ${i}`)),
     skills: c.skills.map((t, i) => clean(t, `career ${c.id} skill ${i}`)),
+    // Honesty marker: no 3000-level course opens this role (reachable via
+    // internships / earlier courses only). The app explains the path so the
+    // student is not silently closed off. Omitted when false to keep the
+    // module lean.
+    ...(c.courseworkThin ? { courseworkThin: true } : {}),
   }));
   const careerIds = new Set(careers.map((c) => c.id));
   const dests = (list, label) =>

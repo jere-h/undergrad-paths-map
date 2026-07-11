@@ -20,28 +20,23 @@
       "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
     ],
     "flags": {
+      "courseworkThinCareers": [
+        "analytics-engineer"
+      ],
       "droppedInputs": [
         "mit-6-1000",
         "mit-6-1200-j",
-        "mit-6-1220-j",
         "mit-14-01",
         "mit-14-02",
         "mit-14-12",
-        "mit-14-15j",
-        "mit-14-19",
-        "mit-14-33",
         "mit-15-276",
-        "mit-15-7611",
-        "mit-18-330",
-        "mit-18-642",
-        "mit-18-c25-j",
         "mit-18-413",
         "mit-18-404",
         "mnc-software-engineer-intern"
       ],
-      "edgesTrimmedForBalance": 8,
+      "edgesTrimmedForBalance": 7,
       "inferredEdges": 17,
-      "judgedEdges": 23,
+      "judgedEdges": 37,
       "inferenceOnlyCareers": [
         "analytics-engineer"
       ],
@@ -235,7 +230,8 @@
         "KPI definition and instrumentation",
         "Version control and code review for analytics code",
         "Data testing and alerting"
-      ]
+      ],
+      "courseworkThin": true
     },
     {
       "id": "bi-analyst",
@@ -712,7 +708,8 @@
       ],
       "destinations": [
         "bi-analyst",
-        "data-analyst"
+        "data-analyst",
+        "data-scientist"
       ],
       "edges": {
         "bi-analyst": {
@@ -729,10 +726,18 @@
           "judged": true,
           "rationale": "Designing visualizations and communicating insights from real-world datasets is the analyst's dashboard-and-reporting core.",
           "matchedSkills": []
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Data visualization and presenting findings from big data are named data-scientist responsibilities, even if not distinctive to the role.",
+          "matchedSkills": []
         }
       },
       "inferred": [
-        "data-analyst"
+        "data-analyst",
+        "data-scientist"
       ]
     },
     {
@@ -996,6 +1001,54 @@
       }
     },
     {
+      "id": "mit-6-1220-j",
+      "name": "Design and Analysis of Algorithms",
+      "level": 3000,
+      "dept": "EECS",
+      "catalogCode": "6.1220[J]",
+      "taughtSkills": [
+        "algorithm design and analysis",
+        "sorting and hashing techniques",
+        "divide-and-conquer and dynamic programming",
+        "greedy algorithms",
+        "amortized analysis",
+        "graph algorithms and shortest paths"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.1200, 6.1210)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/6/",
+          "quote": "Techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice. Topics include sorting; search trees, heaps, and hashing; divide-and-conquer; dynamic programming; greedy algorithms; amortized analysis; graph algorithms; and shortest paths. Advanced topics may include network flow; computational geometry; number-theoretic algorithms; polynomial and matrix calculations; caching; and parallel computing.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "data-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Rigorous design/analysis of efficient algorithms (DP, graph algorithms, amortized analysis) is the foundation behind the clean, efficient, scalable code ML engineers are expected to write.",
+          "matchedSkills": []
+        },
+        "data-engineer": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Algorithmic efficiency, hashing, graph/shortest-path and matrix techniques underpin the query optimization, indexing, and performance tuning a data engineer does on pipelines and warehouses.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "ml-engineer",
+        "data-engineer"
+      ]
+    },
+    {
       "id": "mit-14-32",
       "name": "Econometric Data Science",
       "level": 2000,
@@ -1042,6 +1095,130 @@
       },
       "inferred": [
         "data-scientist"
+      ]
+    },
+    {
+      "id": "mit-14-15j",
+      "name": "Networks",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.15[J]",
+      "taughtSkills": [
+        "random graph modeling",
+        "network optimization",
+        "game theory applied to networks",
+        "analyzing informational and learning cascades",
+        "analyzing social, economic, and financial networks",
+        "modeling epidemic spread and control on networks"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (6.3700, 14.30)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Highlights common principles that permeate the functioning of diverse technological, economic and social networks. Utilizes three sets of tools for analyzing networks -- random graph models, optimization, and game theory -- to study informational and learning cascades; economic and financial networks; social influence networks; formation of social groups; communication networks and the Internet; consensus and gossiping; spread and control of epidemics; control and use of energy networks; and biological networks.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Course explicitly teaches optimization and mathematical modeling of real networks, directly the formulate-and-optimize modeling toolkit of an operations research analyst.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "or-analyst"
+      ]
+    },
+    {
+      "id": "mit-14-19",
+      "name": "Market Design",
+      "level": 2000,
+      "dept": "Economics",
+      "catalogCode": "14.19",
+      "taughtSkills": [
+        "mechanism design",
+        "auction design",
+        "matching market design",
+        "resource allocation modeling",
+        "microeconomic and game-theoretic market analysis"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (14.01)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Covers the design and operation of organized markets, building on ideas from microeconomic and game theory. Topics may include mechanism design, auctions, matching markets, and other resource allocation problems.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Mechanism/auction/matching design frames resource-allocation problems as constrained optimization models, the core model-with-constraints-and-objectives skill of an OR analyst.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "or-analyst"
+      ]
+    },
+    {
+      "id": "mit-14-33",
+      "name": "Research and Communication in Economics: Topics, Methods, and Implementation",
+      "level": 3000,
+      "dept": "Economics",
+      "catalogCode": "14.33",
+      "taughtSkills": [
+        "independent empirical research design",
+        "econometric analysis of an assigned economic question",
+        "original data analysis project execution",
+        "oral research communication",
+        "written research reporting"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (14.32, 14.01, 14.02)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/14/",
+          "quote": "Exposes students to the process of conducting independent research in empirical economics and effectively communicating the results of the research. Emphasizes econometric analysis of an assigned economic question and culminates in each student choosing an original topic, performing appropriate analysis, and delivering oral and written project reports.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist",
+        "statistician"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Students run an original empirical project end to end (frame a question, do econometric analysis on real data, deliver findings), mirroring the data scientist question-to-analysis-to-communication workflow.",
+          "matchedSkills": []
+        },
+        "statistician": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Hands-on econometric analysis, choosing appropriate methods for an assigned question, and reporting results is applied statistical practice at the statistician bar.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "data-scientist",
+        "statistician"
       ]
     },
     {
@@ -1360,6 +1537,45 @@
       }
     },
     {
+      "id": "mit-15-7611",
+      "name": "Introduction to Operations Management",
+      "level": 2000,
+      "dept": "Management",
+      "catalogCode": "15.7611",
+      "taughtSkills": [
+        "capacity analysis",
+        "process design and improvement",
+        "inventory management",
+        "supply chain coordination",
+        "decision-making under uncertainty",
+        "pricing and revenue management"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (15.069, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/15/",
+          "quote": "Imparts concepts, techniques, and tools to design, analyze, and improve core operational capabilities and apply them to a broad range of domains and industries. Emphasizes the effect of uncertainty in decision-making, as well as the interplay among high-level financial objectives, operational capabilities, and people and organizational issues. Covers topics in capacity analysis, process design, process and business innovation, inventory management, risk pooling, supply chain coordination, sustainable operations, quality management, operational risk management, pricing and revenue management.",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.6,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Capacity analysis, inventory/risk pooling, supply-chain coordination, and pricing/revenue management under uncertainty are textbook operations-research problems an OR analyst models and optimizes.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "or-analyst"
+      ]
+    },
+    {
       "id": "mit-15-780",
       "name": "Analytics of Operations Management",
       "level": 2000,
@@ -1383,7 +1599,8 @@
         }
       ],
       "destinations": [
-        "or-analyst"
+        "or-analyst",
+        "data-scientist"
       ],
       "edges": {
         "or-analyst": {
@@ -1393,8 +1610,18 @@
             "stochastic optimization"
           ],
           "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Time series forecasting, ML for operations, and multi-armed bandits are standard data-science techniques applied to business decisions.",
+          "matchedSkills": []
         }
-      }
+      },
+      "inferred": [
+        "data-scientist"
+      ]
     },
     {
       "id": "mit-15-0621",
@@ -1742,6 +1969,7 @@
       ],
       "destinations": [
         "statistician",
+        "data-scientist",
         "data-analyst",
         "ml-engineer",
         "or-analyst"
@@ -1752,6 +1980,13 @@
           "matchedSkills": [
             "Bayesian estimation and hypothesis testing",
             "classical statistical inference"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "matchedSkills": [
+            "using R to simulate, analyze, and visualize data"
           ],
           "distinctive": true
         },
@@ -2014,6 +2249,54 @@
       ]
     },
     {
+      "id": "mit-18-330",
+      "name": "Introduction to Numerical Analysis",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.330",
+      "taughtSkills": [
+        "root finding",
+        "interpolation & function approximation",
+        "numerical integration",
+        "numerical solution of differential equations",
+        "iterative methods in linear algebra",
+        "programming in MATLAB, Python, or Julia"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.032)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Basic techniques for the efficient numerical solution of problems in science and engineering. Root finding, interpolation, approximation of functions, integration, differential equations, direct and iterative methods in linear algebra. Knowledge of programming in a language such as MATLAB, Python, or Julia is helpful.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "or-analyst"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Numerical methods, iterative linear algebra, and approximation implemented in Python/Julia are the computational math foundations behind training and optimizing ML models.",
+          "matchedSkills": []
+        },
+        "or-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Root finding, integration, ODEs, and iterative linear-algebra solvers are the numerical machinery an OR analyst relies on to solve and validate simulation and optimization models.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "ml-engineer",
+        "or-analyst"
+      ]
+    },
+    {
       "id": "mit-18-453",
       "name": "Combinatorial Optimization",
       "level": 2000,
@@ -2049,6 +2332,93 @@
           "distinctive": true
         }
       }
+    },
+    {
+      "id": "mit-18-642",
+      "name": "Topics in Mathematics with Applications in Finance",
+      "level": 2000,
+      "dept": "Mathematics",
+      "catalogCode": "18.642",
+      "taughtSkills": [
+        "applying linear algebra to finance",
+        "probability & statistics for financial modeling",
+        "stochastic processes",
+        "numerical methods",
+        "translating industry problems into quantitative models"
+      ],
+      "levelBasis": "prerequisite chain depth 1 (18.03, 18.06, 18.05, 18.600)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Introduction to mathematical concepts and techniques used in finance. Lectures focusing on linear algebra, probability, statistics, stochastic processes, and numerical methods are interspersed with lectures by financial sector professionals illustrating the corresponding application in the industry. Prior knowledge of economics or finance helpful but not required.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "or-analyst"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Translating real financial-industry problems into quantitative and stochastic models with numerical methods matches the OR analyst mandate to build and validate mathematical/simulation models.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "or-analyst"
+      ]
+    },
+    {
+      "id": "mit-18-c25-j",
+      "name": "Real World Computation with Julia",
+      "level": 3000,
+      "dept": "Mathematics",
+      "catalogCode": "18.C25[J]",
+      "taughtSkills": [
+        "automatic differentiation",
+        "matrix calculus",
+        "scientific machine learning",
+        "parallel and GPU computing",
+        "performance optimization",
+        "programming in Julia",
+        "building performant, readable, composable software"
+      ],
+      "levelBasis": "prerequisite chain depth 2 (6.100A, 18.03, 18.06)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://catalog.mit.edu/subjects/18/",
+          "quote": "Focuses on algorithms and techniques for writing and using modern technical software in a job, lab, or research group environment that may consist of interdisciplinary teams, where performance may be critical, and where the software needs to be flexible and adaptable. Topics include automatic differentiation, matrix calculus, scientific machine learning, parallel and GPU computing, and performance optimization with introductory applications to climate science, economics, agent-based modeling, and other areas. Labs and projects focus on performant, readable, composable algorithms, and software. Programming will be in Julia. Expects students to have some familiarity with Python, Matlab, or R. No Julia experience necessary.",
+          "retrievedAt": "2026-07-09T18:11:00Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer",
+        "data-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.6,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Teaches automatic differentiation, matrix calculus, scientific machine learning, and GPU computing while building performant, composable software, the exact production numerical-ML computing an ML engineer does.",
+          "matchedSkills": []
+        },
+        "data-engineer": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Parallel/GPU computing, performance optimization, and writing flexible, performant, composable software is production numerical engineering relevant to building efficient data systems.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "ml-engineer",
+        "data-engineer"
+      ]
     }
   ],
   "internships": [
