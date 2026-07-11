@@ -218,7 +218,7 @@ export const COURSES = [
     name: "Introduction to Probability and Statistics",
     level: 1000,
     dept: "Mathematics",
-    destinations: ["statistician","data-scientist","data-analyst","ml-engineer","or-analyst"],
+    destinations: ["statistician","data-analyst","ml-engineer","or-analyst"],
     inferred: ["data-analyst","or-analyst"],
   },
   {
@@ -280,14 +280,6 @@ export const INTERNSHIPS = [
     orgType: "MNC",
     destinations: ["data-analyst","bi-analyst"],
     inferred: ["bi-analyst"],
-  },
-  {
-    id: "canonical-data-engineering-intern",
-    role: "Data Engineering Intern",
-    orgType: "MNC",
-    destinations: ["data-engineer","data-architect","data-analyst"],
-    inferred: ["data-engineer","data-architect","data-analyst"],
-    canonical: true,
   },
   {
     id: "canonical-business-intelligence-analytics-intern",

@@ -845,6 +845,35 @@ test("assemble ships validated-canonical roles as judged-tier, dedupes titles, f
   assert.ok(!out.meta.flags.canonicalOnlyInternshipCareers || Array.isArray(out.meta.flags.canonicalOnlyInternshipCareers));
 });
 
+test("canonical dedupe collapses morphological title variants (Data Engineer == Data Engineering)", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const out = assemble({
+    meta: { runId: "r", pilot: true, orgTypes: ["Startup"] },
+    careerFiles: [{ id: "a", name: "A" }, { id: "b", name: "B" }],
+    distinctive: null,
+    courseFiles: [{ dept: "D", courses: [{ id: "c1", name: "C1", level: 1000, dept: "D" }] }],
+    internshipFiles: [{ orgType: "Startup", roles: [{ id: "clustered-de-intern", role: "Data Engineer Intern", orgType: "Startup", evidence: [{ type: "posting", company: "x" }] }] }],
+    judgeFiles: [{ proposals: { c1: [{ career: "a", confidence: 0.9, matchedSkills: ["s"], distinctive: true }], "clustered-de-intern": [{ career: "b", confidence: 0.9, matchedSkills: ["s"], distinctive: true }] } }],
+    verdictFiles: [],
+    // The canonical proposal is the SAME job as the clustered one, written with
+    // an "-ing" variant. Exact-string matching would miss it; the stemmed
+    // normalizeTitle must still treat it as a duplicate and drop it, so the
+    // clustered (posting-backed) role wins and the map shows one node, not two.
+    canonicalProposals: { proposals: [
+      { id: "de-variant", role: "Data Engineering Intern", orgType: "Startup", candidateEdges: [{ career: "b", confidence: 0.6, rationale: "x" }] },
+    ] },
+    canonicalValidation: { validated: [
+      { id: "de-variant", evidence: [{ type: "intern-list", company: "Foo", title: "Data Engineering Intern" }] },
+    ] },
+  });
+  assert.ok(!out.internships.some((i) => i.id === "canonical-de-variant"), "morphological duplicate does not ship");
+  assert.ok(
+    (out.meta.flags.canonicalSkipped || []).some((s) => s.includes("de-variant") && s.includes("duplicates clustered")),
+    "the dropped variant is flagged, not silently removed"
+  );
+  assert.equal(out.internships.filter((i) => i.kind === "internship" || i.role).length >= 1, true);
+});
+
 test("mergeJudgedEdges gives internships a higher cap and counts pre-existing judged edges", async () => {
   const { mergeJudgedEdges } = await import("../scripts/assemble-dataset.mjs");
   // an internship row that already carries 1 judged (canonical) edge
