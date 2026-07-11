@@ -662,6 +662,18 @@ img, svg, video, canvas {
   margin-top: var(--space-4);
 }
 
+/* Honest callout when a role has no advanced-course path (see render.js). A
+   left rule + warm accent marks it as guidance, not an error. */
+.panel-note {
+  margin: 0;
+  padding: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-fg);
+  background: rgba(232, 160, 75, 0.08);
+  border-left: 2px solid var(--color-hot);
+  border-radius: var(--radius-sm);
+}
+
 .panel-section__title {
   margin: 0 0 var(--space-1);
   font-size: 0.95rem;

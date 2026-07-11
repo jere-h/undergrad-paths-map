@@ -3,10 +3,22 @@
 - **Run:** `data-20260709T180456Z`, internship-variety pass **2026-07-11** ·
   MIT · O*NET 29.1
 - **Dataset:** `data/datasets/data.json` → `data/catalogs/data.js` (app tab "Data")
-- **Verdict:** full gates **PASS** (0 errors, 2 warnings). This report
+- **Verdict:** full gates **PASS** (0 errors, 3 warnings). This report
   supersedes the v3.1 report; the 2026-07-11 pass added the internship-variety
   detection gate, broadened intern grounding, and the validated-canonical
   internship tier (docs/internship-variety-plan.md).
+
+> **Update (2026-07-11): advanced-course coverage.** Several advanced courses
+> that the direct edge-judge under-connected were rescued as **judgment-tier
+> edges** (advisor-nod bar, 0.4–0.7, drawn softer) so genuinely-relevant senior
+> electives are not invisible. After this, **8 of 9 careers have advanced-course
+> support**; only **analytics-engineer** remains *coursework-thin* — a genuine
+> gap (no MIT course honestly maps to its dbt/SQL/semantic-layer scope), now
+> surfaced in the app's career panel (`career.courseworkThin`) rather than left
+> silent. Downstream figures moved: course total 23 → 31, judged (gap) edges 37,
+> and a third advisory warning (`coursework-thin: analytics-engineer`). Three
+> courses stayed dropped as honestly off-topic (game theory, computational
+> biology, theory of computation).
 
 ## What this dataset is (read before trusting it)
 

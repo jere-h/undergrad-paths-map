@@ -509,7 +509,22 @@ export function assemble({
   );
   const inferenceOnly = careers.map((c) => c.id).filter((id) => !directlySupported.has(id));
 
+  // Careers no 3000-level COURSE opens: reachable, but not as a coursework
+  // specialization at this school - a student exploring senior electives never
+  // sees them surface, so the path (internships, earlier courses) is easy to
+  // miss. Honest to mark rather than let them silently vanish in advanced mode.
+  const advancedCourseReached = new Set(
+    courses.filter((c) => c.level === 3000).flatMap((c) => c.destinations)
+  );
+  const courseworkThin = careers.map((c) => c.id).filter((id) => !advancedCourseReached.has(id));
+  const thinSet = new Set(courseworkThin);
+  for (const c of careers) {
+    if (thinSet.has(c.id)) c.courseworkThin = true;
+    else if (c.courseworkThin) delete c.courseworkThin;
+  }
+
   const flags = { ...(meta.flags || {}) };
+  if (courseworkThin.length) flags.courseworkThinCareers = courseworkThin;
   if (dropped.length) flags.droppedInputs = dropped;
   if (trimmed) flags.edgesTrimmedForBalance = trimmed;
   if (inferred) flags.inferredEdges = inferred;

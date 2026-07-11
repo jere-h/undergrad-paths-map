@@ -11,6 +11,8 @@
 
 > **What this dataset is — read first.** This is a *verified skill-overlap heuristic* over requirement-side evidence: NTU course descriptions, O\*NET task/skill statements, and live/canonical job postings. An edge means "the skills this course/internship teaches overlap the skills this career requires." It is **NOT** a measured outcome. **Nothing in this dataset says a graduate of course X actually got hired into career Y.** Read every edge as "plausible skill preparation," not "observed destination."
 
+> **Update (2026-07-11): advanced-course coverage.** Several genuinely-relevant advanced (2000/3000-level) courses had been dropped because the direct edge-judge under-connected them (missed the obvious career, or scored just below the strict L3000 floor) — e.g. *Risk Reporting & Analysis* was dropped despite obviously serving Risk & Compliance Analyst. A focused gap-review rescued them as **judgment-tier edges** (advisor-nod bar, 0.4–0.7, drawn softer, labelled judgment-based). After this, **9 of 10 careers have advanced-course support**; only **tax-consultant** remains *coursework-thin* — a genuine curriculum gap (no advanced tax course in the fetched NTU sweeps), now surfaced honestly in the app's career panel (`career.courseworkThin`) rather than left as a silent dead-end. As a result, some downstream counts elsewhere in this report have moved: course total 19 → 29, dropped inputs shrank to 7 (all L1000 intro/law/ethics), judged (gap) edges 37, and there is now a third advisory warning (`coursework-thin: tax-consultant`).
+
 ---
 
 ## 1. Verdict

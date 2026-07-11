@@ -326,9 +326,18 @@ export function validateDataset(ds, { pilot = false, snapshotRoot = "." } = {}) 
 
     const flags = (ds.meta && ds.meta.flags) || {};
     const starved = new Set(flags.internshipStarved || []);
+    // A career no 3000-level course opens never surfaces when a student
+    // explores senior electives; reachable, but not a coursework specialization
+    // here. The app marks it (career.courseworkThin) so it is not silently
+    // hidden - a lopsidedness warning, not a failure.
+    const advancedReached = new Set(
+      courses.filter((x) => x.level === 3000).flatMap((x) => x.destinations || [])
+    );
     for (const c of careers) {
       const courseDeg = courses.filter((x) => (x.destinations || []).includes(c.id)).length;
       const internDeg = internships.filter((x) => (x.destinations || []).includes(c.id)).length;
+      if (!advancedReached.has(c.id))
+        warnings.push(`career ${c.id}: no advanced (3000-level) course opens it (coursework-thin; see review report)`);
       // A career reachable only by internships is genuinely reachable (its node
       // lights when you pick that internship), so course-only-absent is a
       // lopsidedness warning, not a "path closed" failure. Total-zero support

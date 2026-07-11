@@ -20,27 +20,20 @@
       "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
     ],
     "flags": {
+      "courseworkThinCareers": [
+        "tax-consultant"
+      ],
       "droppedInputs": [
-        "ntu-ac3102",
-        "ntu-bf3204",
         "ntu-bf2100",
         "ntu-bf2229",
-        "ntu-bf2209",
-        "ntu-bf3202",
-        "ntu-bf2214",
-        "ntu-bf2228",
-        "ntu-bc2406",
-        "ntu-bc3405",
         "ntu-ab0301",
         "ntu-ab0403",
         "ntu-ab1201",
         "ntu-ab1202",
-        "ntu-ab1301",
-        "ntu-ab3601",
-        "ntu-ac3105"
+        "ntu-ab1301"
       ],
       "inferredEdges": 17,
-      "judgedEdges": 19,
+      "judgedEdges": 37,
       "canonicalInternships": [
         "canonical-audit-assurance-intern",
         "canonical-tax-intern",
@@ -641,7 +634,8 @@
         "Explaining tax law to individuals and companies",
         "Reviewing income statements and expense documentation",
         "Arithmetic / data-entry verification"
-      ]
+      ],
+      "courseworkThin": true
     }
   ],
   "courses": [
@@ -1166,6 +1160,52 @@
       ]
     },
     {
+      "id": "ntu-ac3102",
+      "name": "Risk Reporting & Analysis",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3102",
+      "taughtSkills": [
+        "financial measurement and reporting for inter-company shareholdings and transactions",
+        "handling multi-currency financial reporting",
+        "using derivatives to manage market and firm-specific risk"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC2101, which itself has a deeper prerequisite chain back to AC1103/AC1104, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "The course is designed to provide students with strong accounting conceptual knowledge and technical skills to understand the financial measurement and reporting implications of business entities' shareholdings in, and transactions with, other business entities with the same or different functional/presentation currencies, and use of derivatives to manage certain market and firm-specific risks and opportunities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "risk-compliance-analyst"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Advanced financial-reporting content (inter-company shareholdings, consolidation, multi-currency reporting) is core financial-statement preparation to standards.",
+          "matchedSkills": []
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Explicitly covers reporting and using derivatives to measure/manage market and firm-specific risk, directly feeding risk-reporting and exposure work.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-accountant",
+        "risk-compliance-analyst"
+      ]
+    },
+    {
       "id": "ntu-ac3103",
       "name": "Accounting Analysis & Valuation",
       "level": 3000,
@@ -1416,6 +1456,52 @@
       ]
     },
     {
+      "id": "ntu-bf3204",
+      "name": "Financial Modelling",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3204",
+      "taughtSkills": [
+        "Numerical and statistical financial analysis",
+        "Database analysis for finance",
+        "Advanced Excel financial modeling",
+        "Quantitative financial analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course reviews, advances, and applies the principles taught in prior introductory courses in finance. It takes a hands-on approach and provides students with ample opportunities to apply numerical and statistical analysis, table and graphical presentations, and database analysis. It exclusively uses MS Excel as a main tool for computing and analysis. After the completion of the course, you should be equipped with a strong foundation of finance and quantitative skills. The course benefits students who wish to become a quantitative financial analyst.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.65,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Hands-on quantitative/statistical financial analysis and advanced Excel modelling; course states it targets aspiring quantitative financial analysts.",
+          "matchedSkills": []
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.6,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Builds the spreadsheet financial-modelling and quantitative foundation used for budgeting, forecasting, and capital-structure models.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ]
+    },
+    {
       "id": "ntu-bf2302",
       "name": "International Tax & Trading Law",
       "level": 1000,
@@ -1460,6 +1546,171 @@
         }
       },
       "inferred": [
+        "risk-compliance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf2209",
+      "name": "Derivative Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2209",
+      "taughtSkills": [
+        "Pricing and valuing financial derivatives",
+        "Derivatives-based risk management",
+        "Hedging and option strategy design",
+        "Arbitrage strategy design"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "Through this course, students will learn the features of various derivatives and how to price, value (calculate the Profit/Loss) and structure them for investment and risk management. Students will also learn basic and slightly more advance option strategies and how to use them for hedging and trading. They will be able to design arbitrage strategies to take advantage of mispricing in various derivatives.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Pricing and valuing derivative securities and designing hedging/arbitrage strategies extends the valuation and modelling toolkit an analyst applies to securities.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf3202",
+      "name": "Fixed Income Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3202",
+      "taughtSkills": [
+        "Fixed income securities pricing",
+        "Fixed income structuring analysis",
+        "Fixed income risk management"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to support you to: 1. Price a wide range of fixed income securities 2. Understand the structure of different fixed income securities 3. Learn how to manage the risks of fixed income securities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Pricing and structuring a range of fixed-income securities strengthens securities-valuation skill central to investment/financial analysis.",
+          "matchedSkills": []
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Understanding fixed-income structuring and risk directly supports debt-raising, refinancing, and capital-structure advisory work.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf2214",
+      "name": "FinTech in Investment Management",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2214",
+      "taughtSkills": [
+        "Blockchain and cryptocurrency fundamentals",
+        "FinTech business model analysis",
+        "Payment systems innovation understanding",
+        "Evaluating regulatory concerns in FinTech"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "We will cover cryptocurrency and blockchain technology, innovations in the payment system, marketplace lending, and technology innovations in the insurance industry. The course will provide you a comprehensive understanding of the business models under these innovations as well as the challenges facing by FinTech firms and the major concerns financial regulators have.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "risk-compliance-analyst"
+      ],
+      "edges": {
+        "risk-compliance-analyst": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Covers the regulatory concerns and challenges facing FinTech (crypto, payments, lending), building the emerging-regulation awareness a compliance analyst needs.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "risk-compliance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf2228",
+      "name": "Sustainable Finance",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2228",
+      "taughtSkills": [
+        "ESG factor analysis",
+        "Sustainability risk measurement",
+        "Impact and responsible investment evaluation",
+        "Climate-related financial risk assessment"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "Students will learn how ESG (environmental, social, and governance) factors affect the various sectors in finance, how to interpret these metrics of companies to access financial returns, and how to measure risks associated with sustainable issues such as climate change.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "risk-compliance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Teaches how ESG factors affect financial returns and how to interpret ESG metrics to assess companies, an increasingly standard input to investment analysis.",
+          "matchedSkills": []
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Sustainability and climate-related financial-risk measurement maps onto risk assessment and evolving ESG-compliance requirements.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst",
         "risk-compliance-analyst"
       ]
     },
@@ -1519,6 +1770,104 @@
       "inferred": [
         "internal-auditor",
         "financial-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bc2406",
+      "name": "Analytics I: Visual & Predictive Techniques",
+      "level": 2000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC2406",
+      "taughtSkills": [
+        "data exploration and visualization",
+        "predictive analytics techniques",
+        "discovering meaningful patterns in large datasets",
+        "communicating insights to support decision-making",
+        "using R software for analytics"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is a class-standing requirement (Year 2 standing) rather than a specific prior course, indicating an intro-level gate; assigned level 2000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "Analytics involves the art of data exploration, visualization, communication and the science of analyzing large quantities of data in order to discover meaningful patterns and useful insights to support decision-making. The primary objective of this course is to introduce students to various techniques available to extract useful insights from the large volumes of data. ... This course focus on the use of open source R software, which is one of the key analytics software used in various industries and a critical skillset required in the job market for analytics and data science professionals.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "management-accountant"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Predictive analytics, data visualization, and R for extracting insights from large datasets underpin pulling and analyzing data to back financial recommendations.",
+          "matchedSkills": []
+        },
+        "management-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Data exploration, visualization, and communicating insights to support decision-making is the core of turning financial data into management recommendations.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst",
+        "management-accountant"
+      ]
+    },
+    {
+      "id": "ntu-bc3405",
+      "name": "Lean Operations & Analytics",
+      "level": 2000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC3405",
+      "taughtSkills": [
+        "lean process improvement and waste elimination",
+        "Six Sigma and Value Stream Mapping techniques",
+        "optimization, queuing and simulation modelling",
+        "statistical analysis for operations decision-making",
+        "case-study based operations problem solving"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is a single specific course (AB1202), which is itself an introductory course, so this was treated as an intro-level prereq chain and assigned level 2000 despite its 3000-series catalog code.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "The main objectives of this course are i) to appreciate the key principles/approaches of lean operations including waste elimination, increased speed and response, improved quality, and reduced cost & ii) to gain an understanding of the methodologies, tools, and techniques necessary for analyzing, implementing, managing, and continuously improving operations in both manufacturing and service industries. Topics covered in the course include Toyota Production System, Lean Principles, Value Stream Mapping, Pull Systems, Six Sigma, Lean thinking in manufacturing and service operations, and use of tools like optimization, queuing, simulation, and statistical analyses for modelling and analyzing real life systems.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "management-accountant",
+        "accounting-systems-analyst"
+      ],
+      "edges": {
+        "management-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Lean/Six Sigma cost, waste, and efficiency analysis supports recommending operational changes and cost management based on the numbers.",
+          "matchedSkills": []
+        },
+        "accounting-systems-analyst": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Value-stream mapping and lean process improvement is exactly the process-documentation-and-optimization skill used to redesign accounting workflows.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "management-accountant",
+        "accounting-systems-analyst"
       ]
     },
     {
@@ -1677,6 +2026,101 @@
         }
       },
       "inferred": [
+        "external-auditor"
+      ]
+    },
+    {
+      "id": "ntu-ab3601",
+      "name": "Strategic Management",
+      "level": 3000,
+      "dept": "Business Core",
+      "catalogCode": "AB3601",
+      "taughtSkills": [
+        "analyzing external and internal environments of a firm",
+        "formulating and executing business strategy",
+        "evaluating sources of superior firm performance using conceptual frameworks",
+        "incorporating corporate governance considerations into strategy",
+        "critically analyzing business issues from a strategic perspective"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite requires two prior 1000-level courses together (AB1501 & AB1601), and the description targets 'final-year' students, indicating a deeper chain (3000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "The purpose of the Strategic Management Course is to develop your knowledge and skills to identify and evaluate the sources of superior firm performance through using conceptual frameworks. You will learn to analyze the external and internal environments of the firm, formulate and execute different types of strategies with the consideration of good corporate governance. This course is appropriate for final-year accounting and business students who have already taken entry-level courses in accounting ratio analyses, organizational behaviour and marketing.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "management-accountant",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "management-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Analyzing firm performance drivers and strategy execution supports performance reporting and operational recommendations to management.",
+          "matchedSkills": []
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Evaluating sources of superior firm performance and strategy/governance frameworks informs the strategic context behind capital and financing decisions.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "management-accountant",
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ac3105",
+      "name": "Sustainability Reporting",
+      "level": 3000,
+      "dept": "Business Core",
+      "catalogCode": "AC3105",
+      "taughtSkills": [
+        "preparing and interpreting sustainability/integrated reports",
+        "applying ESG reporting standards (TCFD, GRI, IR, SASB, ISSB)",
+        "measuring and communicating corporate sustainability performance",
+        "understanding mandatory sustainability reporting requirements for listed companies"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC3104, itself a course with prerequisites, so this is a deeper chain (3000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "corporations both small and large are reporting their sustainability (or Environmental, Societal and Governance [ESG]) efforts and performance. In many countries, sustainability reporting is a mandatory requirement, especially for listed companies. ... The focus of this course will be on both preparing and interpreting sustainability and integrated reports. This course covers some of the key existing standards used for environmental, social and governance (ESG) such as Task Force on Climate Related Financial Disclosures (TCFD), Global Reporting Initiatives (GRI), Integrated Reporting (IR), Sustainability Reporting Standards Board (SASB) and International Sustainability Standards Board (ISSB).",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "external-auditor"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Preparing and interpreting sustainability/integrated reports under ESG standards (GRI, TCFD, ISSB) is an extension of standards-based financial reporting and mandatory disclosure.",
+          "matchedSkills": []
+        },
+        "external-auditor": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Understanding mandatory ESG reporting standards and interpreting reports prepared by others supports the growing assurance work over sustainability disclosures.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-accountant",
         "external-auditor"
       ]
     }

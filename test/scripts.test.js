@@ -874,6 +874,33 @@ test("canonical dedupe collapses morphological title variants (Data Engineer == 
   assert.equal(out.internships.filter((i) => i.kind === "internship" || i.role).length >= 1, true);
 });
 
+test("assemble flags careers no 3000-level course opens (coursework-thin) and marks the career", async () => {
+  const { assemble } = await import("../scripts/assemble-dataset.mjs");
+  const out = assemble({
+    meta: { runId: "r", pilot: false, orgTypes: ["Startup"] },
+    careerFiles: [{ id: "a", name: "A" }, { id: "b", name: "B" }],
+    distinctive: null,
+    courseFiles: [{ dept: "D", courses: [
+      { id: "c-adv", name: "Adv", level: 3000, dept: "D" },   // opens only career a
+      { id: "c-intro", name: "Intro", level: 1000, dept: "D" }, // opens career b
+    ] }],
+    // career b is also reached by an internship, so it is not orphaned - but no
+    // 3000-level course opens it, so it must be flagged coursework-thin.
+    internshipFiles: [{ orgType: "Startup", roles: [{ id: "i1", role: "R Intern", orgType: "Startup", evidence: [{ type: "posting", company: "x" }] }] }],
+    judgeFiles: [{ proposals: {
+      "c-adv": [{ career: "a", confidence: 0.9, matchedSkills: ["s"], distinctive: true }],
+      "c-intro": [{ career: "b", confidence: 0.9, matchedSkills: ["s"], distinctive: true }],
+      i1: [{ career: "b", confidence: 0.9, matchedSkills: ["s"], distinctive: true }],
+    } }],
+    verdictFiles: [],
+  });
+  assert.deepEqual(out.meta.flags.courseworkThinCareers, ["b"], "career b has no 3000-level course opening it");
+  const a = out.careers.find((c) => c.id === "a");
+  const b = out.careers.find((c) => c.id === "b");
+  assert.ok(!a.courseworkThin, "career a is opened by a 3000-level course, not thin");
+  assert.equal(b.courseworkThin, true, "career b is marked coursework-thin for the app to explain");
+});
+
 test("mergeJudgedEdges gives internships a higher cap and counts pre-existing judged edges", async () => {
   const { mergeJudgedEdges } = await import("../scripts/assemble-dataset.mjs");
   // an internship row that already carries 1 judged (canonical) edge

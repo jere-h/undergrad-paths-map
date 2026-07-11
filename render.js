@@ -335,6 +335,19 @@ export function openCareerPanel(career, info, contributors, allReachers) {
 
   body.textContent = "";
 
+  // Honesty note: this role has no advanced (3000-level) course opening it, so
+  // it never surfaces when a student explores senior electives. Say so, and
+  // point at the real path, rather than let the career silently disappear.
+  if (career.courseworkThin) {
+    const note = document.createElement("p");
+    note.className = "panel-note";
+    note.textContent =
+      "No advanced (Level 3000) course here maps to this role. You reach it " +
+      "through internships and earlier courses, not senior electives - so it " +
+      "won't surface on its own when you pick advanced courses.";
+    body.appendChild(note);
+  }
+
   // The end goal: what this job actually is, so the courses and internships
   // become a means to demonstrating these in a resume and interview.
   body.appendChild(

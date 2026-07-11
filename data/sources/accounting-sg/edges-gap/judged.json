@@ -1,23 +1,226 @@
 {
   "judged": [
-    { "input": "ntu-ac1103", "career": "external-auditor", "confidence": 0.55, "rationale": "Intro financial accounting under SFRS is the statement-literacy auditors rely on to know which line items carry audit risk." },
-    { "input": "ntu-ac1103", "career": "management-accountant", "confidence": 0.5, "rationale": "Recognising and measuring the core accounting elements is the foundational accounting knowledge management accountants build costing and reporting on." },
-    { "input": "ntu-ac2401", "career": "internal-auditor", "confidence": 0.55, "rationale": "Evaluating business processes and enterprise information systems is exactly the systems-reliability and data-integrity review internal auditors perform." },
-    { "input": "ntu-ac2401", "career": "financial-accountant", "confidence": 0.45, "rationale": "Fluency with enterprise information systems underpins the ERP/accounting-software work of closing the books and preparing statements." },
-    { "input": "ntu-ac1104", "career": "financial-accountant", "confidence": 0.55, "rationale": "Intermediate recognition and measurement is the core financial-reporting knowledge needed to prepare a set of statements end to end." },
-    { "input": "ntu-ac1104", "career": "external-auditor", "confidence": 0.45, "rationale": "Understanding costing systems and how items are recognised and measured lets an auditor test where those numbers could be misstated." },
-    { "input": "ntu-ac2301", "career": "financial-accountant", "confidence": 0.5, "rationale": "Knowing Singapore income tax and GST is needed to book tax expense and deferred tax correctly in the financial statements." },
-    { "input": "ntu-ac2301", "career": "forensic-accountant", "confidence": 0.4, "rationale": "Applying tax law to transactions supports the bank-record and tax-return analysis forensic accountants use to trace financial trails." },
-    { "input": "ntu-ac2302", "career": "internal-auditor", "confidence": 0.5, "rationale": "Corporate governance mechanisms and the legal framework for companies are the governance baseline internal auditors assess controls against." },
-    { "input": "ntu-ac2302", "career": "corporate-finance-analyst", "confidence": 0.4, "rationale": "Understanding corporate finance and insolvency law informs the debt-restructuring and refinancing advice corporate finance analysts support." },
-    { "input": "ntu-ac2101", "career": "external-auditor", "confidence": 0.55, "rationale": "Recognition and measurement of revenue and other elements is precisely the area (e.g. revenue recognition) auditors scope as highest risk." },
-    { "input": "ntu-ac2101", "career": "financial-analyst", "confidence": 0.4, "rationale": "Knowing how statement elements are recognised and measured lets an analyst read fast enough to see which line moved a valuation and why." },
-    { "input": "ntu-bf2213", "career": "internal-auditor", "confidence": 0.55, "rationale": "Designing internal control mechanisms and identifying compliance risks is the control-evaluation core of internal audit work." },
-    { "input": "ntu-bf2213", "career": "forensic-accountant", "confidence": 0.45, "rationale": "AML risk assessment and spotting compliance risks feed directly into fraud investigation and detecting suspicious activity." },
-    { "input": "ntu-bf2302", "career": "risk-compliance-analyst", "confidence": 0.45, "rationale": "International tax law, treaties and trade-law analysis build the law-and-regulation knowledge a compliance analyst applies to cross-border activity." },
-    { "input": "ntu-bc2402", "career": "internal-auditor", "confidence": 0.45, "rationale": "Database design and querying is what lets an auditor pull and test a whole population of transactions rather than eyeball a sample." },
-    { "input": "ntu-bc2402", "career": "financial-analyst", "confidence": 0.4, "rationale": "Data management and querying skills back the business-intelligence and database work analysts use to support an argument with data." },
-    { "input": "ntu-bc3409", "career": "financial-analyst", "confidence": 0.5, "rationale": "Building predictive models and automating financial analysis in R/Python is directly the modelling analysts do to analyse company performance." },
-    { "input": "ntu-bc3409", "career": "forensic-accountant", "confidence": 0.45, "rationale": "Using AI on prepared data to flag anomalies maps onto finding the outlier in a large population of transactions during a fraud investigation." }
+    {
+      "input": "ntu-ac1103",
+      "career": "external-auditor",
+      "confidence": 0.55,
+      "rationale": "Intro financial accounting under SFRS is the statement-literacy auditors rely on to know which line items carry audit risk."
+    },
+    {
+      "input": "ntu-ac1103",
+      "career": "management-accountant",
+      "confidence": 0.5,
+      "rationale": "Recognising and measuring the core accounting elements is the foundational accounting knowledge management accountants build costing and reporting on."
+    },
+    {
+      "input": "ntu-ac2401",
+      "career": "internal-auditor",
+      "confidence": 0.55,
+      "rationale": "Evaluating business processes and enterprise information systems is exactly the systems-reliability and data-integrity review internal auditors perform."
+    },
+    {
+      "input": "ntu-ac2401",
+      "career": "financial-accountant",
+      "confidence": 0.45,
+      "rationale": "Fluency with enterprise information systems underpins the ERP/accounting-software work of closing the books and preparing statements."
+    },
+    {
+      "input": "ntu-ac1104",
+      "career": "financial-accountant",
+      "confidence": 0.55,
+      "rationale": "Intermediate recognition and measurement is the core financial-reporting knowledge needed to prepare a set of statements end to end."
+    },
+    {
+      "input": "ntu-ac1104",
+      "career": "external-auditor",
+      "confidence": 0.45,
+      "rationale": "Understanding costing systems and how items are recognised and measured lets an auditor test where those numbers could be misstated."
+    },
+    {
+      "input": "ntu-ac2301",
+      "career": "financial-accountant",
+      "confidence": 0.5,
+      "rationale": "Knowing Singapore income tax and GST is needed to book tax expense and deferred tax correctly in the financial statements."
+    },
+    {
+      "input": "ntu-ac2301",
+      "career": "forensic-accountant",
+      "confidence": 0.4,
+      "rationale": "Applying tax law to transactions supports the bank-record and tax-return analysis forensic accountants use to trace financial trails."
+    },
+    {
+      "input": "ntu-ac2302",
+      "career": "internal-auditor",
+      "confidence": 0.5,
+      "rationale": "Corporate governance mechanisms and the legal framework for companies are the governance baseline internal auditors assess controls against."
+    },
+    {
+      "input": "ntu-ac2302",
+      "career": "corporate-finance-analyst",
+      "confidence": 0.4,
+      "rationale": "Understanding corporate finance and insolvency law informs the debt-restructuring and refinancing advice corporate finance analysts support."
+    },
+    {
+      "input": "ntu-ac2101",
+      "career": "external-auditor",
+      "confidence": 0.55,
+      "rationale": "Recognition and measurement of revenue and other elements is precisely the area (e.g. revenue recognition) auditors scope as highest risk."
+    },
+    {
+      "input": "ntu-ac2101",
+      "career": "financial-analyst",
+      "confidence": 0.4,
+      "rationale": "Knowing how statement elements are recognised and measured lets an analyst read fast enough to see which line moved a valuation and why."
+    },
+    {
+      "input": "ntu-bf2213",
+      "career": "internal-auditor",
+      "confidence": 0.55,
+      "rationale": "Designing internal control mechanisms and identifying compliance risks is the control-evaluation core of internal audit work."
+    },
+    {
+      "input": "ntu-bf2213",
+      "career": "forensic-accountant",
+      "confidence": 0.45,
+      "rationale": "AML risk assessment and spotting compliance risks feed directly into fraud investigation and detecting suspicious activity."
+    },
+    {
+      "input": "ntu-bf2302",
+      "career": "risk-compliance-analyst",
+      "confidence": 0.45,
+      "rationale": "International tax law, treaties and trade-law analysis build the law-and-regulation knowledge a compliance analyst applies to cross-border activity."
+    },
+    {
+      "input": "ntu-bc2402",
+      "career": "internal-auditor",
+      "confidence": 0.45,
+      "rationale": "Database design and querying is what lets an auditor pull and test a whole population of transactions rather than eyeball a sample."
+    },
+    {
+      "input": "ntu-bc2402",
+      "career": "financial-analyst",
+      "confidence": 0.4,
+      "rationale": "Data management and querying skills back the business-intelligence and database work analysts use to support an argument with data."
+    },
+    {
+      "input": "ntu-bc3409",
+      "career": "financial-analyst",
+      "confidence": 0.5,
+      "rationale": "Building predictive models and automating financial analysis in R/Python is directly the modelling analysts do to analyse company performance."
+    },
+    {
+      "input": "ntu-bc3409",
+      "career": "forensic-accountant",
+      "confidence": 0.45,
+      "rationale": "Using AI on prepared data to flag anomalies maps onto finding the outlier in a large population of transactions during a fraud investigation."
+    },
+    {
+      "input": "ntu-ac3102",
+      "career": "financial-accountant",
+      "confidence": 0.55,
+      "rationale": "Advanced financial-reporting content (inter-company shareholdings, consolidation, multi-currency reporting) is core financial-statement preparation to standards."
+    },
+    {
+      "input": "ntu-ac3102",
+      "career": "risk-compliance-analyst",
+      "confidence": 0.55,
+      "rationale": "Explicitly covers reporting and using derivatives to measure/manage market and firm-specific risk, directly feeding risk-reporting and exposure work."
+    },
+    {
+      "input": "ntu-bf3204",
+      "career": "financial-analyst",
+      "confidence": 0.65,
+      "rationale": "Hands-on quantitative/statistical financial analysis and advanced Excel modelling; course states it targets aspiring quantitative financial analysts."
+    },
+    {
+      "input": "ntu-bf3204",
+      "career": "corporate-finance-analyst",
+      "confidence": 0.6,
+      "rationale": "Builds the spreadsheet financial-modelling and quantitative foundation used for budgeting, forecasting, and capital-structure models."
+    },
+    {
+      "input": "ntu-bf2209",
+      "career": "financial-analyst",
+      "confidence": 0.5,
+      "rationale": "Pricing and valuing derivative securities and designing hedging/arbitrage strategies extends the valuation and modelling toolkit an analyst applies to securities."
+    },
+    {
+      "input": "ntu-bf3202",
+      "career": "financial-analyst",
+      "confidence": 0.5,
+      "rationale": "Pricing and structuring a range of fixed-income securities strengthens securities-valuation skill central to investment/financial analysis."
+    },
+    {
+      "input": "ntu-bf3202",
+      "career": "corporate-finance-analyst",
+      "confidence": 0.5,
+      "rationale": "Understanding fixed-income structuring and risk directly supports debt-raising, refinancing, and capital-structure advisory work."
+    },
+    {
+      "input": "ntu-bf2214",
+      "career": "risk-compliance-analyst",
+      "confidence": 0.45,
+      "rationale": "Covers the regulatory concerns and challenges facing FinTech (crypto, payments, lending), building the emerging-regulation awareness a compliance analyst needs."
+    },
+    {
+      "input": "ntu-bf2228",
+      "career": "financial-analyst",
+      "confidence": 0.5,
+      "rationale": "Teaches how ESG factors affect financial returns and how to interpret ESG metrics to assess companies, an increasingly standard input to investment analysis."
+    },
+    {
+      "input": "ntu-bf2228",
+      "career": "risk-compliance-analyst",
+      "confidence": 0.45,
+      "rationale": "Sustainability and climate-related financial-risk measurement maps onto risk assessment and evolving ESG-compliance requirements."
+    },
+    {
+      "input": "ntu-bc2406",
+      "career": "financial-analyst",
+      "confidence": 0.5,
+      "rationale": "Predictive analytics, data visualization, and R for extracting insights from large datasets underpin pulling and analyzing data to back financial recommendations."
+    },
+    {
+      "input": "ntu-bc2406",
+      "career": "management-accountant",
+      "confidence": 0.5,
+      "rationale": "Data exploration, visualization, and communicating insights to support decision-making is the core of turning financial data into management recommendations."
+    },
+    {
+      "input": "ntu-bc3405",
+      "career": "management-accountant",
+      "confidence": 0.5,
+      "rationale": "Lean/Six Sigma cost, waste, and efficiency analysis supports recommending operational changes and cost management based on the numbers."
+    },
+    {
+      "input": "ntu-bc3405",
+      "career": "accounting-systems-analyst",
+      "confidence": 0.45,
+      "rationale": "Value-stream mapping and lean process improvement is exactly the process-documentation-and-optimization skill used to redesign accounting workflows."
+    },
+    {
+      "input": "ntu-ab3601",
+      "career": "management-accountant",
+      "confidence": 0.5,
+      "rationale": "Analyzing firm performance drivers and strategy execution supports performance reporting and operational recommendations to management."
+    },
+    {
+      "input": "ntu-ab3601",
+      "career": "corporate-finance-analyst",
+      "confidence": 0.5,
+      "rationale": "Evaluating sources of superior firm performance and strategy/governance frameworks informs the strategic context behind capital and financing decisions."
+    },
+    {
+      "input": "ntu-ac3105",
+      "career": "financial-accountant",
+      "confidence": 0.55,
+      "rationale": "Preparing and interpreting sustainability/integrated reports under ESG standards (GRI, TCFD, ISSB) is an extension of standards-based financial reporting and mandatory disclosure."
+    },
+    {
+      "input": "ntu-ac3105",
+      "career": "external-auditor",
+      "confidence": 0.45,
+      "rationale": "Understanding mandatory ESG reporting standards and interpreting reports prepared by others supports the growing assurance work over sustainability disclosures."
+    }
   ]
 }
