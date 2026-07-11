@@ -1,0 +1,213 @@
+{
+  "sparseInputs": [
+    {
+      "id": "ntu-ac1103",
+      "kind": "course",
+      "level": 1000,
+      "name": "Accounting I",
+      "skills": [
+        "applying Singapore Financial Reporting Standards (SFRS(I))",
+        "recognising and measuring assets, liabilities, equity, revenue and expenses",
+        "presenting and disclosing items in financial statements",
+        "understanding accounting as the language of business"
+      ],
+      "destinations": [
+        "financial-accountant"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "ntu-ac2401",
+      "kind": "course",
+      "level": 1000,
+      "name": "Accounting Information Systems",
+      "skills": [
+        "evaluating business processes",
+        "using enterprise information systems",
+        "building conceptual and technical foundations in business processes and information systems",
+        "applying knowledge to future roles as business managers, professionals and consultants"
+      ],
+      "destinations": [
+        "accounting-systems-analyst"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "ntu-ac1104",
+      "kind": "course",
+      "level": 2000,
+      "name": "Accounting II",
+      "skills": [
+        "applying intermediate financial accounting knowledge (recognition & measurement)",
+        "assessing how quality of financial information affects decision-making",
+        "applying basic cost concepts",
+        "using various costing systems",
+        "performing cost allocation"
+      ],
+      "destinations": [
+        "management-accountant"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "ntu-ac2301",
+      "kind": "course",
+      "level": 2000,
+      "name": "Principles Of Taxation",
+      "skills": [
+        "understanding the structure of Singapore income tax and GST",
+        "applying tax laws to business and personal transactions",
+        "devising strategies for minimization of tax costs",
+        "assessing tax impact on business and individual decision-making"
+      ],
+      "destinations": [
+        "tax-consultant"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "ntu-ac2302",
+      "kind": "course",
+      "level": 2000,
+      "name": "Company Law & Corporate Governance",
+      "skills": [
+        "examining the legal framework governing companies",
+        "analyzing corporate governance mechanisms",
+        "understanding relationships between company stakeholders",
+        "understanding corporate finance and insolvency law"
+      ],
+      "destinations": [
+        "risk-compliance-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "ntu-ac2101",
+      "kind": "course",
+      "level": 3000,
+      "name": "Accounting Recognition & Measurement",
+      "skills": [
+        "recognizing financial statement elements",
+        "measuring assets, liabilities, equity, revenue and expenses",
+        "disclosing financial statement information",
+        "applying conceptual and technical financial reporting knowledge"
+      ],
+      "destinations": [
+        "financial-accountant"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "ntu-bf2213",
+      "kind": "course",
+      "level": 2000,
+      "name": "Introduction to Compliance",
+      "skills": [
+        "Understanding regulatory and financial compliance requirements",
+        "Identifying compliance risks in financial institutions",
+        "Anti-money laundering (AML) risk assessment",
+        "Designing effective internal control mechanisms",
+        "Evaluating the impact of FinTech/RegTech on compliance"
+      ],
+      "destinations": [
+        "risk-compliance-analyst"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "ntu-bf2302",
+      "kind": "course",
+      "level": 1000,
+      "name": "International Tax & Trading Law",
+      "skills": [
+        "International tax law principles",
+        "Tax treaty interpretation",
+        "BEPS and international tax developments analysis",
+        "International trade law issues",
+        "Case law analysis in tax and trade"
+      ],
+      "destinations": [
+        "tax-consultant"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "ntu-bc2402",
+      "kind": "course",
+      "level": 1000,
+      "name": "Designing & Developing Databases",
+      "skills": [
+        "database design and development",
+        "business process analysis to identify data requirements",
+        "information systems development to support business processes",
+        "data management for business analytics",
+        "implementing a database solution"
+      ],
+      "destinations": [
+        "accounting-systems-analyst"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "ntu-bc3409",
+      "kind": "course",
+      "level": 3000,
+      "name": "AI in Accounting & Finance",
+      "skills": [
+        "managing and preparing data for analysis",
+        "using AI to automate financial analysis and generate accounting reports",
+        "building predictive models to inform business decisions",
+        "coding customized solutions with R and Python",
+        "integrating statistical libraries for data analysis",
+        "using modern tools (Keras, TensorFlow, Hadoop, Spark, Cloud) to automate accounting and finance processes"
+      ],
+      "destinations": [
+        "accounting-systems-analyst"
+      ],
+      "expected": 2
+    }
+  ],
+  "sparseCareers": [],
+  "careers": [
+    {
+      "id": "accounting-systems-analyst",
+      "name": "Accounting Systems and Business Analyst"
+    },
+    {
+      "id": "corporate-finance-analyst",
+      "name": "Corporate Finance Analyst"
+    },
+    {
+      "id": "external-auditor",
+      "name": "External Auditor"
+    },
+    {
+      "id": "financial-accountant",
+      "name": "Financial Accountant"
+    },
+    {
+      "id": "financial-analyst",
+      "name": "Financial Analyst"
+    },
+    {
+      "id": "forensic-accountant",
+      "name": "Forensic Accountant"
+    },
+    {
+      "id": "internal-auditor",
+      "name": "Internal Auditor"
+    },
+    {
+      "id": "management-accountant",
+      "name": "Management Accountant"
+    },
+    {
+      "id": "risk-compliance-analyst",
+      "name": "Risk and Compliance Analyst"
+    },
+    {
+      "id": "tax-consultant",
+      "name": "Tax Consultant"
+    }
+  ]
+}

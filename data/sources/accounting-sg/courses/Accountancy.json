@@ -167,30 +167,6 @@
       ]
     },
     {
-      "id": "ntu-ab5102",
-      "name": "Forensic Accounting & Fraud Investigation",
-      "level": 2000,
-      "dept": "Accountancy",
-      "catalogCode": "AB5102",
-      "taughtSkills": [
-        "applying fraud investigation methodology",
-        "using information technology forensics and social media tracing",
-        "examining fraudulent schemes in financial statements and cash transactions",
-        "conducting interviewing and interrogation techniques",
-        "understanding the role of an expert witness"
-      ],
-      "levelBasis": "LLM-assigned (no courseblock structure)",
-      "levelNote": "Prerequisite alternatives (AC1102, AD1101, AC1104, AD1102) are intro-level courses, matching the intro-level-prereq -> 2000 rule.",
-      "evidence": [
-        {
-          "type": "catalog",
-          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
-          "quote": "The course provides an understanding of white collar crimes in Singapore by analyzing real case studies of major crimes. Students will be taught the investigation methodology in the detection of fraud and the use of information technology forensics and social media tracing to examine documents and evidence... Finally, the course teaches students effective interviewing and interrogation techniques, and the role of an expert witness.",
-          "retrievedAt": "2026-07-11T08:14:13Z"
-        }
-      ]
-    },
-    {
       "id": "ntu-ac2101",
       "name": "Accounting Recognition & Measurement",
       "level": 3000,

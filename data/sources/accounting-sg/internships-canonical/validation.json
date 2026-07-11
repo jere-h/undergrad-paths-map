@@ -1,0 +1,123 @@
+{
+  "validated": [
+    {
+      "id": "audit-assurance-intern",
+      "evidence": [
+        {
+          "type": "employer-page",
+          "company": "Deloitte",
+          "title": "A&A - External Audit Intern - Audit & Assurance (Summer 2026 Internship)",
+          "url": "https://jobs.sea.deloitte.com/job/Singapore-A&A-External-Audit-Intern-Audit-&-Assurance-(Summer-2026-Internship)-Sing/1331561066/",
+          "snapshot": "data/sources/accounting-sg/postings/web-audit-assurance-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        },
+        {
+          "type": "employer-page",
+          "company": "KPMG Singapore",
+          "title": "Audit - Technology Assurance | Summer Internship 2026",
+          "url": "https://careers.kpmg.com.sg/job/Audit-Technology-Assurance-Summer-Internship-2026/49176544/",
+          "snapshot": "data/sources/accounting-sg/postings/web-audit-assurance-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2025-12-01"
+        }
+      ],
+      "queries": [
+        "\"Audit Intern\" OR \"Assurance Intern\" Singapore 2026 Deloitte OR PwC OR KPMG OR EY",
+        "PwC OR KPMG OR EY \"Audit Intern\" OR \"Assurance Intern\" Singapore Summer 2026 careers",
+        "careers.kpmg.com.sg audit intern OR assurance intern Singapore"
+      ]
+    },
+    {
+      "id": "tax-intern",
+      "evidence": [
+        {
+          "type": "employer-page",
+          "company": "KPMG Singapore",
+          "title": "Tax - Corporate Tax Planning & Compliance | Off-Cycle Internship (Jul 2026 to Dec 2026)",
+          "url": "https://careers.kpmg.com.sg/go/Interns-Tax/574344/",
+          "snapshot": "data/sources/accounting-sg/postings/web-tax-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-07-09"
+        },
+        {
+          "type": "employer-page",
+          "company": "Deloitte Singapore",
+          "title": "Tax & Legal Intern - Business Tax Advisory, International Tax (Summer 2026 Internship)",
+          "url": "https://www.founditgulf.com/career-advice/big-4-internship-guide/",
+          "snapshot": "data/sources/accounting-sg/postings/web-tax-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        }
+      ],
+      "queries": [
+        "\"Tax Intern\" Singapore 2026 Big 4 OR RSM OR BDO OR Crowe",
+        "KPMG OR EY OR PwC \"Tax Intern\" Singapore Summer 2026 careers"
+      ]
+    },
+    {
+      "id": "risk-advisory-internal-audit-intern",
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "AlixPartners",
+          "title": "Risk Advisory Intern",
+          "url": "https://www.alixpartners.com/careers/7507322003/risk-advisory-intern/",
+          "snapshot": "data/sources/accounting-sg/postings/web-risk-advisory-internal-audit-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-07-01"
+        },
+        {
+          "type": "posting",
+          "company": "Grant Thornton Singapore",
+          "title": "Business Risk Intern (Jul - Dec 2026)",
+          "url": "https://www.grantthornton.sg/careers/current-vacancies/internal-audit-intern/",
+          "snapshot": "data/sources/accounting-sg/postings/web-risk-advisory-internal-audit-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        }
+      ],
+      "queries": [
+        "\"Risk Advisory\" intern OR \"Internal Audit Intern\" Singapore 2026"
+      ]
+    },
+    {
+      "id": "forensic-financial-crime-intern",
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "EY (Ernst & Young Singapore)",
+          "title": "Intern - Assurance, Forensic - Fraud & Investigation (Off-cycle Jul - Dec 2026)",
+          "url": "https://sg.linkedin.com/jobs/view/intern-assurance-forensic-fraud-investigation-july-dec-2026-at-ey-4402345250",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-financial-crime-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-06-27"
+        },
+        {
+          "type": "posting",
+          "company": "FTI Consulting",
+          "title": "Intern, Forensic Accounting & Investigations (between March to December 2026)",
+          "url": "https://www.bayt.com/en/singapore/jobs/intern-forensic-accounting-investigations-between-march-to-december-2026-forensic-litigation-consulting-singapore-74105362/",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-financial-crime-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-02-11"
+        }
+      ],
+      "queries": [
+        "\"Forensic\" intern Singapore accounting Big 4 2026",
+        "EY \"Intern\" \"Forensic\" \"Fraud & Investigation\" Singapore July Dec 2026",
+        "FTI Consulting \"Intern, Forensic Accounting & Investigations\" Singapore"
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "id": "deal-advisory-valuation-intern",
+      "reason": "No CURRENT evidence: both employer sources are undated career/landing pages (postedAt:null) and MyCareersFuture carries no matching dated posting within the currency window. Cannot validate a current role on archived/undated pages alone."
+    },
+    {
+      "id": "finance-transformation-systems-intern",
+      "reason": "No CURRENT evidence: both employer sources are undated career/landing pages (postedAt:null) and MyCareersFuture carries no matching dated posting within the currency window. Cannot validate a current role on archived/undated pages alone."
+    }
+  ]
+}

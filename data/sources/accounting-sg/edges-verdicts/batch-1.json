@@ -1,0 +1,76 @@
+{
+  "verdicts": [
+    {
+      "input": "ntu-ac1103",
+      "career": "financial-accountant",
+      "verdict": "keep",
+      "reason": "Financial-statement preparation is the single most common ask in the live postings (20 of 34 mention preparing FS/GL/closing, and one explicitly requires IFRS), matching this course's SFRS recognition/presentation/disclosure content."
+    },
+    {
+      "input": "ntu-ac1103",
+      "career": "external-auditor",
+      "verdict": "drop",
+      "reason": "No posting asks auditors for preparer-side SFRS application; the one audit-support posting wants schedules/workpapers/reconciliation, and this intro preparer course maps to financial-accountant, not the auditor's testing role."
+    },
+    {
+      "input": "ntu-ac2401",
+      "career": "accounting-systems-analyst",
+      "verdict": "keep",
+      "reason": "The two live accounting-systems-analyst job descriptions demand exactly this course's subject matter (ERP finance modules SAP/Oracle/NetSuite, refining accounting workflows, and evaluating business processes), plus 11 mycareersfuture postings reference enterprise/ERP systems."
+    },
+    {
+      "input": "ntu-ac2401",
+      "career": "internal-auditor",
+      "verdict": "drop",
+      "reason": "The AIS course builds/uses enterprise systems rather than auditing their controls, and no live internal-audit posting asks for its business-process-modelling content; the audit-support posting is clerical schedule prep, not systems assurance."
+    },
+    {
+      "input": "ntu-ac1104",
+      "career": "management-accountant",
+      "verdict": "keep",
+      "reason": "Costing/budgeting/forecasting subject matter recurs in 9 live postings (e.g. a Finance Controlling intern), matching this course's costing-systems and cost-allocation content that is the management-accountant's core toolkit."
+    },
+    {
+      "input": "ntu-ac2105",
+      "career": "management-accountant",
+      "verdict": "keep",
+      "reason": "This course's managerial-accounting-for-planning-and-control content maps directly to the costing/budget/variance/forecast asks appearing across 9 live finance/controlling postings, the distinctive management-accountant skill of building and using a costing/budgeting system."
+    },
+    {
+      "input": "ntu-ac2302",
+      "career": "risk-compliance-analyst",
+      "verdict": "keep",
+      "reason": "Live Singapore compliance-analyst postings list Law and Governance degrees as qualifying and put 'corporate governance frameworks' in scope, matching this course's company-law and corporate-governance-mechanism content."
+    },
+    {
+      "input": "ntu-ac3104",
+      "career": "internal-auditor",
+      "verdict": "keep",
+      "reason": "Live Singapore internal-auditor roles explicitly require ERM/COSO/ISO31000 and a risk-based audit approach (per IIA guidance), exactly this course's ERM frameworks and 'auditors' role in evaluating risk, controls and governance'."
+    },
+    {
+      "input": "ntu-ac3104",
+      "career": "external-auditor",
+      "verdict": "keep",
+      "reason": "Singapore auditing standard SSA/ISA 315 requires external auditors to understand the entity's risk and system of internal control, which is precisely this course's stated 'auditors' role in evaluating risk, controls and governance' plus fraud-risk audit analytics."
+    },
+    {
+      "input": "ntu-ac3104",
+      "career": "risk-compliance-analyst",
+      "verdict": "keep",
+      "reason": "Live Singapore risk-and-compliance-analyst postings center on maintaining the ERM framework, risk registers, and control reviews, matching this course's ERM identify/assess/manage-risk content."
+    },
+    {
+      "input": "ntu-ab5102",
+      "career": "external-auditor",
+      "verdict": "drop",
+      "reason": "This deep forensic-investigation course (interrogation, expert witness, fraud schemes) belongs to the dedicated forensic-accountant career; zero live postings mention fraud/forensic and external audit's ISA 240 fraud duty is awareness, not investigation depth."
+    },
+    {
+      "input": "ntu-ac2101",
+      "career": "financial-accountant",
+      "verdict": "keep",
+      "reason": "This advanced recognition/measurement/disclosure course maps to the financial-statement-preparation subject matter dominant across 20 live postings, the technical core of the financial-accountant role."
+    }
+  ]
+}

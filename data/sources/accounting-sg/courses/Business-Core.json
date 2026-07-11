@@ -169,29 +169,6 @@
       ]
     },
     {
-      "id": "ntu-ac3104",
-      "name": "Enterprise Risk Management & Sustainability",
-      "level": 2000,
-      "dept": "Business Core",
-      "catalogCode": "AC3104",
-      "taughtSkills": [
-        "identifying, assessing, and managing enterprise risks (ERM frameworks)",
-        "applying carbon management and sustainability reporting/assurance methodologies",
-        "hands-on data analytics and data mining for business and fraud risk assessment",
-        "audit analytics"
-      ],
-      "levelBasis": "LLM-assigned (no courseblock structure)",
-      "levelNote": "Prerequisite is a single intro-level accounting course taken as a corequisite (AC1103 OR AD1102 OR BU5101), so 2000-level despite the '3xxx' catalog number.",
-      "evidence": [
-        {
-          "type": "catalog",
-          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
-          "quote": "The course starts with an overview of risks that can threaten the attainment of organizational objectives, and the ERM concepts, frameworks and techniques for identifying, assessing and managing risks. ... Students will learn key concepts and apply widely-adopted methodologies of carbon management, sustainability reporting and assurance. Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics",
-          "retrievedAt": "2026-07-11T08:14:13Z"
-        }
-      ]
-    },
-    {
       "id": "ntu-ab3601",
       "name": "Strategic Management",
       "level": 3000,
