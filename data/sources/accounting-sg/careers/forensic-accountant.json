@@ -1,0 +1,49 @@
+{
+  "id": "forensic-accountant",
+  "name": "Forensic Accountant",
+  "grounding": "postings",
+  "responsibilities": [
+    "Investigate suspected fraud, embezzlement, or other financial crime by tracing transactions through statements, tax returns, and bank records",
+    "Perform forensic accounting analyses and support expert witness work: build the numbers a lawyer or court can rely on",
+    "Write up findings and recommendations in a report detailed enough to survive cross-examination or regulatory scrutiny"
+  ],
+  "skills": [
+    "Reconstructing a financial trail from messy source documents (bank records, tax filings, ledgers) instead of a clean data set",
+    "Using forensic and data analytics software (e.g. IDEA, ACL) to find the anomaly in a large population of transactions",
+    "Writing a findings report that holds up when read by opposing counsel, not just an internal audience",
+    "Working alongside lawyers or law enforcement and keeping client information confidential under real pressure"
+  ],
+  "rawSkillPool": [
+    "Fraud investigation",
+    "Forensic data analytics software (IDEA, ACL)",
+    "Financial document reconstruction",
+    "Expert witness support",
+    "Report writing for legal/regulatory review",
+    "Bank record and tax return analysis",
+    "Working with law enforcement and legal counsel",
+    "Accounting principles and methodology",
+    "Confidentiality and discretion",
+    "Analytical and problem-solving skills",
+    "Deadline and case-load management",
+    "CFE / CPA-adjacent technical grounding"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://jobs.accaglobal.com/jobs/singapore/forensic-accountant/",
+      "title": "Associate - Assurance, Forensic - Fraud & Investigation (2026 Graduates)",
+      "company": "EY",
+      "quote": "Perform fraud and other forensic accounting investigation, support expert witness services, and conduct financial and economic analyses.",
+      "snapshot": "data/sources/accounting-sg/postings/web-forensic-accountant-1.txt",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://www.jobslah.com/sg/employer/job-descriptions/forensic-accountant",
+      "title": "Forensic Accountant Job Description",
+      "quote": "Conduct forensic accounting investigations and analyses to identify potential fraud, embezzlement, and other financial crimes; Prepare detailed reports documenting findings and recommendations for further action.",
+      "snapshot": "data/sources/accounting-sg/postings/web-forensic-accountant-2.txt",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

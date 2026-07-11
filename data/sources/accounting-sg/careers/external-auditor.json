@@ -1,0 +1,47 @@
+{
+  "id": "external-auditor",
+  "name": "External Auditor",
+  "grounding": "soc",
+  "soc": ["13-2011.00"],
+  "responsibilities": [
+    "Plan and execute audit procedures on a client's financial statements: test transactions, confirm balances, and trace them back to source documents",
+    "Inspect account books and internal controls for weaknesses (duplicated effort, non-compliance, outright fraud) and write up findings management has to act on",
+    "Confer with client finance staff to resolve discrepancies before signing off on an opinion, and brief engagement seniors on scope and risk areas"
+  ],
+  "skills": [
+    "Reading a full set of financial statements and knowing which line items are audit risk (revenue recognition, inventory, related-party transactions)",
+    "Running accounting and audit software (workpapers, sampling, analytics) instead of just Excel by hand",
+    "Documenting evidence and conclusions so a reviewer two levels up can follow your logic without asking you",
+    "Explaining a finding to a client controller in plain terms without sounding accusatory"
+  ],
+  "rawSkillPool": [
+    "Financial statement audit",
+    "Internal controls testing",
+    "Accounting software (e.g. workpapers, ERP)",
+    "Compliance software",
+    "Analytical or scientific software",
+    "Sampling and substantive testing",
+    "Audit evidence documentation",
+    "Economics and accounting knowledge",
+    "Evaluating compliance with standards",
+    "Detecting deficient controls or fraud",
+    "Client communication under time pressure",
+    "GAAP / SFRS familiarity",
+    "Business intelligence and data analysis software",
+    "Reporting audit findings to management"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Examine, analyze, and interpret accounting records to prepare financial statements, give advice, or audit and evaluate statements prepared by others.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Prepare detailed reports on audit findings. Collect and analyze data to detect deficient controls, duplicated effort, extravagance, fraud, or non-compliance with laws, regulations, and management policies.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

@@ -107,6 +107,10 @@ const DEFAULTS = {
   // SimplifyJobs list) that fills the Greenhouse/Lever gap for Singapore. Off
   // by default (set e.g. 'accounting,audit,tax' for a Singapore run).
   mycareersfuture: '',
+  // Cap on MyCareersFuture postings pulled (total, deduped across search
+  // terms). More postings mean more distinct SG employers for the clustered
+  // tier and more dated, currently-live evidence for the canonical validator.
+  mcfMax: 40,
   onetZipUrl: 'https://www.onetcenter.org/dl_files/database/db_29_1_text.zip',
   // apply: true registers the generated catalog as an app tab (via
   // scripts/register-catalog.mjs) when a full, gate-passing run finishes.
@@ -210,7 +214,7 @@ const setup = await agent(
 1. mkdir -p ${ONET_ROOT} ${ROOT}/careers ${ROOT}/courses ${ROOT}/catalog-html ${ROOT}/internships ${ROOT}/internships-canonical ${ROOT}/postings ${ROOT}/edges-judge ${ROOT}/edges-verdicts ${ROOT}/edges-gap data/datasets data/catalogs
 2. If ${ONET_ROOT}/db/ does not already contain "Occupation Data.txt" in some subdirectory (the DB is shared across industry runs): curl -sSL --max-time 300 -o ${ONET_ROOT}/db.zip "${cfg.onetZipUrl}" and unzip -oq into ${ONET_ROOT}/db/. Record the O*NET version from the zip filename or Read Me.txt.
 3. Verify: node scripts/onet-extract.mjs --db ${ONET_ROOT}/db/<subdir> --soc 15-1252.00 --top 3 returns JSON with a title.
-4. Fetch and prefilter the posting boards: node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}${cfg.simplifyUrl ? ` --simplify "${cfg.simplifyUrl}"${cfg.simplifyCategories ? ` --simplify-categories "${cfg.simplifyCategories}"` : ''}` : ''}${cfg.mycareersfuture ? ` --mycareersfuture "${cfg.mycareersfuture}"` : ''}
+4. Fetch and prefilter the posting boards: node scripts/fetch-postings.mjs --out ${ROOT}/postings ${bySource.greenhouse.length ? `--greenhouse ${bySource.greenhouse.join(',')}` : ''} ${bySource.lever.length ? `--lever ${bySource.lever.join(',')}` : ''}${cfg.simplifyUrl ? ` --simplify "${cfg.simplifyUrl}"${cfg.simplifyCategories ? ` --simplify-categories "${cfg.simplifyCategories}"` : ''}` : ''}${cfg.mycareersfuture ? ` --mycareersfuture "${cfg.mycareersfuture}"${cfg.mcfMax ? ` --mcf-max ${cfg.mcfMax}` : ''}` : ''}
    Save its JSON summary verbatim to ${ROOT}/postings/manifest.json. Do not retry failed slugs with guessed alternatives.${cfg.simplifyUrl ? ` The --simplify source writes ${ROOT}/postings/simplify.json (durable snapshot, one posting per line) and ${ROOT}/postings/simplify-companies.json (compact {company:[titles]} view). Simplify entries are title+company evidence only, never skill text.` : ''}${cfg.mycareersfuture ? ` The --mycareersfuture source writes ${ROOT}/postings/mycareersfuture.json (Singapore intern postings, one per line) WITH full descriptions and a skills array, so they ARE valid skill evidence (evidence type "posting").` : ''}
 5. Probe each catalog URL with curl -sS -o /dev/null -w "%{http_code}": ${cfg.catalogPages.map((p) => p.url).join(' ')}
 6. Get the current UTC timestamp with: date -u +%Y-%m-%dT%H:%M:%SZ
@@ -355,11 +359,22 @@ Return the manifest (path, ids=[course ids]).`,
 // One agent covers all org types: the postings are already prefiltered and
 // small, so per-orgType agents would just re-read the same directory.
 const internshipTask = async () => {
-  const byOrgType = liveOrgTypes
-    .map(
-      (t) =>
-        `- ${t}: ${cfg.companies.filter((c) => c.orgType === t && liveCompanies.has(c.slug)).map((c) => `${c.source}-${c.slug}`).join(', ')}`
-    )
+  // Expose every DECLARED org type, not only those with a live ATS board. In
+  // markets without ATS coverage (e.g. Singapore, where MyCareersFuture is the
+  // real intern-posting source and Greenhouse/Lever probes all fail), the
+  // clustered tier must still form from MCF/Simplify postings; annotate each
+  // type with its live ATS boards, or note that only the national/list sources
+  // back it, and let the agent bucket each posting under the org type its real
+  // employer best fits. This weakens no evidence rule: a role still needs
+  // >= 2 distinct companies and full-text skill evidence to be emitted.
+  const orgTypeSet = cfg.orgTypes && cfg.orgTypes.length ? cfg.orgTypes : liveOrgTypes
+  const byOrgType = orgTypeSet
+    .map((t) => {
+      const live = cfg.companies
+        .filter((c) => c.orgType === t && liveCompanies.has(c.slug))
+        .map((c) => `${c.source}-${c.slug}`)
+      return `- ${t}: ${live.length ? live.join(', ') : '(no live ATS board; back this org type from MyCareersFuture/Simplify postings whose employer is of this type)'}`
+    })
     .join('\n')
   const m = await agent(
     `Canonicalize intern roles for the ground-catalog workflow, across ALL org types. Prefiltered postings are ${ROOT}/postings/<source>-<slug>.json (title, entryLevel: "intern"|"new-grad", url, content). Companies by org type:
@@ -553,7 +568,7 @@ Report starved careers you deliberately left unserved (and why) in notes. Return
 For each proposal (read the file; use its searchHints):
 1. First check local snapshots: grep ${ROOT}/postings/simplify.json${cfg.mycareersfuture ? ` and ${ROOT}/postings/mycareersfuture.json (Singapore intern postings with real descriptions, current by construction)` : ''} and read the ATS files ${ROOT}/postings/*.json for postings whose title matches the role.
 2. If needed, WebSearch for live or recent postings / employer early-careers pages, WebFetch them, and SAVE the relevant text to ${ROOT}/postings/web-<role-slug>-<n>.txt (the snapshot IS the durable evidence).
-3. A role validates ONLY with evidence from >= 2 DISTINCT employers, at least one CURRENT: an intern-list (Simplify) entry, or a posting/page whose postedAt is within ~18 months of today. Use the company's real name for "company".
+3. A role validates ONLY with evidence from >= 2 DISTINCT employers, AND at least one of those evidence items MUST be CURRENT with a concrete date: an intern-list (Simplify) entry, or a posting/page carrying a real postedAt within ~18 months of today. Capture that postedAt in the evidence entry - an undated employer "early careers" landing page does NOT establish currency, so it cannot be a role's current anchor.${cfg.mycareersfuture ? ` ${ROOT}/postings/mycareersfuture.json is your reliable CURRENT source for Singapore: those are live intern postings each carrying a postedAt - grep it for titles matching the role and cite one as the dated current anchor whenever it covers the role (accounting, audit, tax, and finance internships are well represented).` : ''} If you cannot secure at least one dated, current item for a role, move it to failures rather than validating it on undated pages alone. Use the company's real name for "company".
 Write ONE file ${ROOT}/internships-canonical/validation.json:
 { "validated": [{ "id": "<matching proposal id>", "evidence": [{ "type": "posting"|"employer-page"|"intern-list", "company": "<real name>", "title": "<posting title>", "url": "<url>", "snapshot": "<path under ${ROOT}/postings/ ; for a Simplify entry use ${ROOT}/postings/simplify.json>", "retrievedAt": "${NOW}", "postedAt": "<ISO or null>" }], "queries": ["<searches you ran>"] }], "failures": ["<id>: reason it could not be validated with 2+ current employers"] }
 Only include a role in "validated" if it truly clears the >=2-distinct-employers, >=1-current bar; otherwise put it in failures (fail-visible). The assembler joins your validation with the proposals deterministically - a role you omit ships nothing. Return the manifest: path=that file, ids=[validated role ids], failures.`,

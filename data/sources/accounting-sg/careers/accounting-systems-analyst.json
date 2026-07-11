@@ -1,0 +1,50 @@
+{
+  "id": "accounting-systems-analyst",
+  "name": "Accounting Systems and Business Analyst",
+  "grounding": "postings",
+  "responsibilities": [
+    "Own the accounting modules of an ERP system (general ledger, fixed assets, AP/AR) through setup, upgrades, and day-to-day support",
+    "Turn a messy accounting workflow into a documented process, then configure or automate the system to match it",
+    "Translate an accounting team's pain point into requirements IT can build, and translate the resulting system change back into plain language for the team"
+  ],
+  "skills": [
+    "Configuring or troubleshooting ERP finance modules (SAP FI/CO, Oracle Financials, NetSuite, or similar) rather than treating the system as a black box",
+    "Writing functional requirements and process maps that a developer can implement without guessing",
+    "Automating a recurring reconciliation, close, or reporting task instead of doing it by hand every month",
+    "Managing user access, data integrity, and controls inside a shared financial system"
+  ],
+  "rawSkillPool": [
+    "ERP finance module configuration (SAP FI/CO, Oracle Financials, NetSuite)",
+    "General ledger, fixed assets, AP/AR system support",
+    "Requirements gathering and functional specifications",
+    "Process mapping for accounting workflows",
+    "Reconciliation and month-end close automation",
+    "SQL / report-writing tools",
+    "System access controls and data integrity",
+    "ERP upgrade and rollout support",
+    "Accounting standards knowledge",
+    "Cross-functional coordination with IT",
+    "Spreadsheet software (Excel, Power BI)",
+    "Business systems analysis",
+    "Dashboard and management reporting design",
+    "Troubleshooting accounting platform issues"
+  ],
+  "evidence": [
+    {
+      "type": "posting",
+      "url": "https://www.elevatus.io/template/accounting-system-analyst-job-description/",
+      "title": "Accounting Systems Analyst Job Description - ERP",
+      "quote": "Overseeing accounting systems including setup, upkeep, and technical assistance. Supporting ERP rollouts and accounting module system enhancements. Creating and streamlining accounting reports through automation. Partnering with IT on support requirements and system improvements.",
+      "snapshot": "data/sources/accounting-sg/postings/web-accounting-systems-analyst-1.txt",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://www.velvetjobs.com/job-descriptions/erp-business-analyst",
+      "title": "ERP Business Analyst Job Description",
+      "quote": "Experience in SAP FI and CO modules including General Ledger, Fixed Assets, Management Accounting, and reporting. Capture detailed requirements for SAP blueprinting and implementation. Ability to identify, capture and translate business requirements for technical teams.",
+      "snapshot": "data/sources/accounting-sg/postings/web-accounting-systems-analyst-2.txt",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

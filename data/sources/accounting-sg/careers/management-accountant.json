@@ -1,0 +1,45 @@
+{
+  "id": "management-accountant",
+  "name": "Management Accountant",
+  "grounding": "soc",
+  "soc": ["13-2011.00"],
+  "responsibilities": [
+    "Install or advise on systems for recording costs and other financial and budgetary data so management can actually trust the numbers",
+    "Prepare and analyze reports on financial performance and asset utilization, and recommend changes to operations based on what the numbers say",
+    "Coordinate with department heads and supervisors to keep budgetary data flowing in and get buy-in on the recommendations you make"
+  ],
+  "skills": [
+    "Building or advising on a costing/budgeting system, not just operating one someone else designed",
+    "Turning raw financial data into a recommendation a non-finance manager will act on",
+    "Working ERP and business intelligence software to pull and reconcile cost and budget data",
+    "Coordinating across departments so financial data actually gets reported accurately and on time"
+  ],
+  "rawSkillPool": [
+    "Cost and budgetary systems design",
+    "Enterprise resource planning ERP software",
+    "Business intelligence and data analysis software",
+    "Financial analysis software",
+    "Reporting on asset utilization",
+    "Recommending operational changes from financial data",
+    "Coordination with supervisors and peers",
+    "Administration and management knowledge",
+    "Economics and accounting knowledge",
+    "Mathematics",
+    "Data base reporting software",
+    "Judgment and decision making"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Install or advise on systems of recording costs or other financial and budgetary data.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

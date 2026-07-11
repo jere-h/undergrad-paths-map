@@ -104,7 +104,16 @@ export function layout(catalog, size) {
 
   const bands = new Map();
   const courseGroups = ["Level 1000", "Level 2000", "Level 3000"];
-  const internGroups = ["MNC", "Small Business", "Startup"];
+  // Internship groups are the catalog's org types, discovered in first-
+  // appearance order rather than hardcoded, so any registered catalog's org
+  // types get a band on the right arc - not just the built-in Data catalog's
+  // MNC / Small Business / Startup. (For that catalog the discovered order is
+  // identical, so its layout is unchanged.)
+  const internGroups = [];
+  inputs.forEach((input) => {
+    if (input.kind === "internship" && !internGroups.includes(input.group))
+      internGroups.push(input.group);
+  });
   assignBands(bands, courseGroups, leftStart, leftEnd, gutter);
   assignBands(bands, internGroups, rightStart, rightEnd, gutter);
 

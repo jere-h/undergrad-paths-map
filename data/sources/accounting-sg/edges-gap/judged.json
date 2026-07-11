@@ -1,0 +1,23 @@
+{
+  "judged": [
+    { "input": "ntu-ac1103", "career": "external-auditor", "confidence": 0.55, "rationale": "Intro financial accounting under SFRS is the statement-literacy auditors rely on to know which line items carry audit risk." },
+    { "input": "ntu-ac1103", "career": "management-accountant", "confidence": 0.5, "rationale": "Recognising and measuring the core accounting elements is the foundational accounting knowledge management accountants build costing and reporting on." },
+    { "input": "ntu-ac2401", "career": "internal-auditor", "confidence": 0.55, "rationale": "Evaluating business processes and enterprise information systems is exactly the systems-reliability and data-integrity review internal auditors perform." },
+    { "input": "ntu-ac2401", "career": "financial-accountant", "confidence": 0.45, "rationale": "Fluency with enterprise information systems underpins the ERP/accounting-software work of closing the books and preparing statements." },
+    { "input": "ntu-ac1104", "career": "financial-accountant", "confidence": 0.55, "rationale": "Intermediate recognition and measurement is the core financial-reporting knowledge needed to prepare a set of statements end to end." },
+    { "input": "ntu-ac1104", "career": "external-auditor", "confidence": 0.45, "rationale": "Understanding costing systems and how items are recognised and measured lets an auditor test where those numbers could be misstated." },
+    { "input": "ntu-ac2301", "career": "financial-accountant", "confidence": 0.5, "rationale": "Knowing Singapore income tax and GST is needed to book tax expense and deferred tax correctly in the financial statements." },
+    { "input": "ntu-ac2301", "career": "forensic-accountant", "confidence": 0.4, "rationale": "Applying tax law to transactions supports the bank-record and tax-return analysis forensic accountants use to trace financial trails." },
+    { "input": "ntu-ac2302", "career": "internal-auditor", "confidence": 0.5, "rationale": "Corporate governance mechanisms and the legal framework for companies are the governance baseline internal auditors assess controls against." },
+    { "input": "ntu-ac2302", "career": "corporate-finance-analyst", "confidence": 0.4, "rationale": "Understanding corporate finance and insolvency law informs the debt-restructuring and refinancing advice corporate finance analysts support." },
+    { "input": "ntu-ac2101", "career": "external-auditor", "confidence": 0.55, "rationale": "Recognition and measurement of revenue and other elements is precisely the area (e.g. revenue recognition) auditors scope as highest risk." },
+    { "input": "ntu-ac2101", "career": "financial-analyst", "confidence": 0.4, "rationale": "Knowing how statement elements are recognised and measured lets an analyst read fast enough to see which line moved a valuation and why." },
+    { "input": "ntu-bf2213", "career": "internal-auditor", "confidence": 0.55, "rationale": "Designing internal control mechanisms and identifying compliance risks is the control-evaluation core of internal audit work." },
+    { "input": "ntu-bf2213", "career": "forensic-accountant", "confidence": 0.45, "rationale": "AML risk assessment and spotting compliance risks feed directly into fraud investigation and detecting suspicious activity." },
+    { "input": "ntu-bf2302", "career": "risk-compliance-analyst", "confidence": 0.45, "rationale": "International tax law, treaties and trade-law analysis build the law-and-regulation knowledge a compliance analyst applies to cross-border activity." },
+    { "input": "ntu-bc2402", "career": "internal-auditor", "confidence": 0.45, "rationale": "Database design and querying is what lets an auditor pull and test a whole population of transactions rather than eyeball a sample." },
+    { "input": "ntu-bc2402", "career": "financial-analyst", "confidence": 0.4, "rationale": "Data management and querying skills back the business-intelligence and database work analysts use to support an argument with data." },
+    { "input": "ntu-bc3409", "career": "financial-analyst", "confidence": 0.5, "rationale": "Building predictive models and automating financial analysis in R/Python is directly the modelling analysts do to analyse company performance." },
+    { "input": "ntu-bc3409", "career": "forensic-accountant", "confidence": 0.45, "rationale": "Using AI on prepared data to flag anomalies maps onto finding the outlier in a large population of transactions during a fraud investigation." }
+  ]
+}

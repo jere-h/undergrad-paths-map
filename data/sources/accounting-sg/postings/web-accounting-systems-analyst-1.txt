@@ -1,0 +1,26 @@
+Source: https://www.elevatus.io/template/accounting-system-analyst-job-description/
+Title: Accounting Systems Analyst Job Description - ERP | Elevatus
+Retrieved: 2026-07-11T08:14:13Z
+
+Responsibilities:
+- Overseeing accounting systems including setup, upkeep, and technical assistance
+- Supporting ERP rollouts and accounting module system enhancements
+- Refining accounting workflows and processes
+- Spotting ways systems could work better and creating remedies
+- Educating accounting teams on system capabilities and efficient practices
+- Managing permissions, protection, and financial data accuracy
+- Reviewing system information and fixing accounting platform complications
+- Creating and streamlining accounting reports through automation
+- Partnering with IT on support requirements and system improvements
+- Recording system setups, processes, and accounting procedures
+
+Requirements and Skills:
+- Bachelor's degree in Accounting, Finance, Information Technology, or Business Administration
+- 3+ years of accounting experience with strong hands-on ERP system knowledge (SAP, Oracle, NetSuite preferred)
+- Technical proficiency and comfort customizing system settings
+- Background in ERP deployments or system upgrades
+- Analytical thinking and systematic problem-solving abilities
+- Clear communication abilities, particularly translating technical concepts
+- SQL knowledge or report creation tool experience preferred
+- Knowledge of accounting processes and industry standards
+- Capability collaborating across finance and technology departments

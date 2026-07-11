@@ -1,0 +1,55 @@
+{
+  "id": "corporate-finance-analyst",
+  "name": "Corporate Finance Analyst",
+  "grounding": "soc",
+  "soc": ["13-2051.00"],
+  "responsibilities": [
+    "Run the annual budgeting and quarterly forecasting cycle: collect inputs, build the model, and defend the numbers to management",
+    "Advise on capital structure decisions (how much to raise, from where, and when) and support debt refinancing or restructuring work",
+    "Produce the variance analysis that explains why actuals missed budget and what to do about it, not just that they missed"
+  ],
+  "skills": [
+    "Building and maintaining a rolling forecast model that survives a changed assumption without breaking",
+    "Comparing actual vs. budget and turning the gap into a specific, explainable driver",
+    "Advising on financing decisions (capitalization amount, source, and timing) in language a non-finance stakeholder can act on",
+    "Preparing management-ready reports and dashboards on a fixed monthly or quarterly cadence"
+  ],
+  "rawSkillPool": [
+    "Financial planning and analysis (FP&A)",
+    "Treasury analysis",
+    "Budgeting and forecasting",
+    "Variance analysis (actual vs. budget)",
+    "Advising on capitalization, sources, and timing",
+    "Debt restructuring and refinancing support",
+    "Financial analysis software",
+    "Spreadsheet software",
+    "Management reporting and dashboards",
+    "Enterprise resource planning (ERP) software",
+    "Business intelligence and data analysis software",
+    "Mathematics and quantitative reasoning",
+    "Presentation software",
+    "Cash flow monitoring"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2051.00",
+      "quote": "Financial Planning and Analysis Analyst; Treasury Analyst are recognized alternate titles for Financial and Investment Analysts (13-2051.00).",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2051.00",
+      "quote": "Advise clients on aspects of capitalization, such as amounts, sources, or timing. Confer with clients to restructure debt, refinance debt, or raise new debt.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "posting",
+      "url": "https://www.mycareersfuture.gov.sg",
+      "title": "Finance Controlling Intern",
+      "company": "TOD'S SINGAPORE PTE. LIMITED",
+      "quote": "Management Report & Presentation - to prepare standard report/dashboard to enable business performance to be reviewed on timely manners. Financial Planning Process - to participate in annual planning & quarterly forecast process, for both sales & expenses. Variance Analysis - to compare and analyze ACT vs BGT and highlight any areas of concern.",
+      "retrievedAt": "2026-07-11T08:13:08Z"
+    }
+  ]
+}

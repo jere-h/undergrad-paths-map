@@ -1,0 +1,262 @@
+{
+  "dept": "Accountancy",
+  "sourceUrl": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+  "courses": [
+    {
+      "id": "ntu-ac1103",
+      "name": "Accounting I",
+      "level": 1000,
+      "dept": "Accountancy",
+      "catalogCode": "AC1103",
+      "taughtSkills": [
+        "applying Singapore Financial Reporting Standards (SFRS(I))",
+        "recognising and measuring assets, liabilities, equity, revenue and expenses",
+        "presenting and disclosing items in financial statements",
+        "understanding accounting as the language of business"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed for this course, matching the no-prereq -> 1000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Accounting is the language of business. This first accounting course aims to provide students with the knowledge and skills to apply the Singapore Financial Reporting Standards (International) ('SFRS(I)') to recognise, measure, present and disclose assets, liabilities, equity, revenue and expenses in the financial statements.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2401",
+      "name": "Accounting Information Systems",
+      "level": 1000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2401",
+      "taughtSkills": [
+        "evaluating business processes",
+        "using enterprise information systems",
+        "building conceptual and technical foundations in business processes and information systems",
+        "applying knowledge to future roles as business managers, professionals and consultants"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed despite the '2401' catalog code, matching the no-prereq -> 1000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a strong conceptual and technical foundation in key business processes and enterprise information systems, a necessary pre-requisite for effective performance of business professionals in the current digital era. After the completion of this course, you should be able to apply your knowledge and skills to effectively evaluate business processes, and to use enterprise information systems in your future roles as business managers, professionals, and consultants.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac1104",
+      "name": "Accounting II",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC1104",
+      "taughtSkills": [
+        "applying intermediate financial accounting knowledge (recognition & measurement)",
+        "assessing how quality of financial information affects decision-making",
+        "applying basic cost concepts",
+        "using various costing systems",
+        "performing cost allocation"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC1103 OR AC1101, both intro-level courses with no further prerequisites, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "For financial accounting, the aim is to provide you with necessary intermediate financial accounting knowledge continued from AC1103 Accounting I. You are to be equipped with strong conceptual and technical knowledge in the recognition and measurement of the elements of the financial statements... For management accounting, the aim is to provide you with an introductory of cost management. The focuses are on basic cost concept, various costing systems and cost allocation.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2105",
+      "name": "Accounting For Decision Making & Control",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2105",
+      "taughtSkills": [
+        "applying cost management concepts and tools",
+        "linking organizational strategy to accounting information",
+        "using managerial accounting techniques for planning and control",
+        "interpreting and analyzing accounting information for decision-making",
+        "strengthening data analytics competencies in managerial decision-making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Single prerequisite is AC1103, an intro-level course with no prerequisite of its own, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "The course focuses on the use of essential managerial accounting tools and techniques to provide managerial accounting information for planning and control and to support effective economic decisions... the course also strengthens students' data analytics competencies in the context of managerial decision-making, equipping them with skills that complement traditional accounting techniques.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2301",
+      "name": "Principles Of Taxation",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2301",
+      "taughtSkills": [
+        "understanding the structure of Singapore income tax and GST",
+        "applying tax laws to business and personal transactions",
+        "devising strategies for minimization of tax costs",
+        "assessing tax impact on business and individual decision-making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives (AD1102, AC1101, AD1101, AC1103) are all intro-level courses with no further prerequisites, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a framework to understand the structure of the Singapore income tax and the goods and services tax... At the end of the course, you should be able to apply the tax laws to ascertain the tax treatment of common business and personal transactions, and to devise appropriate strategies for the minimization of tax costs.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2302",
+      "name": "Company Law & Corporate Governance",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2302",
+      "taughtSkills": [
+        "examining the legal framework governing companies",
+        "analyzing corporate governance mechanisms",
+        "understanding relationships between company stakeholders",
+        "understanding corporate finance and insolvency law"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Single prerequisite AB1301 is an intro-level course code with no listed prerequisite of its own, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "In this course you will examine the legal framework and laws governing how companies may be constituted, the relationship between its various stakeholders, corporate governance mechanisms, corporate finance and insolvency.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac3104",
+      "name": "Enterprise Risk Management & Sustainability",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3104",
+      "taughtSkills": [
+        "applying Enterprise Risk Management (ERM) concepts, frameworks and techniques to identify, assess and manage risk",
+        "appreciating auditors' role in evaluating risk, controls and governance",
+        "applying carbon management and sustainability reporting methodologies",
+        "conducting hands-on data analytics and data-mining for business and fraud risk assessment",
+        "applying audit analytics techniques"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisites are listed as corequisites (AC1103, AD1102 or BU5101), i.e. concurrent intro-level courses rather than a deeper chain, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Both the internal and external auditors increasingly need to understand ERM to properly appreciate key risks, controls and governance issues of the companies they audit... Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2101",
+      "name": "Accounting Recognition & Measurement",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2101",
+      "taughtSkills": [
+        "recognizing financial statement elements",
+        "measuring assets, liabilities, equity, revenue and expenses",
+        "disclosing financial statement information",
+        "applying conceptual and technical financial reporting knowledge"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives include AC1104, which itself requires AC1103 as a prerequisite, forming a deeper two-step chain, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course equips students with a strong conceptual and technical knowledge of the recognition, measurement and disclosure of the financial statement elements, namely, assets, liabilities, equity, revenue and expenses.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac2104",
+      "name": "Assurance & Auditing",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2104",
+      "taughtSkills": [
+        "applying assurance concepts and methodologies",
+        "conducting financial statement audits and assurance services",
+        "exercising professional skepticism",
+        "problem solving, critical thinking and research in audit contexts",
+        "teamwork and communication in assurance engagements"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives include AC1104, which itself requires AC1103 as a prerequisite, forming a deeper two-step chain, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course provides students with an in-depth understanding of key assurance concepts and methodologies, as well as develops the skills and attitudes needed to effectively and efficiently conduct financial statements audits and other assurance services... Important attitudes and values that this course aims to impart include professional values and ethics, social responsibilities, receptiveness to differing views, professional skepticism and a passion for proactive self-learning.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac3102",
+      "name": "Risk Reporting & Analysis",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3102",
+      "taughtSkills": [
+        "financial measurement and reporting for inter-company shareholdings and transactions",
+        "handling multi-currency financial reporting",
+        "using derivatives to manage market and firm-specific risk"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC2101, which itself has a deeper prerequisite chain back to AC1103/AC1104, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "The course is designed to provide students with strong accounting conceptual knowledge and technical skills to understand the financial measurement and reporting implications of business entities' shareholdings in, and transactions with, other business entities with the same or different functional/presentation currencies, and use of derivatives to manage certain market and firm-specific risks and opportunities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-ac3103",
+      "name": "Accounting Analysis & Valuation",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3103",
+      "taughtSkills": [
+        "analyzing the role of financial reporting in the functioning of capital markets",
+        "assessing and applying information to analyze and value business activities",
+        "valuing intangibles following mergers and acquisitions",
+        "impairment testing of goodwill"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC2101, which itself has a deeper prerequisite chain back to AC1103/AC1104, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Part 1 examines the role of financial reporting in the functioning of capital markets and focuses on identifying, assessing and applying information for the purposes of analyzing and valuing business activities and entities. Part 2 focuses on the valuation issues following mergers and acquisitions, namely valuation of intangibles and impairment testing of goodwill.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

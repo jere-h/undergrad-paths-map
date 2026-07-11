@@ -1,0 +1,106 @@
+{
+  "dept": "Business Analytics and Computing",
+  "sourceUrl": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+  "courses": [
+    {
+      "id": "ntu-bc2402",
+      "name": "Designing & Developing Databases",
+      "level": 1000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC2402",
+      "taughtSkills": [
+        "database design and development",
+        "business process analysis to identify data requirements",
+        "information systems development to support business processes",
+        "data management for business analytics",
+        "implementing a database solution"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed for this course, so it was assigned the no-prereq baseline level (1000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "This course introduces participants to design, tools, techniques, and issues concerning the management of data. Data management is the foundation for organizations' business analytics; and for problem solving and decision-making. Participants will analyse a variety of business process, identify data requirements and develop an information system to support business processes and gather information for business analytics. In this course, participants will have an opportunity to apply their design and development competencies by implementing a database solution.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bc2406",
+      "name": "Analytics I: Visual & Predictive Techniques",
+      "level": 2000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC2406",
+      "taughtSkills": [
+        "data exploration and visualization",
+        "predictive analytics techniques",
+        "discovering meaningful patterns in large datasets",
+        "communicating insights to support decision-making",
+        "using R software for analytics"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is a class-standing requirement (Year 2 standing) rather than a specific prior course, indicating an intro-level gate; assigned level 2000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "Analytics involves the art of data exploration, visualization, communication and the science of analyzing large quantities of data in order to discover meaningful patterns and useful insights to support decision-making. The primary objective of this course is to introduce students to various techniques available to extract useful insights from the large volumes of data. ... This course focus on the use of open source R software, which is one of the key analytics software used in various industries and a critical skillset required in the job market for analytics and data science professionals.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bc3405",
+      "name": "Lean Operations & Analytics",
+      "level": 2000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC3405",
+      "taughtSkills": [
+        "lean process improvement and waste elimination",
+        "Six Sigma and Value Stream Mapping techniques",
+        "optimization, queuing and simulation modelling",
+        "statistical analysis for operations decision-making",
+        "case-study based operations problem solving"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is a single specific course (AB1202), which is itself an introductory course, so this was treated as an intro-level prereq chain and assigned level 2000 despite its 3000-series catalog code.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "The main objectives of this course are i) to appreciate the key principles/approaches of lean operations including waste elimination, increased speed and response, improved quality, and reduced cost & ii) to gain an understanding of the methodologies, tools, and techniques necessary for analyzing, implementing, managing, and continuously improving operations in both manufacturing and service industries. Topics covered in the course include Toyota Production System, Lean Principles, Value Stream Mapping, Pull Systems, Six Sigma, Lean thinking in manufacturing and service operations, and use of tools like optimization, queuing, simulation, and statistical analyses for modelling and analyzing real life systems.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    },
+    {
+      "id": "ntu-bc3409",
+      "name": "AI in Accounting & Finance",
+      "level": 3000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC3409",
+      "taughtSkills": [
+        "managing and preparing data for analysis",
+        "using AI to automate financial analysis and generate accounting reports",
+        "building predictive models to inform business decisions",
+        "coding customized solutions with R and Python",
+        "integrating statistical libraries for data analysis",
+        "using modern tools (Keras, TensorFlow, Hadoop, Spark, Cloud) to automate accounting and finance processes"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is BC2406, itself a course with its own standing prerequisite, forming a deeper two-step chain; assigned level 3000, consistent with its 3000-series catalog code.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "This is an introductory course designed for business or accountancy or Finance undergraduate students who are interested to learn how to manage data, conduct business analytics programmatically, create AI model to automate business processes and create predictive model to increase profitability or return. ... The aim of this course is to provide a broad understanding on how to manage data, the process of preparing data for analysis, basics of analytics, using AI to automate financial analysis process and generate accounting reports. This course will equip you with the ability to write customized solutions to make informed business decisions, integrate statistical libraries for data analysis, create AI models to automate accounting and financial process. ... We utilize R and Python language as the medium of learning ... You will utilise modern development tools to turn information into insights including Keras' Deep Learning model, Google Brain TensorFlow, Hadoop, Spark and Cloud.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

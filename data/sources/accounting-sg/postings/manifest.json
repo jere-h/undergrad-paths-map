@@ -1,0 +1,131 @@
+{
+  "retrievedAt": "2026-07-11T08:13:08.285Z",
+  "companies": [
+    {
+      "company": "temasek",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/temasek/jobs?content=true",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "grab",
+      "source": "greenhouse",
+      "url": "https://boards-api.greenhouse.io/v1/boards/grab/jobs?content=true",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "deloitte",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/deloitte?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "pwc",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/pwc?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "ey",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/ey?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "kpmg",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/kpmg?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "bdo",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/bdo?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "rsm",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/rsm?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "crowe",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/crowe?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "bakertilly",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/bakertilly?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "mazars",
+      "source": "lever",
+      "url": "https://api.lever.co/v0/postings/mazars?mode=json",
+      "ok": false,
+      "totalJobs": 0,
+      "internCount": 0,
+      "newGradCount": 0,
+      "error": "zero postings returned (bad slug or empty board)"
+    },
+    {
+      "company": "mycareersfuture",
+      "source": "mycareersfuture",
+      "url": "https://api.mycareersfuture.gov.sg/v2/search",
+      "queries": [
+        "accounting",
+        "audit",
+        "tax",
+        "finance"
+      ],
+      "ok": true,
+      "totalResults": 34,
+      "internCount": 34,
+      "withDescription": 34,
+      "file": "data/sources/accounting-sg/postings/mycareersfuture.json"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "verdicts": [
+    {
+      "input": "ntu-bf2213",
+      "career": "risk-compliance-analyst",
+      "verdict": "keep",
+      "reason": "Compliance/regulatory subject matter recurs across the live postings (8 postings mention compliance, e.g. the VCC Fund Services intern who helps 'ensure frontline compliance with internal policies and procedures'), matching this Intro to Compliance course."
+    },
+    {
+      "input": "ntu-bf2213",
+      "career": "internal-auditor",
+      "verdict": "drop",
+      "reason": "Match rests on a single 'designing internal controls' skill, but the compliance course's AML/financial-institution content is not the audit-scoping/control-evaluation subject matter internal-auditor postings ask for, and the course's stronger home is risk-compliance-analyst."
+    },
+    {
+      "input": "ntu-bf3201",
+      "career": "financial-analyst",
+      "verdict": "keep",
+      "reason": "Corporate-finance/valuation content aligns with financial-analyst postings such as the ACE Ascentia Financial Intern listing 'Financial Modelling' and 'Financial Analysis', and the career profile explicitly builds valuation/financial models."
+    },
+    {
+      "input": "ntu-bf3201",
+      "career": "corporate-finance-analyst",
+      "verdict": "keep",
+      "reason": "Capital budgeting and working-capital content maps directly to FP&A postings like the TOD'S Finance Controlling Intern (Budget Forecasting, Variance Analysis, Management Reporting)."
+    },
+    {
+      "input": "ntu-bf2201",
+      "career": "financial-analyst",
+      "verdict": "keep",
+      "reason": "Live 'Finance & Investment Analyst' postings ask for investment/market trend analysis across Equities, ETFs and Bonds, matching this Investments course's portfolio-analysis and valuation content."
+    },
+    {
+      "input": "ntu-bf2302",
+      "career": "tax-consultant",
+      "verdict": "keep",
+      "reason": "Tax subject matter appears in the postings (tax interns doing tax computation/return preparation, and a finance intern doing 'transfer pricing documentation' under the Tax & Treasury team), supporting the international-tax-law course."
+    },
+    {
+      "input": "ntu-ab0301",
+      "career": "risk-compliance-analyst",
+      "verdict": "drop",
+      "reason": "Match is via the generic O*NET 'Law and government knowledge' item; no posting asks for the course's sustainability-ethics/anti-bribery/ESG-governance subject matter specifically."
+    },
+    {
+      "input": "ntu-ab1301",
+      "career": "risk-compliance-analyst",
+      "verdict": "drop",
+      "reason": "Foundational contracts/agency/torts law is generic legal literacy matched only on 'Law and government knowledge'; no live posting requests business-law knowledge for a compliance role."
+    },
+    {
+      "input": "ntu-ac3104",
+      "career": "internal-auditor",
+      "verdict": "keep",
+      "reason": "The course catalog itself states internal and external auditors need ERM to appreciate risks/controls/governance, and audit-support postings ask for internal-controls and audit-preparation work matching the ERM + audit-analytics content."
+    },
+    {
+      "input": "ntu-ac3104",
+      "career": "risk-compliance-analyst",
+      "verdict": "drop",
+      "reason": "Match is via generic 'Law and government knowledge'; the risk references in postings are wealth/investment risk, not the enterprise-risk-management subject matter, and the course's supported home is internal-auditor."
+    },
+    {
+      "input": "ntu-bc2402",
+      "career": "accounting-systems-analyst",
+      "verdict": "keep",
+      "reason": "The accounting-systems-analyst postings ask for SQL/report-writing tools and to 'investigate business functions and data structures' and capture requirements, matching this database-design and business-process/data-requirements course."
+    },
+    {
+      "input": "ntu-bc3409",
+      "career": "accounting-systems-analyst",
+      "verdict": "keep",
+      "reason": "The accounting-systems-analyst posting explicitly lists 'creating and streamlining accounting reports through automation', matching this course's automation of accounting/finance processes and report generation."
+    }
+  ]
+}

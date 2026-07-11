@@ -1,0 +1,17 @@
+{
+  "runId": "accounting-sg-20260711T074821Z",
+  "industry": "accounting-sg",
+  "university": "NTU",
+  "generatedBy": "ground-catalog",
+  "onetVersion": "29.1",
+  "generatedAt": "2026-07-11T08:14:13Z",
+  "pilot": false,
+  "orgTypes": ["Big 4", "Mid-Tier Firm", "Corporate Finance"],
+  "sources": [
+    "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+    "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+    "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+    "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+    "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "orgType": "Mid-Tier Firm",
+  "roles": [
+    {
+      "id": "mid-tier-firm-accounting-intern",
+      "role": "Accounting Intern",
+      "orgType": "Mid-Tier Firm",
+      "exampleTitles": [
+        "Accounting Intern (RSM Stone Forest AccountServe)",
+        "Accounting and Tax Intern (Audit Alliance LLP)"
+      ],
+      "requiredSkills": [
+        "full accounting cycle / bookkeeping",
+        "cloud-based accounting systems (e.g. Xero)",
+        "monthly closing of accounts and management reports",
+        "preparation of unaudited financial statements",
+        "account reconciliations and variance analysis",
+        "corporate tax computations and GST return preparation",
+        "detail-oriented and organized work habits"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "rsm-stone-forest-accountserve",
+          "title": "Accounting Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounting-intern-rsm-stone-forest-accountserve-f4b0ef63568ef5249537a6a04be1ff59",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "audit-alliance-llp",
+          "title": "Accounting and Tax Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounting-tax-intern-audit-alliance-cb5b306bf5b2b0fb019d09674e74e6c1",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ]
+    }
+  ]
+}

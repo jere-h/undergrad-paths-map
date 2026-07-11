@@ -1,0 +1,2245 @@
+{
+  "meta": {
+    "runId": "accounting-sg-20260711T074821Z",
+    "industry": "accounting-sg",
+    "university": "NTU",
+    "generatedBy": "ground-catalog",
+    "onetVersion": "29.1",
+    "generatedAt": "2026-07-11T08:14:13Z",
+    "pilot": false,
+    "orgTypes": [
+      "Big 4",
+      "Mid-Tier Firm",
+      "Corporate Finance"
+    ],
+    "sources": [
+      "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+      "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+      "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+      "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+      "https://www.onetcenter.org/dl_files/database/db_29_1_text.zip"
+    ],
+    "flags": {
+      "droppedInputs": [
+        "ntu-ac3102",
+        "ntu-bf3204",
+        "ntu-bf2100",
+        "ntu-bf2229",
+        "ntu-bf2209",
+        "ntu-bf3202",
+        "ntu-bf2214",
+        "ntu-bf2228",
+        "ntu-bc2406",
+        "ntu-bc3405",
+        "ntu-ab0301",
+        "ntu-ab0403",
+        "ntu-ab1201",
+        "ntu-ab1202",
+        "ntu-ab1301",
+        "ntu-ab3601",
+        "ntu-ac3105"
+      ],
+      "inferredEdges": 17,
+      "judgedEdges": 19,
+      "canonicalInternships": [
+        "canonical-audit-assurance-intern",
+        "canonical-tax-intern",
+        "canonical-risk-advisory-internal-audit-intern",
+        "canonical-forensic-financial-crime-intern"
+      ],
+      "internshipVariety": {
+        "total": 7,
+        "clustered": 3,
+        "canonical": 4
+      },
+      "canonicalSkipped": [
+        "deal-advisory-valuation-intern: not validated",
+        "finance-transformation-systems-intern: not validated"
+      ],
+      "canonicalOnlyInternshipCareers": [
+        "forensic-accountant",
+        "internal-auditor",
+        "risk-compliance-analyst",
+        "tax-consultant"
+      ],
+      "internshipStarved": [
+        "accounting-systems-analyst"
+      ]
+    }
+  },
+  "careers": [
+    {
+      "id": "accounting-systems-analyst",
+      "name": "Accounting Systems and Business Analyst",
+      "grounding": "postings",
+      "responsibilities": [
+        "Own the accounting modules of an ERP system (general ledger, fixed assets, AP/AR) through setup, upgrades, and day-to-day support",
+        "Turn a messy accounting workflow into a documented process, then configure or automate the system to match it",
+        "Translate an accounting team's pain point into requirements IT can build, and translate the resulting system change back into plain language for the team"
+      ],
+      "skills": [
+        "Configuring or troubleshooting ERP finance modules (SAP FI/CO, Oracle Financials, NetSuite, or similar) rather than treating the system as a black box",
+        "Writing functional requirements and process maps that a developer can implement without guessing",
+        "Automating a recurring reconciliation, close, or reporting task instead of doing it by hand every month",
+        "Managing user access, data integrity, and controls inside a shared financial system"
+      ],
+      "rawSkillPool": [
+        "ERP finance module configuration (SAP FI/CO, Oracle Financials, NetSuite)",
+        "General ledger, fixed assets, AP/AR system support",
+        "Requirements gathering and functional specifications",
+        "Process mapping for accounting workflows",
+        "Reconciliation and month-end close automation",
+        "SQL / report-writing tools",
+        "System access controls and data integrity",
+        "ERP upgrade and rollout support",
+        "Accounting standards knowledge",
+        "Cross-functional coordination with IT",
+        "Spreadsheet software (Excel, Power BI)",
+        "Business systems analysis",
+        "Dashboard and management reporting design",
+        "Troubleshooting accounting platform issues"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "url": "https://www.elevatus.io/template/accounting-system-analyst-job-description/",
+          "title": "Accounting Systems Analyst Job Description - ERP",
+          "quote": "Overseeing accounting systems including setup, upkeep, and technical assistance. Supporting ERP rollouts and accounting module system enhancements. Creating and streamlining accounting reports through automation. Partnering with IT on support requirements and system improvements.",
+          "snapshot": "data/sources/accounting-sg/postings/web-accounting-systems-analyst-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://www.velvetjobs.com/job-descriptions/erp-business-analyst",
+          "title": "ERP Business Analyst Job Description",
+          "quote": "Experience in SAP FI and CO modules including General Ledger, Fixed Assets, Management Accounting, and reporting. Capture detailed requirements for SAP blueprinting and implementation. Ability to identify, capture and translate business requirements for technical teams.",
+          "snapshot": "data/sources/accounting-sg/postings/web-accounting-systems-analyst-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "ERP finance module configuration (SAP FI/CO, Oracle Financials, NetSuite)",
+        "General ledger, fixed assets, AP/AR system support",
+        "Requirements gathering and functional specifications",
+        "ERP upgrade and rollout support",
+        "Business systems analysis",
+        "Cross-functional coordination with IT",
+        "Reconciliation and month-end close automation",
+        "Troubleshooting accounting platform issues"
+      ]
+    },
+    {
+      "id": "corporate-finance-analyst",
+      "name": "Corporate Finance Analyst",
+      "grounding": "soc",
+      "soc": [
+        "13-2051.00"
+      ],
+      "responsibilities": [
+        "Run the annual budgeting and quarterly forecasting cycle: collect inputs, build the model, and defend the numbers to management",
+        "Advise on capital structure decisions (how much to raise, from where, and when) and support debt refinancing or restructuring work",
+        "Produce the variance analysis that explains why actuals missed budget and what to do about it, not just that they missed"
+      ],
+      "skills": [
+        "Building and maintaining a rolling forecast model that survives a changed assumption without breaking",
+        "Comparing actual vs. budget and turning the gap into a specific, explainable driver",
+        "Advising on financing decisions (capitalization amount, source, and timing) in language a non-finance stakeholder can act on",
+        "Preparing management-ready reports and dashboards on a fixed monthly or quarterly cadence"
+      ],
+      "rawSkillPool": [
+        "Financial planning and analysis (FP&A)",
+        "Treasury analysis",
+        "Budgeting and forecasting",
+        "Variance analysis (actual vs. budget)",
+        "Advising on capitalization, sources, and timing",
+        "Debt restructuring and refinancing support",
+        "Financial analysis software",
+        "Spreadsheet software",
+        "Management reporting and dashboards",
+        "Enterprise resource planning (ERP) software",
+        "Business intelligence and data analysis software",
+        "Mathematics and quantitative reasoning",
+        "Presentation software",
+        "Cash flow monitoring"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2051.00",
+          "quote": "Financial Planning and Analysis Analyst; Treasury Analyst are recognized alternate titles for Financial and Investment Analysts (13-2051.00).",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2051.00",
+          "quote": "Advise clients on aspects of capitalization, such as amounts, sources, or timing. Confer with clients to restructure debt, refinance debt, or raise new debt.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://www.mycareersfuture.gov.sg",
+          "title": "Finance Controlling Intern",
+          "company": "TOD'S SINGAPORE PTE. LIMITED",
+          "quote": "Management Report & Presentation - to prepare standard report/dashboard to enable business performance to be reviewed on timely manners. Financial Planning Process - to participate in annual planning & quarterly forecast process, for both sales & expenses. Variance Analysis - to compare and analyze ACT vs BGT and highlight any areas of concern.",
+          "retrievedAt": "2026-07-11T08:13:08Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Financial planning and analysis (FP&A)",
+        "Treasury analysis",
+        "Budgeting and forecasting",
+        "Variance analysis (actual vs. budget)",
+        "Cash flow monitoring",
+        "Management reporting and dashboards"
+      ]
+    },
+    {
+      "id": "external-auditor",
+      "name": "External Auditor",
+      "grounding": "soc",
+      "soc": [
+        "13-2011.00"
+      ],
+      "responsibilities": [
+        "Plan and execute audit procedures on a client's financial statements: test transactions, confirm balances, and trace them back to source documents",
+        "Inspect account books and internal controls for weaknesses (duplicated effort, non-compliance, outright fraud) and write up findings management has to act on",
+        "Confer with client finance staff to resolve discrepancies before signing off on an opinion, and brief engagement seniors on scope and risk areas"
+      ],
+      "skills": [
+        "Reading a full set of financial statements and knowing which line items are audit risk (revenue recognition, inventory, related-party transactions)",
+        "Running accounting and audit software (workpapers, sampling, analytics) instead of just Excel by hand",
+        "Documenting evidence and conclusions so a reviewer two levels up can follow your logic without asking you",
+        "Explaining a finding to a client controller in plain terms without sounding accusatory"
+      ],
+      "rawSkillPool": [
+        "Financial statement audit",
+        "Internal controls testing",
+        "Accounting software (e.g. workpapers, ERP)",
+        "Compliance software",
+        "Analytical or scientific software",
+        "Sampling and substantive testing",
+        "Audit evidence documentation",
+        "Economics and accounting knowledge",
+        "Evaluating compliance with standards",
+        "Detecting deficient controls or fraud",
+        "Client communication under time pressure",
+        "GAAP / SFRS familiarity",
+        "Business intelligence and data analysis software",
+        "Reporting audit findings to management"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Examine, analyze, and interpret accounting records to prepare financial statements, give advice, or audit and evaluate statements prepared by others.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Prepare detailed reports on audit findings. Collect and analyze data to detect deficient controls, duplicated effort, extravagance, fraud, or non-compliance with laws, regulations, and management policies.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Financial statement audit",
+        "Sampling and substantive testing",
+        "Audit evidence documentation",
+        "GAAP / SFRS familiarity",
+        "Detecting deficient controls or fraud",
+        "Internal controls testing",
+        "Client communication under time pressure"
+      ]
+    },
+    {
+      "id": "financial-accountant",
+      "name": "Financial Accountant",
+      "grounding": "soc",
+      "soc": [
+        "13-2011.00"
+      ],
+      "responsibilities": [
+        "Prepare, examine, and analyze accounting records and financial statements for accuracy, completeness, and conformance to reporting standards",
+        "Inspect cash on hand, receivables and payables, and other balances to confirm the books actually match reality",
+        "Confer with company officials about financial and regulatory matters when something in the statements needs explaining"
+      ],
+      "skills": [
+        "Preparing a set of financial statements end to end and knowing what 'conformance to standards' actually requires",
+        "Reconciling accounts (cash, receivables, payables, securities) rather than assuming the ledger is right",
+        "Running accounting, ERP, and spreadsheet software to close the books instead of doing it manually",
+        "Writing clearly enough that a manager or auditor can follow your numbers without a meeting"
+      ],
+      "rawSkillPool": [
+        "Financial statement preparation",
+        "Account reconciliation (cash, receivables, payables)",
+        "Accounting software",
+        "Enterprise resource planning ERP software",
+        "Spreadsheet software",
+        "Data base reporting software",
+        "Conformance to reporting standards",
+        "Economics and accounting knowledge",
+        "Mathematics",
+        "Administrative knowledge",
+        "Confer with officials on financial matters",
+        "Document management software"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Prepare, examine, or analyze accounting records, financial statements, or other financial reports to assess accuracy, completeness, and conformance to reporting and procedural standards.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate. Confer with company officials about financial and regulatory matters.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Financial statement preparation",
+        "Account reconciliation (cash, receivables, payables)",
+        "Conformance to reporting standards",
+        "Confer with officials on financial matters",
+        "Administrative knowledge"
+      ]
+    },
+    {
+      "id": "financial-analyst",
+      "name": "Financial Analyst",
+      "grounding": "soc",
+      "soc": [
+        "13-2051.00"
+      ],
+      "responsibilities": [
+        "Build valuation and financial models for companies or investment programs, then defend the assumptions behind every number",
+        "Analyze a company's financial or operational performance to spot trouble early and recommend a fix, not just a diagnosis",
+        "Package findings into client-ready presentations and recommendations on capitalization, financing, or deal structure"
+      ],
+      "skills": [
+        "Reading financial statements fast enough to know which line moved a valuation and why",
+        "Building and stress-testing models in spreadsheet and financial analysis software instead of trusting a single scenario",
+        "Framing a recommendation on capital raising, refinancing, or debt restructuring in terms a non-finance client will act on",
+        "Pulling data from business intelligence and database tools to back an argument, not just an opinion"
+      ],
+      "rawSkillPool": [
+        "Financial analysis software",
+        "Business intelligence and data analysis software",
+        "Valuation modeling",
+        "Analyzing company financial and operational performance",
+        "Advising on capitalization, sources, and timing of financing",
+        "Debt restructuring and refinancing analysis",
+        "Client presentations of plan details",
+        "Spreadsheet software",
+        "Database management system software",
+        "Accounting software",
+        "Mathematics and quantitative reasoning",
+        "Complex problem solving",
+        "Judgment and decision making",
+        "Enterprise resource planning (ERP) software"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2051.00",
+          "quote": "Conduct quantitative analyses of information involving investment programs or financial data of public or private institutions, including valuation of businesses.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2051.00",
+          "quote": "Analyze financial or operational performance of companies facing financial difficulties to identify or recommend remedies. Advise clients on aspects of capitalization, such as amounts, sources, or timing.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Valuation modeling",
+        "Analyzing company financial and operational performance",
+        "Client presentations of plan details",
+        "Advising on capitalization, sources, and timing of financing",
+        "Debt restructuring and refinancing analysis"
+      ]
+    },
+    {
+      "id": "forensic-accountant",
+      "name": "Forensic Accountant",
+      "grounding": "postings",
+      "responsibilities": [
+        "Investigate suspected fraud, embezzlement, or other financial crime by tracing transactions through statements, tax returns, and bank records",
+        "Perform forensic accounting analyses and support expert witness work: build the numbers a lawyer or court can rely on",
+        "Write up findings and recommendations in a report detailed enough to survive cross-examination or regulatory scrutiny"
+      ],
+      "skills": [
+        "Reconstructing a financial trail from messy source documents (bank records, tax filings, ledgers) instead of a clean data set",
+        "Using forensic and data analytics software (e.g. IDEA, ACL) to find the anomaly in a large population of transactions",
+        "Writing a findings report that holds up when read by opposing counsel, not just an internal audience",
+        "Working alongside lawyers or law enforcement and keeping client information confidential under real pressure"
+      ],
+      "rawSkillPool": [
+        "Fraud investigation",
+        "Forensic data analytics software (IDEA, ACL)",
+        "Financial document reconstruction",
+        "Expert witness support",
+        "Report writing for legal/regulatory review",
+        "Bank record and tax return analysis",
+        "Working with law enforcement and legal counsel",
+        "Accounting principles and methodology",
+        "Confidentiality and discretion",
+        "Analytical and problem-solving skills",
+        "Deadline and case-load management",
+        "CFE / CPA-adjacent technical grounding"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "url": "https://jobs.accaglobal.com/jobs/singapore/forensic-accountant/",
+          "title": "Associate - Assurance, Forensic - Fraud & Investigation (2026 Graduates)",
+          "company": "EY",
+          "quote": "Perform fraud and other forensic accounting investigation, support expert witness services, and conduct financial and economic analyses.",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-accountant-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://www.jobslah.com/sg/employer/job-descriptions/forensic-accountant",
+          "title": "Forensic Accountant Job Description",
+          "quote": "Conduct forensic accounting investigations and analyses to identify potential fraud, embezzlement, and other financial crimes; Prepare detailed reports documenting findings and recommendations for further action.",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-accountant-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Forensic data analytics software (IDEA, ACL)",
+        "Financial document reconstruction",
+        "Expert witness support",
+        "Report writing for legal/regulatory review",
+        "Bank record and tax return analysis",
+        "Working with law enforcement and legal counsel",
+        "Fraud investigation"
+      ]
+    },
+    {
+      "id": "internal-auditor",
+      "name": "Internal Auditor",
+      "grounding": "soc",
+      "soc": [
+        "13-2011.00"
+      ],
+      "responsibilities": [
+        "Supervise and scope internal audits of a business unit or process, deciding how deep to dig based on where the risk actually is",
+        "Examine records and interview staff to check transactions were recorded properly and policies were actually followed, not just documented",
+        "Recommend controls to management that fix root causes (system reliability, data integrity) instead of one-off patches"
+      ],
+      "skills": [
+        "Scoping an audit: deciding what to sample and why, given limited time",
+        "Reading a process end to end and spotting where a control could be bypassed",
+        "Writing recommendations a business owner will actually implement, not just file away",
+        "Using ERP, GRC, or data analysis software to pull and test the population of transactions rather than eyeballing a sample"
+      ],
+      "rawSkillPool": [
+        "Internal controls evaluation",
+        "Risk-based audit scoping",
+        "Enterprise resource planning ERP software",
+        "Compliance software",
+        "Business intelligence and data analysis software",
+        "Interviewing staff / process walkthroughs",
+        "Root-cause control recommendations",
+        "Data integrity and systems reliability review",
+        "Economics and accounting knowledge",
+        "Coordination with management",
+        "Documenting audit workpapers",
+        "Evaluating compliance with standards",
+        "Reporting to management on asset utilization"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Supervise auditing of establishments, and determine scope of investigation required. Examine and evaluate financial and information systems, recommending controls to ensure system reliability and data integrity.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Examine records and interview workers to ensure recording of transactions and compliance with laws and regulations. Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Risk-based audit scoping",
+        "Interviewing staff / process walkthroughs",
+        "Root-cause control recommendations",
+        "Data integrity and systems reliability review",
+        "Internal controls evaluation",
+        "Documenting audit workpapers"
+      ]
+    },
+    {
+      "id": "management-accountant",
+      "name": "Management Accountant",
+      "grounding": "soc",
+      "soc": [
+        "13-2011.00"
+      ],
+      "responsibilities": [
+        "Install or advise on systems for recording costs and other financial and budgetary data so management can actually trust the numbers",
+        "Prepare and analyze reports on financial performance and asset utilization, and recommend changes to operations based on what the numbers say",
+        "Coordinate with department heads and supervisors to keep budgetary data flowing in and get buy-in on the recommendations you make"
+      ],
+      "skills": [
+        "Building or advising on a costing/budgeting system, not just operating one someone else designed",
+        "Turning raw financial data into a recommendation a non-finance manager will act on",
+        "Working ERP and business intelligence software to pull and reconcile cost and budget data",
+        "Coordinating across departments so financial data actually gets reported accurately and on time"
+      ],
+      "rawSkillPool": [
+        "Cost and budgetary systems design",
+        "Enterprise resource planning ERP software",
+        "Business intelligence and data analysis software",
+        "Financial analysis software",
+        "Reporting on asset utilization",
+        "Recommending operational changes from financial data",
+        "Coordination with supervisors and peers",
+        "Administration and management knowledge",
+        "Economics and accounting knowledge",
+        "Mathematics",
+        "Data base reporting software",
+        "Judgment and decision making"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Install or advise on systems of recording costs or other financial and budgetary data.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2011.00",
+          "quote": "Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Cost and budgetary systems design",
+        "Recommending operational changes from financial data",
+        "Reporting on asset utilization",
+        "Administration and management knowledge",
+        "Coordination with supervisors and peers"
+      ]
+    },
+    {
+      "id": "risk-compliance-analyst",
+      "name": "Risk and Compliance Analyst",
+      "grounding": "soc",
+      "soc": [
+        "13-2061.00"
+      ],
+      "responsibilities": [
+        "Review balance sheets, loan documentation, and operating accounts to confirm an institution's stated assets and liabilities are real",
+        "Investigate transactions and institutional activity to flag violations of financial regulations before they become enforcement actions",
+        "Write examination reports that lay out an institution's compliance gaps and recommend concrete fixes to management"
+      ],
+      "skills": [
+        "Evaluating information against a specific regulatory standard instead of a general sense of 'looks fine'",
+        "Reading audit reports (internal and external) closely enough to catch what they gloss over",
+        "Working compliance and financial analysis software to track findings across many accounts or entities at once",
+        "Communicating findings to supervisors, external auditors, and the people who have to fix the problem"
+      ],
+      "rawSkillPool": [
+        "Compliance software",
+        "Financial analysis software",
+        "Reviewing balance sheets and loan documentation",
+        "Evaluating information to determine compliance with standards",
+        "Investigating institutional activity for regulatory violations",
+        "Writing examination and compliance reports",
+        "Reviewing internal and external audit reports",
+        "Economics and accounting knowledge",
+        "Law and government knowledge",
+        "Spreadsheet software",
+        "Database user interface and query software",
+        "Monitoring and judgment/decision making",
+        "Enterprise resource planning (ERP) software",
+        "Process mapping and design software"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2061.00",
+          "quote": "Enforce or ensure compliance with laws and regulations governing financial and securities institutions and financial and real estate transactions. May examine, verify, or authenticate records.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2061.00",
+          "quote": "Recommend actions to ensure compliance with laws and regulations, or to protect solvency of institutions. Review balance sheets, operating income and expense accounts, and loan documentation to confirm institution assets and liabilities.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Reviewing balance sheets and loan documentation",
+        "Investigating institutional activity for regulatory violations",
+        "Writing examination and compliance reports",
+        "Reviewing internal and external audit reports",
+        "Law and government knowledge",
+        "Process mapping and design software"
+      ]
+    },
+    {
+      "id": "tax-consultant",
+      "name": "Tax Consultant",
+      "grounding": "soc",
+      "soc": [
+        "13-2082.00"
+      ],
+      "responsibilities": [
+        "Interview clients about income and deductible expenses, then prepare returns from simple individual filings up to complex small-business cases",
+        "Apply every legitimate adjustment, deduction, and credit available so a client's tax bill is minimized without stepping over the line",
+        "Explain tax law in plain terms and advise clients on future tax planning, not just this year's filing"
+      ],
+      "skills": [
+        "Reading financial records (income statements, expense documentation) to figure out which forms actually apply",
+        "Working tax preparation and compliance software rather than filling forms by hand",
+        "Checking your own and others' entries for arithmetic or data-entry errors before anything gets filed",
+        "Consulting tax law handbooks or bulletins to handle an atypical return instead of guessing"
+      ],
+      "rawSkillPool": [
+        "Tax preparation software",
+        "Compliance software",
+        "Reviewing income statements and expense documentation",
+        "Tax law research (handbooks, bulletins)",
+        "Client interviewing for taxable income and deductions",
+        "Arithmetic / data-entry verification",
+        "Future tax planning advice",
+        "Accounting software",
+        "Spreadsheet software",
+        "Document management software",
+        "Explaining tax law to individuals and companies",
+        "Economics and accounting knowledge",
+        "Customer and personal service orientation"
+      ],
+      "evidence": [
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2082.00",
+          "quote": "Prepare tax returns for individuals or small businesses. Use all appropriate adjustments, deductions, and credits to keep clients' taxes to a minimum.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "onet",
+          "url": "https://www.onetonline.org/link/summary/13-2082.00",
+          "quote": "Interview clients to obtain additional information on taxable income and deductible expenses and allowances. Answer questions and provide future tax planning to clients.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "Tax preparation software",
+        "Tax law research (handbooks, bulletins)",
+        "Client interviewing for taxable income and deductions",
+        "Future tax planning advice",
+        "Explaining tax law to individuals and companies",
+        "Reviewing income statements and expense documentation",
+        "Arithmetic / data-entry verification"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "ntu-ac1103",
+      "name": "Accounting I",
+      "level": 1000,
+      "dept": "Accountancy",
+      "catalogCode": "AC1103",
+      "taughtSkills": [
+        "applying Singapore Financial Reporting Standards (SFRS(I))",
+        "recognising and measuring assets, liabilities, equity, revenue and expenses",
+        "presenting and disclosing items in financial statements",
+        "understanding accounting as the language of business"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed for this course, matching the no-prereq -> 1000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Accounting is the language of business. This first accounting course aims to provide students with the knowledge and skills to apply the Singapore Financial Reporting Standards (International) ('SFRS(I)') to recognise, measure, present and disclose assets, liabilities, equity, revenue and expenses in the financial statements.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "external-auditor",
+        "management-accountant"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "presenting and disclosing items in financial statements",
+            "applying Singapore Financial Reporting Standards (SFRS(I))"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Intro financial accounting under SFRS is the statement-literacy auditors rely on to know which line items carry audit risk.",
+          "matchedSkills": []
+        },
+        "management-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Recognising and measuring the core accounting elements is the foundational accounting knowledge management accountants build costing and reporting on.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "management-accountant"
+      ]
+    },
+    {
+      "id": "ntu-ac2401",
+      "name": "Accounting Information Systems",
+      "level": 1000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2401",
+      "taughtSkills": [
+        "evaluating business processes",
+        "using enterprise information systems",
+        "building conceptual and technical foundations in business processes and information systems",
+        "applying knowledge to future roles as business managers, professionals and consultants"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed despite the '2401' catalog code, matching the no-prereq -> 1000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a strong conceptual and technical foundation in key business processes and enterprise information systems, a necessary pre-requisite for effective performance of business professionals in the current digital era. After the completion of this course, you should be able to apply your knowledge and skills to effectively evaluate business processes, and to use enterprise information systems in your future roles as business managers, professionals, and consultants.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "accounting-systems-analyst",
+        "internal-auditor",
+        "financial-accountant"
+      ],
+      "edges": {
+        "accounting-systems-analyst": {
+          "confidence": 0.7,
+          "matchedSkills": [
+            "using enterprise information systems",
+            "evaluating business processes"
+          ],
+          "distinctive": true
+        },
+        "internal-auditor": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Evaluating business processes and enterprise information systems is exactly the systems-reliability and data-integrity review internal auditors perform.",
+          "matchedSkills": []
+        },
+        "financial-accountant": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Fluency with enterprise information systems underpins the ERP/accounting-software work of closing the books and preparing statements.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "financial-accountant"
+      ]
+    },
+    {
+      "id": "ntu-ac1104",
+      "name": "Accounting II",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC1104",
+      "taughtSkills": [
+        "applying intermediate financial accounting knowledge (recognition & measurement)",
+        "assessing how quality of financial information affects decision-making",
+        "applying basic cost concepts",
+        "using various costing systems",
+        "performing cost allocation"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC1103 OR AC1101, both intro-level courses with no further prerequisites, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "For financial accounting, the aim is to provide you with necessary intermediate financial accounting knowledge continued from AC1103 Accounting I. You are to be equipped with strong conceptual and technical knowledge in the recognition and measurement of the elements of the financial statements... For management accounting, the aim is to provide you with an introductory of cost management. The focuses are on basic cost concept, various costing systems and cost allocation.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "management-accountant",
+        "financial-accountant",
+        "external-auditor"
+      ],
+      "edges": {
+        "management-accountant": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "using various costing systems",
+            "performing cost allocation"
+          ],
+          "distinctive": true
+        },
+        "financial-accountant": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Intermediate recognition and measurement is the core financial-reporting knowledge needed to prepare a set of statements end to end.",
+          "matchedSkills": []
+        },
+        "external-auditor": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Understanding costing systems and how items are recognised and measured lets an auditor test where those numbers could be misstated.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-accountant",
+        "external-auditor"
+      ]
+    },
+    {
+      "id": "ntu-ac2105",
+      "name": "Accounting For Decision Making & Control",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2105",
+      "taughtSkills": [
+        "applying cost management concepts and tools",
+        "linking organizational strategy to accounting information",
+        "using managerial accounting techniques for planning and control",
+        "interpreting and analyzing accounting information for decision-making",
+        "strengthening data analytics competencies in managerial decision-making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Single prerequisite is AC1103, an intro-level course with no prerequisite of its own, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "The course focuses on the use of essential managerial accounting tools and techniques to provide managerial accounting information for planning and control and to support effective economic decisions... the course also strengthens students' data analytics competencies in the context of managerial decision-making, equipping them with skills that complement traditional accounting techniques.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "management-accountant",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "management-accountant": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "using managerial accounting techniques for planning and control",
+            "linking organizational strategy to accounting information"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.414,
+          "inferred": true,
+          "via": "management-accountant",
+          "adjacencyWeight": 0.65,
+          "matchedSkills": [
+            "scope overlap with management-accountant"
+          ]
+        }
+      },
+      "inferred": [
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ac2301",
+      "name": "Principles Of Taxation",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2301",
+      "taughtSkills": [
+        "understanding the structure of Singapore income tax and GST",
+        "applying tax laws to business and personal transactions",
+        "devising strategies for minimization of tax costs",
+        "assessing tax impact on business and individual decision-making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives (AD1102, AC1101, AD1101, AC1103) are all intro-level courses with no further prerequisites, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a framework to understand the structure of the Singapore income tax and the goods and services tax... At the end of the course, you should be able to apply the tax laws to ascertain the tax treatment of common business and personal transactions, and to devise appropriate strategies for the minimization of tax costs.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "tax-consultant",
+        "financial-accountant",
+        "forensic-accountant"
+      ],
+      "edges": {
+        "tax-consultant": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "applying tax laws to business and personal transactions",
+            "devising strategies for minimization of tax costs",
+            "understanding the structure of Singapore income tax and GST"
+          ],
+          "distinctive": true
+        },
+        "financial-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Knowing Singapore income tax and GST is needed to book tax expense and deferred tax correctly in the financial statements.",
+          "matchedSkills": []
+        },
+        "forensic-accountant": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Applying tax law to transactions supports the bank-record and tax-return analysis forensic accountants use to trace financial trails.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-accountant",
+        "forensic-accountant"
+      ]
+    },
+    {
+      "id": "ntu-ac2302",
+      "name": "Company Law & Corporate Governance",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2302",
+      "taughtSkills": [
+        "examining the legal framework governing companies",
+        "analyzing corporate governance mechanisms",
+        "understanding relationships between company stakeholders",
+        "understanding corporate finance and insolvency law"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Single prerequisite AB1301 is an intro-level course code with no listed prerequisite of its own, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "In this course you will examine the legal framework and laws governing how companies may be constituted, the relationship between its various stakeholders, corporate governance mechanisms, corporate finance and insolvency.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "risk-compliance-analyst",
+        "internal-auditor",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "risk-compliance-analyst": {
+          "confidence": 0.6,
+          "matchedSkills": [
+            "examining the legal framework governing companies",
+            "analyzing corporate governance mechanisms"
+          ],
+          "distinctive": true
+        },
+        "internal-auditor": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Corporate governance mechanisms and the legal framework for companies are the governance baseline internal auditors assess controls against.",
+          "matchedSkills": []
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Understanding corporate finance and insolvency law informs the debt-restructuring and refinancing advice corporate finance analysts support.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ac3104",
+      "name": "Enterprise Risk Management & Sustainability",
+      "level": 2000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3104",
+      "taughtSkills": [
+        "applying Enterprise Risk Management (ERM) concepts, frameworks and techniques to identify, assess and manage risk",
+        "appreciating auditors' role in evaluating risk, controls and governance",
+        "applying carbon management and sustainability reporting methodologies",
+        "conducting hands-on data analytics and data-mining for business and fraud risk assessment",
+        "applying audit analytics techniques"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisites are listed as corequisites (AC1103, AD1102 or BU5101), i.e. concurrent intro-level courses rather than a deeper chain, matching the intro-level-prereq -> 2000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Both the internal and external auditors increasingly need to understand ERM to properly appreciate key risks, controls and governance issues of the companies they audit... Students will also be exposed to hands-on data analytics and data-mining application in the areas of business and fraud risk assessments and audit analytics.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "internal-auditor",
+        "external-auditor",
+        "risk-compliance-analyst"
+      ],
+      "edges": {
+        "internal-auditor": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "Risk-based audit scoping"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.446,
+          "inferred": true,
+          "via": "internal-auditor",
+          "adjacencyWeight": 0.7,
+          "matchedSkills": [
+            "scope overlap with internal-auditor"
+          ]
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.414,
+          "inferred": true,
+          "via": "internal-auditor",
+          "adjacencyWeight": 0.65,
+          "matchedSkills": [
+            "scope overlap with internal-auditor"
+          ]
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "risk-compliance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ac2101",
+      "name": "Accounting Recognition & Measurement",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2101",
+      "taughtSkills": [
+        "recognizing financial statement elements",
+        "measuring assets, liabilities, equity, revenue and expenses",
+        "disclosing financial statement information",
+        "applying conceptual and technical financial reporting knowledge"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives include AC1104, which itself requires AC1103 as a prerequisite, forming a deeper two-step chain, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course equips students with a strong conceptual and technical knowledge of the recognition, measurement and disclosure of the financial statement elements, namely, assets, liabilities, equity, revenue and expenses.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "external-auditor",
+        "financial-analyst"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "disclosing financial statement information",
+            "measuring assets, liabilities, equity, revenue and expenses"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Recognition and measurement of revenue and other elements is precisely the area (e.g. revenue recognition) auditors scope as highest risk.",
+          "matchedSkills": []
+        },
+        "financial-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Knowing how statement elements are recognised and measured lets an analyst read fast enough to see which line moved a valuation and why.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "financial-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ac2104",
+      "name": "Assurance & Auditing",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC2104",
+      "taughtSkills": [
+        "applying assurance concepts and methodologies",
+        "conducting financial statement audits and assurance services",
+        "exercising professional skepticism",
+        "problem solving, critical thinking and research in audit contexts",
+        "teamwork and communication in assurance engagements"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite alternatives include AC1104, which itself requires AC1103 as a prerequisite, forming a deeper two-step chain, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "This course provides students with an in-depth understanding of key assurance concepts and methodologies, as well as develops the skills and attitudes needed to effectively and efficiently conduct financial statements audits and other assurance services... Important attitudes and values that this course aims to impart include professional values and ethics, social responsibilities, receptiveness to differing views, professional skepticism and a passion for proactive self-learning.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "external-auditor",
+        "internal-auditor",
+        "financial-accountant",
+        "forensic-accountant"
+      ],
+      "edges": {
+        "external-auditor": {
+          "confidence": 0.9,
+          "matchedSkills": [
+            "conducting financial statement audits and assurance services",
+            "exercising professional skepticism"
+          ],
+          "distinctive": true
+        },
+        "internal-auditor": {
+          "confidence": 0.574,
+          "inferred": true,
+          "via": "external-auditor",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with external-auditor"
+          ]
+        },
+        "financial-accountant": {
+          "confidence": 0.535,
+          "inferred": true,
+          "via": "external-auditor",
+          "adjacencyWeight": 0.7,
+          "matchedSkills": [
+            "scope overlap with external-auditor"
+          ]
+        },
+        "forensic-accountant": {
+          "confidence": 0.459,
+          "inferred": true,
+          "via": "external-auditor",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with external-auditor"
+          ]
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "financial-accountant",
+        "forensic-accountant"
+      ]
+    },
+    {
+      "id": "ntu-ac3103",
+      "name": "Accounting Analysis & Valuation",
+      "level": 3000,
+      "dept": "Accountancy",
+      "catalogCode": "AC3103",
+      "taughtSkills": [
+        "analyzing the role of financial reporting in the functioning of capital markets",
+        "assessing and applying information to analyze and value business activities",
+        "valuing intangibles following mergers and acquisitions",
+        "impairment testing of goodwill"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is AC2101, which itself has a deeper prerequisite chain back to AC1103/AC1104, matching the deeper-chain -> 3000 rule.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AC&boption=Search&acad=2025&semester=1",
+          "quote": "Part 1 examines the role of financial reporting in the functioning of capital markets and focuses on identifying, assessing and applying information for the purposes of analyzing and valuing business activities and entities. Part 2 focuses on the valuation issues following mergers and acquisitions, namely valuation of intangibles and impairment testing of goodwill.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "assessing and applying information to analyze and value business activities",
+            "valuing intangibles following mergers and acquisitions"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.542,
+          "inferred": true,
+          "via": "financial-analyst",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with financial-analyst"
+          ]
+        }
+      },
+      "inferred": [
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf2213",
+      "name": "Introduction to Compliance",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2213",
+      "taughtSkills": [
+        "Understanding regulatory and financial compliance requirements",
+        "Identifying compliance risks in financial institutions",
+        "Anti-money laundering (AML) risk assessment",
+        "Designing effective internal control mechanisms",
+        "Evaluating the impact of FinTech/RegTech on compliance"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This course aims to provide you with a broad understanding of the role of compliance in financial institutions and introduce you to the common issues in the space of regulatory and financial compliance. Course topics include understanding the financial services sector, the role of compliance within financial institutions, the financial regulatory environment and requirements, compliance risks, anti-money laundering risks, and the importance of well-designed and effective control mechanisms. The course will also explore the impact of financial technology (FINTech) and regulatory technology (REGTech) advancements on the compliance landscape.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "risk-compliance-analyst",
+        "internal-auditor",
+        "forensic-accountant"
+      ],
+      "edges": {
+        "risk-compliance-analyst": {
+          "confidence": 0.82,
+          "matchedSkills": [
+            "Identifying compliance risks in financial institutions",
+            "Anti-money laundering (AML) risk assessment"
+          ],
+          "distinctive": true
+        },
+        "internal-auditor": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Designing internal control mechanisms and identifying compliance risks is the control-evaluation core of internal audit work.",
+          "matchedSkills": []
+        },
+        "forensic-accountant": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "AML risk assessment and spotting compliance risks feed directly into fraud investigation and detecting suspicious activity.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "forensic-accountant"
+      ]
+    },
+    {
+      "id": "ntu-bf3201",
+      "name": "Corporate Finance & Strategy",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3201",
+      "taughtSkills": [
+        "Corporate governance analysis",
+        "Capital budgeting decision-making",
+        "Capital structure analysis",
+        "Working capital management",
+        "Excel-based financial computation",
+        "Strategic financial decision making"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prereq text (AB1201 OR RE8005 OR BU8201 OR BU5201) is only intro-level, which would map to 2000 by the strict prereq-depth rule. However the catalog code (BF3201) and the description ('expands upon the concepts covered in AB1201', targets careers in 'strategic financial decision making, including corporate finance, investment banking, private equity') indicate an advanced, strategy-focused course intended for upper-level students, so level was set to 3000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "The course covers fundamental issues of corporate finance, including corporate governance, capital budgeting, capital structure, distribution policies, and working capital management. The course emphasizes financial practices in the real world. The course expands upon the concepts covered in AB1201 Financial Management. We emphasize using EXCEL to conduct computation. The background knowledge is provided through the textbook and lecture notes. By the end of the course, you should have developed a deeper understanding of how corporate financial managers make decisions in the dynamic corporate world and how these decisions impact firm value and stakeholders. The course is intended for students who are interested in pursuing a career in strategic financial decision making, including corporate finance, investment banking, private equity, consulting, etc.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "Capital structure analysis",
+            "Capital budgeting decision-making"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "Working capital management",
+            "Capital budgeting decision-making"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
+      "id": "ntu-bf2201",
+      "name": "Investments",
+      "level": 2000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2201",
+      "taughtSkills": [
+        "Portfolio analysis and construction",
+        "Asset allocation",
+        "Modern portfolio theory application",
+        "Investment valuation techniques",
+        "Excel-based investment analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "This is an introductory but demanding course in investments. This course endeavours to provide the basic understanding and tools to conduct portfolio analysis, make investment decisions, and manage portfolios. By the end of this course, students should have a broad understanding of investments and portfolio management. This course covers the analysis of various investment vehicles, allocation of assets, and modern portfolio theory. Students will learn valuation, portfolio construction and evaluation techniques, and apply investment techniques using Excel.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.72,
+          "matchedSkills": [
+            "Investment valuation techniques"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.459,
+          "inferred": true,
+          "via": "financial-analyst",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with financial-analyst"
+          ]
+        }
+      },
+      "inferred": [
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf3203",
+      "name": "Equity Securities",
+      "level": 3000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF3203",
+      "taughtSkills": [
+        "Equity securities valuation",
+        "Valuation of distressed and private companies",
+        "Financial asset pricing analysis",
+        "Bloomberg terminal proficiency",
+        "Thomson Reuters data analysis"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prereq text (AB1201 OR BU8201 OR BU5201) is only intro-level, which would map to 2000 by the strict prereq-depth rule. The catalog code (BF3203) and the description's coverage of advanced valuation topics (going-concern firms, financial service firms, start-ups, private companies, distressed firms) and professional tools (Bloomberg, Thomson Reuters) indicate an upper-level applied course, so level was set to 3000.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "The objective of this course is to provide students with a comprehensive coverage of the principles and techniques in equity securities analysis, especially asset valuation. Valuation is at the heart of every investment decision, whether that decision is to buy, sell, or hold. Due to the globalization process and ever-changing dynamics of the modern financial markets, the pricing of any financial asset has become a more complex task. This course will guide students through the theory and application of valuation models and highlights their strengths and weaknesses. It will cover the valuation of conventional going concern firms, financial service firms, start-ups, private companies, distressed firms. This course will also equip the students with Bloomberg and Thomson Reuters.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.88,
+          "matchedSkills": [
+            "Equity securities valuation",
+            "Valuation of distressed and private companies"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.561,
+          "inferred": true,
+          "via": "financial-analyst",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with financial-analyst"
+          ]
+        }
+      },
+      "inferred": [
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bf2302",
+      "name": "International Tax & Trading Law",
+      "level": 1000,
+      "dept": "Banking and Finance",
+      "catalogCode": "BF2302",
+      "taughtSkills": [
+        "International tax law principles",
+        "Tax treaty interpretation",
+        "BEPS and international tax developments analysis",
+        "International trade law issues",
+        "Case law analysis in tax and trade"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BF&boption=Search&acad=2025&semester=1",
+          "quote": "BF2302 International Tax and Trading Law introduces students to key income tax and legal concepts and principles of international taxation and trade law. Particular emphasis will be placed on the international tax and legal implications of the international trading of commodities. Relevant case law, the interpretation and application of tax treaties and recent international tax developments, including the OECD's Base Erosion and Profit Shifting (BEPS) Action Plan, will also be covered in the course. The Law segment will cover legal issues of international commercial transactions.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "tax-consultant",
+        "risk-compliance-analyst"
+      ],
+      "edges": {
+        "tax-consultant": {
+          "confidence": 0.8,
+          "matchedSkills": [
+            "International tax law principles",
+            "Tax treaty interpretation",
+            "BEPS and international tax developments analysis"
+          ],
+          "distinctive": true
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "International tax law, treaties and trade-law analysis build the law-and-regulation knowledge a compliance analyst applies to cross-border activity.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "risk-compliance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bc2402",
+      "name": "Designing & Developing Databases",
+      "level": 1000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC2402",
+      "taughtSkills": [
+        "database design and development",
+        "business process analysis to identify data requirements",
+        "information systems development to support business processes",
+        "data management for business analytics",
+        "implementing a database solution"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "No prerequisite is listed for this course, so it was assigned the no-prereq baseline level (1000).",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "This course introduces participants to design, tools, techniques, and issues concerning the management of data. Data management is the foundation for organizations' business analytics; and for problem solving and decision-making. Participants will analyse a variety of business process, identify data requirements and develop an information system to support business processes and gather information for business analytics. In this course, participants will have an opportunity to apply their design and development competencies by implementing a database solution.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "accounting-systems-analyst",
+        "internal-auditor",
+        "financial-analyst"
+      ],
+      "edges": {
+        "accounting-systems-analyst": {
+          "confidence": 0.65,
+          "matchedSkills": [
+            "business process analysis to identify data requirements",
+            "information systems development to support business processes",
+            "database design and development"
+          ],
+          "distinctive": true
+        },
+        "internal-auditor": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Database design and querying is what lets an auditor pull and test a whole population of transactions rather than eyeball a sample.",
+          "matchedSkills": []
+        },
+        "financial-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Data management and querying skills back the business-intelligence and database work analysts use to support an argument with data.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "financial-analyst"
+      ]
+    },
+    {
+      "id": "ntu-bc3409",
+      "name": "AI in Accounting & Finance",
+      "level": 3000,
+      "dept": "Business Analytics and Computing",
+      "catalogCode": "BC3409",
+      "taughtSkills": [
+        "managing and preparing data for analysis",
+        "using AI to automate financial analysis and generate accounting reports",
+        "building predictive models to inform business decisions",
+        "coding customized solutions with R and Python",
+        "integrating statistical libraries for data analysis",
+        "using modern tools (Keras, TensorFlow, Hadoop, Spark, Cloud) to automate accounting and finance processes"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true,
+      "levelNote": "Prerequisite is BC2406, itself a course with its own standing prerequisite, forming a deeper two-step chain; assigned level 3000, consistent with its 3000-series catalog code.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=BC&boption=Search&acad=2025&semester=1",
+          "quote": "This is an introductory course designed for business or accountancy or Finance undergraduate students who are interested to learn how to manage data, conduct business analytics programmatically, create AI model to automate business processes and create predictive model to increase profitability or return. ... The aim of this course is to provide a broad understanding on how to manage data, the process of preparing data for analysis, basics of analytics, using AI to automate financial analysis process and generate accounting reports. This course will equip you with the ability to write customized solutions to make informed business decisions, integrate statistical libraries for data analysis, create AI models to automate accounting and financial process. ... We utilize R and Python language as the medium of learning ... You will utilise modern development tools to turn information into insights including Keras' Deep Learning model, Google Brain TensorFlow, Hadoop, Spark and Cloud.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "accounting-systems-analyst",
+        "financial-analyst",
+        "forensic-accountant"
+      ],
+      "edges": {
+        "accounting-systems-analyst": {
+          "confidence": 0.75,
+          "matchedSkills": [
+            "using AI to automate financial analysis and generate accounting reports",
+            "using modern tools (Keras, TensorFlow, Hadoop, Spark, Cloud) to automate accounting and finance processes"
+          ],
+          "distinctive": true
+        },
+        "financial-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Building predictive models and automating financial analysis in R/Python is directly the modelling analysts do to analyse company performance.",
+          "matchedSkills": []
+        },
+        "forensic-accountant": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Using AI on prepared data to flag anomalies maps onto finding the outlier in a large population of transactions during a fraud investigation.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "financial-analyst",
+        "forensic-accountant"
+      ]
+    },
+    {
+      "id": "ntu-ab5101",
+      "name": "Business Valuation: From Theory to Practice",
+      "level": 2000,
+      "dept": "Business Core",
+      "catalogCode": "AB5101",
+      "taughtSkills": [
+        "conducting business valuation using recognized approaches and methods",
+        "applying international valuation standards (IVSC)",
+        "valuing businesses and equity for transaction purposes",
+        "understanding valuation terms, definitions, and premises of value",
+        "analyzing discounts/premiums in valuing public and private companies"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is a single intro-level accounting course (AC1102 OR AD1101 OR AC1104 OR AD1102), so 2000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "This course provides students with the conceptual background, practical skills and knowledge that are necessary to conduct business valuation in the marketplace. ... it will provide an insight into the international valuation standards promulgated by the International Valuation Standards Council (IVSC) and in-depth coverage on the valuation process ... A detailed study of the various valuation approaches and methods commonly used to value business and equity for transactions purposes will also be carried out. ... the course will also address the challenges encountered by valuers relating to discounts/ premiums and valuation of public listed entities and private companies.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-analyst",
+        "corporate-finance-analyst"
+      ],
+      "edges": {
+        "financial-analyst": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "Valuation modeling"
+          ],
+          "distinctive": true
+        },
+        "corporate-finance-analyst": {
+          "confidence": 0.542,
+          "inferred": true,
+          "via": "financial-analyst",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with financial-analyst"
+          ]
+        }
+      },
+      "inferred": [
+        "corporate-finance-analyst"
+      ]
+    },
+    {
+      "id": "ntu-ab5102",
+      "name": "Forensic Accounting & Fraud Investigation",
+      "level": 2000,
+      "dept": "Business Core",
+      "catalogCode": "AB5102",
+      "taughtSkills": [
+        "fraud investigation methodology",
+        "IT forensics and social media tracing for evidence examination",
+        "analyzing fraudulent schemes (financial statement, cash receipt/disbursement, defalcation, cybercrime)",
+        "interviewing and interrogation techniques",
+        "understanding the role of an expert witness"
+      ],
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelNote": "Prerequisite is a single intro-level accounting course (AC1102 OR AD1101 OR AC1104 OR AD1102), so 2000-level.",
+      "evidence": [
+        {
+          "type": "catalog",
+          "url": "https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1?acadsem=2025_1&r_course_yr=&r_subj_code=AB&boption=Search&acad=2025&semester=1",
+          "quote": "The course provides an understanding of white collar crimes in Singapore by analyzing real case studies of major crimes. Students will be taught the investigation methodology in the detection of fraud and the use of information technology forensics and social media tracing to examine documents and evidence within the Singapore legal, regulatory and professional rule-based environment. Various fraudulent schemes will be examined including financial statements, cash receipt, cash disbursement, defalcation and cybercrimes. Finally, the course teaches students effective interviewing and interrogation techniques, and the role of an expert witness.",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "forensic-accountant",
+        "external-auditor"
+      ],
+      "edges": {
+        "forensic-accountant": {
+          "confidence": 0.92,
+          "matchedSkills": [
+            "Fraud investigation",
+            "Expert witness support",
+            "Working with law enforcement and legal counsel"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.43,
+          "inferred": true,
+          "via": "forensic-accountant",
+          "adjacencyWeight": 0.55,
+          "matchedSkills": [
+            "scope overlap with forensic-accountant"
+          ]
+        }
+      },
+      "inferred": [
+        "external-auditor"
+      ]
+    }
+  ],
+  "internships": [
+    {
+      "id": "corporate-finance-finance-intern",
+      "role": "Finance Intern",
+      "orgType": "Corporate Finance",
+      "exampleTitles": [
+        "Finance Intern (OJJ Foods)",
+        "Finance Intern (Reolink Technology)",
+        "Finance Intern (Aug to Dec 26) (Hong Ye Group)",
+        "Finance Admin - Intern (Sunway Concrete Products)",
+        "Finance Intern (Cyrus Technology)",
+        "Accounts Intern (3 - 6 months) (NTL Naigai Trans Line)",
+        "Finance Intern (The Singapore Resort & Spa)"
+      ],
+      "requiredSkills": [
+        "Microsoft Excel / Google Sheets proficiency",
+        "accounts payable / accounts receivable support",
+        "bank reconciliation",
+        "month-end / monthly closing support",
+        "preparation of financial reports and statements",
+        "data entry and maintenance of financial records",
+        "attention to detail and organizational skills",
+        "ERP / accounting system data entry (e.g. SAP, EPICOR, i2000/JDE)"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "ojj-foods",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/banking-finance/finance-intern-ojj-foods-6133bf6c559891dc61cddc8421d8c41a",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "reolink-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-reolink-technology-f9bfc344cc9213f6b191079f4be0577c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "hong-ye-group",
+          "title": "Finance Intern (Aug to Dec 26)",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-hong-ye-group-832d2a716eea7edf23cef03789aa085c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "sunway-concrete-products",
+          "title": "Finance Admin - Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/banking-finance/finance-admin-intern-sunway-concrete-products-d96ed0c7a49498aaf6bd6b22eb5d51ea",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "cyrus-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/admin/finance-intern-cyrus-technology-2d760e5507b218b6976d31e80b35e8e7",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "ntl-naigai-trans-line",
+          "title": "Accounts Intern (3 - 6 months)",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounts-intern-ntl-naigai-trans-line-3030840f4fbef96dddd035010f5043cf",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "the-singapore-resort-spa",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-singapore-resort-spa-88ed3b0659b600adf859c83f07f60b5f",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "external-auditor",
+        "management-accountant"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "preparation of financial reports and statements",
+            "bank reconciliation",
+            "accounts payable / accounts receivable support"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "financial-accountant",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with financial-accountant"
+          ]
+        },
+        "management-accountant": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "financial-accountant",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with financial-accountant"
+          ]
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "management-accountant"
+      ]
+    },
+    {
+      "id": "corporate-finance-fpa-controlling-intern",
+      "role": "FP&A / Finance Controlling Intern",
+      "orgType": "Corporate Finance",
+      "exampleTitles": [
+        "Finance Controlling Intern (Tod's Singapore)",
+        "Finance Intern (Innowave Tech)",
+        "Finance Intern (Reolink Technology)"
+      ],
+      "requiredSkills": [
+        "annual planning and quarterly forecast process",
+        "variance analysis (actual vs budget)",
+        "management report / dashboard preparation",
+        "financial modeling",
+        "Microsoft Excel proficiency",
+        "SAP / financial systems exposure",
+        "consolidation and elimination schedules"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "tods-singapore",
+          "title": "Finance Controlling Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-controlling-intern-tods-singapore-c846ee50bb245adc966cb352581a20db",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "innowave-tech",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-innowave-tech-0f16a8ac252b7add2d924e60725bfa30",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "reolink-technology",
+          "title": "Finance Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/finance-intern-reolink-technology-f9bfc344cc9213f6b191079f4be0577c",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "corporate-finance-analyst",
+        "financial-analyst",
+        "management-accountant"
+      ],
+      "edges": {
+        "corporate-finance-analyst": {
+          "confidence": 0.92,
+          "matchedSkills": [
+            "annual planning and quarterly forecast process",
+            "variance analysis (actual vs budget)",
+            "management report / dashboard preparation"
+          ],
+          "distinctive": true
+        },
+        "financial-analyst": {
+          "confidence": 0.547,
+          "inferred": true,
+          "via": "corporate-finance-analyst",
+          "adjacencyWeight": 0.7,
+          "matchedSkills": [
+            "scope overlap with corporate-finance-analyst"
+          ]
+        },
+        "management-accountant": {
+          "confidence": 0.469,
+          "inferred": true,
+          "via": "corporate-finance-analyst",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with corporate-finance-analyst"
+          ]
+        }
+      },
+      "inferred": [
+        "financial-analyst",
+        "management-accountant"
+      ]
+    },
+    {
+      "id": "mid-tier-firm-accounting-intern",
+      "role": "Accounting Intern",
+      "orgType": "Mid-Tier Firm",
+      "exampleTitles": [
+        "Accounting Intern (RSM Stone Forest AccountServe)",
+        "Accounting and Tax Intern (Audit Alliance LLP)"
+      ],
+      "requiredSkills": [
+        "full accounting cycle / bookkeeping",
+        "cloud-based accounting systems (e.g. Xero)",
+        "monthly closing of accounts and management reports",
+        "preparation of unaudited financial statements",
+        "account reconciliations and variance analysis",
+        "corporate tax computations and GST return preparation",
+        "detail-oriented and organized work habits"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "rsm-stone-forest-accountserve",
+          "title": "Accounting Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounting-intern-rsm-stone-forest-accountserve-f4b0ef63568ef5249537a6a04be1ff59",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        },
+        {
+          "type": "posting",
+          "company": "audit-alliance-llp",
+          "title": "Accounting and Tax Intern",
+          "url": "https://www.mycareersfuture.gov.sg/job/accounting/accounting-tax-intern-audit-alliance-cb5b306bf5b2b0fb019d09674e74e6c1",
+          "snapshot": "data/sources/accounting-sg/postings/mycareersfuture.json",
+          "retrievedAt": "2026-07-11T08:14:13Z"
+        }
+      ],
+      "destinations": [
+        "financial-accountant",
+        "external-auditor",
+        "management-accountant"
+      ],
+      "edges": {
+        "financial-accountant": {
+          "confidence": 0.85,
+          "matchedSkills": [
+            "preparation of unaudited financial statements",
+            "account reconciliations and variance analysis"
+          ],
+          "distinctive": true
+        },
+        "external-auditor": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "financial-accountant",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with financial-accountant"
+          ]
+        },
+        "management-accountant": {
+          "confidence": 0.433,
+          "inferred": true,
+          "via": "financial-accountant",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with financial-accountant"
+          ]
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "management-accountant"
+      ]
+    },
+    {
+      "id": "canonical-audit-assurance-intern",
+      "role": "Audit / Assurance Intern",
+      "orgType": "Big 4",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "vouching and tracing transactions to source documents",
+        "audit workpaper documentation",
+        "sampling and substantive testing support",
+        "SFRS / IFRS familiarity",
+        "account reconciliations",
+        "Microsoft Excel proficiency",
+        "audit software / data analytics exposure (e.g. CaseWare)"
+      ],
+      "exampleTitles": [
+        "A&A - External Audit Intern - Audit & Assurance (Summer 2026 Internship) (Deloitte)",
+        "Audit - Technology Assurance | Summer Internship 2026 (KPMG Singapore)"
+      ],
+      "evidence": [
+        {
+          "type": "employer-page",
+          "company": "Deloitte",
+          "title": "A&A - External Audit Intern - Audit & Assurance (Summer 2026 Internship)",
+          "url": "https://jobs.sea.deloitte.com/job/Singapore-A&A-External-Audit-Intern-Audit-&-Assurance-(Summer-2026-Internship)-Sing/1331561066/",
+          "snapshot": "data/sources/accounting-sg/postings/web-audit-assurance-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        },
+        {
+          "type": "employer-page",
+          "company": "KPMG Singapore",
+          "title": "Audit - Technology Assurance | Summer Internship 2026",
+          "url": "https://careers.kpmg.com.sg/job/Audit-Technology-Assurance-Summer-Internship-2026/49176544/",
+          "snapshot": "data/sources/accounting-sg/postings/web-audit-assurance-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2025-12-01"
+        }
+      ],
+      "destinations": [
+        "external-auditor",
+        "internal-auditor",
+        "financial-accountant"
+      ],
+      "edges": {
+        "external-auditor": {
+          "confidence": 0.7,
+          "inferred": true,
+          "judged": true,
+          "rationale": "An assurance intern is a trainee external auditor: the day-to-day of testing balances, vouching to source documents, and building workpapers is exactly the junior half of this role.",
+          "matchedSkills": []
+        },
+        "internal-auditor": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Controls walkthroughs and transaction testing overlap; both an undergrad and advisor would see assurance work as a plausible bridge into internal audit even though scoping differs.",
+          "matchedSkills": []
+        },
+        "financial-accountant": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Reading and reconciling a full set of statements against reporting standards is the same knowledge base the accountant uses to prepare them, so audit exposure reads as relevant preparation.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "external-auditor",
+        "internal-auditor",
+        "financial-accountant"
+      ]
+    },
+    {
+      "id": "canonical-tax-intern",
+      "role": "Tax Intern",
+      "orgType": "Big 4",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "corporate income tax computations",
+        "GST return preparation",
+        "tax law and IRAS guidance research",
+        "reviewing income statements and expense records",
+        "tax preparation / compliance software",
+        "Microsoft Excel proficiency",
+        "attention to detail on arithmetic and data entry"
+      ],
+      "exampleTitles": [
+        "Tax - Corporate Tax Planning & Compliance | Off-Cycle Internship (Jul 2026 to Dec 2026) (KPMG Singapore)",
+        "Tax & Legal Intern - Business Tax Advisory, International Tax (Summer 2026 Internship) (Deloitte Singapore)"
+      ],
+      "evidence": [
+        {
+          "type": "employer-page",
+          "company": "KPMG Singapore",
+          "title": "Tax - Corporate Tax Planning & Compliance | Off-Cycle Internship (Jul 2026 to Dec 2026)",
+          "url": "https://careers.kpmg.com.sg/go/Interns-Tax/574344/",
+          "snapshot": "data/sources/accounting-sg/postings/web-tax-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-07-09"
+        },
+        {
+          "type": "employer-page",
+          "company": "Deloitte Singapore",
+          "title": "Tax & Legal Intern - Business Tax Advisory, International Tax (Summer 2026 Internship)",
+          "url": "https://www.founditgulf.com/career-advice/big-4-internship-guide/",
+          "snapshot": "data/sources/accounting-sg/postings/web-tax-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        }
+      ],
+      "destinations": [
+        "tax-consultant",
+        "financial-accountant"
+      ],
+      "edges": {
+        "tax-consultant": {
+          "confidence": 0.7,
+          "inferred": true,
+          "judged": true,
+          "rationale": "A tax intern does the junior work of the consultant role directly: preparing computations, researching tax treatment, and drafting returns under review.",
+          "matchedSkills": []
+        },
+        "financial-accountant": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Tax work requires reading income statements and expense documentation to determine treatment, which an advisor would accept as adjacent to statement preparation.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "tax-consultant",
+        "financial-accountant"
+      ]
+    },
+    {
+      "id": "canonical-risk-advisory-internal-audit-intern",
+      "role": "Risk Advisory / Internal Audit Intern",
+      "orgType": "Big 4",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "internal controls testing and walkthroughs",
+        "risk and compliance framework familiarity",
+        "process mapping and documentation",
+        "audit / examination report drafting support",
+        "data analysis of transaction populations",
+        "Microsoft Excel proficiency",
+        "GRC or ERP software exposure"
+      ],
+      "exampleTitles": [
+        "Risk Advisory Intern (AlixPartners)",
+        "Business Risk Intern (Jul - Dec 2026) (Grant Thornton Singapore)"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "AlixPartners",
+          "title": "Risk Advisory Intern",
+          "url": "https://www.alixpartners.com/careers/7507322003/risk-advisory-intern/",
+          "snapshot": "data/sources/accounting-sg/postings/web-risk-advisory-internal-audit-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-07-01"
+        },
+        {
+          "type": "posting",
+          "company": "Grant Thornton Singapore",
+          "title": "Business Risk Intern (Jul - Dec 2026)",
+          "url": "https://www.grantthornton.sg/careers/current-vacancies/internal-audit-intern/",
+          "snapshot": "data/sources/accounting-sg/postings/web-risk-advisory-internal-audit-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": null
+        }
+      ],
+      "destinations": [
+        "internal-auditor",
+        "risk-compliance-analyst",
+        "external-auditor"
+      ],
+      "edges": {
+        "internal-auditor": {
+          "confidence": 0.65,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Risk advisory internal-audit interns do the core internal-audit work of walkthroughs, controls testing, and recommendation drafting; this is the recognised feeder role.",
+          "matchedSkills": []
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.6,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Evaluating activity against regulatory standards and writing examination-style findings is central to both, and undergrads routinely enter compliance through risk advisory.",
+          "matchedSkills": []
+        },
+        "external-auditor": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Controls testing and evidence documentation overlap with financial-statement audit, a link both a student and advisor would accept even though the opinion scope differs.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "internal-auditor",
+        "risk-compliance-analyst",
+        "external-auditor"
+      ]
+    },
+    {
+      "id": "canonical-forensic-financial-crime-intern",
+      "role": "Forensic / Financial Crime Intern",
+      "orgType": "Big 4",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "transaction tracing and reconstruction from records",
+        "forensic data analytics (e.g. IDEA, ACL)",
+        "fraud and anomaly identification in large datasets",
+        "findings report writing",
+        "review of bank records and financial documents",
+        "confidentiality and evidence handling",
+        "Microsoft Excel proficiency"
+      ],
+      "exampleTitles": [
+        "Intern - Assurance, Forensic - Fraud & Investigation (Off-cycle Jul - Dec 2026) (EY (Ernst & Young Singapore))",
+        "Intern, Forensic Accounting & Investigations (between March to December 2026) (FTI Consulting)"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "EY (Ernst & Young Singapore)",
+          "title": "Intern - Assurance, Forensic - Fraud & Investigation (Off-cycle Jul - Dec 2026)",
+          "url": "https://sg.linkedin.com/jobs/view/intern-assurance-forensic-fraud-investigation-july-dec-2026-at-ey-4402345250",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-financial-crime-intern-1.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-06-27"
+        },
+        {
+          "type": "posting",
+          "company": "FTI Consulting",
+          "title": "Intern, Forensic Accounting & Investigations (between March to December 2026)",
+          "url": "https://www.bayt.com/en/singapore/jobs/intern-forensic-accounting-investigations-between-march-to-december-2026-forensic-litigation-consulting-singapore-74105362/",
+          "snapshot": "data/sources/accounting-sg/postings/web-forensic-financial-crime-intern-2.txt",
+          "retrievedAt": "2026-07-11T08:14:13Z",
+          "postedAt": "2026-02-11"
+        }
+      ],
+      "destinations": [
+        "forensic-accountant",
+        "risk-compliance-analyst",
+        "external-auditor"
+      ],
+      "edges": {
+        "forensic-accountant": {
+          "confidence": 0.65,
+          "inferred": true,
+          "judged": true,
+          "rationale": "A forensic-advisory intern does the junior version of this role directly: reconstructing trails from messy records and running analytics to surface anomalies.",
+          "matchedSkills": []
+        },
+        "risk-compliance-analyst": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Financial-crime and AML investigation work overlaps regulatory-violation review, a bridge both a student and advisor would recognise.",
+          "matchedSkills": []
+        },
+        "external-auditor": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Fraud detection, evidence documentation, and tracing to source are shared with audit testing, a plausible but weaker adjacency.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "forensic-accountant",
+        "risk-compliance-analyst",
+        "external-auditor"
+      ]
+    }
+  ]
+}

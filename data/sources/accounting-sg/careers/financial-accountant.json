@@ -1,0 +1,45 @@
+{
+  "id": "financial-accountant",
+  "name": "Financial Accountant",
+  "grounding": "soc",
+  "soc": ["13-2011.00"],
+  "responsibilities": [
+    "Prepare, examine, and analyze accounting records and financial statements for accuracy, completeness, and conformance to reporting standards",
+    "Inspect cash on hand, receivables and payables, and other balances to confirm the books actually match reality",
+    "Confer with company officials about financial and regulatory matters when something in the statements needs explaining"
+  ],
+  "skills": [
+    "Preparing a set of financial statements end to end and knowing what 'conformance to standards' actually requires",
+    "Reconciling accounts (cash, receivables, payables, securities) rather than assuming the ledger is right",
+    "Running accounting, ERP, and spreadsheet software to close the books instead of doing it manually",
+    "Writing clearly enough that a manager or auditor can follow your numbers without a meeting"
+  ],
+  "rawSkillPool": [
+    "Financial statement preparation",
+    "Account reconciliation (cash, receivables, payables)",
+    "Accounting software",
+    "Enterprise resource planning ERP software",
+    "Spreadsheet software",
+    "Data base reporting software",
+    "Conformance to reporting standards",
+    "Economics and accounting knowledge",
+    "Mathematics",
+    "Administrative knowledge",
+    "Confer with officials on financial matters",
+    "Document management software"
+  ],
+  "evidence": [
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Prepare, examine, or analyze accounting records, financial statements, or other financial reports to assess accuracy, completeness, and conformance to reporting and procedural standards.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    },
+    {
+      "type": "onet",
+      "url": "https://www.onetonline.org/link/summary/13-2011.00",
+      "quote": "Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate. Confer with company officials about financial and regulatory matters.",
+      "retrievedAt": "2026-07-11T08:14:13Z"
+    }
+  ]
+}

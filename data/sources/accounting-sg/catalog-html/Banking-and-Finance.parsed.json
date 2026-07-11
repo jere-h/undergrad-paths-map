@@ -1,0 +1,344 @@
+{
+  "courses": [
+    {
+      "catalogCode": "BF2100",
+      "name": "Ethics in the Investment Profession",
+      "prereqText": "",
+      "description": "The fairness and transparency is necessary for financial market to be efficient. This should not only be guaranteed by laws and regulations. Practitioners in the industry should comply necessary ethical foundation to make sure that the financial system is functioning well. Individuals with unethical behaviors damage investor trust and impair the capital markets as a whole. Unethical behaviors also have serious personal consequences on individuals themselves, this may range from job loss and reputational damage to fines and jails. This aim of this course is to train students with the basic understanding of the CFA Ethics code. It seeks to increase students' awareness of business ethics and improve their willingness to comply it. It will help students with their future career and contribute to the society. Moreover, it is also a component of the CFA exams. All NBS students with a Banking and Finance (BAF) specialization must complete a CFA Ethics course prior to graduation.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2201",
+      "name": "Investments",
+      "prereqText": "AB1201 OR BU8201 OR RE8005 OR BU5201",
+      "description": "This is an introductory but demanding course in investments. This course endeavours to provide the basic understanding and tools to conduct portfolio analysis, make investment decisions, and manage portfolios. By the end of this course, students should have a broad understanding of investments and portfolio management. This course covers the analysis of various investment vehicles, allocation of assets, and modern portfolio theory. Students will learn valuation, portfolio construction and evaluation techniques, and apply investment techniques using Excel. Students are expected to review Financial Management. To maximize acquisition of new knowledge, the instructors will not cover overlapping topics with Financial Management, but these topics remain examinable.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2206",
+      "name": "Wealth Management",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "The course provides a contemporary study on the subject with an Asian perspective, providing students with a comprehensive understanding of industry-practiced wealth management principles, strategies, and tools, with a specific focus on the unique dynamics and opportunities in the financial landscape. This applied approach to wealth management exposes students to various planning frameworks, macro analysis and value insights from guest lecturers who are industry practitioners. By the end of the course, students will be technically competent and well-equipped to formulate a Wealth Management strategy for themselves. Students looking for a career in Wealth Management/Private banking will find the course content to be immediately applicable.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2209",
+      "name": "Derivative Securities",
+      "prereqText": "BF2201",
+      "description": "This course is an introductory course on financial derivatives and derivatives-linked investments. The derivatives covered include forwards, futures, swaps, and options on different underlying assets like stocks, stock indices, commodities, and foreign exchange. Through this course, students will learn the features of various derivatives and how to price, value (calculate the Profit/Loss) and structure them for investment and risk management. Students will also learn basic and slightly more advance option strategies and how to use them for hedging and trading. They will be able to design arbitrage strategies to take advantage of mispricing in various derivatives. A good understanding of derivatives and its usage/abuses is a prerequisite for effective management of any company as financial risks can cause substantial damage to the P/L of an otherwise well managed firm. Graduates with solid grounding in derivative investments can take up careers as traders, derivatives specialists/advisors, derivatives sales experts, financial engineers and risk managers in treasury departments, trading floors, asset management and risk management divisions in banks and major corporates. On an individual level, understanding of derivatives will help one to appreciate the risk and rewards in the many derivatives-linked investments now increasingly made available to retail investors.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2213",
+      "name": "Introduction to Compliance",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "This course aims to provide you with a broad understanding of the role of compliance in financial institutions and introduce you to the common issues in the space of regulatory and financial compliance. Course topics include understanding the financial services sector, the role of compliance within financial institutions, the financial regulatory environment and requirements, compliance risks, anti-money laundering risks, and the importance of well-designed and effective control mechanisms. The course will also explore the impact of financial technology (FINTech) and regulatory technology (REGTech) advancements on the compliance landscape. This course is accredited by the Institute of Banking and Finance (IBF) and students who obtain an overall score of B and above will be accredited for IBF's Level 1 Compliance Standards.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2214",
+      "name": "FinTech in Investment Management",
+      "prereqText": "AB1201",
+      "description": "This course aims to introduce you to several topics in financial technology (FinTech) and its applications in investment management. Over the past decade, technological innovations have transformed the financial services industry at an accelerated pace and aim to compete with traditional financial methods in the delivery of financial services. We will cover cryptocurrency and blockchain technology, innovations in the payment system, marketplace lending, and technology innovations in the insurance industry. The course will provide you a comprehensive understanding of the business models under these innovations as well as the challenges facing by FinTech firms and the major concerns financial regulators have. The course not only provides necessary knowledge for those who are interested in a career in the FinTech industry, but it also helps you to understand how financial technology innovations affect our daily life. The course is prescribed elective for all banking and finance students and elective for all other NBS students.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2216",
+      "name": "Trade Incoterms & Ship Chartering",
+      "prereqText": "",
+      "description": "The aim of this course is to provide students with the foundational skills needed to negotiate for ocean freight transportation. Specifically, this course provides a solid foundation on how ocean freight transportation works and identify how the intricacies behind ocean freight contract negotiations will affect the profits and losses in international commodity trading.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2218",
+      "name": "Commodity Markets",
+      "prereqText": "",
+      "description": "The course aims to give students a solid understanding of commodities markets with primary focus on agriculture, metals and minerals and energy and chemicals. It focuses on fundamental concepts and terminology necessary for understanding commodity production, transportation, economics and marketing. It also educates students in trading technology trends and innovation and look into sustainability challenges and legal aspects.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2219",
+      "name": "Investments",
+      "prereqText": "AB1201 OR BU8201 OR RE8005 OR BU5201",
+      "description": "This is an introductory but demanding course in investments. This course endeavours to provide the basic understanding and tools to conduct portfolio analysis, make investment decisions, and manage portfolios. By the end of this course, students should have a broad understanding of investments and portfolio management. This course covers the analysis of various investment vehicles, allocation of assets, and modern portfolio theory. Students will learn valuation, portfolio construction and evaluation techniques, and apply investment techniques using Excel. Students are expected to review Financial Management. To maximize acquisition of new knowledge, the instructors will not cover overlapping topics with Financial Management, but these topics remain examinable.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2220",
+      "name": "Wealth Management",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "The course provides a contemporary study on the subject with an Asian perspective, providing students with a comprehensive understanding of industry-practiced wealth management principles, strategies, and tools, with a specific focus on the unique dynamics and opportunities in the financial landscape. This applied approach to wealth management exposes students to various planning frameworks, macro analysis and value insights from guest lecturers who are industry practitioners. By the end of the course, students will be technically competent and well-equipped to formulate a Wealth Management strategy for themselves. Students looking for a career in Wealth Management/Private banking will find the course content to be immediately applicable.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2221",
+      "name": "Derivative Securities & Hedging Strategies",
+      "prereqText": "BF2219 OR BU5202",
+      "description": "This course is an introductory course on financial derivatives and derivatives-linked investments. The derivatives covered include forwards, futures, swaps, and options on different underlying assets like stocks, stock indices, commodities, and foreign exchange. Through this course, students will learn the features of various derivatives and how to price, value (calculate the Profit/Loss) and structure them for investment and risk management. Students will also learn basic and slightly more advance option strategies and how to use them for hedging and trading. They will be able to design arbitrage strategies to take advantage of mispricing in various derivatives. A good understanding of derivatives and its usage/abuses is a prerequisite for effective management of any company as financial risks can cause substantial damage to the P/L of an otherwise well managed firm. Graduates with solid grounding in derivative investments can take up careers as traders, derivatives specialists/advisors, derivatives sales experts, financial engineers and risk managers in treasury departments, trading floors, asset management and risk management divisions in banks and major corporates. On an individual level, understanding of derivatives will help one to appreciate the risk and rewards in the many derivatives-linked investments now increasingly made available to retail investors.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2222",
+      "name": "Introduction to Compliance",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "This course aims to provide you with a broad understanding of the role of compliance in financial institutions and introduce you to the common issues in the space of regulatory and financial compliance. Course topics include understanding the financial services sector, the role of compliance within financial institutions, the financial regulatory environment and requirements, compliance risks, anti-money laundering risks, and the importance of well-designed and effective control mechanisms. The course will also explore the impact of financial technology (FINTech) and regulatory technology (REGTech) advancements on the compliance landscape. This course is accredited by the Institute of Banking and Finance (IBF) and students who obtain an overall score of B and above will be accredited for IBF's Level 1 Compliance Standards.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2223",
+      "name": "FinTech in Investment Management",
+      "prereqText": "AB1201",
+      "description": "This course aims to introduce you to several topics in financial technology (FinTech) and its applications in investment management. We will cover cryptocurrency and blockchain technology, innovations in the payment system, marketplace lending, and technology innovations in the insurance industry. The course will provide you a comprehensive understanding of the business models under these innovations as well as the challenges facing by FinTech firms, and the major concerns financial regulators have. The course not only provides necessary knowledge for those who are interested in a career in the FinTech industry, but it also helps you to understand how financial technology innovations affect our daily life. The course is prescribed elective for all banking and finance students and elective for all other NBS students.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2225",
+      "name": "Relationship Management",
+      "prereqText": "",
+      "description": "This course focuses on developing the knowledge and skills needed to build and sustain longterm professional relationship and network with high net worth customers in the private banking and wealth management space. The course is highly interactive, and it will prepare students with experiential learning to manage client relationship via case studies, role-plays, group project, and interactions with real life private bankers. Students will also learn to handle different types of customers, manage difficult conversations and situations, build a sustainable network, and foster lasting and rewarding relationship with customers in the real world of wealth management. Students interested in a career in the front office of private banking and wealth management, as well as those who are interested in cultivating practical relationship management skill, should take this course.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2226",
+      "name": "Trade Incoterms & Ship Chartering",
+      "prereqText": "",
+      "description": "The aim of this course is to provide students with the foundational skills needed to negotiate for ocean freight transportation. Specifically, this course provides a solid foundation on how ocean freight transportation works and identify how the intricacies behind ocean freight contract negotiations will affect the profits and losses in international commodity trading.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2227",
+      "name": "Commodity Markets",
+      "prereqText": "",
+      "description": "The course aims to give students a solid understanding of commodities markets with primary focus on agriculture, metals and minerals and energy and chemicals. It focuses on fundamental concepts and terminology necessary for understanding commodity production, transportation, economics and marketing. It also educates students in trading technology trends and innovation and look into sustainability challenges and legal aspects.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2228",
+      "name": "Sustainable Finance",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "This is an introductory course on Sustainable Finance. The course discusses the fundamental concepts to understand how sustainability issues have become relevant to the investment decisions by corporate managers, professional investors, and any participant in the market. This course aims to provide basic understanding and analytical skills in sustainable finance to students interested in a career in finance and prepare them to take other advanced finance courses. Students will learn how ESG (environmental, social, and governance) factors affect the various sectors in finance, how to interpret these metrics of companies to access financial returns, and how to measure risks associated with sustainable issues such as climate change. Sustainable investing is now a common practice in the financial markets. This course also covers basic knowledge of impact investing and sustainable and responsible investment by investment firms. Students will learn how to apply their knowledge and skills to real-world sustainable issues in finance.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2229",
+      "name": "Global Financial Markets & Institutions",
+      "prereqText": "",
+      "description": "The aim of this course is to determine and understand forces and institutions impacting the global financial market. In particular, it treats central banking policy as a major force in shaping capital movements and market dynamics. Some of the questions the course will attempt to answer are: (1) How do central banking policies impact the global financial market? (2) What are key economic and market indicators that can help us determine the direction of the financial market. Students interested in a career in of asset and wealth management, capital markets and trading should take this course.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF2302",
+      "name": "International Tax & Trading Law",
+      "prereqText": "",
+      "description": "BF2302 International Tax and Trading Law introduces students to key income tax and legal concepts and principles of international taxation and trade law. Particular emphasis will be placed on the international tax and legal implications of the international trading of commodities. Relevant case law, the interpretation and application of tax treaties and recent international tax developments, including the OECD's Base Erosion and Profit Shifting (BEPS) Action Plan, will also be covered in the course. The Law segment will cover legal issues of international commercial transactions.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3122",
+      "name": "Carbon Markets & Pricing Fundamentals",
+      "prereqText": "",
+      "description": "Climate change poses a clear and present threat to our way of life. A key policy response to this issue has been for Governments globally to use carbon markets and carbon pricing to ensure that businesses and society at large, appropriately price the cost of greenhouse gas emissions. As part of Singapore's Green Plan 2030, Singapore itself aims to be a leading carbon services and trading hub so as to capture new business opportunities and create new jobs in the green economy. In this context, students who understand carbon markets and carbon pricing will be better positioned to take up roles in the green economy, and to meet this need, we propose a new course 'Carbon Markets and Pricing Fundamentals.'",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3201",
+      "name": "Corporate Finance & Strategy",
+      "prereqText": "AB1201 OR RE8005 OR BU8201 OR BU5201",
+      "description": "The course covers fundamental issues of corporate finance, including corporate governance, capital budgeting, capital structure, distribution policies, and working capital management. The course emphasizes financial practices in the real world. The course expands upon the concepts covered in AB1201 Financial Management. We emphasize using EXCEL to conduct computation. The background knowledge is provided through the textbook and lecture notes. By the end of the course, you should have developed a deeper understanding of how corporate financial managers make decisions in the dynamic corporate world and how these decisions impact firm value and stakeholders. The course is intended for students who are interested in pursuing a career in strategic financial decision making, including corporate finance, investment banking, private equity, consulting, etc.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3202",
+      "name": "Fixed Income Securities",
+      "prereqText": "AB1201 & BF2201 OR BF2201 & RE8005",
+      "description": "By the end of this course, you should be able to: This course aims to support you to: 1. Price a wide range of fixed income securities 2. Understand the structure of different fixed income securities 3. Learn how to manage the risks of fixed income securities. This class is targeted at finance majors and students in closely related disciplines who are interested in learning about fixed income securities and pursuing a career in fields such as asset management, wealth management, insurance, and banking.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3203",
+      "name": "Equity Securities",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "The objective of this course is to provide students with a comprehensive coverage of the principles and techniques in equity securities analysis, especially asset valuation. Valuation is at the heart of every investment decision, whether that decision is to buy, sell, or hold. Due to the globalization process and ever-changing dynamics of the modern financial markets, the pricing of any financial asset has become a more complex task. This course will guide students through the theory and application of valuation models and highlights their strengths and weaknesses. It will cover the valuation of conventional going concern firms, financial service firms, start-ups, private companies, distressed firms. This course will also equip the students with Bloomberg and Thomson Reuters.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3204",
+      "name": "Financial Modelling",
+      "prereqText": "BF2201",
+      "description": "This course reviews, advances, and applies the principles taught in prior introductory courses in finance. It takes a hands-on approach and provides students with ample opportunities to apply numerical and statistical analysis, table and graphical presentations, and database analysis. It exclusively uses MS Excel as a main tool for computing and analysis. After the completion of the course, you should be equipped with a strong foundation of finance and quantitative skills. The course benefits students who wish to become a quantitative financial analyst.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3207",
+      "name": "Alternative Investments",
+      "prereqText": "BF2201",
+      "description": "Alternative investments include a wide variety of assets which include hedge funds, private equity, real estate, and commodities. We will start with a review of relevant subjects, such as statistics and portfolio theory. Afterwards, we will go over the various asset classes, focusing on hedge funds, private equity, and real estate. We will consider investment strategies, management structure, and performance measurement. If time permits, we will also discuss more unconventional assets.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3212",
+      "name": "Trade, Structured & Supply Chain Finance",
+      "prereqText": "BF2216 OR MT1003 & MT3006 OR BF2226",
+      "description": "This course aims to complements other learning obtained in respect of commodity trading, maritime arrangements and legal aspects. Together with the afore-mentioned topics, this course fills essential learning needs for aspirants seeking entry into careers in international trading and commercial banking. You will also learn about products, concepts & practices routinely applicable to the financing of international trade transactions.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3213",
+      "name": "Enterprise Risk Management in Commodity Markets",
+      "prereqText": "",
+      "description": "All organizations (especially commodities / energy trading organizations) face a wide range of enterprise risks. This course provides: i) an overview on the range of key risks that continue to challenge these firms ii) how to assess and identify existing and emerging risks facing these firms iii) how to maintain an effective risk management framework to monitor and manage such risks iv) Overview and analysis of basic risk management techniques. Managing risk has never been so complex and regulated in a commodities / energy trading organization. Everyone in an organization (trading or non-trading, client facing traders/marketers or finance/IT teams) is expected to understand and manage risk across an organization. Anyone aspiring to have a career in trading, risk management or a job in a trading organization would find value in this course.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3214",
+      "name": "Commodities Trading",
+      "prereqText": "",
+      "description": "This course aims to prepare you for a career in the global commodities markets by introducing you to global commodity market conventions, supply chains, risk management and investment techniques. It will also give you an understanding of the key industry participants and their role across the commodity supply chain. You will also gain valuable insight into market conventions, terminology and best practices in risk management.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3215",
+      "name": "Corporate Finance & Strategy",
+      "prereqText": "AB1201 OR RE8005 OR BU8201 OR BU5201 OR RE8013",
+      "description": "The course covers fundamental issues of corporate finance, including corporate governance, capital budgeting, capital structure, distribution policies, and working capital management. The course emphasizes financial practices in the real world. The course expands upon the concepts covered in AB1201 Financial Management. We emphasize using EXCEL to conduct computation. The background knowledge is provided through the textbook and lecture notes. By the end of the course, you should have developed a deeper understanding of how corporate financial managers make decisions in the dynamic corporate world and how these decisions impact firm value and stakeholders. The course is intended for students who are interested in pursuing a career in strategic financial decision making, including corporate finance, investment banking, private equity, consulting, etc.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3216",
+      "name": "Fixed Income Securities",
+      "prereqText": "AB1201 & BF2219 OR BF2219 & RE8005 OR BF2219 & BU5201",
+      "description": "By the end of this course, you should be able to: 1. Price a wide range of fixed income securities 2. Understand the structure of different fixed income securities 3. Learn how to manage the risks of fixed income securities. This class is targeted at finance majors and students in closely related disciplines who are interested in learning about fixed income securities and pursuing a career in fields such as asset management, wealth management, insurance, and banking.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3217",
+      "name": "Equity Valuation",
+      "prereqText": "AB1201 OR BU8201 OR BU5201",
+      "description": "The objective of this course is to provide students with a comprehensive coverage of the principles and techniques in equity securities analysis, especially asset valuation. Valuation is at the heart of every investment decision, whether that decision is to buy, sell, or hold. Due to the globalization process and ever-changing dynamics of the modern financial markets, the pricing of any financial asset has become a more complex task. This course will guide students through the theory and application of valuation models and highlights their strengths and weaknesses. It will cover the valuation of conventional going concern firms, financial service firms, start-ups, private companies, distressed firms. This course will also equip the students with Bloomberg and Thomson Reuters.",
+      "undergrad": true,
+      "level": 2000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3218",
+      "name": "Financial Modelling",
+      "prereqText": "BF2219",
+      "description": "This course reviews, advances, and applies the principles that have been taught in introductory courses in finance. It takes a hands-on approach and provides students with ample opportunities to apply numerical and statistical analysis, table and graphical presentations, and database analysis. It exclusively uses Microsoft EXCEL as a computing tool for quantitative analysis. After the completion of the course, you should be well equipped with a strong foundation of finance and quantitative skills. The course benefits students who wish to become a quantitative financial/risk analyst or a portfolio manager.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3219",
+      "name": "Alternative Investments",
+      "prereqText": "BF2219",
+      "description": "This course provides an overview of alternative investments such as hedge fund, private equity, real estate, etc. Financial theories behind these financial assets such as the portfolio theory will be also discussed. The aim of the course is to provide students with better understanding about different types of alternative investments, those heavily interconnected organizations managing them, their impact on the global financial market, historical development, principal activities, regulatory environment, and risks and opportunities. This course is a specialization elective for Year 3&4 undergraduates in Bachelor of Business with a specialization in Banking and Finance. Students in other specializations in Bachelor of Business and students in Bachelor of Accountancy may also take the course. This course provides comprehensive background for students who want to pursue a career after graduation in finance and investments including investment banks, hedge funds, private equity firms, etc. It helps to broaden understanding of the alternative investments industry and their potential clients.",
+      "undergrad": true,
+      "level": 3000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    },
+    {
+      "catalogCode": "BF3226",
+      "name": "Strategic Management in Commodity Market",
+      "prereqText": "",
+      "description": "The aim of this course is to provide students with a good understanding of the important blocks of leadership, crisis management, and sustainability to be successful in commodity trading and commodity markets.",
+      "undergrad": true,
+      "level": 1000,
+      "levelBasis": "LLM-assigned (no courseblock structure)",
+      "levelTieBreak": true
+    }
+  ]
+}

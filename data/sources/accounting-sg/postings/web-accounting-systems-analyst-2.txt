@@ -1,0 +1,26 @@
+Source: https://www.velvetjobs.com/job-descriptions/erp-business-analyst
+Title: ERP Business Analyst Job Description | Velvet Jobs
+Retrieved: 2026-07-11T08:14:13Z
+
+Key Responsibilities:
+- Provide guidance and leadership to associate analysts in process analysis, configuration and implementation methodologies
+- Review support requests and resolve them independently
+- Capture detailed requirements for SAP blueprinting and implementation
+- Collaborate with management on process implementation
+- Develop business reviews and management reporting
+- Optimize relationships between business processes and systems
+- Investigate business functions and data structures
+
+Finance/Accounting Specific Requirements (aggregated from multiple real postings on the site):
+- Experience in SAP FI and CO modules including General Ledger, Fixed Assets, Management Accounting, and reporting
+- Knowledge of Oracle ERP finance modules, specifically General Ledger and sub ledgers
+- Strong technical background with Hyperion Planning (EPPM 11.1.2.2 or higher)
+- Finance function support experience preferred
+
+Required Skills & Experience:
+- 2-10 years of relevant ERP experience depending on position level
+- SAP MM/SD module configuration knowledge
+- Ability to identify, capture and translate business requirements for technical teams
+- Process analysis and streamlining capabilities
+- Strong communication and stakeholder management skills
+- Cross-functional knowledge development

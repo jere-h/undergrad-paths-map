@@ -1,0 +1,101 @@
+{
+  "proposals": {
+    "ntu-bf2213": [
+      {
+        "career": "risk-compliance-analyst",
+        "confidence": 0.82,
+        "matchedSkills": ["Identifying compliance risks in financial institutions", "Anti-money laundering (AML) risk assessment"],
+        "distinctive": true,
+        "rationale": "Course directly teaches identifying compliance risks and AML issues in financial institutions, core to a risk/compliance analyst role."
+      },
+      {
+        "career": "internal-auditor",
+        "confidence": 0.6,
+        "matchedSkills": ["Designing effective internal control mechanisms"],
+        "distinctive": true,
+        "rationale": "Course covers designing internal control mechanisms, overlapping with internal audit's control-evaluation focus."
+      }
+    ],
+    "ntu-bf3201": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.8,
+        "matchedSkills": ["Capital structure analysis", "Capital budgeting decision-making"],
+        "distinctive": true,
+        "rationale": "Capital structure and budgeting content aligns with advising on capitalization, sources, and timing of financing."
+      },
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.75,
+        "matchedSkills": ["Working capital management", "Capital budgeting decision-making"],
+        "distinctive": true,
+        "rationale": "Working capital management and capital budgeting are core corporate FP&A/treasury competencies."
+      }
+    ],
+    "ntu-bf2201": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.72,
+        "matchedSkills": ["Investment valuation techniques"],
+        "distinctive": true,
+        "rationale": "Valuation techniques taught for investment decisions map onto the analyst's valuation modeling work."
+      }
+    ],
+    "ntu-bf3203": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.88,
+        "matchedSkills": ["Equity securities valuation", "Valuation of distressed and private companies"],
+        "distinctive": true,
+        "rationale": "Course is dedicated to equity and company valuation methods, a core distinctive skill for financial analysts."
+      }
+    ],
+    "ntu-bf3204": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.62,
+        "matchedSkills": ["Quantitative financial analysis"],
+        "distinctive": true,
+        "rationale": "Advanced quantitative/Excel modeling supports valuation and financial analysis work, though course is general-purpose rather than valuation-specific."
+      },
+      {
+        "career": "corporate-finance-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["Advanced Excel financial modeling"],
+        "distinctive": true,
+        "rationale": "Excel-based financial modeling supports FP&A forecasting, though the course is not FP&A-specific."
+      }
+    ],
+    "ntu-bf2302": [
+      {
+        "career": "tax-consultant",
+        "confidence": 0.8,
+        "matchedSkills": ["International tax law principles", "Tax treaty interpretation", "BEPS and international tax developments analysis"],
+        "distinctive": true,
+        "rationale": "Course teaches international tax law and treaty analysis directly relevant to tax consulting research and advisory work."
+      }
+    ],
+    "ntu-bf2100": [],
+    "ntu-bf2229": [],
+    "ntu-bf2209": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.58,
+        "matchedSkills": ["Pricing and valuing financial derivatives"],
+        "distinctive": true,
+        "rationale": "Derivatives pricing/valuation overlaps with valuation modeling, though the course targets trading/hedging rather than company valuation."
+      }
+    ],
+    "ntu-bf3202": [
+      {
+        "career": "financial-analyst",
+        "confidence": 0.55,
+        "matchedSkills": ["Fixed income securities pricing"],
+        "distinctive": true,
+        "rationale": "Fixed income pricing is a valuation-adjacent skill, though only loosely tied to the analyst's typical company-valuation work."
+      }
+    ],
+    "ntu-bf2214": [],
+    "ntu-bf2228": []
+  }
+}

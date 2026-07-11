@@ -1,0 +1,157 @@
+{
+  "proposals": [
+    {
+      "id": "audit-assurance-intern",
+      "role": "Audit / Assurance Intern",
+      "orgType": "Big 4",
+      "whyCommon": "The flagship accounting internship every Big 4 firm runs in Singapore; the standard entry point for undergraduates into external audit.",
+      "requiredSkills": [
+        "vouching and tracing transactions to source documents",
+        "audit workpaper documentation",
+        "sampling and substantive testing support",
+        "SFRS / IFRS familiarity",
+        "account reconciliations",
+        "Microsoft Excel proficiency",
+        "audit software / data analytics exposure (e.g. CaseWare)"
+      ],
+      "candidateEdges": [
+        { "career": "external-auditor", "confidence": 0.7, "rationale": "An assurance intern is a trainee external auditor: the day-to-day of testing balances, vouching to source documents, and building workpapers is exactly the junior half of this role." },
+        { "career": "internal-auditor", "confidence": 0.5, "rationale": "Controls walkthroughs and transaction testing overlap; both an undergrad and advisor would see assurance work as a plausible bridge into internal audit even though scoping differs." },
+        { "career": "financial-accountant", "confidence": 0.5, "rationale": "Reading and reconciling a full set of statements against reporting standards is the same knowledge base the accountant uses to prepare them, so audit exposure reads as relevant preparation." }
+      ],
+      "searchHints": [
+        "\"Audit Intern\" OR \"Assurance Intern\" Singapore mycareersfuture",
+        "Deloitte / PwC / KPMG / EY Singapore audit internship 2026",
+        "\"Assurance Vacation Programme\" Singapore",
+        "Big 4 audit intern SFRS workpapers Singapore"
+      ]
+    },
+    {
+      "id": "tax-intern",
+      "role": "Tax Intern",
+      "orgType": "Big 4",
+      "whyCommon": "Dedicated tax internships are a standing Big 4 and mid-tier service line in Singapore, distinct from the combined accounting-and-tax role and recruited every intake.",
+      "requiredSkills": [
+        "corporate income tax computations",
+        "GST return preparation",
+        "tax law and IRAS guidance research",
+        "reviewing income statements and expense records",
+        "tax preparation / compliance software",
+        "Microsoft Excel proficiency",
+        "attention to detail on arithmetic and data entry"
+      ],
+      "candidateEdges": [
+        { "career": "tax-consultant", "confidence": 0.7, "rationale": "A tax intern does the junior work of the consultant role directly: preparing computations, researching tax treatment, and drafting returns under review." },
+        { "career": "financial-accountant", "confidence": 0.4, "rationale": "Tax work requires reading income statements and expense documentation to determine treatment, which an advisor would accept as adjacent to statement preparation." }
+      ],
+      "searchHints": [
+        "\"Tax Intern\" Singapore mycareersfuture",
+        "Big 4 corporate tax / GST internship Singapore 2026",
+        "RSM / BDO / Crowe Singapore tax intern",
+        "\"Tax Associate Intern\" IRAS GST computation Singapore"
+      ]
+    },
+    {
+      "id": "risk-advisory-internal-audit-intern",
+      "role": "Risk Advisory / Internal Audit Intern",
+      "orgType": "Big 4",
+      "whyCommon": "Risk Advisory (internal audit, controls, and regulatory compliance) is a standing Big 4 service line that recruits interns each intake in Singapore.",
+      "requiredSkills": [
+        "internal controls testing and walkthroughs",
+        "risk and compliance framework familiarity",
+        "process mapping and documentation",
+        "audit / examination report drafting support",
+        "data analysis of transaction populations",
+        "Microsoft Excel proficiency",
+        "GRC or ERP software exposure"
+      ],
+      "candidateEdges": [
+        { "career": "internal-auditor", "confidence": 0.65, "rationale": "Risk advisory internal-audit interns do the core internal-audit work of walkthroughs, controls testing, and recommendation drafting; this is the recognised feeder role." },
+        { "career": "risk-compliance-analyst", "confidence": 0.6, "rationale": "Evaluating activity against regulatory standards and writing examination-style findings is central to both, and undergrads routinely enter compliance through risk advisory." },
+        { "career": "external-auditor", "confidence": 0.45, "rationale": "Controls testing and evidence documentation overlap with financial-statement audit, a link both a student and advisor would accept even though the opinion scope differs." }
+      ],
+      "searchHints": [
+        "\"Risk Advisory Intern\" OR \"Internal Audit Intern\" Singapore",
+        "Big 4 Risk Advisory / GRC internship Singapore 2026",
+        "\"Internal Audit\" intern controls testing Singapore mycareersfuture",
+        "Protiviti / Big 4 internal audit vacation programme Singapore"
+      ]
+    },
+    {
+      "id": "forensic-financial-crime-intern",
+      "role": "Forensic / Financial Crime Intern",
+      "orgType": "Big 4",
+      "whyCommon": "Big 4 Forensic and Financial Advisory practices run investigation and dispute-support internships in Singapore, though intakes are seasonally thinner than audit or tax.",
+      "requiredSkills": [
+        "transaction tracing and reconstruction from records",
+        "forensic data analytics (e.g. IDEA, ACL)",
+        "fraud and anomaly identification in large datasets",
+        "findings report writing",
+        "review of bank records and financial documents",
+        "confidentiality and evidence handling",
+        "Microsoft Excel proficiency"
+      ],
+      "candidateEdges": [
+        { "career": "forensic-accountant", "confidence": 0.65, "rationale": "A forensic-advisory intern does the junior version of this role directly: reconstructing trails from messy records and running analytics to surface anomalies." },
+        { "career": "risk-compliance-analyst", "confidence": 0.5, "rationale": "Financial-crime and AML investigation work overlaps regulatory-violation review, a bridge both a student and advisor would recognise." },
+        { "career": "external-auditor", "confidence": 0.4, "rationale": "Fraud detection, evidence documentation, and tracing to source are shared with audit testing, a plausible but weaker adjacency." }
+      ],
+      "searchHints": [
+        "\"Forensic Intern\" OR \"Financial Crime Intern\" Singapore",
+        "Big 4 Forensic / Dispute Advisory internship Singapore 2026",
+        "\"Fraud investigation\" analytics intern IDEA ACL Singapore",
+        "Kroll / Big 4 forensic accounting intern Singapore"
+      ]
+    },
+    {
+      "id": "deal-advisory-valuation-intern",
+      "role": "Deal Advisory / Valuation Intern",
+      "orgType": "Corporate Finance",
+      "whyCommon": "Corporate finance advisory, M&A, and valuation teams run valuation-modelling internships in Singapore, the standard entry point for the analyst valuation track.",
+      "requiredSkills": [
+        "financial statement analysis",
+        "valuation and DCF modelling support",
+        "building and stress-testing models in Excel",
+        "industry and company research",
+        "pulling data from databases / BI tools",
+        "preparation of client-ready presentation materials",
+        "Microsoft Excel and PowerPoint proficiency"
+      ],
+      "candidateEdges": [
+        { "career": "financial-analyst", "confidence": 0.65, "rationale": "Valuation modelling, financial-statement analysis, and defending model assumptions are the core of the financial-analyst role and exactly what this intern supports." },
+        { "career": "corporate-finance-analyst", "confidence": 0.5, "rationale": "Forecasting models, financing analysis, and management-ready outputs overlap, a link both a student and advisor would accept even though FP&A cadence differs." }
+      ],
+      "searchHints": [
+        "\"Valuation Intern\" OR \"Deal Advisory Intern\" Singapore",
+        "\"Corporate Finance Intern\" M&A valuation Singapore 2026",
+        "\"Financial Analyst Intern\" DCF modelling Singapore mycareersfuture",
+        "Big 4 Deal Advisory / boutique corporate finance intern Singapore"
+      ]
+    },
+    {
+      "id": "finance-transformation-systems-intern",
+      "role": "Finance Transformation / Systems Intern",
+      "orgType": "Big 4",
+      "whyCommon": "Big 4 finance-transformation and technology-consulting teams run ERP and finance-systems internships in Singapore that pair accounting knowledge with systems work.",
+      "requiredSkills": [
+        "ERP finance module familiarity (SAP FI/CO, Oracle, NetSuite)",
+        "requirements gathering and functional documentation",
+        "process mapping for accounting workflows",
+        "reconciliation and close automation support",
+        "SQL or report-writing tools",
+        "dashboard and management reporting design",
+        "Microsoft Excel / Power BI proficiency"
+      ],
+      "candidateEdges": [
+        { "career": "accounting-systems-analyst", "confidence": 0.6, "rationale": "This intern does the junior version of the systems-analyst role directly: gathering requirements, mapping accounting processes, and supporting ERP configuration and automation." },
+        { "career": "management-accountant", "confidence": 0.4, "rationale": "Reporting and dashboard design plus pulling cost/budget data from ERP overlaps, a weaker but honest adjacency an advisor would accept." }
+      ],
+      "searchHints": [
+        "\"Finance Transformation Intern\" OR \"ERP Business Analyst Intern\" Singapore",
+        "Big 4 technology / finance systems consulting internship Singapore 2026",
+        "\"SAP FI/CO\" OR NetSuite intern accounting Singapore",
+        "\"Finance Systems Intern\" process automation Singapore mycareersfuture"
+      ]
+    }
+  ]
+}
