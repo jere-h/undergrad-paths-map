@@ -39,7 +39,7 @@
         "mit-18-404",
         "mnc-software-engineer-intern"
       ],
-      "edgesTrimmedForBalance": 7,
+      "edgesTrimmedForBalance": 8,
       "inferredEdges": 17,
       "judgedEdges": 23,
       "inferenceOnlyCareers": [
@@ -156,18 +156,18 @@
         "data-engineer data-architect"
       ],
       "canonicalInternships": [
-        "canonical-data-engineering-intern",
         "canonical-business-intelligence-analytics-intern",
         "canonical-operations-research-intern",
         "canonical-statistics-intern"
       ],
       "internshipVariety": {
-        "total": 8,
+        "total": 7,
         "clustered": 4,
-        "canonical": 4
+        "canonical": 3
       },
       "canonicalSkipped": [
         "canonical-data-scientist-intern: duplicates clustered role \"Data Scientist Intern\"",
+        "canonical-data-engineering-intern: duplicates clustered role \"Data Engineering Intern\"",
         "canonical-machine-learning-engineer-intern: duplicates clustered role \"Machine Learning Engineer Intern\""
       ],
       "canonicalOnlyInternshipCareers": [
@@ -1742,7 +1742,6 @@
       ],
       "destinations": [
         "statistician",
-        "data-scientist",
         "data-analyst",
         "ml-engineer",
         "or-analyst"
@@ -1753,13 +1752,6 @@
           "matchedSkills": [
             "Bayesian estimation and hypothesis testing",
             "classical statistical inference"
-          ],
-          "distinctive": true
-        },
-        "data-scientist": {
-          "confidence": 0.5,
-          "matchedSkills": [
-            "using R to simulate, analyze, and visualize data"
           ],
           "distinctive": true
         },
@@ -2429,79 +2421,6 @@
       },
       "inferred": [
         "bi-analyst"
-      ]
-    },
-    {
-      "id": "canonical-data-engineering-intern",
-      "role": "Data Engineering Intern",
-      "orgType": "MNC",
-      "grounding": "canonical",
-      "skillsBasis": "judgment",
-      "requiredSkills": [
-        "SQL and relational database fundamentals",
-        "Python (or Java/Scala) for pipeline code",
-        "ETL / data pipeline concepts",
-        "Cloud data platforms (AWS, GCP, or Azure)",
-        "Data modeling and schema design basics",
-        "Version control and testing",
-        "Debugging data quality issues"
-      ],
-      "exampleTitles": [
-        "Data Engineer Intern (TikTok)",
-        "Data Engineering Intern (Hone Health)"
-      ],
-      "evidence": [
-        {
-          "type": "intern-list",
-          "company": "TikTok",
-          "title": "Data Engineer Intern",
-          "url": "https://lifeattiktok.com/search/7568546589788227893",
-          "snapshot": "data/sources/data/postings/simplify.json",
-          "retrievedAt": "2026-07-11T06:50:34Z",
-          "postedAt": "2025-11-26T11:43:51.000Z"
-        },
-        {
-          "type": "intern-list",
-          "company": "Hone Health",
-          "title": "Data Engineering Intern",
-          "url": "https://job-boards.greenhouse.io/honehealth/jobs/5308958008",
-          "snapshot": "data/sources/data/postings/simplify.json",
-          "retrievedAt": "2026-07-11T06:50:34Z",
-          "postedAt": "2026-07-08T22:21:54.000Z"
-        }
-      ],
-      "destinations": [
-        "data-engineer",
-        "data-architect",
-        "data-analyst"
-      ],
-      "edges": {
-        "data-engineer": {
-          "confidence": 0.7,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Direct feeder role; the intern builds and maintains pipelines and schemas that are the core of the data engineer job.",
-          "matchedSkills": []
-        },
-        "data-architect": {
-          "confidence": 0.55,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Data modeling and warehouse-schema exposure is the shared foundation; both roles map to the same SOC (15-1243.00), so an advisor would affirm the path.",
-          "matchedSkills": []
-        },
-        "data-analyst": {
-          "confidence": 0.4,
-          "inferred": true,
-          "judged": true,
-          "rationale": "Interns constantly build the clean datasets and SQL that analysts consume, a genuine but weaker adjacency.",
-          "matchedSkills": []
-        }
-      },
-      "inferred": [
-        "data-engineer",
-        "data-architect",
-        "data-analyst"
       ]
     },
     {

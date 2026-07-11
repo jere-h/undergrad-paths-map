@@ -32,7 +32,7 @@ unrealistic and unhelpful map. Root causes were diagnosed and repaired:
 - Internship edges came only from the direct-evidence tier, so thin postings
   meant thin internship coverage.
 
-**Result now: 8 internship roles reaching ALL 9 careers; zero
+**Result now: 7 internship roles reaching ALL 9 careers; zero
 internship-starved.** A deterministic **variety gate** (≥4 roles) and
 **coverage gate** (internship edges must reach ≥4 careers at ≥6-career scale)
 now FAIL any full run that regresses — the scarcity can never silently return.
@@ -61,7 +61,7 @@ statistician 0.68) fell below the 0.75 internship confidence floor and were
 auto-dropped; adjacency then re-added the honest scope-overlap neighbours as
 softer inferred edges.
 
-### Tier 2 — validated-canonical (4 roles)
+### Tier 2 — validated-canonical (3 roles)
 
 LLM-proposed common roles, each **validated to exist** by grounding search
 against ≥2 distinct current employers (snapshots checked on disk). Their
@@ -71,14 +71,17 @@ dashed, capped, balance-gated).
 
 | Role | Validation employers (current) | Judged career links |
 |---|---|---|
-| Data Engineering Intern | TikTok, Hone Health (2026-07-08) | data-engineer, data-architect, data-analyst |
 | Business Intelligence / Analytics Intern | Eurofins, KPH Healthcare | bi-analyst, data-analyst |
 | Quantitative / Operations Research Intern | Point72, Stevens Capital, Amazon | or-analyst, statistician |
 | Statistics Intern | Vertex Pharmaceuticals, Johnson & Johnson (ASA StatTr@k 2026) | statistician, or-analyst |
 
-Two proposed canonical roles (Data Scientist Intern, Machine Learning Engineer
-Intern) **deduped against the clustered tier** (clustered evidence wins) and
-were dropped — `meta.flags.canonicalSkipped`. Evidence age: the OR Amazon page
+Three proposed canonical roles (Data Scientist Intern, Data Engineering Intern,
+Machine Learning Engineer Intern) **deduped against the clustered tier**
+(clustered evidence wins) and were dropped — `meta.flags.canonicalSkipped`. The
+dedupe now stems morphological title variants, so the proposed *Data
+Engineering Intern* collapses onto the clustered *Data Engineer Intern* (the
+same job written two ways) instead of shipping as a redundant diamond. Evidence
+age: the OR Amazon page
 was bot-blocked (postedAt null) so currency there rests on the two current
 quant intern-list entries; the statistics entries use the ASA listing's
 2025-12 page date, inside the 550-day currency window. **All canonical
@@ -101,7 +104,7 @@ and bi-analyst stays thin. Treat their *course* reachability as course-limited.
 
 | Flag | Value |
 |---|---|
-| Internship variety | **8 roles** (4 clustered + 4 canonical); variety + coverage gates PASS |
+| Internship variety | **7 roles** (4 clustered + 3 canonical); variety + coverage gates PASS |
 | Canonical internships | data-engineering, business-intelligence-analytics, operations-research, statistics |
 | Canonical-only internship careers | **or-analyst, statistician** (internship support is entirely judgment) |
 | Canonical skipped (deduped vs clustered) | data-scientist-intern, machine-learning-engineer-intern |

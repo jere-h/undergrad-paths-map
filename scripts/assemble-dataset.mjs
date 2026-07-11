@@ -178,7 +178,28 @@ export function propagateAdjacency(rows, adjacency, opts = ADJACENCY) {
 // rationale-required).
 export const CANONICAL = { idPrefix: "canonical-", floor: INFERENCE.floor, maxEdges: 3 };
 
-const normalizeTitle = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+// Normalize a role title to a token string for duplicate detection. Beyond
+// lowercasing and stripping punctuation, each token is light-stemmed so common
+// morphological variants collapse ("engineer" == "engineering", "analytics" ==
+// "analytic"): a clustered "Data Engineer Intern" and a canonical "Data
+// Engineering Intern" are the same job written two ways and must compare equal.
+// Stemming only trims a few known suffixes and never below a 4-char root, so
+// genuinely distinct roles keep distinct token sets.
+const stemToken = (w) => {
+  for (const suf of ["ering", "ing", "ers", "ors", "er", "or", "s"]) {
+    if (w.endsWith(suf) && w.length - suf.length >= 4) return w.slice(0, w.length - suf.length);
+  }
+  return w;
+};
+const normalizeTitle = (t) =>
+  String(t || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean)
+    .map(stemToken)
+    .join(" ");
 
 // proposals: { proposals: [{ id, role, orgType, requiredSkills, candidateEdges, ... }] }
 // validation: { validated: [{ id, evidence: [...] }], failures: [...] }
