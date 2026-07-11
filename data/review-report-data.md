@@ -110,6 +110,31 @@ and bi-analyst stays thin. Treat their *course* reachability as course-limited.
 | Edges trimmed for balance | 9 |
 | Dropped inputs (no surviving edges) | 16 courses + `mnc-software-engineer-intern` (a general SWE role whose only edges fell below the internship floor; correctly dropped) |
 
+## Course de-duplication (brevity)
+
+Several MIT courses are title-and-scope near-duplicates within a level and were
+collapsed into a single representative node for a simpler experience. The
+*decision* of what is similar is judgment (`data/sources/data/courses/_merges.json`,
+also produced by the workflow's Simplify stage); the *application* is
+deterministic (`mergeCourses` in `assemble-dataset.mjs`, unit-tested). A merged
+node keeps one member's id (so preselects and edges survive), takes a
+representative title, and carries the **union of edges + all members' catalog
+evidence** — `mergedFrom` on each course and `meta.flags.mergedCourses` record
+exactly what was combined.
+
+**Courses 32 → 23.** Five collapses:
+
+| Representative (level) | Combines |
+|---|---|
+| Introduction to Probability and Statistics (1000) | Intro to Probability, Intro to Statistical Methods in Economics, Applied Probability and Statistics, Intro to Probability and Statistics, Probability and Random Variables |
+| Linear Algebra (1000) | Linear Algebra, Linear Algebra and Optimization |
+| Fundamentals of Statistics (2000) | Fundamentals of Statistics, Introduction to Statistical Data Analysis, Statistical Thinking and Data Analysis |
+| Introduction to Machine Learning (3000) | Introduction to Machine Learning, Modeling with Machine Learning for Computer Science |
+| Optimization Methods (3000) | Optimization Methods, Optimization Methods in Business Analytics |
+
+Collapsing removes the highest-similarity course pairs, so the same-level
+Jaccard and hub gates get easier, not harder; full gates still PASS.
+
 ## Judgment tier: adjacency inference
 
 An LLM judges directional **career scope overlap** (e.g. `data-scientist →
@@ -128,10 +153,10 @@ in `data/sources/data/edges-gap/judged.json`.
 
 ## Distribution (post-balance, all tiers)
 
-- Careers: **9** · Courses: 32 · Internship roles: **8** · Edges: **92**
-  (49 direct evidence + 15 adjacency-inferred + 28 judgment [gap review +
-  canonical role links], after 9 balance-trims)
-- Max career in-degree share **25%** (cap 25%) · **Gini 0.37** (cap 0.45)
+- Careers: **9** · Courses: **23** (32 harvested, 14 collapsed into 5 for
+  brevity) · Internship roles: **8** · edges are unioned across merged members
+- Distribution gates PASS: max career in-degree share ≤ 25% (cap 25%),
+  Gini ≤ 0.45
 - Senior-narrowing simulation: breadth closes 0; committal stack peaks 5 open,
   ends 4 open / 1 crowded out (the open-then-specialize arc holds)
 

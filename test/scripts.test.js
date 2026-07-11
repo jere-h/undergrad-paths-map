@@ -836,6 +836,77 @@ test("generateCatalog and allInputs carry the canonical marker through to the ap
   assert.equal(inputs.find((i) => i.id === "i1").canonical, true, "allInputs passes canonical through");
 });
 
+// ---------- course de-duplication (brevity) ----------
+
+test("mergeCourses collapses same-level members, unions edges (direct beats inferred), keeps evidence + provenance", async () => {
+  const { mergeCourses } = await import("../scripts/assemble-dataset.mjs");
+  const row = (id, name, edges, extra = {}) => ({
+    input: { id, name, level: 1000, dept: "D", catalogCode: id, taughtSkills: [id + "-skill"], evidence: [{ type: "catalog", url: id, retrievedAt: "x" }], ...extra },
+    kind: "course",
+    edges,
+  });
+  const rows = [
+    row("a", "Intro to Probability", [{ career: "stat", confidence: 0.6, matchedSkills: ["p"] }]),
+    row("b", "Probability and Random Variables", [
+      { career: "stat", confidence: 0.9, inferred: true, via: "x", matchedSkills: [] }, // inferred, loses to a's direct
+      { career: "ml", confidence: 0.7, matchedSkills: ["lin"] }, // unique -> carried
+    ]),
+    row("keepme", "Introduction to Probability and Statistics", [{ career: "stat", confidence: 0.55, matchedSkills: ["p2"] }]),
+    row("solo", "Linear Algebra", [{ career: "ml", confidence: 0.8, matchedSkills: ["m"] }]),
+  ];
+  const { rows: out, merged } = mergeCourses(rows, {
+    merges: [{ keep: "keepme", title: "Introduction to Probability and Statistics", members: ["a", "b", "keepme"] }],
+  });
+  assert.equal(out.length, 2, "3 collapse to 1, plus the untouched solo");
+  const rep = out.find((r) => r.input.id === "keepme");
+  assert.ok(rep, "kept id survives as representative");
+  assert.equal(rep.input.name, "Introduction to Probability and Statistics");
+  // stat edge: a's DIRECT (0.6) beats b's inferred (0.9) -> direct kept
+  const statEdge = rep.edges.find((e) => e.career === "stat");
+  assert.ok(!statEdge.inferred && statEdge.confidence === 0.6, "direct edge wins over inferred even at lower confidence");
+  assert.ok(rep.edges.some((e) => e.career === "ml" && e.confidence === 0.7), "unique edge from a member is carried");
+  assert.equal(rep.input.evidence.length, 3, "all members' evidence preserved");
+  assert.deepEqual(rep.input.mergedFrom.map((m) => m.id), ["a", "b", "keepme"], "provenance records every member");
+  assert.deepEqual(merged[0].members.map((m) => m.id), ["a", "b", "keepme"]);
+  assert.deepEqual(merged[0].level, 1000);
+});
+
+test("mergeCourses refuses cross-level merges and needs >=2 present members", async () => {
+  const { mergeCourses } = await import("../scripts/assemble-dataset.mjs");
+  const row = (id, level) => ({ input: { id, name: id, level, dept: "D" }, kind: "course", edges: [{ career: "x", confidence: 0.6 }] });
+  const rows = [row("a", 1000), row("b", 2000), row("c", 1000)];
+  const r1 = mergeCourses(rows, { merges: [{ keep: "a", members: ["a", "b"] }] });
+  assert.equal(r1.rows.length, 3, "cross-level merge is skipped, nothing collapses");
+  assert.ok(r1.skipped.some((s) => s.includes("span levels")));
+  const r2 = mergeCourses(rows, { merges: [{ keep: "a", members: ["a", "missing"] }] });
+  assert.equal(r2.rows.length, 3, "a merge with only 1 present member is a no-op");
+  assert.ok(r2.skipped.some((s) => s.includes("fewer than 2")));
+});
+
+test("mergeCourses is a no-op without a merges file, and assemble threads it through", async () => {
+  const { mergeCourses, assemble } = await import("../scripts/assemble-dataset.mjs");
+  const rows = [{ input: { id: "a", name: "A", level: 1000 }, kind: "course", edges: [] }];
+  assert.equal(mergeCourses(rows, null).rows, rows, "null merges returns the same array");
+  const prop = (career, confidence) => ({ career, confidence, matchedSkills: ["s"], distinctive: true });
+  const out = assemble({
+    meta: { runId: "r", pilot: true },
+    careerFiles: [{ id: "stat", name: "Stat" }],
+    distinctive: null,
+    courseFiles: [{ dept: "D", courses: [
+      { id: "c1", name: "Intro Prob", level: 1000, dept: "D", evidence: [{ type: "catalog", retrievedAt: "x" }] },
+      { id: "c2", name: "Prob and Random Variables", level: 1000, dept: "D", evidence: [{ type: "catalog", retrievedAt: "x" }] },
+    ] }],
+    internshipFiles: [],
+    judgeFiles: [{ proposals: { c1: [prop("stat", 0.9)], c2: [prop("stat", 0.8)] } }],
+    verdictFiles: [],
+    merges: { merges: [{ keep: "c1", title: "Introduction to Probability and Statistics", members: ["c1", "c2"] }] },
+  });
+  assert.equal(out.courses.length, 1, "two intro courses collapse to one in a full assemble");
+  assert.equal(out.courses[0].id, "c1");
+  assert.equal(out.courses[0].name, "Introduction to Probability and Statistics");
+  assert.deepEqual(out.meta.flags.mergedCourses[0].members.map((m) => m.id), ["c1", "c2"]);
+});
+
 test("narrowing simulation holds on a canonical-heavy internship set; committal stays 1.0 per pick", async () => {
   const { simulateNarrowing } = await import("../scripts/validate-dataset.mjs");
   const { inputStrength } = await import("../score.js");

@@ -74,14 +74,6 @@ export const CAREERS = [
 
 export const COURSES = [
   {
-    id: "mit-6-3700",
-    name: "Introduction to Probability",
-    level: 1000,
-    dept: "EECS",
-    destinations: ["statistician","data-scientist","ml-engineer"],
-    inferred: ["data-scientist","ml-engineer"],
-  },
-  {
     id: "mit-6-c35-j",
     name: "Interactive Data Visualization and Society",
     level: 1000,
@@ -106,14 +98,6 @@ export const COURSES = [
     inferred: ["data-architect"],
   },
   {
-    id: "mit-6-3720",
-    name: "Introduction to Statistical Data Analysis",
-    level: 2000,
-    dept: "EECS",
-    destinations: ["statistician","data-scientist","data-analyst"],
-    inferred: ["data-analyst"],
-  },
-  {
     id: "mit-6-c01",
     name: "Modeling with Machine Learning: from Algorithms to Applications",
     level: 2000,
@@ -125,7 +109,8 @@ export const COURSES = [
     name: "Introduction to Machine Learning",
     level: 3000,
     dept: "EECS",
-    destinations: ["ml-engineer"],
+    destinations: ["ml-engineer","data-scientist"],
+    inferred: ["data-scientist"],
   },
   {
     id: "mit-6-5831",
@@ -133,22 +118,6 @@ export const COURSES = [
     level: 3000,
     dept: "EECS",
     destinations: ["data-engineer","data-architect"],
-  },
-  {
-    id: "mit-6-c011",
-    name: "Modeling with Machine Learning for Computer Science",
-    level: 3000,
-    dept: "EECS",
-    destinations: ["ml-engineer","data-scientist"],
-    inferred: ["data-scientist"],
-  },
-  {
-    id: "mit-14-30",
-    name: "Introduction to Statistical Methods in Economics",
-    level: 1000,
-    dept: "Economics",
-    destinations: ["statistician","data-analyst"],
-    inferred: ["data-analyst"],
   },
   {
     id: "mit-14-32",
@@ -199,14 +168,6 @@ export const COURSES = [
     inferred: ["data-analyst"],
   },
   {
-    id: "mit-15-069",
-    name: "Applied Probability and Statistics",
-    level: 1000,
-    dept: "Management",
-    destinations: ["statistician","or-analyst"],
-    inferred: ["or-analyst"],
-  },
-  {
     id: "mit-15-076",
     name: "Analytics for a Better World",
     level: 1000,
@@ -214,25 +175,9 @@ export const COURSES = [
     destinations: ["or-analyst","ml-engineer","data-scientist"],
   },
   {
-    id: "mit-15-075j",
-    name: "Statistical Thinking and Data Analysis",
-    level: 2000,
-    dept: "Management",
-    destinations: ["statistician","data-scientist","data-analyst"],
-    inferred: ["data-analyst"],
-  },
-  {
     id: "mit-15-780",
     name: "Analytics of Operations Management",
     level: 2000,
-    dept: "Management",
-    destinations: ["or-analyst","data-scientist"],
-    inferred: ["data-scientist"],
-  },
-  {
-    id: "mit-15-053",
-    name: "Optimization Methods in Business Analytics",
-    level: 3000,
     dept: "Management",
     destinations: ["or-analyst"],
   },
@@ -273,8 +218,8 @@ export const COURSES = [
     name: "Introduction to Probability and Statistics",
     level: 1000,
     dept: "Mathematics",
-    destinations: ["statistician","data-scientist","data-analyst"],
-    inferred: ["data-analyst"],
+    destinations: ["statistician","data-scientist","data-analyst","ml-engineer","or-analyst"],
+    inferred: ["data-analyst","or-analyst"],
   },
   {
     id: "mit-18-06",
@@ -282,22 +227,7 @@ export const COURSES = [
     level: 1000,
     dept: "Mathematics",
     destinations: ["ml-engineer","data-scientist","or-analyst"],
-    inferred: ["data-scientist","or-analyst"],
-  },
-  {
-    id: "mit-18-600",
-    name: "Probability and Random Variables",
-    level: 1000,
-    dept: "Mathematics",
-    destinations: ["statistician","ml-engineer","data-scientist"],
     inferred: ["data-scientist"],
-  },
-  {
-    id: "mit-18-c06-j",
-    name: "Linear Algebra and Optimization",
-    level: 1000,
-    dept: "Mathematics",
-    destinations: ["ml-engineer","or-analyst"],
   },
   {
     id: "mit-18-065",

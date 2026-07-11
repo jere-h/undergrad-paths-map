@@ -231,6 +231,80 @@ export function buildCanonicalRoles(proposals, validation, careerIds, opts = CAN
   return { rows, skipped };
 }
 
+// Course de-duplication (brevity/simplicity of the experience). Several real
+// catalog courses can be title-and-scope near-duplicates within one level
+// (e.g. "Introduction to Probability", "Probability and Random Variables",
+// "Introduction to Probability and Statistics"). The DECISION of what is
+// similar enough to collapse is judgment (an agent, or a hand-authored
+// _merges.json); this APPLICATION is deterministic. A merged node keeps one
+// member's id (so preselects and edges referencing it survive), a
+// representative title, the UNION of members' edges (best edge per career,
+// direct beating inferred), and ALL members' evidence + taughtSkills, plus a
+// mergedFrom record. Runs AFTER the judgment layers so judged/adjacency edges
+// on any member are preserved into the representative, and BEFORE balancing so
+// the balancer and gates see the final, collapsed node set.
+const edgeRank = (e) => (e.inferred ? 0 : 1); // direct beats inferred/judged
+function betterEdge(a, b) {
+  return edgeRank(a) !== edgeRank(b) ? edgeRank(a) > edgeRank(b) : (a.confidence || 0) > (b.confidence || 0);
+}
+
+// merges: { merges: [{ keep, title, members: [ids], rationale? }] }
+// Returns { rows, merged, skipped } where rows is the new course-row list.
+export function mergeCourses(courseRows, merges) {
+  if (!merges || !Array.isArray(merges.merges)) return { rows: courseRows, merged: [], skipped: [] };
+  const byId = new Map(courseRows.map((r) => [r.input.id, r]));
+  const consumed = new Set();
+  const repById = new Map();
+  const merged = [];
+  const skipped = [];
+  for (const m of merges.merges || []) {
+    const present = (m.members || []).filter((id) => byId.has(id) && !consumed.has(id));
+    if (present.length < 2) {
+      if ((m.members || []).length) skipped.push(`${m.keep || present[0] || "?"}: fewer than 2 present members, not merged`);
+      continue;
+    }
+    const memberRows = present.map((id) => byId.get(id));
+    const levels = new Set(memberRows.map((r) => r.input.level));
+    if (levels.size > 1) {
+      skipped.push(`${m.keep || present[0]}: members span levels ${[...levels].join(", ")}, not merged (merges must stay within a tier)`);
+      continue;
+    }
+    const keepId = m.keep && present.includes(m.keep) ? m.keep : present[0];
+    const keepRow = byId.get(keepId);
+    // Union edges: best edge per career (direct beats inferred; then higher confidence).
+    const bestByCareer = new Map();
+    for (const r of memberRows)
+      for (const e of r.edges) {
+        const cur = bestByCareer.get(e.career);
+        if (!cur || betterEdge(e, cur)) bestByCareer.set(e.career, e);
+      }
+    const memberMeta = memberRows.map((r) => ({ id: r.input.id, name: r.input.name, catalogCode: r.input.catalogCode }));
+    const rep = {
+      input: {
+        ...keepRow.input,
+        id: keepId,
+        name: m.title || keepRow.input.name,
+        taughtSkills: [...new Set(memberRows.flatMap((r) => r.input.taughtSkills || []))],
+        evidence: memberRows.flatMap((r) => r.input.evidence || []),
+        mergedFrom: memberMeta,
+      },
+      kind: "course",
+      edges: [...bestByCareer.values()].map((e) => ({ ...e })),
+    };
+    present.forEach((id) => consumed.add(id));
+    repById.set(keepId, rep);
+    merged.push({ id: keepId, title: rep.input.name, level: keepRow.input.level, members: memberMeta });
+  }
+  // Rebuild in original order: kept members become their representative, other
+  // members are dropped, everything else passes through.
+  const rows = [];
+  for (const r of courseRows) {
+    if (repById.has(r.input.id)) rows.push(repById.get(r.input.id));
+    else if (!consumed.has(r.input.id)) rows.push(r);
+  }
+  return { rows, merged, skipped };
+}
+
 export function collectVerdicts(verdictFiles) {
   const map = new Map();
   for (const file of verdictFiles)
@@ -302,6 +376,7 @@ export function assemble({
   internshipFiles,
   canonicalProposals = null,
   canonicalValidation = null,
+  merges = null,
   judgeFiles,
   verdictFiles,
   autoFlag = true,
@@ -344,14 +419,23 @@ export function assemble({
   // Stage 1b: judgment layers. Gap-review judged edges merge first (they are
   // explicit assertions about a specific input), then adjacency propagates
   // scope-overlap edges around whatever now exists - never duplicating either.
-  const balanceRows = [...courseRows, ...internRows];
-  const judged = mergeJudgedEdges(balanceRows, gapFiles, careerIdSet);
-  const inferred = propagateAdjacency(balanceRows, adjacency);
+  const judgmentRows = [...courseRows, ...internRows];
+  const judged = mergeJudgedEdges(judgmentRows, gapFiles, careerIdSet);
+  const inferred = propagateAdjacency(judgmentRows, adjacency);
+
+  // Stage 1c: course de-duplication for brevity. Collapses title-similar
+  // courses within a level into one representative (union of edges + evidence),
+  // AFTER the judgment layers (so a member's judged/adjacency edges survive
+  // into the representative) and BEFORE balancing (so the balancer and gates
+  // see the collapsed node set). The member courses' edges are already on their
+  // rows, so no id remapping of judged/gap edges is needed.
+  const { rows: mergedCourseRows, merged: mergedCourses, skipped: mergeSkipped } = mergeCourses(courseRows, merges);
 
   // Stage 2: balance in-degree so a few hub careers can't swallow the map
   // (full runs only; pilot sets are too small for distributional shaping).
   // Runs after inference so it accounts for inferred edges too; because those
   // are lower-confidence by construction, the balancer trims them first.
+  const balanceRows = [...mergedCourseRows, ...internRows];
   const trimmed = meta.pilot ? 0 : balanceInDegree(balanceRows);
 
   const dropped = [];
@@ -383,7 +467,7 @@ export function assemble({
     if (inferredDests.length) out.inferred = inferredDests;
     return out;
   };
-  const courses = courseRows.map(freeze).filter(Boolean);
+  const courses = mergedCourseRows.map(freeze).filter(Boolean);
   const internships = internRows.map(freeze).filter(Boolean);
 
   // Stage 3: reconcile careers against surviving support. A career reached by
@@ -411,6 +495,8 @@ export function assemble({
   if (judged) flags.judgedEdges = judged;
   if (inferenceOnly.length) flags.inferenceOnlyCareers = inferenceOnly;
   if (unsupported.length) flags.unsupportedCareers = unsupported;
+  if (mergedCourses.length) flags.mergedCourses = mergedCourses;
+  if (mergeSkipped.length) flags.mergeSkipped = mergeSkipped;
   if (distinctive && distinctive.collisions && distinctive.collisions.length)
     flags.socCollisions = distinctive.collisions;
 
@@ -460,6 +546,7 @@ function main() {
   const adjacencyPath = join(sources, "careers", "_adjacency.json");
   const canonicalProposalsPath = join(sources, "internships-canonical", "_proposals.json");
   const canonicalValidationPath = join(sources, "internships-canonical", "validation.json");
+  const mergesPath = join(sources, "courses", "_merges.json");
   const dataset = assemble({
     meta: readJson(join(sources, "meta.json")),
     careerFiles: readDir(join(sources, "careers")),
@@ -470,6 +557,7 @@ function main() {
     internshipFiles: readDir(join(sources, "internships")),
     canonicalProposals: existsSync(canonicalProposalsPath) ? readJson(canonicalProposalsPath) : null,
     canonicalValidation: existsSync(canonicalValidationPath) ? readJson(canonicalValidationPath) : null,
+    merges: existsSync(mergesPath) ? readJson(mergesPath) : null,
     judgeFiles: readDir(join(sources, "edges-judge")),
     verdictFiles: readDir(join(sources, "edges-verdicts")),
     autoFlag: !args.includes("--no-auto-flag"),
@@ -479,6 +567,7 @@ function main() {
   console.log(
     `wrote ${out}: ${dataset.careers.length} careers, ${dataset.courses.length} courses, ${dataset.internships.length} internships` +
       (f.internshipVariety ? ` (${f.internshipVariety.clustered} clustered + ${f.internshipVariety.canonical} canonical)` : "") +
+      (f.mergedCourses ? `; ${f.mergedCourses.length} course merge(s) collapsing ${f.mergedCourses.reduce((s, m) => s + m.members.length, 0)} into ${f.mergedCourses.length}` : "") +
       (f.inferredEdges ? `; +${f.inferredEdges} inferred edges (adjacency)` : "") +
       (f.judgedEdges ? `; +${f.judgedEdges} judged edges (gap review)` : "") +
       (f.canonicalSkipped ? `; canonical skipped: ${f.canonicalSkipped.join("; ")}` : "") +
