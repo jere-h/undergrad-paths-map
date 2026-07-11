@@ -7,6 +7,7 @@ export const meta = {
     { title: 'Careers', detail: 'batched grounding + distinctiveness + scope-overlap adjacency' },
     { title: 'Courses', detail: 'parse catalog pages, shortlist, label taught skills' },
     { title: 'Internships', detail: 'cluster intern roles across org types' },
+    { title: 'Simplify', detail: 'collapse title-similar courses within each level for brevity' },
     { title: 'Edges', detail: 'batched judges; skeptics only on the uncertain band' },
     { title: 'Intern variety', detail: 'canonical common roles proposed by judgment, validated against real postings' },
     { title: 'Gaps', detail: 'user-intuition gap review; capped judged edges' },
@@ -83,6 +84,10 @@ const DEFAULTS = {
   skepticBatchSize: 12, // banded edges verified per agent
   inferAdjacency: true, // judgment tier: infer scope-overlap edges between careers
   reviewGaps: true, // judgment tier: repair user-intuition gaps with capped judged edges
+  // Course de-duplication for brevity: an agent proposes which title-similar
+  // courses within a level to collapse into one representative; the assembler
+  // (mergeCourses) applies it deterministically, unioning edges + evidence.
+  simplifyCourses: true,
   // Intern-variety repair (judgment tier 3): when fewer clustered roles
   // SURVIVE edge policy than minInternshipVariety (the validator gate), an
   // LLM proposes canonical common intern roles and a grounding search must
@@ -140,6 +145,7 @@ const TIER_DEFAULTS = {
   adjacency: {}, // inherit: domain judgment of career scope overlap
   gaps: {}, // inherit: user-perspective judgment repairing sparse spots
   courses: { model: 'sonnet', effort: 'medium' }, // shortlist + label parsed JSON
+  simplify: { model: 'sonnet', effort: 'medium' }, // judge which courses are near-duplicates
   internships: { model: 'sonnet', effort: 'medium' }, // cluster prefiltered titles
   judge: { model: 'sonnet', effort: 'medium' }, // batched edge proposals
   skeptic: {}, // inherit: adversarial verification is where quality binds
@@ -370,6 +376,32 @@ const groundedCareerIds = careerOut.groundedIds
 log(`grounded: ${groundedCareerIds.length} careers, ${courseFiles.flatMap((m) => m.ids).length} courses, ${internshipFiles.flatMap((m) => m.ids).length} internship roles`)
 
 // ---------------------------------------------------------------------------
+// Phase 3b - Simplify: collapse title-similar courses within a level for
+// brevity. The DECISION is judgment (one agent reads the harvested courses
+// across all departments); the APPLICATION is deterministic (mergeCourses in
+// assemble-dataset.mjs unions edges + evidence). The agent writes only a new
+// _merges.json; it never edits course files. Edge judging still runs per real
+// course, so grounding is unchanged; the merge is applied at assembly.
+// ---------------------------------------------------------------------------
+
+if (cfg.simplifyCourses !== false && courseFiles.length) {
+  phase('Simplify')
+  const simplify = await agent(
+    `Course de-duplication (Simplify) for the ground-catalog workflow (run ${cfg.runId}). Goal: a simpler experience by collapsing courses that are title-and-scope NEAR-DUPLICATES within the SAME level into one representative, WITHOUT losing grounding.
+Read every course file ${ROOT}/courses/*.json (each has { dept, courses: [{ id, name, level, catalogCode, taughtSkills, ... }] }). Consider all departments together (near-duplicates often span departments, e.g. an Economics and a Mathematics intro statistics course).
+Rules:
+- Only merge courses that share the SAME level (1000/2000/3000) and genuinely teach the same foundational material a student would treat as interchangeable (e.g. "Introduction to Probability", "Probability and Random Variables", "Introduction to Probability and Statistics"). When unsure, DO NOT merge - a distinct advanced/specialized course must stay separate.
+- Each merge group needs >= 2 members. Pick "keep" = the member id whose title is the most representative/canonical (its id is preserved, so edges and any preselect survive). Give the group a clean representative "title".
+- Prefer a few high-confidence collapses over aggressive merging. Advanced (3000) courses are usually distinct; be conservative there.
+Write ONE file ${ROOT}/courses/_merges.json (do NOT edit the course files):
+{ "merges": [{ "keep": "<member id>", "title": "<representative title>", "members": ["<id>", "<id>", ...], "rationale": "<one line: why these are interchangeable at this level>" }] }
+The assembler applies this deterministically: it unions the members' edges (direct beats inferred) and ALL their catalog evidence into the kept id, records mergedFrom + meta.flags.mergedCourses, and refuses any cross-level group. Return the manifest: path=${ROOT}/courses/_merges.json, ids=["<keep>" per group], notes=how many courses collapse into how many, and which you deliberately left separate.`,
+    { ...tier('simplify'), label: 'simplify-courses', phase: 'Simplify', schema: MANIFEST }
+  )
+  if (simplify) log(`course simplify: ${simplify.ids.length} merge group(s); ${simplify.notes || ''}`)
+}
+
+// ---------------------------------------------------------------------------
 // Phase 4 - Edges. Judges are batched (one per department file + one for
 // internships). The workflow then computes, in plain code, which proposals
 // fall in the uncertain band; ONLY those get skeptic agents (also batched).
@@ -581,6 +613,7 @@ Structure, flagged items FIRST:
 1. Verdict: gates ${finalize && finalize.ok ? 'PASSED' : 'FAILED'} (${cfg.pilot ? 'pilot gates only, distributional gates not evaluated' : 'full gates'}); what a human must review before this catalog ships as an app tab (registered via apply: true).
 2. Flags: posting-grounded careers (lower provenance), careers dropped for lack of honest grounding (meta.flags.unsupportedCareers), dropped inputs (meta.flags.droppedInputs), inferred edges (meta.flags.inferredEdges), gap-review judged edges (meta.flags.judgedEdges, with their rationales from ${ROOT}/edges-gap/judged.json), and careers reachable ONLY via inference (meta.flags.inferenceOnlyCareers) - state plainly that these rest on judgment (scope overlap or gap review), not direct evidence, and are drawn softer, internship-starved careers, level tie-breaks (levelNote), same-SOC collisions (meta.flags.socCollisions), edges trimmed for balance (meta.flags.edgesTrimmedForBalance), dead/empty company boards, whether the skeptic band was empty (if so, say the adversarial pass had nothing to do this run), and the senior-narrowing simulation line from the validator output (breadth must close nothing; the committal stack should peak then narrow).
 2b. Validated-canonical internship tier (if meta.flags.canonicalInternships is present): a DEDICATED section. For each canonical role list its validation evidence WITH AGE (postedAt vs retrievedAt - a historical posting must read as historical, not current), its judged-edge rationales (from ${ROOT}/internships-canonical/_proposals.json), and state explicitly that its requiredSkills are JUDGMENT (skillsBasis "judgment"), not posting-extracted. Report the variety split (meta.flags.internshipVariety: clustered vs canonical), any roles the join skipped (meta.flags.canonicalSkipped: unvalidated or title-duplicate), careers whose internship support is entirely canonical (meta.flags.canonicalOnlyInternshipCareers), and which starved careers remain unserved (from the proposer's notes). Say plainly: canonical roles are validated to EXIST at real employers; their career links are judgment, not measured outcomes.
+2c. Course de-duplication (if meta.flags.mergedCourses is present): a short section listing each merged representative and the courses it combines (from mergedCourses[].members), noting that merges only collapse title-similar SAME-LEVEL courses, keep one member id, and union edges + all members' catalog evidence (so grounding is preserved). Mention meta.flags.mergeSkipped if any group was refused.
 3. Every node and edge with its evidence (source, quote or company/title, retrievedAt) and confidence, in tables.
 4. Staleness: postings churn in weeks; recommend a re-run cadence, and note the canonical tier's evidence is seasonal too (re-validate each cycle).
 Be honest: this dataset is a verified skill-overlap heuristic over requirement-side evidence, not measured outcomes. Return the manifest (path=${REPORT}, ids=[]).`,

@@ -300,6 +300,23 @@ rationales preserved in `edges-gap/judged.json`). A genuinely narrow course is
 allowed to stay narrow; the agent reports what it left alone. Toggle with
 `args.reviewGaps` (default on).
 
+### Simplify phase: course de-duplication for brevity
+
+A real catalog often yields several courses that are title-and-scope
+near-duplicates within one level (five intro-probability/statistics courses,
+two linear-algebra courses). Shipping them as separate chips clutters the
+experience without adding real choice. The **Simplify phase** (one agent, after
+the course harvest) exercises exactly this judgment: it proposes which
+same-level courses to collapse into one representative, writing a new
+`courses/_merges.json` (it never edits course files). The assembler's
+deterministic `mergeCourses` applies it: keep one member's id (so preselects
+and edges survive), take a representative title, and union the members' edges
+(direct beats inferred) and **all** their catalog evidence and taught skills,
+recording `mergedFrom` per course and `meta.flags.mergedCourses`. Cross-level
+groups are refused. Because merging removes the highest-similarity course
+pairs, the same-level Jaccard and hub gates get easier, not harder. Toggle with
+`args.simplifyCourses` (default on).
+
 ### Cost tiering and reuse across industries
 
 Per-stage model/effort tiers keep the fan-out affordable: mechanical stages
