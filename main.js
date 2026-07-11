@@ -15,6 +15,9 @@ import {
   openCareerPanel,
   closePanel,
 } from "./render.js";
+import { startTour } from "./tour.js";
+
+const INTRO_KEY = "openDoors.introSeen";
 
 // Active catalog module ({ CAREERS, COURSES, INTERNSHIPS }) and its registry entry.
 let catalog = null;
@@ -92,6 +95,51 @@ function clearAll() {
   update();
 }
 
+function currentPreselect() {
+  return (activeEntry && activeEntry.preselect) || ["cs101", "stats101", "ml301", "mnc-data"];
+}
+
+// Set the selection to the catalog's demo stack (an overlapping set that shows
+// convergence). Used for the first-paint state and to restore it after the
+// intro tour, which clears then re-adds it to make the map visibly react.
+function selectDemo() {
+  selected.clear();
+  currentPreselect().forEach((id) => {
+    if (inputsById.has(id)) selected.add(id);
+  });
+  update();
+}
+
+// The picker lives in the sidebar on wide screens and behind the "Choose..."
+// toggle on mobile; the tour highlights whichever is actually on-screen.
+function pickerTarget() {
+  const toggle = document.getElementById("filter-toggle");
+  if (toggle && toggle.offsetParent !== null) return toggle;
+  return document.getElementById("sidebar");
+}
+
+// First-open walkthrough. Three steps, show-don't-tell: it empties the map,
+// then re-fills it live so the user watches the paths appear and the open
+// count jump, rather than reading about it. `force` replays it past the
+// localStorage gate (the header "?" button).
+function runIntro(force) {
+  if (!force) {
+    try {
+      if (localStorage.getItem(INTRO_KEY)) return;
+    } catch (_) {
+      /* private mode: treat as unseen, just don't persist later */
+    }
+  }
+  startTour(
+    [
+      { target: pickerTarget, caption: "Start with a few choices.", onEnter: clearAll },
+      { target: () => document.getElementById("map-wrap"), caption: "Watch the paths light up.", onEnter: selectDemo },
+      { target: () => document.getElementById("summary"), caption: "See which careers stay open." },
+    ],
+    { storageKey: force ? null : INTRO_KEY, onDone: selectDemo }
+  );
+}
+
 function showCareer(careerId) {
   const career = careersById.get(careerId);
   if (!career) return;
@@ -113,6 +161,9 @@ function wireChrome() {
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+
+  const introBtn = document.getElementById("intro-btn");
+  if (introBtn) introBtn.addEventListener("click", () => runIntro(true));
 
   const closeBtn = document.getElementById("panel-close");
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
@@ -198,7 +249,12 @@ function buildTabs() {
 function init() {
   wireChrome();
   buildTabs();
-  activate(CATALOGS[0]).catch((err) => console.error("failed to load default catalog", err));
+  activate(CATALOGS[0])
+    .then(() => {
+      // Let the first paint settle so the tour can measure real element rects.
+      requestAnimationFrame(() => setTimeout(() => runIntro(false), 180));
+    })
+    .catch((err) => console.error("failed to load default catalog", err));
 }
 
 if (document.readyState === "loading") {
