@@ -1,133 +1,157 @@
 # Human sign-off report — ground-catalog, Data industry
 
-- **Run:** `data-20260709T180456Z` · MIT · O*NET 29.1 · generated 2026-07-09
+- **Run:** `data-20260709T180456Z`, internship-variety pass **2026-07-11** ·
+  MIT · O*NET 29.1
 - **Dataset:** `data/datasets/data.json` → `data/catalogs/data.js` (app tab "Data")
-- **Verdict:** full gates **PASS** (0 errors, 8 warnings) after the v3.1
-  structural fixes below. This report supersedes the first-pass report; the
-  initial assembly failed validation and drove the workflow improvements.
+- **Verdict:** full gates **PASS** (0 errors, 2 warnings). This report
+  supersedes the v3.1 report; the 2026-07-11 pass added the internship-variety
+  detection gate, broadened intern grounding, and the validated-canonical
+  internship tier (docs/internship-variety-plan.md).
 
 ## What this dataset is (read before trusting it)
 
 Edges are a **verified skill-overlap heuristic** over official MIT course
 descriptions, the O*NET occupational database, and live intern postings. It is
 requirement-side evidence, **not measured student outcomes**. No placement or
-alumni data supports any edge.
+alumni data supports any edge. Internship roles come in two honestly-marked
+tiers (see below): posting-clustered (real postings, ≥2 employers, skills from
+posting text) and **validated-canonical** (a common role validated to *exist*
+at real employers, but whose career links are judgment, not measured).
 
-## The headline limitation (honest, and structural to the evidence base)
+## Headline change (2026-07-11): the one-internship problem is fixed
 
-**This map over-represents the quantitative/research data careers and
-under-represents applied data roles — because that is what the evidence base
-actually contains, not a bug.** Four careers (data-scientist, statistician,
-ml-engineer, operations-research-analyst) hold ~87% of edges; data-engineer,
-data-architect, BI-analyst, and data-analyst are thin.
+The prior run shipped **exactly one internship** (`mnc-business-operations-intern`)
+reaching 2 careers, with 6 of 8 careers flagged internship-starved — an
+unrealistic and unhelpful map. Root causes were diagnosed and repaired:
 
-Two causes, both real:
+- The internship stage consumed only Greenhouse/Lever boards, which in
+  mid-July carried almost no data-intern postings (seasonal drought).
+- The ≥2-distinct-companies rule (correct) killed nearly every cluster when
+  one board dominated.
+- The planned SimplifyJobs breadth source had never been implemented.
+- Internship edges came only from the direct-evidence tier, so thin postings
+  meant thin internship coverage.
 
-1. **MIT's catalog is theory-heavy.** It teaches probability, optimization,
-   ML, and statistics (which genuinely feed the quant careers) far more than
-   applied data engineering, ELT/warehousing, BI tooling, or "data analysis as
-   a job." Database Systems (6.5831) and Software Systems for Data Science
-   (6.1830) *do* ground data-engineer/data-architect, but there are only a
-   handful of such courses.
-2. **Internship evidence was seasonally unavailable.** Probed across ~20
-   data-focused company boards (Databricks, Snowflake, Datadog, MongoDB,
-   Instacart, Cloudflare, Plaid, …) on 2026-07-09, only 3 data-relevant
-   entry-level postings existed, all PhD ML-research internships. Summer
-   intern reqs are already filled in July; applied data-analyst/engineer
-   intern postings were not on public ATS boards. Re-running the internship
-   stage was therefore **contraindicated** — it would have added only more
-   research-role evidence and worsened the quant skew.
+**Result now: 8 internship roles reaching ALL 9 careers; zero
+internship-starved.** A deterministic **variety gate** (≥4 roles) and
+**coverage gate** (internship edges must reach ≥4 careers at ≥6-career scale)
+now FAIL any full run that regresses — the scarcity can never silently return.
 
-**Recommendation:** refresh the internship-derived edges in Aug–Oct when the
-next cycle's postings open; the applied-role coverage should improve
-materially then. Until then, treat applied-role reachability as course-limited.
+## Internship tiers (both shipped, visibly distinguished)
 
-## Structural workflow improvements this run produced (v3.1)
+The app draws posting-clustered roles as **squares** and canonical roles as
+**diamonds**, with a legend, a "common role" chip badge, and a detail-panel
+"(common role, judgment-based)" label on canonical career links.
 
-The first assembly failed with hub saturation (Gini 0.52, statistician 30% of
-edges) and orphan/path-closed careers. Three deterministic, generalizable
-fixes (in `scripts/`, unit-tested) fixed it without fabricating evidence:
+### Tier 1 — posting-clustered (4 roles)
 
-1. **In-degree balancing** (`assemble-dataset.mjs`): greedily trims the most
-   over-represented career's *weakest* valid edges until the share/Gini gates
-   hold. Trimmed 5 edges here. Never fabricates; never orphans an input.
-2. **Coverage-gate recalibration** (`validate-dataset.mjs`): a career reachable
-   only via internships is genuinely reachable, so course-only-absent is now a
-   *warning*, not a failure. Hard failure is reserved for zero *total* support.
-3. **Unsupported-career reconciliation** (`assemble-dataset.mjs`): a career
-   reached by nothing is dropped into `meta.flags.unsupportedCareers` rather
-   than shipped as an orphan / "path closed" node.
+Real postings, ≥2 distinct employers, `requiredSkills` extracted from posting
+text (ATS `content` or a web-fetched, snapshotted posting).
+
+| Role | Employers | Home career | Skill source |
+|---|---|---|---|
+| Business Operations Intern | Airbnb, Palantir, Stripe | data-analyst | ATS postings |
+| Data Scientist Intern | Uber Freight, TikTok, Home Depot, BCG, SOTI | data-scientist | Uber Freight posting (`web-data-scientist-intern-1.txt`) |
+| Data Engineer Intern | Hone Health, Tesla, TikTok, Medpace, Jump Trading | data-engineer | Hone Health posting (`web-data-engineer-intern-1.txt`) |
+| Machine Learning Engineer Intern | Neuralink, Instacart, ByteDance, PlusAI, PayPal | ml-engineer | Neuralink posting (`web-ml-engineer-intern-1.txt`) |
+
+The three new roles were clustered from the broadened pool (SimplifyJobs list +
+web-fetched postings). Their non-home edges (e.g. data-scientist-intern →
+statistician 0.68) fell below the 0.75 internship confidence floor and were
+auto-dropped; adjacency then re-added the honest scope-overlap neighbours as
+softer inferred edges.
+
+### Tier 2 — validated-canonical (4 roles)
+
+LLM-proposed common roles, each **validated to exist** by grounding search
+against ≥2 distinct current employers (snapshots checked on disk). Their
+`requiredSkills` are industry priors, marked `skillsBasis: "judgment"` — **not**
+posting-extracted — and every career link is judgment-tier (dampened ×0.55,
+dashed, capped, balance-gated).
+
+| Role | Validation employers (current) | Judged career links |
+|---|---|---|
+| Data Engineering Intern | TikTok, Hone Health (2026-07-08) | data-engineer, data-architect, data-analyst |
+| Business Intelligence / Analytics Intern | Eurofins, KPH Healthcare | bi-analyst, data-analyst |
+| Quantitative / Operations Research Intern | Point72, Stevens Capital, Amazon | or-analyst, statistician |
+| Statistics Intern | Vertex Pharmaceuticals, Johnson & Johnson (ASA StatTr@k 2026) | statistician, or-analyst |
+
+Two proposed canonical roles (Data Scientist Intern, Machine Learning Engineer
+Intern) **deduped against the clustered tier** (clustered evidence wins) and
+were dropped — `meta.flags.canonicalSkipped`. Evidence age: the OR Amazon page
+was bot-blocked (postedAt null) so currency there rests on the two current
+quant intern-list entries; the statistics entries use the ASA listing's
+2025-12 page date, inside the 550-day currency window. **All canonical
+evidence is seasonal — re-validate each cycle.**
+
+`meta.flags.canonicalOnlyInternshipCareers = [or-analyst, statistician]`:
+these two careers' internship support rests *entirely* on canonical judgment,
+not posting evidence. Honest to weigh accordingly.
+
+## The residual limitation (unchanged, structural to MIT's catalog)
+
+The *course* side still over-represents quantitative/research data careers:
+MIT teaches probability, optimization, ML, and statistics far more than
+applied data engineering, ELT/warehousing, or BI tooling. The internship tiers
+now counterbalance this on the reachability side (every career has an
+internship path), but course-derived depth for data-engineer, data-architect,
+and bi-analyst stays thin. Treat their *course* reachability as course-limited.
 
 ## Flags
 
 | Flag | Value |
 |---|---|
-| Dropped as unsupported | **analytics-engineer** (0 valid course edges, no data intern postings on the seeded/probed boards; a real but MIT-untaught, ATS-sparse role) |
-| SOC collision | **data-engineer / data-architect** (both 15-1243.00 Database Architects); kept separate but both thin — a merge is defensible |
-| Internship-only | **data-analyst** (sole support: one MNC business-operations intern role; weakest career in the set) |
-| Internship-starved (course-only) | data-scientist, statistician, ml-engineer, or-analyst, data-engineer, data-architect, bi-analyst |
-| Edges trimmed for balance | 5 |
-| Dropped inputs (no surviving edges) | 16 courses + 1 internship (mostly non-data econ/math courses that correctly matched no data career) |
+| Internship variety | **8 roles** (4 clustered + 4 canonical); variety + coverage gates PASS |
+| Canonical internships | data-engineering, business-intelligence-analytics, operations-research, statistics |
+| Canonical-only internship careers | **or-analyst, statistician** (internship support is entirely judgment) |
+| Canonical skipped (deduped vs clustered) | data-scientist-intern, machine-learning-engineer-intern |
+| Inference-only careers | **analytics-engineer** (was dropped as unsupported last run; the new Data Engineer Intern's adjacency now reaches it — reachability rests on judgment, drawn softer) |
+| SOC collision | **data-engineer / data-architect** (both 15-1243.00); kept separate, a merge is defensible |
+| Edges trimmed for balance | 9 |
+| Dropped inputs (no surviving edges) | 16 courses + `mnc-software-engineer-intern` (a general SWE role whose only edges fell below the internship floor; correctly dropped) |
 
 ## Judgment tier: adjacency inference
 
-A later structural addition lets the workflow assert relationships that are
-professionally true even without direct course/posting evidence. An LLM judges
-directional **career scope overlap** (e.g. `data-scientist → data-analyst`
-0.75: a DS qualification largely covers a DA role; the reverse only 0.35), and
-the assembler propagates **softer, clearly-marked "inferred" edges** along it.
-Inferred edges are dampened (×0.55 in the app, so they draw thinner/dashed),
-capped per input, never shadow a directly-grounded edge, and never chain.
-
-Effect on this dataset: **+11 inferred edges**. Data Analyst went from 1 direct
-edge (starved) to 7 (1 direct internship + 6 inferred via Data Scientist) — the
-Data-Science courses now also keep the Data-Analyst path reachable, exactly the
-overlapping-scope relationship a practitioner would affirm. BI Analyst 1 → 4.
-The map is both more expressive and better balanced (Gini fell 0.42 → 0.33), so
-no hub trimming was needed. Careers reachable *only* via inference are flagged
-`meta.flags.inferenceOnlyCareers`; their reachability rests on judgment, not
-evidence, and the detail panel labels those links "(scope overlap)".
-
-analytics-engineer stayed dropped: even with adjacency, no directly-supported
-neighbor propagated an edge above the inference floor to it.
+An LLM judges directional **career scope overlap** (e.g. `data-scientist →
+data-analyst` 0.75) and the assembler propagates **softer, marked "inferred"
+edges** along it (dampened ×0.55, capped, non-shadowing, non-chaining).
+**+17 inferred edges** this run. Notably, the new Data Engineer Intern's
+adjacency rescued **analytics-engineer**, which was dropped entirely last run —
+its reachability now rests on judgment and is flagged `inferenceOnlyCareers`.
 
 ## Judgment tier 2: user-intuition gap review
 
-A user-perspective review found 20 of 32 courses opening fewer doors than
-their level promises — worst, foundational 1000-level courses with a single
-destination ("Introduction to Probability" → statistician only; "Linear
-Algebra" → ml-engineer only). Structural cause: the distinctive-skill rule
-that prevents saturation also under-connects foundational material, whose
-value to several careers flows through skills distinctive to none of them.
+The gap-review agent proposed **23 judged edges** (0.45–0.65, advisor-defensible
+rationale, ≤2 per course) to repair foundational courses that opened too few
+doors, with honest restraint on genuinely narrow material. Rationales preserved
+in `data/sources/data/edges-gap/judged.json`.
 
-The gap-review agent proposed **23 judged edges** (confidence 0.45–0.65, each
-with an advisor-defensible rationale, ≤2 per input), and showed honest
-restraint: it left the pure-theory Combinatorial Optimization course narrow
-and declined to force edges to data-engineer/data-architect, correctly naming
-their sparsity a *coverage* gap (MIT's applied-database offerings beyond
-6.1830/6.5831 were dropped upstream), not a judgment gap.
+## Distribution (post-balance, all tiers)
 
-**Balance held**: the agent over-proposed toward data-scientist (as it
-predicted), and the in-degree balancer trimmed the 10 weakest judged edges to
-keep the hub at 24% share. Net: sparse inputs 20 → 12, and every repaired
-course now opens 2 doors instead of 1. The remaining 12 sit at 2 destinations
-against the 1000-level aspiration of 3 — the deliberate ceiling of an 8-career
-map, where giving every intro course 3+ doors would re-saturate the hubs the
-gates exist to prevent.
+- Careers: **9** · Courses: 32 · Internship roles: **8** · Edges: **92**
+  (49 direct evidence + 15 adjacency-inferred + 28 judgment [gap review +
+  canonical role links], after 9 balance-trims)
+- Max career in-degree share **25%** (cap 25%) · **Gini 0.37** (cap 0.45)
+- Senior-narrowing simulation: breadth closes 0; committal stack peaks 5 open,
+  ends 4 open / 1 crowded out (the open-then-specialize arc holds)
 
-## Distribution (post-balance + both judgment tiers)
+## Note on the tech pilot tab
 
-- Careers: 8 · Courses: 32 · Internship roles: 1 · Edges: 70
-  (46 direct + 11 adjacency-inferred + 23 gap-judged, minus 10 balance-trimmed)
-- Max career in-degree share 24% (cap 25%) · **Gini 0.34** (cap 0.45)
-- Judged-edge rationales preserved in `data/sources/data/edges-gap/judged.json`
+`data/datasets/tech.json` (the 3-career MIT pilot slice) ships 2 internships
+and was validated under **pilot gates**, which skip the variety/coverage/
+distributional gates by design. It remains a clearly-labeled pilot tab; a
+future full-scale tech re-run must satisfy the new internship-variety gates.
 
 ## What a human should confirm before this stays the default map
 
-1. Accept the quant-skew limitation and the Aug–Oct internship refresh plan,
-   **or** narrow the advertised career set to the well-supported quant core.
-2. Decide data-engineer vs data-architect: keep separate or merge (SOC collision).
-3. Spot-check the data-analyst ↔ business-operations-intern edge; it is the
-   single weakest link and the only thing keeping data-analyst reachable.
-4. Confirm dropping analytics-engineer is acceptable (vs sourcing dedicated
-   evidence for it).
+1. Accept the canonical internship tier's epistemics: canonical roles are
+   validated to *exist* at real employers, but their career links and skills
+   are judgment. The UI marks them (diamonds, badge, panel label); confirm the
+   distinction reads clearly for your audience.
+2. Spot-check the two canonical-only careers (or-analyst, statistician): their
+   internship reachability rests entirely on judgment.
+3. Decide data-engineer vs data-architect (SOC collision): keep separate or merge.
+4. Confirm analytics-engineer's inference-only reachability is acceptable (vs
+   sourcing dedicated direct evidence for it).
+5. Re-validate the internship tiers next posting cycle (Aug–Oct); canonical and
+   clustered evidence alike is seasonal.

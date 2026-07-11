@@ -80,6 +80,23 @@
       "internCount": 31,
       "newGradCount": 17,
       "file": "data/sources/data/postings/lever-palantir.json"
+    },
+    {
+      "company": "simplify",
+      "source": "simplify",
+      "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/.github/scripts/listings.json",
+      "ok": true,
+      "totalListings": 15035,
+      "internCount": 574,
+      "categoryCounts": {
+        "AI/ML/Data": 464,
+        "Data Science, AI & Machine Learning": 26,
+        "Quantitative Finance": 2,
+        "Quant": 82
+      },
+      "file": "data/sources/data/postings/simplify.json",
+      "companiesFile": "data/sources/data/postings/simplify-companies.json",
+      "retrievedAt": "2026-07-11T06:49:26.276Z"
     }
   ]
 }

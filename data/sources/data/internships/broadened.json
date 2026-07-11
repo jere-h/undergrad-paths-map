@@ -1,0 +1,195 @@
+{
+  "orgType": "MNC",
+  "roles": [
+    {
+      "id": "mnc-data-scientist-intern",
+      "role": "Data Scientist Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Data Scientist Intern (Uber Freight)",
+        "Data Scientist Intern (TikTok)",
+        "Intern, Data Scientist (The Home Depot)",
+        "Data Scientist Intern (Boston Consulting Group)",
+        "Data Scientist Intern (SOTI)"
+      ],
+      "requiredSkills": [
+        "Python or R for model development and analysis",
+        "SQL for data manipulation and analysis",
+        "Statistical and ML methods: regression, classification trees, unsupervised learning, causal inference, time series analysis",
+        "Pursuing a quantitative degree (Statistics, Mathematics, Computer Science, Physics, Economics, Operations Research, or Engineering)",
+        "Strong problem-solving and ability to work in ambiguous environments",
+        "Manage a project end-to-end from data exploration to presenting findings",
+        "Clear communication for technical and non-technical audiences"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Uber Freight",
+          "title": "Data Scientist Intern - Fall 2026",
+          "url": "https://job-boards.greenhouse.io/uberfreight/jobs/5194491008",
+          "snapshot": "data/sources/data/postings/web-data-scientist-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Scientist Intern",
+          "url": "https://lifeattiktok.com/search/7532238337198622983",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "The Home Depot",
+          "title": "Data Scientist Intern",
+          "url": "https://homedepot.wd5.myworkdayjobs.com/CareerDepotCanada/job/CANADA-STORE-SUPPORT-CENTER---7000/Intern--Data-Scientist_Req185609",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Boston Consulting Group",
+          "title": "Data Scientist Intern",
+          "url": "https://careers.bcg.com/global/en/job/56634",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "SOTI",
+          "title": "Data Scientist Intern",
+          "url": "https://soti.wd3.myworkdayjobs.com/SOTI-Next-Gen/job/Mississauga-Canada--Meadowvale-Office-HQ/Data-Scientist--Intern--September-2026-12-Months-_R10065",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ]
+    },
+    {
+      "id": "mnc-data-engineer-intern",
+      "role": "Data Engineer Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Data Engineering Intern (Hone Health)",
+        "Data Engineer Intern (Tesla)",
+        "Data Engineer Intern (TikTok)",
+        "Data Engineer Intern (Medpace)",
+        "Campus Data Engineer Intern (Jump Trading)"
+      ],
+      "requiredSkills": [
+        "Strong SQL and experience querying relational databases",
+        "Proficiency in Python and interest in distributed data processing",
+        "Data modeling, data warehousing, and analytics engineering concepts",
+        "ETL development and data pipeline orchestration",
+        "Building and maintaining scalable data pipelines",
+        "Data transformations with dbt",
+        "Version control with GitHub and CI/CD practices",
+        "Data quality checks, testing, and validation"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Hone Health",
+          "title": "Data Engineering Intern (Fall 2026)",
+          "url": "https://job-boards.greenhouse.io/honehealth/jobs/5308958008",
+          "snapshot": "data/sources/data/postings/web-data-engineer-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Tesla",
+          "title": "Data Engineer Intern - Multiple Teams",
+          "url": "https://www.tesla.com/careers/search/job/269828",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Engineer Intern",
+          "url": "https://lifeattiktok.com/search/7568546589788227893",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Medpace",
+          "title": "Data Engineer Intern",
+          "url": "https://careers.medpace.com/jobs/12767?lang=en-us&icims=1",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Jump Trading",
+          "title": "Campus Data Engineer Intern",
+          "url": "https://boards.greenhouse.io/embed/job_app?token=8002998",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ]
+    },
+    {
+      "id": "mnc-machine-learning-engineer-intern",
+      "role": "Machine Learning Engineer Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Machine Learning Engineer Intern (Neuralink)",
+        "Machine Learning Engineer Intern (Instacart)",
+        "Machine Learning Engineer Intern (ByteDance)",
+        "Machine Learning Engineer Intern (PlusAI)",
+        "Machine Learning Engineer PhD Intern (PayPal)"
+      ],
+      "requiredSkills": [
+        "Designing and building machine learning models",
+        "Deep understanding of machine learning concepts and fundamentals",
+        "Analyzing complex datasets and driving insights",
+        "Strong coding skills with clean, efficient, and scalable code",
+        "Communicating results to technical and non-technical audiences",
+        "Cross-functional collaboration across engineering and science teams",
+        "Experience working with time series or unstructured data"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Neuralink",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://job-boards.greenhouse.io/neuralink/jobs/6594261003",
+          "snapshot": "data/sources/data/postings/web-ml-engineer-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Instacart",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://instacart.careers/job/?gh_jid=5917202",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "ByteDance",
+          "title": "Machine Learning Engineer Intern - E-commerce Governance Algorithms",
+          "url": "https://jobs.bytedance.com/en/position/7535168003103033618/detail",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "PlusAI",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://jobs.lever.co/plus-2/b69c9b6d-483f-41d4-b487-97c99332ca40/apply",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "PayPal",
+          "title": "Machine Learning Engineer PhD Intern",
+          "url": "https://paypal.wd1.myworkdayjobs.com/en-US/jobs/job/San-Jose-California-United-States-of-America/Machine-Learning-Engineer-PhD-Intern_R0130591",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ]
+    }
+  ]
+}

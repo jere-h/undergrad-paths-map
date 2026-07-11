@@ -39,26 +39,97 @@
         "mit-18-404",
         "mnc-software-engineer-intern"
       ],
-      "edgesTrimmedForBalance": 10,
-      "inferredEdges": 11,
+      "edgesTrimmedForBalance": 9,
+      "inferredEdges": 17,
       "judgedEdges": 23,
-      "unsupportedCareers": [
+      "inferenceOnlyCareers": [
         "analytics-engineer"
       ],
       "socCollisions": [
         "data-engineer data-architect"
       ],
-      "internshipStarved": [
-        "data-architect",
-        "data-engineer",
-        "data-scientist",
-        "ml-engineer",
+      "canonicalInternships": [
+        "canonical-data-engineering-intern",
+        "canonical-business-intelligence-analytics-intern",
+        "canonical-operations-research-intern",
+        "canonical-statistics-intern"
+      ],
+      "internshipVariety": {
+        "total": 8,
+        "clustered": 4,
+        "canonical": 4
+      },
+      "canonicalSkipped": [
+        "canonical-data-scientist-intern: duplicates clustered role \"Data Scientist Intern\"",
+        "canonical-machine-learning-engineer-intern: duplicates clustered role \"Machine Learning Engineer Intern\""
+      ],
+      "canonicalOnlyInternshipCareers": [
         "or-analyst",
         "statistician"
       ]
     }
   },
   "careers": [
+    {
+      "id": "analytics-engineer",
+      "name": "Analytics Engineer",
+      "grounding": "postings",
+      "responsibilities": [
+        "Own dbt models (staging, intermediate, mart layers) that become the company's one source of truth for a metric, tested and version-controlled like code",
+        "Define and instrument KPIs with the teams that use them (finance, product, sales), then build the self-service dashboards those teams actually use without asking an analyst",
+        "Catch data quality problems before stakeholders do: write dbt tests and alerts, and manage the ETL/reverse-ETL syncs that move data in and out of the warehouse"
+      ],
+      "skills": [
+        "Advanced SQL against a cloud warehouse (Snowflake, BigQuery) treated like production code: version control, review, tests",
+        "dbt: writing models, tests, and documentation, not just ad-hoc queries",
+        "Data modeling: turning raw event and source tables into a semantic layer other people can build on",
+        "BI tool fluency (Looker, Sigma, Tableau) to ship a dashboard stakeholders trust without hand-holding"
+      ],
+      "rawSkillPool": [
+        "dbt (models, tests, documentation, CI)",
+        "Advanced SQL in Snowflake or BigQuery",
+        "Data modeling (staging, intermediate, mart layers)",
+        "BI tools (Looker, Sigma, Tableau, Power BI)",
+        "ETL / reverse-ETL pipelines (Fivetran)",
+        "KPI definition and instrumentation",
+        "Data testing and alerting",
+        "Event tracking and behavioral metrics",
+        "Entity resolution and canonical data models",
+        "Version control and code review for analytics code",
+        "Semantic layer design",
+        "Self-service dashboard design"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/mirakl/jobs/5140266004",
+          "company": "Mirakl",
+          "title": "Analytics Engineer Apprentice",
+          "quote": "Develop data models and comprehensive semantic layer documentation; Build and maintain dashboards guaranteeing reliable access to critical performance indicators",
+          "snapshot": "data/sources/data/postings/web-analytics-engineer-1.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        },
+        {
+          "type": "posting",
+          "url": "https://job-boards.greenhouse.io/crexi/jobs/4689327005",
+          "company": "Crexi",
+          "title": "Analytics Engineer",
+          "quote": "Defines and instruments company-level and product-level KPIs in partnership with Finance, Product, and Sales; Hands-on experience with dbt (Core or Cloud), including writing models, tests, and documentation",
+          "snapshot": "data/sources/data/postings/web-analytics-engineer-2.txt",
+          "retrievedAt": "2026-07-09T18:05:32Z"
+        }
+      ],
+      "distinctiveSkills": [
+        "dbt (models, tests, documentation, CI)",
+        "Semantic layer design",
+        "ETL / reverse-ETL pipelines (Fivetran)",
+        "Entity resolution and canonical data models",
+        "Event tracking and behavioral metrics",
+        "KPI definition and instrumentation",
+        "Version control and code review for analytics code",
+        "Data testing and alerting"
+      ]
+    },
     {
       "id": "bi-analyst",
       "name": "Business Intelligence Analyst",
@@ -535,6 +606,7 @@
       ],
       "destinations": [
         "statistician",
+        "data-scientist",
         "ml-engineer"
       ],
       "edges": {
@@ -546,6 +618,13 @@
           ],
           "distinctive": true
         },
+        "data-scientist": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Probability, Bayesian estimation, and statistical inference are the foundation every data scientist builds models on, even though none is distinctive to the role.",
+          "matchedSkills": []
+        },
         "ml-engineer": {
           "confidence": 0.5,
           "inferred": true,
@@ -555,6 +634,7 @@
         }
       },
       "inferred": [
+        "data-scientist",
         "ml-engineer"
       ]
     },
@@ -1481,7 +1561,8 @@
         }
       ],
       "destinations": [
-        "or-analyst"
+        "or-analyst",
+        "data-scientist"
       ],
       "edges": {
         "or-analyst": {
@@ -1491,8 +1572,18 @@
             "stochastic optimization"
           ],
           "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Time series forecasting, ML for operations, and multi-armed bandits are standard data-science techniques applied to business decisions.",
+          "matchedSkills": []
         }
-      }
+      },
+      "inferred": [
+        "data-scientist"
+      ]
     },
     {
       "id": "mit-15-053",
@@ -1784,6 +1875,7 @@
       ],
       "destinations": [
         "statistician",
+        "data-scientist",
         "data-analyst"
       ],
       "edges": {
@@ -1794,6 +1886,13 @@
             "hypothesis testing & confidence intervals",
             "bootstrapping",
             "regression"
+          ],
+          "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "matchedSkills": [
+            "using R to simulate, analyze, and visualize data"
           ],
           "distinctive": true
         },
@@ -1835,6 +1934,7 @@
       ],
       "destinations": [
         "ml-engineer",
+        "data-scientist",
         "or-analyst"
       ],
       "edges": {
@@ -1846,6 +1946,13 @@
           ],
           "distinctive": true
         },
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Eigenvalues, SVD, and least squares are the mathematics behind PCA, regression, and dimensionality reduction in data-science practice.",
+          "matchedSkills": []
+        },
         "or-analyst": {
           "confidence": 0.45,
           "inferred": true,
@@ -1855,6 +1962,7 @@
         }
       },
       "inferred": [
+        "data-scientist",
         "or-analyst"
       ]
     },
@@ -1883,7 +1991,8 @@
       ],
       "destinations": [
         "statistician",
-        "ml-engineer"
+        "ml-engineer",
+        "data-scientist"
       ],
       "edges": {
         "statistician": {
@@ -1901,8 +2010,18 @@
             "modeling with standard distributions (binomial, Poisson, normal, etc.)"
           ],
           "distinctive": true
+        },
+        "data-scientist": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Probability theory through standard distributions and limit theorems is the foundation of statistical modeling for data science.",
+          "matchedSkills": []
         }
-      }
+      },
+      "inferred": [
+        "data-scientist"
+      ]
     },
     {
       "id": "mit-18-c06-j",
@@ -2100,6 +2219,297 @@
   ],
   "internships": [
     {
+      "id": "mnc-data-scientist-intern",
+      "role": "Data Scientist Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Data Scientist Intern (Uber Freight)",
+        "Data Scientist Intern (TikTok)",
+        "Intern, Data Scientist (The Home Depot)",
+        "Data Scientist Intern (Boston Consulting Group)",
+        "Data Scientist Intern (SOTI)"
+      ],
+      "requiredSkills": [
+        "Python or R for model development and analysis",
+        "SQL for data manipulation and analysis",
+        "Statistical and ML methods: regression, classification trees, unsupervised learning, causal inference, time series analysis",
+        "Pursuing a quantitative degree (Statistics, Mathematics, Computer Science, Physics, Economics, Operations Research, or Engineering)",
+        "Strong problem-solving and ability to work in ambiguous environments",
+        "Manage a project end-to-end from data exploration to presenting findings",
+        "Clear communication for technical and non-technical audiences"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Uber Freight",
+          "title": "Data Scientist Intern - Fall 2026",
+          "url": "https://job-boards.greenhouse.io/uberfreight/jobs/5194491008",
+          "snapshot": "data/sources/data/postings/web-data-scientist-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Scientist Intern",
+          "url": "https://lifeattiktok.com/search/7532238337198622983",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "The Home Depot",
+          "title": "Data Scientist Intern",
+          "url": "https://homedepot.wd5.myworkdayjobs.com/CareerDepotCanada/job/CANADA-STORE-SUPPORT-CENTER---7000/Intern--Data-Scientist_Req185609",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Boston Consulting Group",
+          "title": "Data Scientist Intern",
+          "url": "https://careers.bcg.com/global/en/job/56634",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "SOTI",
+          "title": "Data Scientist Intern",
+          "url": "https://soti.wd3.myworkdayjobs.com/SOTI-Next-Gen/job/Mississauga-Canada--Meadowvale-Office-HQ/Data-Scientist--Intern--September-2026-12-Months-_R10065",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ],
+      "destinations": [
+        "data-scientist",
+        "data-analyst",
+        "bi-analyst",
+        "ml-engineer"
+      ],
+      "edges": {
+        "data-scientist": {
+          "confidence": 0.9,
+          "matchedSkills": [
+            "Statistical software (SAS, R, Python)",
+            "Comparing models with statistical performance metrics",
+            "Data mining and feature selection algorithms"
+          ],
+          "distinctive": true
+        },
+        "data-analyst": {
+          "confidence": 0.574,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.75,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
+        },
+        "bi-analyst": {
+          "confidence": 0.459,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.6,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
+        },
+        "ml-engineer": {
+          "confidence": 0.421,
+          "inferred": true,
+          "via": "data-scientist",
+          "adjacencyWeight": 0.55,
+          "matchedSkills": [
+            "scope overlap with data-scientist"
+          ]
+        }
+      },
+      "inferred": [
+        "data-analyst",
+        "bi-analyst",
+        "ml-engineer"
+      ]
+    },
+    {
+      "id": "mnc-data-engineer-intern",
+      "role": "Data Engineer Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Data Engineering Intern (Hone Health)",
+        "Data Engineer Intern (Tesla)",
+        "Data Engineer Intern (TikTok)",
+        "Data Engineer Intern (Medpace)",
+        "Campus Data Engineer Intern (Jump Trading)"
+      ],
+      "requiredSkills": [
+        "Strong SQL and experience querying relational databases",
+        "Proficiency in Python and interest in distributed data processing",
+        "Data modeling, data warehousing, and analytics engineering concepts",
+        "ETL development and data pipeline orchestration",
+        "Building and maintaining scalable data pipelines",
+        "Data transformations with dbt",
+        "Version control with GitHub and CI/CD practices",
+        "Data quality checks, testing, and validation"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Hone Health",
+          "title": "Data Engineering Intern (Fall 2026)",
+          "url": "https://job-boards.greenhouse.io/honehealth/jobs/5308958008",
+          "snapshot": "data/sources/data/postings/web-data-engineer-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Tesla",
+          "title": "Data Engineer Intern - Multiple Teams",
+          "url": "https://www.tesla.com/careers/search/job/269828",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Engineer Intern",
+          "url": "https://lifeattiktok.com/search/7568546589788227893",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Medpace",
+          "title": "Data Engineer Intern",
+          "url": "https://careers.medpace.com/jobs/12767?lang=en-us&icims=1",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Jump Trading",
+          "title": "Campus Data Engineer Intern",
+          "url": "https://boards.greenhouse.io/embed/job_app?token=8002998",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ],
+      "destinations": [
+        "data-engineer",
+        "data-architect",
+        "analytics-engineer"
+      ],
+      "edges": {
+        "data-engineer": {
+          "confidence": 0.92,
+          "matchedSkills": [
+            "ETL and pipeline development",
+            "Database architecture and data warehouse design",
+            "Data partitioning, indexing, and performance tuning"
+          ],
+          "distinctive": true
+        },
+        "data-architect": {
+          "confidence": 0.626,
+          "inferred": true,
+          "via": "data-engineer",
+          "adjacencyWeight": 0.8,
+          "matchedSkills": [
+            "scope overlap with data-engineer"
+          ]
+        },
+        "analytics-engineer": {
+          "confidence": 0.43,
+          "inferred": true,
+          "via": "data-engineer",
+          "adjacencyWeight": 0.55,
+          "matchedSkills": [
+            "scope overlap with data-engineer"
+          ]
+        }
+      },
+      "inferred": [
+        "data-architect",
+        "analytics-engineer"
+      ]
+    },
+    {
+      "id": "mnc-machine-learning-engineer-intern",
+      "role": "Machine Learning Engineer Intern",
+      "orgType": "MNC",
+      "exampleTitles": [
+        "Machine Learning Engineer Intern (Neuralink)",
+        "Machine Learning Engineer Intern (Instacart)",
+        "Machine Learning Engineer Intern (ByteDance)",
+        "Machine Learning Engineer Intern (PlusAI)",
+        "Machine Learning Engineer PhD Intern (PayPal)"
+      ],
+      "requiredSkills": [
+        "Designing and building machine learning models",
+        "Deep understanding of machine learning concepts and fundamentals",
+        "Analyzing complex datasets and driving insights",
+        "Strong coding skills with clean, efficient, and scalable code",
+        "Communicating results to technical and non-technical audiences",
+        "Cross-functional collaboration across engineering and science teams",
+        "Experience working with time series or unstructured data"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Neuralink",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://job-boards.greenhouse.io/neuralink/jobs/6594261003",
+          "snapshot": "data/sources/data/postings/web-ml-engineer-intern-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Instacart",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://instacart.careers/job/?gh_jid=5917202",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "ByteDance",
+          "title": "Machine Learning Engineer Intern - E-commerce Governance Algorithms",
+          "url": "https://jobs.bytedance.com/en/position/7535168003103033618/detail",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "PlusAI",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://jobs.lever.co/plus-2/b69c9b6d-483f-41d4-b487-97c99332ca40/apply",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "PayPal",
+          "title": "Machine Learning Engineer PhD Intern",
+          "url": "https://paypal.wd1.myworkdayjobs.com/en-US/jobs/job/San-Jose-California-United-States-of-America/Machine-Learning-Engineer-PhD-Intern_R0130591",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z"
+        }
+      ],
+      "destinations": [
+        "ml-engineer"
+      ],
+      "edges": {
+        "ml-engineer": {
+          "confidence": 0.92,
+          "matchedSkills": [
+            "Deep learning model design and evaluation",
+            "Time series and unstructured data handling",
+            "End-to-end ML project delivery"
+          ],
+          "distinctive": true
+        }
+      }
+    },
+    {
       "id": "mnc-business-operations-intern",
       "role": "Business Operations Intern",
       "orgType": "MNC",
@@ -2177,6 +2587,281 @@
       },
       "inferred": [
         "bi-analyst"
+      ]
+    },
+    {
+      "id": "canonical-data-engineering-intern",
+      "role": "Data Engineering Intern",
+      "orgType": "MNC",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "SQL and relational database fundamentals",
+        "Python (or Java/Scala) for pipeline code",
+        "ETL / data pipeline concepts",
+        "Cloud data platforms (AWS, GCP, or Azure)",
+        "Data modeling and schema design basics",
+        "Version control and testing",
+        "Debugging data quality issues"
+      ],
+      "exampleTitles": [
+        "Data Engineer Intern (TikTok)",
+        "Data Engineering Intern (Hone Health)"
+      ],
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Engineer Intern",
+          "url": "https://lifeattiktok.com/search/7568546589788227893",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-26T11:43:51.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Hone Health",
+          "title": "Data Engineering Intern",
+          "url": "https://job-boards.greenhouse.io/honehealth/jobs/5308958008",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-07-08T22:21:54.000Z"
+        }
+      ],
+      "destinations": [
+        "data-engineer",
+        "data-architect",
+        "data-analyst"
+      ],
+      "edges": {
+        "data-engineer": {
+          "confidence": 0.7,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Direct feeder role; the intern builds and maintains pipelines and schemas that are the core of the data engineer job.",
+          "matchedSkills": []
+        },
+        "data-architect": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Data modeling and warehouse-schema exposure is the shared foundation; both roles map to the same SOC (15-1243.00), so an advisor would affirm the path.",
+          "matchedSkills": []
+        },
+        "data-analyst": {
+          "confidence": 0.4,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Interns constantly build the clean datasets and SQL that analysts consume, a genuine but weaker adjacency.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "data-engineer",
+        "data-architect",
+        "data-analyst"
+      ]
+    },
+    {
+      "id": "canonical-business-intelligence-analytics-intern",
+      "role": "Business Intelligence / Analytics Intern",
+      "orgType": "MNC",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "SQL for reporting and analysis",
+        "BI and dashboarding tools (Tableau, Power BI, or Looker)",
+        "Excel / spreadsheet modeling",
+        "Business metric definition and KPI reporting",
+        "Data cleaning and validation",
+        "Translating stakeholder requests into analyses",
+        "Presenting insights clearly"
+      ],
+      "exampleTitles": [
+        "Business Intelligence Intern (Eurofins)",
+        "Business Intelligence Intern (KPH Healthcare Services)"
+      ],
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Eurofins",
+          "title": "Business Intelligence Intern",
+          "url": "https://jobs.smartrecruiters.com/Eurofins/744000131132249",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-06-09T14:06:59.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "KPH Healthcare Services",
+          "title": "Business Intelligence Intern",
+          "url": "https://kphcareers-kphhealthcareservices.icims.com/jobs/14851/job?mobile=true&needsRedirect=false",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-03-05T02:14:29.000Z"
+        }
+      ],
+      "destinations": [
+        "bi-analyst",
+        "data-analyst"
+      ],
+      "edges": {
+        "bi-analyst": {
+          "confidence": 0.65,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Direct feeder role; the intern builds the dashboards and periodic reports that define the BI analyst job.",
+          "matchedSkills": []
+        },
+        "data-analyst": {
+          "confidence": 0.55,
+          "inferred": true,
+          "judged": true,
+          "rationale": "SQL, dashboarding, and stakeholder-reporting overlap is heavy; the two roles are often interchangeable at the intern level.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "bi-analyst",
+        "data-analyst"
+      ]
+    },
+    {
+      "id": "canonical-operations-research-intern",
+      "role": "Quantitative / Operations Research Intern",
+      "orgType": "MNC",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "Optimization and mathematical modeling",
+        "Python or R for modeling",
+        "Linear / integer programming and simulation basics",
+        "Statistics and probability",
+        "SQL for pulling operational data",
+        "Model validation and testing",
+        "Communicating results to decision-makers"
+      ],
+      "exampleTitles": [
+        "Quantitative Researcher Intern (Point72)",
+        "Quantitative Research Analyst Intern (Stevens Capital Management)",
+        "2026 Operations Research Science Internship - United States (Amazon)"
+      ],
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Point72",
+          "title": "Quantitative Researcher Intern",
+          "url": "https://boards.greenhouse.io/point72/jobs/7586061002",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-30T16:15:11.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Stevens Capital Management",
+          "title": "Quantitative Research Analyst Intern",
+          "url": "https://job-boards.greenhouse.io/ftandinternships/jobs/1304473",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-21T23:30:13.000Z"
+        },
+        {
+          "type": "posting",
+          "company": "Amazon",
+          "title": "2026 Operations Research Science Internship - United States",
+          "url": "https://www.amazon.jobs/en/jobs/3127859/2026-operations-research-science-internship-united-states-phd-student-science-recruiting",
+          "snapshot": "data/sources/data/postings/web-canon-operations-research-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": null
+        }
+      ],
+      "destinations": [
+        "or-analyst",
+        "statistician"
+      ],
+      "edges": {
+        "or-analyst": {
+          "confidence": 0.7,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Direct feeder role; the intern formulates and validates optimization/simulation models that are the operations research analyst's core work.",
+          "matchedSkills": []
+        },
+        "statistician": {
+          "confidence": 0.5,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Shared reliance on probability, sampling, and rigorous model validation makes this an honest neighbor an advisor would affirm.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "or-analyst",
+        "statistician"
+      ]
+    },
+    {
+      "id": "canonical-statistics-intern",
+      "role": "Statistics Intern",
+      "orgType": "MNC",
+      "grounding": "canonical",
+      "skillsBasis": "judgment",
+      "requiredSkills": [
+        "Statistical theory and methods",
+        "R or Python (or SAS) for statistical analysis",
+        "Experimental design and sampling techniques",
+        "Data cleaning, weighting, and validation",
+        "Hypothesis testing and inference",
+        "Interpreting results for non-technical audiences",
+        "Reporting with charts and tables"
+      ],
+      "exampleTitles": [
+        "Summer Intern 2026 - Biostatistics / Statistical Programming (Vertex Pharmaceuticals)",
+        "2026 Summer Intern - Statistics & Decision Sciences (Johnson & Johnson)"
+      ],
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Vertex Pharmaceuticals",
+          "title": "Summer Intern 2026 - Biostatistics / Statistical Programming",
+          "url": "https://stattrak.amstat.org/2025/12/01/2026-internships/",
+          "snapshot": "data/sources/data/postings/web-canon-statistics-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-12-01T00:00:00.000Z"
+        },
+        {
+          "type": "posting",
+          "company": "Johnson & Johnson",
+          "title": "2026 Summer Intern - Statistics & Decision Sciences",
+          "url": "https://stattrak.amstat.org/2025/12/01/2026-internships/",
+          "snapshot": "data/sources/data/postings/web-canon-statistics-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-12-01T00:00:00.000Z"
+        }
+      ],
+      "destinations": [
+        "statistician",
+        "or-analyst"
+      ],
+      "edges": {
+        "statistician": {
+          "confidence": 0.7,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Direct feeder role; the intern applies statistical methods, designs analyses, and reports findings exactly as the statistician does.",
+          "matchedSkills": []
+        },
+        "or-analyst": {
+          "confidence": 0.45,
+          "inferred": true,
+          "judged": true,
+          "rationale": "Shared statistical-inference, sampling, and model-validation skills make operations research an honest adjacent path.",
+          "matchedSkills": []
+        }
+      },
+      "inferred": [
+        "statistician",
+        "or-analyst"
       ]
     }
   ]

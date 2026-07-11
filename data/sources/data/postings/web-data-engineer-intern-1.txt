@@ -1,0 +1,32 @@
+Source: Data Engineering Intern (Fall 2026) at Hone Health
+URL: https://job-boards.greenhouse.io/honehealth/jobs/5308958008
+Retrieved: 2026-07-11T06:50:34Z
+
+QUALIFICATIONS (verbatim)
+- Currently pursuing a Bachelor's or Master's degree in Computer Science, Data
+  Engineering, Data Science, Information Systems, or a related field
+- Strong foundational knowledge of SQL and experience querying relational databases
+- Proficiency in Python and a strong interest in distributed data processing
+- Understanding of data modeling, data warehousing, or analytics engineering concepts
+- Exposure to data pipeline orchestration or ETL development
+- Comfort working in a modern engineering workflow - GitHub for version control,
+  ADO for ticketing, and Slack
+- Strong analytical thinking and problem-solving abilities
+- Eagerness to learn new technologies and frameworks
+
+PRIMARY RESPONSIBILITIES (verbatim)
+- Design, build, and maintain scalable data pipelines and ETL processes using
+  Microsoft Fabric
+- Integrate data from multiple internal and external sources, ensuring quality,
+  consistency, and reliability
+- Develop and maintain data models and transformations using dbt
+- Collaborate with cross-functional teams to translate business requirements into
+  technical solutions
+- Data quality checks, testing, validation, and performance optimization
+- Follow engineering best practices with version control and CI/CD using GitHub
+
+REQUIRED SKILLS & TOOLS
+Languages: SQL, Python
+Platforms & Tools: Microsoft Fabric, dbt, PySpark, GitHub, Azure DevOps, Slack, Azure
+Concepts: ETL development, data modeling, data warehousing, medallion architecture,
+analytics engineering

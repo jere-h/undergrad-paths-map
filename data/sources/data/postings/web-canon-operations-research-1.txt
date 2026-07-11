@@ -1,0 +1,21 @@
+Source: Amazon.jobs (WebSearch retrieved 2026-07-11)
+URL: https://www.amazon.jobs/en/jobs/3127859/2026-operations-research-science-internship-united-states-phd-student-science-recruiting
+Company: Amazon
+Title: 2026 Operations Research Science Internship - United States (PhD Student Science Recruiting), Job ID: 3127859
+
+Description:
+Amazon is seeking a Research Science intern focused on Operations Research and
+Optimization to tackle complex business challenges through innovative solutions.
+As a Research Science intern focused on Operations Research and Optimization, you
+will be challenged to apply theory into practice through experimentation and
+invention, develop new algorithms using modeling software and programming
+techniques for complex problems, implement prototypes and work with massive
+datasets. The role involves developing algorithms, applying machine learning
+techniques, and collaborating with cross-functional teams to drive operational
+efficiencies in Amazon's fulfillment, logistics, and supply chain operations.
+
+Locations: Bellevue, WA; Boston, MA; Cambridge, MA; New York, NY; Santa Clara,
+CA; Seattle, WA; Sunnyvale, CA.
+
+Posting is for the Summer 2026 internship season (current). Interns are paired
+with an experienced manager and mentor(s); durations vary 3-6 months.
