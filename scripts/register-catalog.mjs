@@ -52,8 +52,15 @@ export function renderRegistry(entries) {
 export function upsert(entries, entry) {
   const i = entries.findIndex((e) => e.id === entry.id);
   const next = [...entries];
-  if (i >= 0) next[i] = entry;
-  else next.push(entry);
+  if (i >= 0) {
+    // Re-registration must not strip a hand-tuned preselect: workflow re-runs
+    // pass no --preselect, so a wholesale replace would silently clobber it.
+    const keep =
+      !Array.isArray(entry.preselect) && Array.isArray(next[i].preselect)
+        ? { preselect: next[i].preselect }
+        : {};
+    next[i] = { ...entry, ...keep };
+  } else next.push(entry);
   return next;
 }
 

@@ -49,6 +49,7 @@ function layoutGroup(members, cx, cy, radius, startAngle, endAngle) {
       kind: input.kind,
       label: input.label,
       group: input.group,
+      canonical: !!input.canonical,
       x: p.x,
       y: p.y,
       angle,

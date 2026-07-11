@@ -1,0 +1,29 @@
+Source: Data Scientist Intern - Fall 2026 at Uber Freight
+URL: https://job-boards.greenhouse.io/uberfreight/jobs/5194491008
+Retrieved: 2026-07-11T06:50:34Z
+
+REQUIREMENTS & QUALIFICATIONS
+
+Educational Background:
+- Currently pursuing a Bachelors, Master's, or PhD degree in a quantitative field
+  (Statistics, Mathematics, Computer Science, Physics, Economics, Operations
+  Research, or Engineering). Expected graduation Fall 2026 or Spring 2027.
+
+Technical Skills Required:
+- Programming proficiency in Python or R for model development and analysis
+- SQL for data manipulation and analysis
+- Statistical & ML methods: regression, classification trees, unsupervised
+  learning, causal inference, time series analysis
+
+Professional Competencies:
+- Strong problem-solving skills and ability to work in ambiguous environments
+- Collaborative mindset and eagerness to learn in a fast-paced, team-oriented setting
+- Clear communication for technical and non-technical audiences
+
+Key Responsibilities:
+- Collaborate across teams (Data Scientists, Engineers, Product, Sales, Marketing,
+  Finance, Customer Success)
+- Apply statistical and machine learning techniques to generate insights or deploy models
+- Manage your own project end-to-end - from data exploration and analysis to
+  presenting findings
+- Contribute to internal data product improvements

@@ -1,0 +1,92 @@
+{
+  "proposals": {
+    "mnc-data-scientist-intern": [
+      {
+        "career": "data-scientist",
+        "confidence": 0.9,
+        "matchedSkills": [
+          "Statistical software (SAS, R, Python)",
+          "Comparing models with statistical performance metrics",
+          "Data mining and feature selection algorithms"
+        ],
+        "distinctive": true,
+        "rationale": "Python/R modeling plus regression, classification, and model-comparison work is the direct home of the data scientist role."
+      },
+      {
+        "career": "statistician",
+        "confidence": 0.68,
+        "matchedSkills": [
+          "Statistical theory and methods",
+          "Identifying relationships and trends in data"
+        ],
+        "distinctive": true,
+        "rationale": "Regression, causal inference, and time series analysis develop core statistical-theory skills adjacent to the statistician track."
+      },
+      {
+        "career": "ml-engineer",
+        "confidence": 0.62,
+        "matchedSkills": [
+          "Model training, validation, and evaluation metrics",
+          "Time series and unstructured data handling"
+        ],
+        "distinctive": true,
+        "rationale": "Building ML models with time series methods and performance evaluation overlaps with the ML engineer's model-evaluation work."
+      }
+    ],
+    "mnc-data-engineer-intern": [
+      {
+        "career": "data-engineer",
+        "confidence": 0.92,
+        "matchedSkills": [
+          "ETL and pipeline development",
+          "Database architecture and data warehouse design",
+          "Data partitioning, indexing, and performance tuning"
+        ],
+        "distinctive": true,
+        "rationale": "SQL, ETL orchestration, scalable pipelines, and warehousing are the defining home skills of the data engineer role."
+      },
+      {
+        "career": "data-architect",
+        "confidence": 0.72,
+        "matchedSkills": [
+          "Data modeling for warehouses and applications",
+          "Systems analysis and systems evaluation"
+        ],
+        "distinctive": true,
+        "rationale": "Data modeling and warehousing concepts feed the architect's warehouse-design work, a known adjacency to data engineering."
+      },
+      {
+        "career": "data-analyst",
+        "confidence": 0.55,
+        "matchedSkills": [
+          "Query optimization"
+        ],
+        "distinctive": true,
+        "rationale": "Strong SQL against relational databases builds query-optimization skill relevant to a data analyst path."
+      }
+    ],
+    "mnc-machine-learning-engineer-intern": [
+      {
+        "career": "ml-engineer",
+        "confidence": 0.92,
+        "matchedSkills": [
+          "Deep learning model design and evaluation",
+          "Time series and unstructured data handling",
+          "End-to-end ML project delivery"
+        ],
+        "distinctive": true,
+        "rationale": "Designing ML models on time series and unstructured data with clean scalable code is the ML engineer's core."
+      },
+      {
+        "career": "data-scientist",
+        "confidence": 0.72,
+        "matchedSkills": [
+          "Data mining and feature selection algorithms",
+          "Comparing models with statistical performance metrics"
+        ],
+        "distinctive": true,
+        "rationale": "Analyzing complex datasets and building models to drive insights overlaps strongly with the data scientist's modeling work."
+      }
+    ]
+  }
+}

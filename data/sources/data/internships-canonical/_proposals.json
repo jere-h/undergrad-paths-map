@@ -1,0 +1,160 @@
+{
+  "proposals": [
+    {
+      "id": "data-scientist-intern",
+      "role": "Data Scientist Intern",
+      "orgType": "MNC",
+      "whyCommon": "Large tech, finance, and consumer companies run structured summer data science internship programs every year, making it one of the most recognizable data intern titles.",
+      "requiredSkills": [
+        "Python or R for analysis and modeling",
+        "SQL for pulling and joining data",
+        "Applied statistics and probability",
+        "Machine learning fundamentals (regression, classification, evaluation)",
+        "Data cleaning and feature engineering",
+        "Data visualization and storytelling",
+        "Communicating findings to non-technical stakeholders"
+      ],
+      "candidateEdges": [
+        { "career": "data-scientist", "confidence": 0.7, "rationale": "This is the direct feeder role; the intern does scoped-down versions of a data scientist's daily modeling and analysis work." },
+        { "career": "ml-engineer", "confidence": 0.5, "rationale": "The modeling and ML-fundamentals overlap is real, and many DS interns move toward ML engineering; an advisor would nod at the adjacency." },
+        { "career": "statistician", "confidence": 0.45, "rationale": "Shared statistical-inference and experiment foundations make this a plausible bridge, though the DS role is broader and less rigor-focused." }
+      ],
+      "searchHints": [
+        "\"Data Scientist Intern\" Summer 2026 site:job-boards.greenhouse.io",
+        "Meta Data Science Internship early careers page",
+        "Spotify OR LinkedIn OR Wayfair data science intern posting",
+        "\"Data Science Intern\" 2026 lever.co OR greenhouse.io"
+      ]
+    },
+    {
+      "id": "data-engineering-intern",
+      "role": "Data Engineering Intern",
+      "orgType": "MNC",
+      "whyCommon": "Companies with large data platforms staff dedicated data engineering internships to build pipelines and warehouse tooling, a standard early-careers track at scaled tech and finance firms.",
+      "requiredSkills": [
+        "SQL and relational database fundamentals",
+        "Python (or Java/Scala) for pipeline code",
+        "ETL / data pipeline concepts",
+        "Cloud data platforms (AWS, GCP, or Azure)",
+        "Data modeling and schema design basics",
+        "Version control and testing",
+        "Debugging data quality issues"
+      ],
+      "candidateEdges": [
+        { "career": "data-engineer", "confidence": 0.7, "rationale": "Direct feeder role; the intern builds and maintains pipelines and schemas that are the core of the data engineer job." },
+        { "career": "data-architect", "confidence": 0.55, "rationale": "Data modeling and warehouse-schema exposure is the shared foundation; both roles map to the same SOC (15-1243.00), so an advisor would affirm the path." },
+        { "career": "data-analyst", "confidence": 0.4, "rationale": "Interns constantly build the clean datasets and SQL that analysts consume, a genuine but weaker adjacency." }
+      ],
+      "searchHints": [
+        "\"Data Engineering Intern\" Summer 2026 greenhouse.io",
+        "Amazon Data Engineer Intern early careers",
+        "Capital One Data Engineering Summer Analyst",
+        "Nvidia OR Databricks data engineering intern 2026"
+      ]
+    },
+    {
+      "id": "machine-learning-engineer-intern",
+      "role": "Machine Learning Engineer Intern",
+      "orgType": "Startup",
+      "whyCommon": "AI-focused startups and scaleups hire ML engineering interns heavily to help ship models to production, and the title is widely recognized across the industry.",
+      "requiredSkills": [
+        "Python for ML",
+        "Deep learning frameworks (PyTorch or TensorFlow)",
+        "Machine learning fundamentals and model evaluation",
+        "Linear algebra, calculus, and probability foundations",
+        "Working with messy or high-volume datasets",
+        "Clean, efficient coding and version control",
+        "End-to-end ML project experience"
+      ],
+      "candidateEdges": [
+        { "career": "ml-engineer", "confidence": 0.7, "rationale": "This is the direct feeder role; the intern trains, evaluates, and ships models exactly as the ML engineer does." },
+        { "career": "data-scientist", "confidence": 0.5, "rationale": "Modeling and dataset-analysis overlap is substantial; DS and ML intern pipelines frequently share the same teams and skills." },
+        { "career": "data-engineer", "confidence": 0.45, "rationale": "Building training pipelines and handling large data at scale gives honest overlap with data engineering that an advisor would recognize." }
+      ],
+      "searchHints": [
+        "\"Machine Learning Engineer Intern\" Summer 2026 greenhouse.io",
+        "Scale AI OR Anthropic OR Nvidia ML engineer intern",
+        "\"Machine Learning Intern\" 2026 lever.co",
+        "Neuralink OR Cloudflare machine learning intern"
+      ]
+    },
+    {
+      "id": "business-intelligence-analytics-intern",
+      "role": "Business Intelligence / Analytics Intern",
+      "orgType": "MNC",
+      "whyCommon": "Retail, finance, and CPG companies routinely run BI and analytics internships to build dashboards and reporting, a staple entry point into the data field.",
+      "requiredSkills": [
+        "SQL for reporting and analysis",
+        "BI and dashboarding tools (Tableau, Power BI, or Looker)",
+        "Excel / spreadsheet modeling",
+        "Business metric definition and KPI reporting",
+        "Data cleaning and validation",
+        "Translating stakeholder requests into analyses",
+        "Presenting insights clearly"
+      ],
+      "candidateEdges": [
+        { "career": "bi-analyst", "confidence": 0.65, "rationale": "Direct feeder role; the intern builds the dashboards and periodic reports that define the BI analyst job." },
+        { "career": "data-analyst", "confidence": 0.55, "rationale": "SQL, dashboarding, and stakeholder-reporting overlap is heavy; the two roles are often interchangeable at the intern level." },
+        { "career": "data-scientist", "confidence": 0.4, "rationale": "Analytics interns touch experimentation and metric analysis that lead toward data science, a real but lighter adjacency." }
+      ],
+      "searchHints": [
+        "\"Business Intelligence Intern\" Summer 2026",
+        "Amazon Business Intelligence Engineer Intern",
+        "\"Analytics Intern\" 2026 greenhouse.io OR lever.co",
+        "Nielsen OR Target BI analytics intern"
+      ]
+    },
+    {
+      "id": "operations-research-intern",
+      "role": "Quantitative / Operations Research Intern",
+      "orgType": "MNC",
+      "whyCommon": "Airlines, logistics, supply-chain, and consulting firms run operations research and optimization internships to model and improve real operational decisions.",
+      "requiredSkills": [
+        "Optimization and mathematical modeling",
+        "Python or R for modeling",
+        "Linear / integer programming and simulation basics",
+        "Statistics and probability",
+        "SQL for pulling operational data",
+        "Model validation and testing",
+        "Communicating results to decision-makers"
+      ],
+      "candidateEdges": [
+        { "career": "or-analyst", "confidence": 0.7, "rationale": "Direct feeder role; the intern formulates and validates optimization/simulation models that are the operations research analyst's core work." },
+        { "career": "statistician", "confidence": 0.5, "rationale": "Shared reliance on probability, sampling, and rigorous model validation makes this an honest neighbor an advisor would affirm." },
+        { "career": "data-scientist", "confidence": 0.45, "rationale": "Quantitative modeling and data-driven recommendation work overlaps meaningfully with data science, though OR is more optimization-focused." }
+      ],
+      "searchHints": [
+        "\"Operations Research Intern\" Summer 2026",
+        "Amazon Operations Research Scientist Intern",
+        "American Airlines OR UPS operations research intern",
+        "\"Quantitative Analyst Intern\" 2026 greenhouse.io"
+      ]
+    },
+    {
+      "id": "statistics-intern",
+      "role": "Statistics Intern",
+      "orgType": "MNC",
+      "whyCommon": "Pharmaceutical, insurance, and government organizations run statistics and biostatistics internships to support experimental design and rigorous data analysis.",
+      "requiredSkills": [
+        "Statistical theory and methods",
+        "R or Python (or SAS) for statistical analysis",
+        "Experimental design and sampling techniques",
+        "Data cleaning, weighting, and validation",
+        "Hypothesis testing and inference",
+        "Interpreting results for non-technical audiences",
+        "Reporting with charts and tables"
+      ],
+      "candidateEdges": [
+        { "career": "statistician", "confidence": 0.7, "rationale": "Direct feeder role; the intern applies statistical methods, designs analyses, and reports findings exactly as the statistician does." },
+        { "career": "data-scientist", "confidence": 0.45, "rationale": "Statistical foundations and experiment analysis carry directly into data science, a bridge both students and advisors recognize." },
+        { "career": "or-analyst", "confidence": 0.45, "rationale": "Shared statistical-inference, sampling, and model-validation skills make operations research an honest adjacent path." }
+      ],
+      "searchHints": [
+        "\"Statistics Intern\" OR \"Biostatistics Intern\" Summer 2026",
+        "Merck OR Pfizer OR Genentech biostatistics intern",
+        "U.S. Census Bureau statistics intern",
+        "\"Statistician Intern\" 2026 posting"
+      ]
+    }
+  ]
+}

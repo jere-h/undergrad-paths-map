@@ -1,0 +1,20 @@
+Source: Machine Learning Engineer Intern at Neuralink
+URL: https://job-boards.greenhouse.io/neuralink/jobs/6594261003
+Retrieved: 2026-07-11T06:50:34Z
+
+REQUIRED QUALIFICATIONS (verbatim)
+- Evidence in delivering high-impact projects either in academia or industry
+- Prior experience designing and building Machine Learning models
+- Deep understanding of machine learning concepts and fundamentals
+- Experience in analyzing complex datasets, driving insights, and communicating results
+- Excellent communication and collaboration skills
+- Strong coding skills, with a focus on clean, efficient, and scalable code
+
+PREFERRED QUALIFICATIONS
+- Experience working with time series or unstructured data
+
+KEY RESPONSIBILITIES
+- Develop novel neural decoders to enhance BCI control speed and accuracy
+- Create machine learning solutions for mission-critical objectives
+- Collaborate across cross-functional teams (neuroscientists, physicians, engineers)
+- Design new BCI functionalities and computer user interfaces

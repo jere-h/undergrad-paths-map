@@ -59,6 +59,12 @@ export function buildSidebar(catalog, onToggle) {
     const sub = document.createElement("p");
     sub.className = "filter-group__sub";
     sub.textContent = group.sub;
+    // Honesty note when the group mixes evidence-clustered and canonical
+    // roles: the group prose must not claim posting evidence for all members.
+    if (members.some((m) => m.canonical)) {
+      sub.textContent +=
+        " Roles marked “common role” are validated to exist at real employers; their career links are judgment-based.";
+    }
 
     const row = document.createElement("div");
     row.className = "chip-row";
@@ -78,6 +84,15 @@ export function buildSidebar(catalog, onToggle) {
       label.textContent = input.label;
 
       chip.append(dot, label);
+      if (input.canonical) {
+        chip.classList.add("chip--canonical");
+        const badge = document.createElement("span");
+        badge.className = "chip__badge";
+        badge.textContent = "common role";
+        chip.appendChild(badge);
+        chip.title =
+          "Common intern role, validated to exist at real employers; career links are judgment-based.";
+      }
       chip.addEventListener("click", () => onToggle(input.id));
       row.appendChild(chip);
     });
@@ -159,12 +174,19 @@ export function buildGraph(graph, handlers) {
 
   graph.inputNodes.forEach((node) => {
     const g = document.createElementNS(SVGNS, "g");
-    g.setAttribute("class", `node-input kind-${node.kind}`);
+    g.setAttribute(
+      "class",
+      `node-input kind-${node.kind}${node.canonical ? " is-canonical" : ""}`
+    );
     g.dataset.id = node.id;
     g.setAttribute("tabindex", "0");
     g.setAttribute("role", "button");
     g.setAttribute("aria-pressed", "false");
-    g.setAttribute("aria-label", `${node.label}, ${node.group}`);
+    g.setAttribute(
+      "aria-label",
+      `${node.label}, ${node.group}` +
+        (node.canonical ? ", common intern role (validated to exist; career links judgment-based)" : "")
+    );
 
     // Transparent enlarged hit area, same idea as career nodes.
     const hit = document.createElementNS(SVGNS, "circle");
@@ -183,6 +205,10 @@ export function buildGraph(graph, handlers) {
       marker.setAttribute("y", node.y - 7);
       marker.setAttribute("width", "14");
       marker.setAttribute("height", "14");
+      // Canonical roles draw as a DIAMOND: a shape distinction (not a
+      // dash/hollow one, which already encode edge weakness and crowded-out
+      // careers) that survives the solid selection fill.
+      if (node.canonical) marker.setAttribute("transform", `rotate(45 ${node.x} ${node.y})`);
     } else {
       marker.setAttribute("cx", node.x);
       marker.setAttribute("cy", node.y);
@@ -344,9 +370,13 @@ export function openCareerPanel(career, info, contributors, allReachers) {
     const isActive = contributors.some((c) => c.id === reacher.id);
     // An inferred reacher opens this career by judgment (career scope overlap
     // or gap review), not a direct skill match; label it so the softer link is
-    // explained, not mysterious.
+    // explained, not mysterious. Canonical roles say what they are outright.
     const viaJudgment = reacher.inferred && reacher.inferred.has(career.id);
-    const suffix = viaJudgment ? " (judgment-based)" : "";
+    const suffix = reacher.canonical
+      ? " (common role, judgment-based)"
+      : viaJudgment
+      ? " (judgment-based)"
+      : "";
     group.textContent = (isActive ? `${reacher.group}, selected` : reacher.group) + suffix;
     li.append(name, group);
     list.appendChild(li);

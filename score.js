@@ -91,6 +91,14 @@ export function allInputs(catalog) {
     group: i.orgType,
     destinations: Array.isArray(i.destinations) ? i.destinations : [],
     inferred: new Set(Array.isArray(i.inferred) ? i.inferred : []),
+    // Validated-canonical roles (LLM-proposed, grounding-validated to exist;
+    // every career edge judgment-based). The UI renders them distinctly.
+    // NOTE, deliberate: inputStrength stays 1.0 for canonical internships -
+    // doing an internship is a committal life choice regardless of how its
+    // career edges were grounded. What the evidence tier dampens is the
+    // SUPPORT its edges contribute (all its edges are inferred, so they carry
+    // the inferred multiplier), not the commitment of the pick.
+    canonical: !!i.canonical,
   }));
 
   return fromCourses.concat(fromInternships);

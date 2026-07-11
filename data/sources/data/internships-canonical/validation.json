@@ -1,0 +1,177 @@
+{
+  "validated": [
+    {
+      "id": "data-scientist-intern",
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Ardian",
+          "title": "Data Scientist Intern",
+          "url": "https://ardian.wd103.myworkdayjobs.com/ArdianCareers/job/New-York/Data-Scientist-Intern_JR1001434",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-27T23:42:42.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Boston Consulting Group",
+          "title": "Data Scientist Intern",
+          "url": "https://careers.bcg.com/global/en/job/56634",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-01-24T15:19:08.000Z"
+        }
+      ],
+      "queries": [
+        "grep simplify.json title~='data scien' (SimplifyJobs Summer2026 active intern snapshot)",
+        "\"Data Scientist Intern\" Summer 2026"
+      ]
+    },
+    {
+      "id": "data-engineering-intern",
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "TikTok",
+          "title": "Data Engineer Intern",
+          "url": "https://lifeattiktok.com/search/7568546589788227893",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-26T11:43:51.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Hone Health",
+          "title": "Data Engineering Intern",
+          "url": "https://job-boards.greenhouse.io/honehealth/jobs/5308958008",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-07-08T22:21:54.000Z"
+        }
+      ],
+      "queries": [
+        "grep simplify.json title~='data engineer' (SimplifyJobs Summer2026 active intern snapshot)",
+        "\"Data Engineering Intern\" Summer 2026"
+      ]
+    },
+    {
+      "id": "machine-learning-engineer-intern",
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Instacart",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://instacart.careers/job/?gh_jid=5917202",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-01-20T15:31:27.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Neuralink",
+          "title": "Machine Learning Engineer Intern",
+          "url": "https://boards.greenhouse.io/neuralink/jobs/6594261003",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-05-12T22:11:14.000Z"
+        }
+      ],
+      "queries": [
+        "grep simplify.json title~='machine learning engineer intern' (SimplifyJobs Summer2026 active intern snapshot)",
+        "\"Machine Learning Engineer Intern\" 2026"
+      ]
+    },
+    {
+      "id": "business-intelligence-analytics-intern",
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Eurofins",
+          "title": "Business Intelligence Intern",
+          "url": "https://jobs.smartrecruiters.com/Eurofins/744000131132249",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-06-09T14:06:59.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "KPH Healthcare Services",
+          "title": "Business Intelligence Intern",
+          "url": "https://kphcareers-kphhealthcareservices.icims.com/jobs/14851/job?mobile=true&needsRedirect=false",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2026-03-05T02:14:29.000Z"
+        }
+      ],
+      "queries": [
+        "grep simplify.json title~='business intelligence' | 'analytics intern' (SimplifyJobs Summer2026 active intern snapshot)",
+        "\"Business Intelligence Intern\" Summer 2026"
+      ]
+    },
+    {
+      "id": "operations-research-intern",
+      "evidence": [
+        {
+          "type": "intern-list",
+          "company": "Point72",
+          "title": "Quantitative Researcher Intern",
+          "url": "https://boards.greenhouse.io/point72/jobs/7586061002",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-30T16:15:11.000Z"
+        },
+        {
+          "type": "intern-list",
+          "company": "Stevens Capital Management",
+          "title": "Quantitative Research Analyst Intern",
+          "url": "https://job-boards.greenhouse.io/ftandinternships/jobs/1304473",
+          "snapshot": "data/sources/data/postings/simplify.json",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-11-21T23:30:13.000Z"
+        },
+        {
+          "type": "posting",
+          "company": "Amazon",
+          "title": "2026 Operations Research Science Internship - United States",
+          "url": "https://www.amazon.jobs/en/jobs/3127859/2026-operations-research-science-internship-united-states-phd-student-science-recruiting",
+          "snapshot": "data/sources/data/postings/web-canon-operations-research-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": null
+        }
+      ],
+      "queries": [
+        "grep simplify.json title~='quantitative ... intern' (SimplifyJobs Summer2026 active intern snapshot)",
+        "\"Operations Research Scientist Intern\" 2026 Amazon",
+        "\"operations research\" intern 2026 supply chain optimization logistics"
+      ]
+    },
+    {
+      "id": "statistics-intern",
+      "evidence": [
+        {
+          "type": "posting",
+          "company": "Vertex Pharmaceuticals",
+          "title": "Summer Intern 2026 - Biostatistics / Statistical Programming",
+          "url": "https://stattrak.amstat.org/2025/12/01/2026-internships/",
+          "snapshot": "data/sources/data/postings/web-canon-statistics-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-12-01T00:00:00.000Z"
+        },
+        {
+          "type": "posting",
+          "company": "Johnson & Johnson",
+          "title": "2026 Summer Intern - Statistics & Decision Sciences",
+          "url": "https://stattrak.amstat.org/2025/12/01/2026-internships/",
+          "snapshot": "data/sources/data/postings/web-canon-statistics-1.txt",
+          "retrievedAt": "2026-07-11T06:50:34Z",
+          "postedAt": "2025-12-01T00:00:00.000Z"
+        }
+      ],
+      "queries": [
+        "\"biostatistics intern\" OR \"statistics intern\" summer 2026 pharmaceutical",
+        "ASA StatTr@k 2026 Internships listing (Vertex, J&J, Eli Lilly, Takeda, Insmed)"
+      ]
+    }
+  ],
+  "failures": []
+}

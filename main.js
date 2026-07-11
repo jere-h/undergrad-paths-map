@@ -138,6 +138,11 @@ function initCatalog() {
   const disclaimer = document.getElementById("disclaimer");
   if (disclaimer && activeEntry) disclaimer.textContent = activeEntry.note || "";
 
+  // The internship marker legend only makes sense when this catalog actually
+  // ships validated-canonical roles alongside posting-clustered ones.
+  const internLegend = document.getElementById("legend-internships");
+  if (internLegend) internLegend.hidden = !allInputs(catalog).some((i) => i.canonical);
+
   buildSidebar(catalog, toggleInput);
   buildGraph(layout(catalog, { width: 1000, height: 1000 }), {
     onInput: toggleInput,

@@ -1,0 +1,35 @@
+{
+  "_comment": "Course de-duplication for brevity/simplicity of the experience. Each group collapses title-and-scope near-duplicate MIT courses WITHIN one level into a single representative node, keeping one member's id (so preselects and edges survive), a representative title, the union of edges, and ALL members' catalog evidence. Applied deterministically by scripts/assemble-dataset.mjs (mergeCourses); provenance is preserved in the dataset's mergedFrom / meta.flags.mergedCourses. Authored by domain judgment for the live Data tab; the ground-catalog workflow's Simplify phase produces this file for future runs.",
+  "merges": [
+    {
+      "keep": "mit-18-05",
+      "title": "Introduction to Probability and Statistics",
+      "members": ["mit-18-05", "mit-6-3700", "mit-14-30", "mit-15-069", "mit-18-600"],
+      "rationale": "Five level-1000 introductions to probability/statistics (Intro to Probability, Intro to Statistical Methods in Economics, Applied Probability and Statistics, Intro to Probability and Statistics, Probability and Random Variables) are interchangeable foundational options; collapse to one intro-stats node."
+    },
+    {
+      "keep": "mit-18-06",
+      "title": "Linear Algebra",
+      "members": ["mit-18-06", "mit-18-c06-j"],
+      "rationale": "Linear Algebra and Linear Algebra and Optimization are the same foundational linear-algebra course family at level 1000."
+    },
+    {
+      "keep": "mit-18-650-j",
+      "title": "Fundamentals of Statistics",
+      "members": ["mit-18-650-j", "mit-6-3720", "mit-15-075j"],
+      "rationale": "Three level-2000 statistics/data-analysis courses (Fundamentals of Statistics, Introduction to Statistical Data Analysis, Statistical Thinking and Data Analysis) cover the same intermediate statistics ground."
+    },
+    {
+      "keep": "mit-6-3900",
+      "title": "Introduction to Machine Learning",
+      "members": ["mit-6-3900", "mit-6-c011"],
+      "rationale": "Introduction to Machine Learning and Modeling with Machine Learning for Computer Science are the same level-3000 ML course."
+    },
+    {
+      "keep": "mit-15-c571j",
+      "title": "Optimization Methods",
+      "members": ["mit-15-c571j", "mit-15-053"],
+      "rationale": "Optimization Methods and Optimization Methods in Business Analytics are the same level-3000 optimization course."
+    }
+  ]
+}
