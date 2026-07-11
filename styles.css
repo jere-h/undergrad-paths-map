@@ -49,16 +49,20 @@ html, body {
 }
 
 body {
-  background: var(--color-bg);
   color: var(--color-fg);
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* A restrained radial wash gives depth without a slop gradient. */
-  background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(94, 179, 214, 0.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(232, 160, 75, 0.06), transparent 55%);
+  min-height: 100vh;
+  /* A classy layered gradient: a diagonal deep-navy-to-near-black base gives
+     the page an intentional graded surface (not a flat fill), with two
+     restrained accent glows for depth. Kept low-saturation so it reads as
+     craft, not slop. */
+  background:
+    radial-gradient(1200px 600px at 82% -12%, rgba(94, 179, 214, 0.13), transparent 60%),
+    radial-gradient(1000px 560px at -12% 112%, rgba(232, 160, 75, 0.08), transparent 55%),
+    linear-gradient(158deg, #141c26 0%, #0e1217 46%, #0a0d12 100%);
   background-attachment: fixed;
 }
 
@@ -89,12 +93,24 @@ img, svg, video, canvas {
   overflow-wrap: anywhere;
 }
 
+/* Footer: the dataset disclaimer/provenance note lives at the bottom of the
+   page (moved out of the header) so it reads as a closing citation, not a
+   banner competing with the map. */
+.site-footer {
+  max-width: var(--content-max);
+  margin: var(--space-6) auto 0;
+  padding: var(--space-5) var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-line);
+}
+
 .disclaimer {
-  margin: var(--space-3) 0 0;
+  margin: 0;
   font-size: 0.8rem;
   color: var(--color-muted);
   border-left: 2px solid var(--color-line);
   padding-left: var(--space-3);
+  max-width: 90ch;
+  overflow-wrap: anywhere;
 }
 
 /* Dataset tabs (hidden unless the registry lists more than one catalog). */
