@@ -64,6 +64,7 @@ outcomes. The word "grounded" is reserved for what the evidence actually shows.
 | Greenhouse board API (`boards-api.greenhouse.io/v1/boards/{co}/jobs?content=true`) | Live intern postings with full descriptions | Public JSON, no auth; multi-MB (Stripe: 3.7 MB, 503 jobs, 12 interns) — pre-filtered with `jq` before any LLM sees it | HTTP 200 |
 | Lever postings API (`api.lever.co/v0/postings/{co}?mode=json`) | Same, Lever-hosted companies. Returns `200 []` for bad slugs — zero postings is treated as a per-company failure, not success | HTTP 200 |
 | GitHub `SimplifyJobs/Summer{YYYY}-Internships` list | Broad intern-title coverage incl. non-tech employers (finance, consulting, CPG) that don't use Greenhouse/Lever | Public README/JSON | reachable |
+| MyCareersFuture (`api.mycareersfuture.gov.sg/v2/search`, Singapore's national jobs portal) | Singapore intern postings WITH full descriptions + a structured skills array (a genuine skill source, not title-only), filling the Greenhouse/Lever gap for the Singapore market | Public JSON API, POST search filtered to Internship/Attachment + per-job detail endpoint | HTTP 200 |
 | Web search | Corroboration only (e.g. university degree-map pages, first-destination surveys); never sole support for an edge | WebSearch tool | available |
 | ~~LinkedIn profiles~~ | ~~career-transition evidence~~ | **Rejected**: bot-blocked (HTTP 999) and scraping violates LinkedIn ToS | blocked |
 
